@@ -66,9 +66,13 @@ function App() {
           element={
             <PrivateRoute redirectTo="/login" component={<MyDrinksPage />} />
           }
-        /> */}
-
-        {/* <Route path="/drinks" element={<DrinksPage />} /> */}
+        /> */
+        /* <Route
+          path="/drinks"
+          element={
+            <PrivateRoute redirectTo="/login" component={<DrinksPage />} />
+          }
+        > <Route path="/:drinkId" element={ <DrinkPage/>} /> <Route/> */}
 
         <Route path="*" element={<ErrorPage />} />
       </Route>
