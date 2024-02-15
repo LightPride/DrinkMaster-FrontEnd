@@ -1,13 +1,72 @@
+:root {
+  --black-color: #0a0a11;
+  --black-fifty-color: rgba(10, 10, 17, 0.5);
+  --black-forty-color: rgba(10, 10, 17, 0.4);
+  --black-thirty-color: rgba(10, 10, 17, 0.3);
+
+  --dark-blue-color: #161f37;
+  --dark-blue-fifty-color: rgba(22, 31, 55, 0.5);
+  --dark-blue-twenty-color: rgba(22, 31, 55, 0.2);
+
+  --white-color: #f3f3f3;
+  --white-fifty-color: rgba(243, 243, 243, 0.5);
+  --white-forty-color: rgba(243, 243, 243, 0.4);
+  --white-thirty-color: rgba(243, 243, 243, 0.3);
+  --white-twenty-color: rgba(243, 243, 243, 0.2);
+  --white-ten-color: rgba(243, 243, 243, 0.1);
+
+  --grey-color: #434d67;
+
+  --start-page-txt-color: #fafafa;
+
+  --blue-color: #4070cd;
+  --blue-fifty-color: rgba(64, 112, 205, 0.5);
+
+  --light-green-color: #bce6d2;
+  --light-green-forty-color: rgba(188, 230 210, 0.4);
+
+  --green-success-color: rgba(60, 188, 129, 1);
+  --green-success-fifty-color: rgba(60, 188, 129, 0.5);
+  --red-error-color: #da1414;
+  --red-error-fifty-color: rgba(218, 20, 20, 0.5);
+}
+
+@font-face {
+  font-family: 'Manrope-400';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('./fonts/manrope-regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Manrope-500';
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url('./fonts/manrope-medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Manrope-600';
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url('./fonts/manrope-semibold.ttf') format('truetype');
+}
+
 body {
-  background-color: #000;
+  background-color: var(--black-color);
   /* background-image: url('./assets/background.png'); */
   background-size: auto 100%;
   background-position: center center;
   background-repeat: no-repeat;
-  font-family: 'Roboto', sans-serif;
+  font-family: Manrope, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
   font-weight: 400;
   font-style: normal;
-  color: #111111;
+  color: var(--dark-blue-color);
   width: 100%;
   height: 100vh;
   margin: 0;
@@ -34,4 +93,32 @@ img {
 }
 button {
   cursor: pointer;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: inherit;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
