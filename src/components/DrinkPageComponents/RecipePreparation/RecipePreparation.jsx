@@ -12,7 +12,7 @@ import {
   RecipePreparationWrap,
 } from './RecipePreparation.styled';
 
-export const RecipePreparation = ({ instructions }) => {
+const RecipePreparation = ({ instructions }) => {
   return (
     <>
       <RecipePreparationTitle>Recipe Preparation</RecipePreparationTitle>
@@ -43,3 +43,5 @@ export const RecipePreparation = ({ instructions }) => {
     </>
   );
 };
+
+export default RecipePreparation;

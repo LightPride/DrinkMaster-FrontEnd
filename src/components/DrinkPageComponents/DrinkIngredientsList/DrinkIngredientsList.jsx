@@ -9,7 +9,7 @@ import {
 
 import { useDrink } from '../../redux/hooks/useDrink';
 
-export const DrinkIngredientsList = ({ ingredients }) => {
+const DrinkIngredientsList = ({ ingredients }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -61,3 +61,5 @@ export const DrinkIngredientsList = ({ ingredients }) => {
     </>
   );
 };
+
+export default DrinkIngredientsList;

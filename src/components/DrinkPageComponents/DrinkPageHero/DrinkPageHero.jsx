@@ -25,7 +25,7 @@ import {
 import { toastConfig } from '../../helpers/toast';
 import PageTitle from '../PageTitle/PageTitle';
 
-export const DrinkPageHero = ({
+const DrinkPageHero = ({
   id,
   name,
   glass,
@@ -106,3 +106,5 @@ export const DrinkPageHero = ({
     </>
   );
 };
+
+export default DrinkPageHero;

@@ -8,7 +8,7 @@ import {
 } from './DrinkIngredientItem.styled';
 import { ReactComponent as StubPhoto } from '../../assets/stub.svg';
 
-export const DrinkIngredientItem = ({ title, measure, quantity, images }) => {
+const DrinkIngredientItem = ({ title, measure, quantity, images }) => {
   return (
     <>
       <IngredientPhotoWrapper>
@@ -43,3 +43,5 @@ export const DrinkIngredientItem = ({ title, measure, quantity, images }) => {
     </>
   );
 };
+
+export default DrinkIngredientItem;
