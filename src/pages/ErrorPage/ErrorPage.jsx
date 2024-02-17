@@ -1,7 +1,7 @@
 import Glass from './Glass';
 import { StyledWrapper } from './ErrorPage.styled';
 
-const NotFound = () => {
+const ErrorPage = () => {
   return (
     <>
       <StyledWrapper>
@@ -13,4 +13,4 @@ const NotFound = () => {
   );
 };
 
-export default NotFound;
+export default ErrorPage;
