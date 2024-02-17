@@ -17,12 +17,14 @@ const AddDrinkPage = () => {
       <FlexContainer>
         <AddDrinkForm />
         <SubContainer>
-          <SubTitle>Follow Us</SubTitle>
-          <p className="test1">Follow us test</p>
-          <FollowUs />
-
-          <SubTitle>Popular Drinks</SubTitle>
-          <PopularDrinks />
+          <div>
+            <SubTitle mb="20px">Follow Us 3</SubTitle>
+            <FollowUs />
+          </div>
+          <div>
+            <SubTitle mb="28px">Popular Drinks1</SubTitle>
+            <PopularDrinks />
+          </div>
         </SubContainer>
       </FlexContainer>
     </Wrapper>

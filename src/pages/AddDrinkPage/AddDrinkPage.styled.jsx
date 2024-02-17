@@ -2,12 +2,11 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
   gap: 40px;
   padding-top: 80px;
   padding-bottom: 80px;
+  background-color: #49555f;
 
   @media screen and (min-width: 768px) {
     padding-top: 140px;
@@ -27,7 +26,7 @@ export const FlexContainer = styled.div`
 
   @media screen and (min-width: 1440px) {
     flex-direction: row;
-    gap: 60px;
+    justify-content: space-between;
   }
 `;
 
@@ -39,19 +38,25 @@ export const SubContainer = styled.div`
   @media screen and (min-width: 768px) {
     gap: 80px;
   }
-  .test1 {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 133%;
-    color: #f3f3f3;
-  }
 `;
 
 export const SubTitle = styled.p`
+  margin-bottom: ${({ mb }) => mb};
   font-family: 'Manrope', sans-serif;
   font-weight: 500;
   font-size: 18px;
-  line-height: 133%;
+  line-height: 1.33;
   color: #f3f3f3;
+
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+
+    margin-bottom: ${({ mb }) => {
+      if (mb === '20px') {
+        return '24px';
+      } else {
+        return '40px';
+      }
+    }};
+  }
 `;
