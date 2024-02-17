@@ -3,11 +3,9 @@ import DrinkPageHero from '../../components/DrinkPageHero/DrinkPageHero';
 import DrinkIngredientsList from '../../components/DrinkIngredientList/DrinkIngredientsList';
 import RecipePreparation from '../../components/RecipePreparation/RecipePreparation';
 // import { Container } from '../../components/Container/Container.styled';
-// import { DrinkPageWrapper } from './DrinkPage.styled';
 
 import drink from '../../data/drink.json';
 import ingredients from '../../data/ingredients.json';
-// import recipes from '<data/recipes.json';
 
 const DrinkPage = () => {
   // console.log(drink[0].drink);
@@ -15,7 +13,7 @@ const DrinkPage = () => {
   // console.log(drink[0].alcoholic);
   // console.log(drink[0].description);
   // console.log(drink[0].drinkThumb);
-  console.log(ingredients[0].title);
+  // console.log(ingredients[0].title);
   return (
     <DrinkPageWrapper>
       <Container>

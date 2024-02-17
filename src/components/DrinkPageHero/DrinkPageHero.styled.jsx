@@ -15,7 +15,7 @@ export const DrinkSubTitle = styled.p`
 `;
 
 export const DrinkDescription = styled.p`
-  color: var(--white-color)
+  color: var(--white-color);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.29;

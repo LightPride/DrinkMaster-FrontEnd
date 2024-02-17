@@ -33,7 +33,6 @@ export const IngredientsList = styled.ul`
 
   @media screen and (min-width: 1440px) {
     grid-template-columns: repeat(5, 1fr);
-
     grid-column-gap: 35px;
     grid-row-gap: 35px;
   }
