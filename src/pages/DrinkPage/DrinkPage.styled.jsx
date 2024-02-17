@@ -1,12 +1,4 @@
-// import styled from '@emotion/styled';
 import styled from 'styled-components';
-
-//export const Container = styled.div`
-//  display: flex;
-//  justify-content: center;
-//  align-items: center;
-//  padding-top: 500px;
-//`;
 
 export const Container = styled.div`
   margin-left: auto;
@@ -38,11 +30,6 @@ export const Title = styled.h1`
     0 0 40px #00baff,
     0 0 80px #00baff;
 `;
-
-/*--
-
-import styled from 'styled-components';
---*/
 
 export const DrinkPageWrapper = styled.section`
   padding-top: 80px;
