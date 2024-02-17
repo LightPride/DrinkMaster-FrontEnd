@@ -1,7 +1,7 @@
 import { Container, DrinkPageWrapper } from './DrinkPage.styled';
-import DrinkPageHero from '../../components/DrinkPageComponents/DrinkPageHero/DrinkPageHero';
-import DrinkIngredientsList from '../../components/DrinkPageComponents/DrinkIngredientsList/DrinkIngredientsList';
-import RecipePreparation from '../../components/DrinkPageComponents/RecipePreparation/RecipePreparation';
+import DrinkPageHero from '../../components/DrinkPageHero/DrinkPageHero';
+import DrinkIngredientsList from '../../components/DrinkIngredientList/DrinkIngredientsList';
+import RecipePreparation from '../../components/RecipePreparation/RecipePreparation';
 // import { Container } from '../../components/Container/Container.styled';
 // import { DrinkPageWrapper } from './DrinkPage.styled';
 

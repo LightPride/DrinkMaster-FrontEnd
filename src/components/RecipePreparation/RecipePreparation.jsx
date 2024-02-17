@@ -1,9 +1,9 @@
-import cocktailDefaultMobile from '../../../images/Cocktails/coctails@1xMob.jpg';
-import cocktailDefaultMobile2x from '../../../images/Cocktails/coctails@2xMob.jpg';
-import cocktailDefaultTablet from '../../../images/Cocktails/coctails@1xTab.jpg';
-import cocktailDefaultTablet2x from '../../../images/Cocktails/coctails@2xTab.jpg';
-import cocktailDefaultDesktop from '../../../images/Cocktails/coctails@1xDesk.jpg';
-import cocktailDefaultDesktop2x from '../../../images/Cocktails/coctails@2xDesk.jpg';
+import cocktailDefaultMobile from '../../images/Cocktails/coctails@1xMob.jpg';
+import cocktailDefaultMobile2x from '../../images/Cocktails/coctails@2xMob.jpg';
+import cocktailDefaultTablet from '../../images/Cocktails/coctails@1xTab.jpg';
+import cocktailDefaultTablet2x from '../../images/Cocktails/coctails@2xTab.jpg';
+import cocktailDefaultDesktop from '../../images/Cocktails/coctails@1xDesk.jpg';
+import cocktailDefaultDesktop2x from '../../images/Cocktails/coctails@2xDesk.jpg';
 
 import {
   RecipePreparationTitle,

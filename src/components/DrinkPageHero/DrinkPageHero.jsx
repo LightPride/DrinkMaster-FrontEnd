@@ -8,7 +8,7 @@ import {
   DrinkPhotoWrapper,
   // DrinkSvgWrapper,
 } from './DrinkPageHero.styled';
-import PageTitle from '../../PageTitle/PageTitle';
+import PageTitle from '../PageTitle/PageTitle';
 
 const DrinkPageHero = ({
   // id,
