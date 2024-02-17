@@ -1,8 +1,8 @@
-import { Container } from './DrinkPage.styled';
+import { Container, DrinkPageWrapper } from './DrinkPage.styled';
 // import { useEffect } from 'react';
 import DrinkPageHero from '../../components/DrinkPageComponents/DrinkPageHero/DrinkPageHero';
-// import { DrinkIngredientsList } from '../../components/DrinkPageComponents/DrinkIngredientsList/DrinkIngredientsList';
-// import { RecipePreparation } from '../../components/DrinkPageComponents/RecipePreparation/RecipePreparation';
+// import DrinkIngredientsList from '../../components/DrinkPageComponents/DrinkIngredientsList/DrinkIngredientsList';
+import RecipePreparation from '../../components/DrinkPageComponents/RecipePreparation/RecipePreparation';
 // import { getDrinkById } from '../../redux/drinks/drinks-operations'; /*-- ?? --*/
 // import { useParams } from 'react-router-dom';
 // import { useSelector, useDispatch } from 'react-redux';
@@ -11,6 +11,7 @@ import DrinkPageHero from '../../components/DrinkPageComponents/DrinkPageHero/Dr
 // import { DrinkPageWrapper } from './DrinkPage.styled';
 
 import drink from '../../data/drink.json';
+// import ingredients from '../../../data/ingredients.json';
 // import ingredients from 'data/ingredients.json';
 // import recipes from '<data/recipes.json';
 
@@ -22,25 +23,25 @@ const DrinkPage = () => {
   // useEffect(() => {
   //   dispatch(getDrinkById(drinkId));
   // }, [dispatch, drinkId]);
-  console.log(drink.drink);
-  console.log(drink.glass);
-  console.log(drink.alcoholic);
-  console.log(drink.description);
-  console.log(drink.drinkThumb);
+  // console.log(drink[0].drink);
+  // console.log(drink[0].glass);
+  // console.log(drink[0].alcoholic);
+  // console.log(drink[0].description);
+  // console.log(drink[0].drinkThumb);
   return (
-    /*-- <DrinkPageWrapper> --*/
-
-    <Container>
-      <DrinkPageHero
-        // id={drink._id}
-        name={drink.drink}
-        glass={drink.glass}
-        alcoholic={drink.alcoholic}
-        description={drink.description}
-        imgPath={drink.drinkThumb}
-      />
-    </Container>
-    /*--</DrinkPageWrapper>--*/
+    <DrinkPageWrapper>
+      <Container>
+        <DrinkPageHero
+          // id={drink._id}
+          name={drink[0].drink}
+          glass={drink[0].glass}
+          alcoholic={drink[0].alcoholic}
+          description={drink[0].description}
+          imgPath={drink[0].drinkThumb}
+        />
+        <RecipePreparation instructions={drink[0].instructions} />
+      </Container>
+    </DrinkPageWrapper>
   );
 };
 

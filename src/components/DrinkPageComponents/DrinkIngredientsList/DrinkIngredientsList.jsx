@@ -1,63 +1,41 @@
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { getIngredients } from '../../redux/filters/filters-operation';
-import { DrinkIngredientItem } from '../DrinkIngredientItem/DrinkIngredientItem';
+// import { useEffect } from 'react';
+// import { useDispatch } from 'react-redux';
+// import { getIngredients } from '../../redux/filters/filters-operation';
+import DrinkIngredientItem from '../DrinkIngredientItem/DrinkIngredientItem';
 import {
   IngredientsTitle,
   IngredientsList,
 } from './DrinkIngredientsList.styled';
 
-import { useDrink } from '../../redux/hooks/useDrink';
+// import drink from '../../../data/drink.json';
+// import ingredients from '../../../data/ingredients.json';
+// import { useDrink } from '../../redux/hooks/useDrink';
 
 const DrinkIngredientsList = ({ ingredients }) => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getIngredients());
-  }, [dispatch]);
+  // useEffect(() => {
+  // dispatch(getIngredients());
+  // }, [dispatch]);
 
-  const { drinks } = useDrink();
+  // const { drinks } = useDrink();
 
-  const ingredientsWithImages = drinks[0].ingredients;
+  //const ingredientsWithImages = drink[0].ingredients;
+  // console.log(ingredientsWithImages);
 
   return (
     <>
-      {ingredientsWithImages.length > 0 && (
-        <>
-          {' '}
-          <IngredientsTitle>Ingredients</IngredientsTitle>
-          <IngredientsList>
-            {ingredients.map((ingredient) => {
-              const ingredientRec = ingredientsWithImages.find(
-                (ii) => ii._id === ingredient.ingredientId
-              );
-
-              const images = {
-                ingredientThumb: '',
-                ['thumb-medium']: '',
-                ['thumb-small']: '',
-              };
-
-              if (ingredientRec) {
-                images.ingredientThumb = ingredientRec.ingredientThumb;
-                images['thumb-medium'] = ingredientRec['thumb-medium'];
-                images['thumb-small'] = ingredientRec['thumb-small'];
-              }
-
-              return (
-                <li key={ingredient.ingredientId}>
-                  <DrinkIngredientItem
-                    title={ingredient.title}
-                    measure={ingredient.measure}
-                    quantity={ingredient.quantity}
-                    images={images}
-                  />
-                </li>
-              );
-            })}
-          </IngredientsList>
-        </>
-      )}
+      <IngredientsTitle>Ingredients</IngredientsTitle>
+      <IngredientsList>
+        {ingredients.map((ingredient) => (
+          <DrinkIngredientItem
+            title={ingredient.title}
+            measure={ingredient.measure}
+            quantity={ingredient.quantity}
+            images={images}
+          />
+        ))}
+      </IngredientsList>
     </>
   );
 };
