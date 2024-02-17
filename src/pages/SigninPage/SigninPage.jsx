@@ -1,19 +1,21 @@
 import React from 'react';
-import { StyledSigninPage } from './Styled';
+import { StyledSignupPage } from './Styled';
 
 const SigninPage = () => {
   return (
-    <StyledSigninPage>
-      <h1>Sign In</h1>
+    <StyledSignupPage>
+      <h1>Sign Up</h1>
       <div>
         <form className="inputContainer" action="">
+          <input type="text" />
+          <input type="number" />
           <input type="email" />
           <input type="password" />
           <button type="submit"></button>
         </form>
       </div>
-    </StyledSigninPage>
+    </StyledSignupPage>
   );
 };
 
-export default SigninPage;
+export default SignupPage;

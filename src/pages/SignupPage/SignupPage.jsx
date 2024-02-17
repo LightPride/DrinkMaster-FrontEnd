@@ -1,11 +1,19 @@
-import { Container, Title } from './SignupPage.styled';
+import React from 'react';
+import { StyledSigninPage } from './Styled';
 
-const SignupPage = () => {
+const SigninPage = () => {
   return (
-    <Container>
-      <Title>Signup Page</Title>
-    </Container>
+    <StyledSigninPage>
+      <h1>Sign In</h1>
+      <div>
+        <form className="inputContainer" action="">
+          <input type="email" />
+          <input type="password" />
+          <button type="submit"></button>
+        </form>
+      </div>
+    </StyledSigninPage>
   );
 };
 
-export default SignupPage;
+export default SigninPage;
