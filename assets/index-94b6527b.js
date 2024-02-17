@@ -270,7 +270,7 @@ Error generating stack: `+i.message+`
     0 0 20px #00baff,
     0 0 40px #00baff,
     0 0 80px #00baff;
-`,CS=()=>q.jsx(PS,{children:q.jsx(OS,{children:"404"})}),$S=O.lazy(()=>y1(()=>import("./WelcomePage-057cf932.js"),[]));function TS(){return q.jsx(sg,{children:q.jsxs(Fr,{path:"/",element:q.jsx(ES,{}),children:[q.jsx(Fr,{index:!0,element:q.jsx(lg,{to:"/welcome"})}),q.jsx(Fr,{path:"/welcome",element:q.jsx($S,{})}),q.jsx(Fr,{path:"*",element:q.jsx(CS,{})})]})})}var bv={exports:{}},Av={};/**
+`,CS=()=>q.jsx(PS,{children:q.jsx(OS,{children:"404"})}),$S=O.lazy(()=>y1(()=>import("./WelcomePage-41059895.js"),[]));function TS(){return q.jsx(sg,{children:q.jsxs(Fr,{path:"/",element:q.jsx(ES,{}),children:[q.jsx(Fr,{index:!0,element:q.jsx(lg,{to:"/welcome"})}),q.jsx(Fr,{path:"/welcome",element:q.jsx($S,{})}),q.jsx(Fr,{path:"*",element:q.jsx(CS,{})})]})})}var bv={exports:{}},Av={};/**
  * @license React
  * use-sync-external-store-shim.production.min.js
  *
