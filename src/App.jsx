@@ -65,7 +65,7 @@ function App() {
         element={<PublicRoute redirectTo="/login" component={<DrinksPage />} />}
       >
         {' '}
-        <Route path="/:drinkId" element={<DrinkPage />} /> <Route />
+        <Route path="/drink" element={<DrinkPage />} /> <Route />
         <Route path="*" element={<ErrorPage />} />
       </Route>
     </Routes>
