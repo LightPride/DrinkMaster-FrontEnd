@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
-import { NotAdd } from '@/shared/components/NotAdd/NotAdd';
-import Title from '@/components/PageTitle/PageTitle';
+import { NotAdd } from '../../shared/components/NotAdd/NotAdd';
+import Title from '../../components/PageTitle/PageTitle';
 
-// треба ще імпортувати селектори, пагінацію, card list 
+// треба ще імпортувати селектори, пагінацію, card list
 
 const MyDrinks = () => {
   const own = useSelector(selectOwn);
