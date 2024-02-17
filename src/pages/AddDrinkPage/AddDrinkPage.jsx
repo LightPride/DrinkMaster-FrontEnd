@@ -1,4 +1,4 @@
-import { Container, Title } from './AddDrinkPage.styled';
+import { Wrapper, FlexContainer } from './AddDrinkPage.styled';
 
 import { AddDrinkForm } from '../../components/AddDrinkForm/AddDrinkForm';
 import { PopularDrinks } from '../../components/PopularDrinks/PopularDrinks';
@@ -7,12 +7,15 @@ import FollowUs from '../../components/FollowUs/FollowUs';
 
 const AddDrinkPage = () => {
   return (
-    <Container>
-      <PageTitle title="test page title" />
-      <AddDrinkForm />
-      <FollowUs />
-      <PopularDrinks />
-    </Container>
+    <Wrapper>
+      <PageTitle title="Add drink" />
+      <FlexContainer>
+        <AddDrinkForm />
+
+        <FollowUs />
+        <PopularDrinks />
+      </FlexContainer>
+    </Wrapper>
   );
 };
 
