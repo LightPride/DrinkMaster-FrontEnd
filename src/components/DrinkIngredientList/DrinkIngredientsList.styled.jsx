@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const IngredientsTitle = styled.h2`
-  color: ${({ theme }) => theme.drinkPageSubtitle};
+  color: var(--white-fifty-color);
   font-size: 16px;
   font-weight: 500;
   line-height: 1.25;

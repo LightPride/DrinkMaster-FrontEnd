@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-// import styled from '@emotion/styled';
 
 export const DrinkSubTitle = styled.p`
-  color: white;
+  color: var(--white-fifty-color);
   font-size: 12px;
   font-weight: 400;
   line-height: 1.17;
@@ -16,6 +15,7 @@ export const DrinkSubTitle = styled.p`
 `;
 
 export const DrinkDescription = styled.p`
+  color: var(--white-color)
   font-size: 14px;
   font-weight: 400;
   line-height: 1.29;
@@ -29,31 +29,30 @@ export const DrinkDescription = styled.p`
 `;
 
 export const AddToFavoriteButton = styled.button`
-  padding: 13.5px 39px;
-
+  color: var(--dark-blue-color);
+  padding: 14px 40px;
   font-family: inherit;
   font: inherit;
   font-weight: 600;
   line-height: 1.285;
   margin-top: 40px;
-
-  background-color: ${({ theme }) => theme.mainAccent};
+  background-color: var(--white-color);
   border-radius: 42px;
   border: 1px solid transparent;
 
   &:active {
-    border: 1px solid rgba(64, 112, 205, 0.5);
+    border: 1px solid var(--blue-fifty-color);
   }
 
   &:hover,
   &:focus {
-    color: ${({ theme }) => theme.activeNavLinkText};
-    background: ${({ theme }) => theme.activeNavLinkBg};
+    color: var(--white-color);
+    background: var(--dark-blue-color);
   }
 
   &:disabled {
-    color: ${({ theme }) => theme.navLinkBorder};
-    background: #434d67;
+    /* color: ; */
+    background: var(--grey-color);
   }
 
   @media screen and (min-width: 768px) {
@@ -75,7 +74,7 @@ export const DrinkHeroWrapper = styled.div`
   @media screen and (min-width: 1440px) {
     display: flex;
     justify-content: space-between;
-    border: 1px solid red;
+    /* border: 1px solid red; */
   }
 `;
 
@@ -84,7 +83,7 @@ export const DrinkPhotoWrapper = styled.div`
   height: 400px;
   margin-top: 80px;
   border-radius: 8px;
-  border: 1px solid green;
+  /* border: 1px solid green; */
 
   @media screen and (min-width: 1440px) {
     margin: 0;
@@ -96,13 +95,13 @@ export const DrinkDescriptionWrapper = styled.div`
   @media screen and (min-width: 1440px) {
     padding-top: 26px;
     max-width: 592px;
-    border: 1px solid yellow;
+    /* border: 1px solid yellow; */
   }
 `;
 
 export const DrinkSvgWrapper = styled.div`
   margin-top: 80px;
-  background-color: ${({ theme }) => theme.drinkPageIngredientBg};
+  /* background-color: ; */
   border-radius: 8px;
   padding: 28px;
 

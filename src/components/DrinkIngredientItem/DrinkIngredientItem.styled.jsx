@@ -4,7 +4,7 @@ export const IngredientDescription = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 8px;
-  color: ${({ theme }) => theme.mainText};
+  color: var(--white-color);
   font-size: 14px;
   font-weight: 500;
   line-height: 1.29;
@@ -31,7 +31,7 @@ export const IngredientPhotoWrapper = styled.div`
   /* max-width: 158px; */
   padding: 25px;
   border-radius: 8px;
-  background-color: ${({ theme }) => theme.drinkPageIngredientBg};
+  background-color: var(--dark-blue-fifty-color);
 
   @media screen and (min-width: 768px) {
     height: 220px;
@@ -40,8 +40,8 @@ export const IngredientPhotoWrapper = styled.div`
 `;
 
 export const IngredientTitle = styled.p`
+  color: var(--white-color);
   margin-bottom: 0;
-
   @media screen and (min-width: 768px) {
     width: 150px;
   }
