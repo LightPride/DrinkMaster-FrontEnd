@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 // import styled from '@emotion/styled';
-// import transition from '../../utils/transition';
 
 export const DrinkSubTitle = styled.p`
   color: white;
