@@ -1,5 +1,11 @@
+import { Container, Title } from './SigninPage.styled';
+
 const SigninPage = () => {
-  return <div></div>;
+  return (
+    <Container>
+      <Title>Signin Page</Title>
+    </Container>
+  );
 };
 
 export default SigninPage;

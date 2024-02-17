@@ -1,5 +1,11 @@
+import { Container, Title } from './AddDrinkPage.styled';
+
 const AddDrinkPage = () => {
-  return <div>AddDrinkPage</div>;
+  return (
+    <Container>
+      <Title>AddDrink Page</Title>
+    </Container>
+  );
 };
 
 export default AddDrinkPage;
