@@ -12,9 +12,11 @@ const WelcomePage = lazy(() => import('./pages/WelcomePage/WelcomePage'));
 // const SignupPage = lazy(() => import('./pages/SignupPage/SignupPage'));
 // const SigninPage = lazy(() => import('./pages/SigninPage/SigninPage'));
 // const MyDrinksPage = lazy(() => import('./pages/MyDrinksPage/MyDrinksPage'));
-// const DrinkPage = lazy(() => import('./pages/DrinkPage/DrinkPage'));
+const DrinkPage = lazy(() => import('./pages/DrinkPage/DrinkPage'));
 // const FavoriteDrinksPage = lazy(() => import('./pages/FavoriteDrinksPage/FavoriteDrinksPage'));
 // const AddDrinkPage = lazy(() => import('./pages/AddDrinkPage/AddDrinkPage'));
+// import ingredients from 'data/ingredients.json';
+// import recipes from '<data/recipes.json';
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<Navigate to="/welcome" />} />
         <Route path="/welcome" element={<WelcomePage />} />
+        <Route path="drink" element={<DrinkPage />} />
 
         {/* <Route
           path="/signup"
@@ -36,7 +39,7 @@ function App() {
             <PublicRoute redirectTo="/home" component={<SigninPage />} />
           }
         />
-
+              
         <Route
           path="/home"
           element={
@@ -73,7 +76,6 @@ function App() {
             <PrivateRoute redirectTo="/login" component={<DrinksPage />} />
           }
         > <Route path="/:drinkId" element={ <DrinkPage/>} /> <Route/> */}
-
         <Route path="*" element={<ErrorPage />} />
       </Route>
     </Routes>

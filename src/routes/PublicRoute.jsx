@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
-function PublicRoute({ component: Component, redirectTo = '/' }) {
+function PublicRoute({ component: Component, redirectTo = '/drink' }) {
   const { token } = useSelector((state) => state.auth);
   const isAuthenticated = token;
 

@@ -1,10 +1,32 @@
-import styled from '@emotion/styled';
+// import styled from '@emotion/styled';
+import styled from 'styled-components';
+
+//export const Container = styled.div`
+//  display: flex;
+//  justify-content: center;
+//  align-items: center;
+//  padding-top: 500px;
+//`;
 
 export const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  min-width: 320px;
+  max-width: 375px;
+
+  @media screen and (min-width: 768px) {
+    padding-left: 32px;
+    padding-right: 32px;
+    max-width: 768px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 1280px;
+  }
 `;
 
 export const Title = styled.h1`
@@ -20,6 +42,7 @@ export const Title = styled.h1`
 /*--
 
 import styled from 'styled-components';
+--*/
 
 export const DrinkPageWrapper = styled.section`
   padding-top: 80px;
@@ -30,5 +53,3 @@ export const DrinkPageWrapper = styled.section`
     padding-bottom: 140px;
   }
 `;
-
---*/
