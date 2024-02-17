@@ -1,11 +1,19 @@
-import { Container, Title } from './MyDrinksPage.styled';
+import { useSelector } from 'react-redux';
+import { NotAdd } from '@/shared/components/NotAdd/NotAdd';
+import Title from '@/components/PageTitle/PageTitle';
 
-const MyDrinksPage = () => {
+// треба ще імпортувати селектори, пагінацію, card list 
+
+const MyDrinks = () => {
+  const own = useSelector(selectOwn);
+
   return (
-    <Container>
-      <Title>MyDrinksPage</Title>
-    </Container>
+    <>
+      <Title Title="My drinks" />
+      {own.length > 0 ? <CardList data={own} /> : <NotAdd />}
+      <Pagination paginationThunk={getOwnThunk} />
+    </>
   );
 };
 
-export default MyDrinksPage;
+export default MyDrinks;

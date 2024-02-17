@@ -1,6 +1,6 @@
 import { StyledNotAdd } from './NotAdd.styled';
 import { useLocation } from 'react-router-dom';
-import { confirmNamePage } from '../confirmNamePage';
+import { confirmNamePage } from '../../helpers/confirmNamePage';
 import Image from './Image';
 
 export const NotAdd = () => {

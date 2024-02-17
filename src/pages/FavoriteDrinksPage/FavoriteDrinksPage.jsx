@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
-import { NotAdd } from '@/components/FavoriteDrinksPageComponents/NotAdd/NotAdd';
+import { NotAdd } from '@/shared/components/NotAdd/NotAdd';
+import Title from '@/components/PageTitle/PageTitle';
 
-
-// треба ще імпортувати селектори, тайтл, пагінацію, card list 
+// треба ще імпортувати селектори, пагінацію, card list 
 
 
 import { Container, Title } from './FavoriteDrinksPage.styled';
