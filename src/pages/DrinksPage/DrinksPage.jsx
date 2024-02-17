@@ -1,11 +1,5 @@
-import { Container, Title } from './DrinksPage.styled';
-
 const DrinksPage = () => {
-  return (
-    <Container>
-      <Title>Drinks Page</Title>
-    </Container>
-  );
+  return <div></div>;
 };
 
 export default DrinksPage;
