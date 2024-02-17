@@ -23,4 +23,12 @@ export const Wrapper = styled.div`
 export const FlexContainer = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media screen and (min-width: 1440px) {
+    flex-direction: row;
+  }
+`;
+
+export const SubContainer = styled.div`
+  display: flex;
 `;
