@@ -1,4 +1,9 @@
-import { Wrapper, FlexContainer } from './AddDrinkPage.styled';
+import {
+  Wrapper,
+  FlexContainer,
+  SubContainer,
+  SubTitle,
+} from './AddDrinkPage.styled';
 
 import { AddDrinkForm } from '../../components/AddDrinkForm/AddDrinkForm';
 import { PopularDrinks } from '../../components/PopularDrinks/PopularDrinks';
@@ -11,9 +16,14 @@ const AddDrinkPage = () => {
       <PageTitle title="Add drink" />
       <FlexContainer>
         <AddDrinkForm />
+        <SubContainer>
+          <SubTitle>Follow Us</SubTitle>
+          <p className="test1">Follow us test</p>
+          <FollowUs />
 
-        <FollowUs />
-        <PopularDrinks />
+          <SubTitle>Popular Drinks</SubTitle>
+          <PopularDrinks />
+        </SubContainer>
       </FlexContainer>
     </Wrapper>
   );

@@ -14,14 +14,14 @@ const WelcomePage = lazy(() => import('./pages/WelcomePage/WelcomePage'));
 // const MyDrinksPage = lazy(() => import('./pages/MyDrinksPage/MyDrinksPage'));
 // const DrinkPage = lazy(() => import('./pages/DrinkPage/DrinkPage'));
 // const FavoriteDrinksPage = lazy(() => import('./pages/FavoriteDrinksPage/FavoriteDrinksPage'));
-// const AddDrinkPage = lazy(() => import('./pages/AddDrinkPage/AddDrinkPage'));
+const AddDrinkPage = lazy(() => import('./pages/AddDrinkPage/AddDrinkPage'));
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<Navigate to="/welcome" />} />
-        <Route path="/welcome" element={<WelcomePage />} />
+        <Route path="/welcome" element={<AddDrinkPage />} />
 
         {/* <Route
           path="/signup"
