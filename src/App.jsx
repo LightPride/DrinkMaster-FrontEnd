@@ -7,14 +7,16 @@ import SharedLayout from './components/Layout/SharedLayout/SharedLayout';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 
 const WelcomePage = lazy(() => import('./pages/WelcomePage/WelcomePage'));
-// const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
-// const DrinksPage = lazy(() => import('./pages/DrinksPage/DrinksPage'));
-// const SignupPage = lazy(() => import('./pages/SignupPage/SignupPage'));
-// const SigninPage = lazy(() => import('./pages/SigninPage/SigninPage'));
-// const MyDrinksPage = lazy(() => import('./pages/MyDrinksPage/MyDrinksPage'));
-// const DrinkPage = lazy(() => import('./pages/DrinkPage/DrinkPage'));
-// const FavoriteDrinksPage = lazy(() => import('./pages/FavoriteDrinksPage/FavoriteDrinksPage'));
-// const AddDrinkPage = lazy(() => import('./pages/AddDrinkPage/AddDrinkPage'));
+const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
+const DrinksPage = lazy(() => import('./pages/DrinksPage/DrinksPage'));
+const SignupPage = lazy(() => import('./pages/SignupPage/SignupPage'));
+const SigninPage = lazy(() => import('./pages/SigninPage/SigninPage'));
+const MyDrinksPage = lazy(() => import('./pages/MyDrinksPage/MyDrinksPage'));
+const DrinkPage = lazy(() => import('./pages/DrinkPage/DrinkPage'));
+const FavoriteDrinksPage = lazy(() =>
+  import('./pages/FavoriteDrinksPage/FavoriteDrinksPage')
+);
+const AddDrinkPage = lazy(() => import('./pages/AddDrinkPage/AddDrinkPage'));
 
 function App() {
   return (
@@ -22,6 +24,14 @@ function App() {
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<Navigate to="/welcome" />} />
         <Route path="/welcome" element={<WelcomePage />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/drinks" element={<DrinksPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/signin" element={<SigninPage />} />
+        <Route path="/my" element={<MyDrinksPage />} />
+        <Route path="/drink/:drinkId" element={<DrinkPage />} />
+        <Route path="/favorites" element={<FavoriteDrinksPage />} />
+        <Route path="/add" element={<AddDrinkPage />} />
 
         {/* <Route
           path="/signup"
@@ -33,7 +43,7 @@ function App() {
         <Route
           path="/signin"
           element={
-            <PublicRoute redirectTo="/home" component={<SigninPage />} />
+            <PublicRoute redirectTo="/" component={<SigninPage />} />
           }
         />
 
