@@ -1,5 +1,11 @@
+import { Container, Title } from './ErrorPage.styled';
+
 const ErrorPage = () => {
-  return <div></div>;
+  return (
+    <Container>
+      <Title>404</Title>
+    </Container>
+  );
 };
 
 export default ErrorPage;
