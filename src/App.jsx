@@ -2,7 +2,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 
 import SharedLayout from './components/Layout/SharedLayout/SharedLayout';
-import PublicRoute from './routes/PublicRoute';
+// import PublicRoute from './routes/PublicRoute';
 // import PrivateRoute from './routes/PrivateRoute';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 
@@ -21,51 +21,69 @@ const AddDrinkPage = lazy(() => import('./pages/AddDrinkPage/AddDrinkPage'));
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<SharedLayout />} />
-      <Route index element={<Navigate to="/welcome" />} />
-      <Route path="/welcome" element={<WelcomePage />} />
+      <Route path="/" element={<SharedLayout />}>
+        <Route index element={<Navigate to="/welcome" />} />
+        <Route path="/welcome" element={<WelcomePage />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/drinks" element={<DrinksPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/signin" element={<SigninPage />} />
+        <Route path="/my" element={<MyDrinksPage />} />
+        <Route path="/drink/:drinkId" element={<DrinkPage />} />
+        <Route path="/favorites" element={<FavoriteDrinksPage />} />
+        <Route path="/add" element={<AddDrinkPage />} />
 
-      <Route
-        path="/signup"
-        element={<PublicRoute redirectTo="/home" component={<SignupPage />} />}
-      />
+        {/* <Route
+          path="/signup"
+          element={
+            <PublicRoute redirectTo="/home" component={<SignupPage />} />
+          }
+        />
 
-      <Route
-        path="/signin"
-        element={<PublicRoute redirectTo="/home" component={<SigninPage />} />}
-      />
+        <Route
+          path="/signin"
+          element={
+            <PublicRoute redirectTo="/" component={<SigninPage />} />
+          }
+        />
 
-      <Route
-        path="/home"
-        element={<PublicRoute redirectTo="/login" component={<HomePage />} />}
-      />
+        <Route
+          path="/home"
+          element={
+            <PrivateRoute redirectTo="/login" component={<HomePage />} />
+          }
+        />
 
-      <Route
-        path="/add"
-        element={
-          <PublicRoute redirectTo="/login" component={<AddDrinkPage />} />
-        }
-      />
+        <Route
+          path="/add"
+          element={
+            <PrivateRoute redirectTo="/login" component={<AddDrinkPage />} />
+          }
+        />
 
-      <Route
-        path="/favorites"
-        element={
-          <PublicRoute redirectTo="/login" component={<FavoriteDrinksPage />} />
-        }
-      />
+        <Route
+          path="/favorites"
+          element={
+            <PrivateRoute
+              redirectTo="/login"
+              component={<FavoriteDrinksPage />}
+            />
+          }
+        />
 
-      <Route
-        path="/my"
-        element={
-          <PublicRoute redirectTo="/login" component={<MyDrinksPage />} />
-        }
-      />
-      <Route
-        path="/drinks"
-        element={<PublicRoute redirectTo="/login" component={<DrinksPage />} />}
-      >
-        {' '}
-        <Route path="/drink" element={<DrinkPage />} /> <Route />
+        <Route
+          path="/my"
+          element={
+            <PrivateRoute redirectTo="/login" component={<MyDrinksPage />} />
+          }
+        /> */
+        /* <Route
+          path="/drinks"
+          element={
+            <PrivateRoute redirectTo="/login" component={<DrinksPage />} />
+          }
+        > <Route path="/:drinkId" element={ <DrinkPage/>} /> <Route/> */}
+
         <Route path="*" element={<ErrorPage />} />
       </Route>
     </Routes>
