@@ -9,11 +9,11 @@ export const NotAdd = () => {
   return (
     <StyledNotAdd>
       <Image />
-      {namePage.my && (
+      {namePage.mydrinkspage && (
         <p>So far, you haven&apos;t made any drinks of your own</p>
       )}
 
-      {namePage.favorites && (
+      {namePage.favoritedrinkspage && (
         <p>You haven&apos;t added any favorite cocktails yet</p>
       )}
     </StyledNotAdd>

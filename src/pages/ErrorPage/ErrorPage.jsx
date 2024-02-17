@@ -1,11 +1,16 @@
-import { Container, Title } from './ErrorPage.styled';
+import Glass from './Glass';
+import { StyledWrapper } from './ErrorPage.styled';
 
-const ErrorPage = () => {
+const NotFound = () => {
   return (
-    <Container>
-      <Title>404</Title>
-    </Container>
+    <>
+      <StyledWrapper>
+        <span>4</span>
+        <Glass />
+        <span>4</span>
+      </StyledWrapper>
+    </>
   );
 };
 
-export default ErrorPage;
+export default NotFound;

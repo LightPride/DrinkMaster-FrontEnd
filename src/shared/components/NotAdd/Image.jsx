@@ -1,6 +1,6 @@
-import coctailPNG from '../img/notFound.png';
-import coctailWEBP from '../img/notFound.webp';
-import coctail2x from '../img/notFound@2x.png';
+import coctailPNG from '../NotAdd/img/notFound.png';
+import coctailWEBP from '../NotAdd/img/notFound.webp';
+import coctail2x from '../NotAdd/img/notFound@2x.png';
 import { StyledImage } from './NotAdd.styled';
 
 const Image = () => {
