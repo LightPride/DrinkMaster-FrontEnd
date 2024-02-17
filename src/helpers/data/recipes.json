@@ -25,6 +25,7 @@
       {
         "title": "Dark rum",
         "measure": "1 1/2 oz ",
+        "ingredientThumb": "https://ftp.goit.study/img/drinkify/ingredients/Dark_rum.png",
         "ingredientId": {
           "$oid": "64aebb7f82d96cc69e0eb4a7"
         }
@@ -32,6 +33,7 @@
       {
         "title": "Kahlua",
         "measure": "1/2 oz ",
+        "ingredientThumb": "https://ftp.goit.study/img/drinkify/ingredients/Kahlua.png",
         "ingredientId": {
           "$oid": "64aebb7f82d96cc69e0eb4bd"
         }
@@ -39,6 +41,7 @@
       {
         "title": "Light cream",
         "measure": "1 oz ",
+        "ingredientThumb": "https://ftp.goit.study/img/drinkify/ingredients/Espresso.png",
         "ingredientId": {
           "$oid": "64f1d5c069d8333cf130fb31"
         }
@@ -46,6 +49,7 @@
       {
         "title": "Nutmeg",
         "measure": "1/8 tsp grated ",
+        "ingredientThumb": "https://ftp.goit.study/img/drinkify/ingredients/Chocolate.png",
         "ingredientId": {
           "$oid": "64f1d5c069d8333cf130fb34"
         }

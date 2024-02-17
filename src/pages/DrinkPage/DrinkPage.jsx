@@ -4,8 +4,10 @@ import DrinkIngredientsList from '../../components/DrinkIngredientList/DrinkIngr
 import RecipePreparation from '../../components/RecipePreparation/RecipePreparation';
 // import { Container } from '../../components/Container/Container.styled';
 
-import drink from '../../data/drink.json';
-import ingredients from '../../data/ingredients.json';
+// import drink from '../../data/drink.json';
+import recipes from '../../helpers/data/recipes.json';
+// import ingredients from '../../data/ingredients.json';
+// import ingredients from '../../helpers/data/recipes.json';
 
 const DrinkPage = () => {
   // console.log(drink[0].drink);
@@ -19,14 +21,14 @@ const DrinkPage = () => {
       <Container>
         <DrinkPageHero
           // id={drink._id}
-          name={drink[0].drink}
-          glass={drink[0].glass}
-          alcoholic={drink[0].alcoholic}
-          description={drink[0].description}
-          imgPath={drink[0].drinkThumb}
+          name={recipes[0].drink}
+          glass={recipes[0].glass}
+          alcoholic={recipes[0].alcoholic}
+          description={recipes[0].description}
+          imgPath={recipes[0].drinkThumb}
         />
-        <DrinkIngredientsList ingredients={ingredients} />
-        <RecipePreparation instructions={drink[0].instructions} />
+        <DrinkIngredientsList ingredients={recipes[0].ingredients} />
+        <RecipePreparation instructions={recipes[0].instructions} />
       </Container>
     </DrinkPageWrapper>
   );
