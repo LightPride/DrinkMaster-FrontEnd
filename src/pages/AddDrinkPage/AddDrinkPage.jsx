@@ -18,7 +18,7 @@ const AddDrinkPage = () => {
         <AddDrinkForm />
         <SubContainer>
           <div>
-            <SubTitle mb="20px">Follow Us 3</SubTitle>
+            <SubTitle mb="20px">Follow Us</SubTitle>
             <FollowUs />
           </div>
           <div>
