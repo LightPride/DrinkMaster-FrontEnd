@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import imgDesktop from '../../images/welcomeDesk@1x.jpg';
-import blurDobleDesctop1x from '../../images/BackgroundImages/blurDobleDesctop1x.png';
-import blurSmallDesktop from '../../images/BackgroundImages/blurSmallDecktop1x.png';
+import blurDobleSercle from '../../images/BackgroundImages/blurDobleSircle.png';
+import blurSmallSercle from '../../images/BackgroundImages/blurSmallSircle.png';
 
 export const StyledSigninPage = styled.div`
   padding-top: 220px;
-  background-image: url(${blurDobleDesctop1x}), url(${blurSmallDesktop}),
+  background-image: url(${blurDobleSercle}), url(${blurSmallSercle}),
     url(${imgDesktop});
   background-repeat: no-repeat, no-repeat, no-repeat;
   background-position:
