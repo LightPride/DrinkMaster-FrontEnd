@@ -1,18 +1,61 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 500px;
+  flex-direction: column;
+  gap: 40px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 140px;
+    padding-bottom: 140px;
+    gap: 60px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding-top: 160px;
+  }
 `;
 
-export const Title = styled.h1`
-  color: #ffffff;
-  text-shadow:
-    0 0 5px #00baff,
-    0 0 10px #00baff,
-    0 0 20px #00baff,
-    0 0 40px #00baff,
-    0 0 80px #00baff;
+export const FlexContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+
+  @media screen and (min-width: 1440px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+`;
+
+export const SubContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  @media screen and (min-width: 768px) {
+    gap: 80px;
+  }
+`;
+
+export const SubTitle = styled.p`
+  margin-bottom: ${({ mb }) => mb};
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.33;
+  color: #f3f3f3;
+
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+
+    margin-bottom: ${({ mb }) => {
+      if (mb === '20px') {
+        return '24px';
+      } else {
+        return '40px';
+      }
+    }};
+  }
 `;
