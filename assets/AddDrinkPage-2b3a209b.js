@@ -1,9 +1,9 @@
-import{n as t,j as e}from"./index-223e7dd1.js";const f=t.div`
+import{n as e,j as t}from"./index-72109395.js";const f=e.div`
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top: 500px;
-`,n=t.h1`
+`,n=e.h1`
   color: #ffffff;
   text-shadow:
     0 0 5px #00baff,
@@ -11,4 +11,4 @@ import{n as t,j as e}from"./index-223e7dd1.js";const f=t.div`
     0 0 20px #00baff,
     0 0 40px #00baff,
     0 0 80px #00baff;
-`,o=()=>e.jsx(f,{children:e.jsx(n,{children:"Home Page"})});export{o as default};
+`,i=()=>t.jsx(f,{children:t.jsx(n,{children:"AddDrink Page"})});export{i as default};
