@@ -4,7 +4,5 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 80px;
-  .btn {
-    width: 50px;
-  }
+  margin-bottom: 20px;
 `;

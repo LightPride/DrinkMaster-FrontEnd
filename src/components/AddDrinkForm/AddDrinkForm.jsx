@@ -6,12 +6,14 @@ import { RecipePreparation } from './RecipePreparation/RecipePreparation';
 export const AddDrinkForm = () => {
   return (
     <>
-      <Wrapper>
-        <DrinkDescriptionFields />
-        <DrinkIngredientsFields />
-        <RecipePreparation />
-        <button className="btn">add</button>
-      </Wrapper>
+      <form action="">
+        <Wrapper>
+          <DrinkDescriptionFields />
+          <DrinkIngredientsFields />
+          <RecipePreparation />
+        </Wrapper>
+        <button type="submit">Add</button>
+      </form>
     </>
   );
 };

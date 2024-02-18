@@ -1,13 +1,16 @@
-import {
-  Wrapper,
-  SubtitleForm,
-} from '../DrinkIngredientsFields/DrinkIngredientsFields.styled';
+import { Wrapper, SubtitleForm, InputField } from './RecipePreparation.styled';
 
 export const RecipePreparation = () => {
   return (
     <Wrapper>
-      <SubtitleForm>Recipe Preparation</SubtitleForm>; ;
-      <input type="text" />
+      <SubtitleForm>
+        <h4>Recipe Preparation</h4>
+      </SubtitleForm>
+
+      <InputField
+        placeholder="Enter the recipe"
+        name="ReciepePreparation"
+      ></InputField>
     </Wrapper>
   );
 };
