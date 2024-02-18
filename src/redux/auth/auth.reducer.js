@@ -45,6 +45,41 @@ export const loginThunk = createAsyncThunk(
   }
 );
 
+// export const logOutThunk = createAsyncThunk(
+//   'auth/logOut',
+//   async (_, thunkApi) => {
+//     try {
+//       const { data } = await instance.post('/auth/logout');
+//       return data;
+//     } catch (err) {
+//       return thunkApi.rejectWithValue(err.message);
+//     }
+//   }
+// );
+
+// export const refreshThunk = createAsyncThunk(
+//   'auth/refresh',
+//   async (_, thunkApi) => {
+//     try {
+//       const state = thunkApi.getState();
+//       const token = state.auth.token;
+//       setToken(token);
+//       const { data } = await instance.get('/auth/current');
+//       return data;
+//     } catch (err) {
+//       return thunkApi.rejectWithValue(err.message);
+//     }
+//   },
+//   {
+//     condition: (_, thunkApi) => {
+//       const state = thunkApi.getState();
+//       const token = state.auth.token;
+//       if (!token) return false;
+//       return true;
+//     },
+//   }
+// );
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,
