@@ -84,7 +84,7 @@ const SignUpForm = () => {
           name="dateOfBirth"
           defaultValue=""
           render={({ field }) => (
-            <FormControl variant="outlined" className="textInput">
+            <FormControl variant="outlined" required className="textInput">
               <InputLabel htmlFor="outlined-adornment-date">
                 yyyy/mm/dd
               </InputLabel>
@@ -98,7 +98,6 @@ const SignUpForm = () => {
                   </InputAdornment>
                 }
                 label="dd/mm/yyyy"
-                required
                 error={!!errors.dateOfBirth?.message}
                 helperText={errors.dateOfBirth?.message}
                 {...field}
@@ -129,7 +128,7 @@ const SignUpForm = () => {
           name="password"
           defaultValue=""
           render={({ field }) => (
-            <FormControl variant="outlined" className="textInput">
+            <FormControl variant="outlined" required className="textInput">
               <InputLabel htmlFor="outlined-adornment-password">
                 Password
               </InputLabel>
@@ -150,7 +149,6 @@ const SignUpForm = () => {
                   </InputAdornment>
                 }
                 label="Password"
-                required
                 error={!!errors.password?.message}
                 helperText={errors.password?.message}
                 {...field}
