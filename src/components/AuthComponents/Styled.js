@@ -5,10 +5,23 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
 export const StyledSignForm = styled.div`
+  .universalBtn {
+    background-color: ${(props) => props.backgroundcolor};
+    color: ${(props) => props.color};
+    width: ${(props) => props.width};
+    padding: 18px 0px;
+    border-radius: 40px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    margin-bottom: ${(props) => props.margin};
+  }
+
   .formTitleSign {
     font-weight: 600;
     font-size: 40px;
     margin-bottom: 28px;
+    color: var(--white-color);
   }
 
   .inputContainer {
@@ -17,7 +30,6 @@ export const StyledSignForm = styled.div`
     justify-content: center;
     align-items: flex-start;
     gap: 14px;
-    margin-bottom: 40px;
   }
 
   .textInput {
@@ -25,8 +37,8 @@ export const StyledSignForm = styled.div`
   }
 
   .textInput fieldset {
-    border-color: white;
-    border-radius: 20px;
+    border-radius: 40px;
+    border-color: var(--white-fifty-color);
   }
 
   .textInput input {
@@ -34,7 +46,7 @@ export const StyledSignForm = styled.div`
   }
 
   .textInput label {
-    color: white;
+    color: var(--white-fifty-color);
   }
 
   .textInput:hover fieldset {
@@ -44,13 +56,12 @@ export const StyledSignForm = styled.div`
   .textInput:hover fieldset:focus {
     border-color: white;
   }
-
-  .textInput input::placeholder {
-    color: white;
+  var( --white-color) .textInput input::placeholder {
+    color: var(--white-color);
   }
 
   .iconInput {
-    color: white;
+    color: var(--white-color);
   }
 
   input:-webkit-autofill,
@@ -62,8 +73,12 @@ export const StyledSignForm = styled.div`
   }
 
   .redirectLink {
+    display: block;
     font-size: 14px;
     color: var(--white-color);
     font-weight: 600;
+    width: 400px;
+    text-align: center;
+    padding: 18px, 0px;
   }
 `;
