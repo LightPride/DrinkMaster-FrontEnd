@@ -61,7 +61,6 @@ const SignInForm = () => {
               label="Email"
               variant="outlined"
               className="textInput"
-              required
               error={!!errors.email?.message}
               helperText={errors.email?.message}
               required
@@ -74,7 +73,7 @@ const SignInForm = () => {
           name="password"
           defaultValue=""
           render={({ field }) => (
-            <FormControl variant="outlined" className="textInput" required>
+            <FormControl variant="outlined" className="textInput">
               <TextField
                 id="outlined-adornment-password"
                 type={showPassword ? 'text' : 'password'}
