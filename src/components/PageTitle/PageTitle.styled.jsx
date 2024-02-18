@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Title = styled.h1`
   font-size: 32px;
   font-weight: 600;
-  color: #f3f3f3;
+  color: var(--white-color);
 
   @media screen and (min-width: 768px) {
     font-size: 56px;
