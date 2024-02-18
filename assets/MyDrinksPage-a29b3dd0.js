@@ -1,1 +1,0 @@
-import{j as r}from"./index-c791501b.js";import{T as t}from"./PageTitle-a76ba33e.js";import"./styled-components.browser.esm-c6dcd059.js";const o=()=>r.jsx(r.Fragment,{children:r.jsx(t,{title:"My drinks"})});export{o as default};
