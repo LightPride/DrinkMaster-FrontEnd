@@ -11,15 +11,14 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { InputLabel, OutlinedInput, TextField } from '@mui/material';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import { useDispatch } from 'react-redux';
+import { registerThunk } from '../../redux/auth/auth.reducer';
 
 const schema = yup.object({
   name: yup.string().min(3, 'Please put down more than 3 letters!').required(),
-  date: yup
+  dateOfBirth: yup
     .string()
-    .matches(
-      /^(0[1-9]|[1-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/\d{4}$/,
-      'Date must to be as an example dd/mm/yyyy!'
-    )
+    .matches(/^\d{4}-\d{2}-\d{2}$/, 'Date must to be as an example dd/mm/yyyy!')
     .required(),
   email: yup
     .string()
@@ -38,6 +37,7 @@ const schema = yup.object({
 });
 
 const SignUpForm = () => {
+  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const {
     handleSubmit,
@@ -58,7 +58,10 @@ const SignUpForm = () => {
       <form
         className="inputContainer"
         rules={{ required: 'Please check your name!' }}
-        onSubmit={handleSubmit((data) => console.log(data))}
+        onSubmit={handleSubmit((data) => {
+          console.log(data);
+          dispatch(registerThunk(data));
+        })}
       >
         <Controller
           control={control}
@@ -78,12 +81,12 @@ const SignUpForm = () => {
         />
         <Controller
           control={control}
-          name="date"
+          name="dateOfBirth"
           defaultValue=""
           render={({ field }) => (
             <FormControl variant="outlined" className="textInput">
               <InputLabel htmlFor="outlined-adornment-date">
-                dd/mm/yyyy
+                yyyy/mm/dd
               </InputLabel>
               <OutlinedInput
                 id="outlined-adornment-date"
@@ -96,8 +99,8 @@ const SignUpForm = () => {
                 }
                 label="dd/mm/yyyy"
                 required
-                error={!!errors.date?.message}
-                helperText={errors.date?.message}
+                error={!!errors.dateOfBirth?.message}
+                helperText={errors.dateOfBirth?.message}
                 {...field}
               />
             </FormControl>

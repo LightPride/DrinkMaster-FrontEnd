@@ -7,10 +7,12 @@ import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { TextField } from '@mui/material';
+import { InputLabel, OutlinedInput, TextField } from '@mui/material';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { loginThunk } from '../../redux/auth/auth.reducer';
+import { useDispatch } from 'react-redux';
 
 const schema = yup.object({
   email: yup
@@ -30,6 +32,7 @@ const schema = yup.object({
 });
 
 const SignInForm = () => {
+  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const {
     handleSubmit,
@@ -50,7 +53,10 @@ const SignInForm = () => {
       <form
         className="inputContainer"
         rules={{ required: 'Please check your name!' }}
-        onSubmit={handleSubmit((data) => console.log(data))}
+        onSubmit={handleSubmit((data) => {
+          console.log(data);
+          dispatch(loginThunk(data));
+        })}
       >
         <Controller
           control={control}
@@ -73,11 +79,14 @@ const SignInForm = () => {
           name="password"
           defaultValue=""
           render={({ field }) => (
-            <FormControl variant="outlined" className="textInput">
-              <TextField
+            <FormControl variant="outlined" required className="textInput">
+              <InputLabel htmlFor="outlined-adornment-password">
+                Password
+              </InputLabel>
+              <OutlinedInput
                 id="outlined-adornment-password"
                 type={showPassword ? 'text' : 'password'}
-                endadornment={
+                endAdornment={
                   <InputAdornment position="end">
                     <IconButton
                       className="iconInput"
@@ -93,7 +102,6 @@ const SignInForm = () => {
                 label="Password"
                 error={!!errors.password?.message}
                 helperText={errors.password?.message}
-                required
                 {...field}
               />
             </FormControl>
