@@ -6,7 +6,7 @@ import '@fontsource/roboto/700.css';
 
 export const StyledSignForm = styled.div`
   .universalBtn {
-    background-color: ${(props) => props.backgroundcolor};
+    background-color: ${(props) => props.backgroundColor};
     color: ${(props) => props.color};
     width: ${(props) => props.width};
     padding: 18px 0px;
@@ -15,6 +15,13 @@ export const StyledSignForm = styled.div`
     font-weight: 600;
     border: none;
     margin-bottom: ${(props) => props.margin};
+  }
+
+  .universalBtn:hover,
+  .universalBtn:focus {
+    background-color: ${(props) => props.backgroundColorHover};
+    border: 1px solid ${(props) => props.borderHover};
+    color: ${(props) => props.colorHover};
   }
 
   .formTitleSign {

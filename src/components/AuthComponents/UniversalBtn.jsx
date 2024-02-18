@@ -8,6 +8,9 @@ const UniversalBtn = ({
   width,
   title,
   type,
+  backgroundColorHover,
+  colorHover,
+  borderHover,
 }) => {
   return (
     <StyledSignForm
@@ -15,6 +18,9 @@ const UniversalBtn = ({
       color={color}
       width={width}
       margin={margin}
+      backgroundColorHover={backgroundColorHover}
+      colorHover={colorHover}
+      borderHover={borderHover}
     >
       <button className="universalBtn" type={type}>
         {title}

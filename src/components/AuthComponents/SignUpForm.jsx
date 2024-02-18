@@ -161,9 +161,12 @@ const SignUpForm = () => {
           type={'summit'}
           title={'Sign Up'}
           width={'400px'}
-          color={'#161F37'}
-          backgroundColor={'#f3f3f3'}
+          color={'var(--dark-blue-color)'}
+          backgroundColor={'var(--white-color)'}
           margin={'14px'}
+          borderHover={'var(--white-fifty-color)'}
+          backgroundColorHover={'transparent'}
+          colorHover={'var(--white-color)'}
         />
       </form>
     </StyledSignForm>
