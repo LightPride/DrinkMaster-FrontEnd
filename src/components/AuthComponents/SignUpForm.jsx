@@ -13,6 +13,7 @@ import { InputLabel, OutlinedInput, TextField } from '@mui/material';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import { useDispatch } from 'react-redux';
 import { registerThunk } from '../../redux/auth/auth.reducer';
+import UniversalBtn from './UniversalBtn';
 
 const schema = yup.object({
   name: yup.string().min(3, 'Please put down more than 3 letters!').required(),
@@ -57,7 +58,6 @@ const SignUpForm = () => {
     <StyledSignForm>
       <form
         className="inputContainer"
-        rules={{ required: 'Please check your name!' }}
         onSubmit={handleSubmit((data) => {
           console.log(data);
           dispatch(registerThunk(data));
@@ -86,7 +86,7 @@ const SignUpForm = () => {
           render={({ field }) => (
             <FormControl variant="outlined" required className="textInput">
               <InputLabel htmlFor="outlined-adornment-date">
-                yyyy/mm/dd
+                yyyy-mm-dd
               </InputLabel>
               <OutlinedInput
                 id="outlined-adornment-date"
@@ -156,8 +156,17 @@ const SignUpForm = () => {
             </FormControl>
           )}
         />
-
-        <button type="submit">Sign Up</button>
+        <UniversalBtn
+          type={'summit'}
+          title={'Sign Up'}
+          width={'400px'}
+          color={'var(--dark-blue-color)'}
+          backgroundColor={'var(--white-color)'}
+          margin={'14px'}
+          borderHover={'var(--white-fifty-color)'}
+          backgroundColorHover={'transparent'}
+          colorHover={'var(--white-color)'}
+        />
       </form>
     </StyledSignForm>
   );

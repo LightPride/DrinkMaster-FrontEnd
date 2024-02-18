@@ -13,6 +13,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { loginThunk } from '../../redux/auth/auth.reducer';
 import { useDispatch } from 'react-redux';
+import UniversalBtn from './UniversalBtn';
 
 const schema = yup.object({
   email: yup
@@ -108,7 +109,17 @@ const SignInForm = () => {
           )}
         />
 
-        <button type="submit">Sign In</button>
+        <UniversalBtn
+          margin={'14px'}
+          type={'summit'}
+          title={'Sign In'}
+          width={'400px'}
+          color={'var(--dark-blue-color)'}
+          backgroundColor={'var(--white-color)'}
+          borderHover={'var(--white-fifty-color)'}
+          backgroundColorHover={'transparent'}
+          colorHover={'var(--white-color)'}
+        />
       </form>
     </StyledSignForm>
   );
