@@ -12,10 +12,10 @@ export const DrinkDescriptionFields = () => {
       <AddImageField></AddImageField>
       <DescrField>
         <InputsDescrField>
-          <input type="text" />
-          <input type="text" />
-          <select name=""></select>
-          <select name=""></select>
+          <input type="text" name="itemTitle" />
+          <input type="text" name="aboutRecipe" />
+          <select name="category"></select>
+          <select name="glass"></select>
         </InputsDescrField>
         <DivAlcoholic>
           <input type="radio" />
