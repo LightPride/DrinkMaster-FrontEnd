@@ -5,11 +5,11 @@ import { HeaderContainer } from './Header.styled';
 
 export const Header = () => {
   return (
-    <Container>
-      <HeaderContainer>
+    <HeaderContainer>
+      <Container>
         <Logo />
         <Navigation />
-      </HeaderContainer>
-    </Container>
+      </Container>
+    </HeaderContainer>
   );
 };
