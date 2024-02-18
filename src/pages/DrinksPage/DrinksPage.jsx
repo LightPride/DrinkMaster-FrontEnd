@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import DrinksSearch from '../../components/DrinksSearch/DrinksSearch';
 import { Drinks } from '../../components/Drinks/Drinks';
@@ -6,7 +6,7 @@ import { Drinks } from '../../components/Drinks/Drinks';
 import { ErrorMessage } from './DrinksPage.styled';
 
 // ==============
-import recipes from '../../helpers/Data/recipes.json';
+import recipes from '../../helpers/data/recipes.json';
 // ==============
 
 export default function DrinksPage() {
