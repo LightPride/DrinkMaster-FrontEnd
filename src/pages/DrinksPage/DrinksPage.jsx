@@ -1,11 +1,17 @@
-import { Container, Title } from './DrinksPage.styled';
+import PageTitle from '../../components/PageTitle/PageTitle';
+import DrinksSearch from '../../components/DrinksSearch/DrinksSearch';
+import { Drinks } from '../../components/Drinks/Drinks';
 
-const DrinksPage = () => {
+// ==============
+import recipes from '../../helpers/Data/recipes.json';
+// ==============
+
+export default function DrinksPage() {
   return (
-    <Container>
-      <Title>Drinks Page</Title>
-    </Container>
+    <div>
+      <PageTitle title="Drinks" />
+      <DrinksSearch />
+      <Drinks drinks={recipes} />
+    </div>
   );
-};
-
-export default DrinksPage;
+}
