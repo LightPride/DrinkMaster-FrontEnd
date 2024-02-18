@@ -77,8 +77,7 @@ export const StyledButton = styled.button`
     color: #f3f3f3;
     background-color:#0A0A11;
     border-radius: 200px;
-    opacity: 0.2;
-    border: 1px solid rgb(243, 243, 243);
+    border: 1px solid rgba(243, 243, 243,0.2);
   }
 
   &.subscribe:hover {
