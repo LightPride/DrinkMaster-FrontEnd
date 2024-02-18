@@ -1,6 +1,3 @@
-import React from 'react';
-import Select from 'react-select';
-
 import {
   AddImageField,
   Wrapper,
@@ -8,6 +5,9 @@ import {
   DescrField,
   DivAlcoholic,
 } from './DrinkDescriptionFields';
+
+import React from 'react';
+import Select from 'react-select';
 
 export const DrinkDescriptionFields = () => {
   return (

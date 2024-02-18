@@ -10,7 +10,6 @@ export const Wrapper = styled.div`
   }
   @media screen and (min-width: 1440px) {
     gap: 40px;
-    flex-direction: row;
   }
 `;
 
