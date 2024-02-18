@@ -88,8 +88,8 @@ export const DrinkIngredientsFields = () => {
           </IngredientsButton>
         </InputsWrapper>
         <InputsWrapper>
-          <select name="name" id="3"></select>
-          <input type="text" />
+          <select name="name" id="2"></select>
+          <input type="text" placeholder="" />
           <IngredientsButton>
             <svg
               width="18"

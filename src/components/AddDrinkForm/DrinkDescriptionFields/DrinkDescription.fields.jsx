@@ -15,26 +15,14 @@ export const DrinkDescriptionFields = () => {
       <AddImageField></AddImageField>
       <DescrField>
         <InputsDescrField>
-          <input type="text" name="itemTitle" />
-          <input type="text" name="aboutRecipe" />
-          <Select
-            name="category"
-            options={[
-              { value: 'raz', label: 'raz' },
-              { value: 'dwa', label: 'dwa' },
-            ]}
-          ></Select>
-          <Select
-            name="glass"
-            options={[
-              { value: 'raz', label: 'raz' },
-              { value: 'dwa', label: 'dwa' },
-            ]}
-          ></Select>
+          <div>Тут буде інпут тайтлу</div>
+          <div>Тут буде інпут рецепту</div>
+          <div>Тут буде селект категорії</div>
+          <div>Тут буде селект скла</div>
         </InputsDescrField>
         <DivAlcoholic>
-          <input type="radio" />
-          <input type="radio" />
+          <div>алкоголік </div>
+          <div>нон-алкоголік</div>
         </DivAlcoholic>
       </DescrField>
     </Wrapper>
