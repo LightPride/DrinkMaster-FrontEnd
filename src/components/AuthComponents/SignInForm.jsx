@@ -103,7 +103,7 @@ const SignInForm = () => {
                   <InputAdornment position="end">
                     <IconButton
                       className="iconInput"
-                      aria-label="toggle password visibility"
+                      ariaLabel="toggle password visibility"
                       onClick={handleClickShowPassword}
                       onMouseDown={handleMouseDownPassword}
                       edge="end"

@@ -9,7 +9,7 @@ const MyDrinks = () => {
 
   return (
     <>
-      <Title title="My drinks" />
+      <Title Title="My drinks" />
       {/* {own.length > 0 ? <CardList data={own} /> : <NotAdd />}
       <Pagination paginationThunk={getOwnThunk} /> */}
     </>
