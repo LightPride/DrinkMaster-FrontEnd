@@ -1,19 +1,15 @@
 import React from 'react';
-import { StyledSigninPage } from './Styled';
+import SignUpForm from '../../components/AuthComponents/SignUpForm';
+import { StyledWelcomeLayout } from '../../components/Layout/WelcomeLayout/Styled';
+import TitleForm from '../../components/AuthComponents/TitleForm';
 
-const SigninPage = () => {
+const SignupPage = () => {
   return (
-    <StyledSigninPage>
-      <h1>Sign In</h1>
-      <div>
-        <form className="inputContainer" action="">
-          <input type="email" />
-          <input type="password" />
-          <button type="submit"></button>
-        </form>
-      </div>
-    </StyledSigninPage>
+    <StyledWelcomeLayout>
+      <TitleForm title={'Sign Up'} />
+      <SignUpForm />
+    </StyledWelcomeLayout>
   );
 };
 
-export default SigninPage;
+export default SignupPage;

@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import imgDesktop from '../../images/welcomeDesk@1x.jpg';
-import blurDobleSercle from '../../images/BackgroundImages/blurDobleSircle.png';
-import blurSmallSercle from '../../images/BackgroundImages/blurSmallSircle.png';
+import imgDesktop from '../../../images/welcomeDesk@1x.jpg';
+import blurDobleSercle from '../../../images/BackgroundImages/blurDobleSircle.png';
+import blurSmallSercle from '../../../images/BackgroundImages/blurSmallSircle.png';
 
-export const StyledSigninPage = styled.div`
-  padding-top: 220px;
+export const StyledWelcomeLayout = styled.div`
+  padding-top: 150px;
   background-image: url(${blurDobleSercle}), url(${blurSmallSercle}),
     url(${imgDesktop});
   background-repeat: no-repeat, no-repeat, no-repeat;
