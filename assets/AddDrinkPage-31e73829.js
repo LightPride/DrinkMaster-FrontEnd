@@ -1,4 +1,4 @@
-import{n as e,j as t}from"./index-35147162.js";const f=e.div`
+import{n as e,j as t}from"./index-413b49d7.js";const f=e.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,4 +11,4 @@ import{n as e,j as t}from"./index-35147162.js";const f=e.div`
     0 0 20px #00baff,
     0 0 40px #00baff,
     0 0 80px #00baff;
-`,s=()=>t.jsx(f,{children:t.jsx(n,{children:"Drinks Page"})});export{s as default};
+`,i=()=>t.jsx(f,{children:t.jsx(n,{children:"AddDrink Page"})});export{i as default};
