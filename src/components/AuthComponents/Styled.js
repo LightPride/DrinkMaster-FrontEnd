@@ -24,6 +24,12 @@ export const StyledSignForm = styled.div`
     color: ${(props) => props.colorhover};
   }
 
+  .welcomeDescription {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--white-color);
+  }
+
   .formTitleSign {
     font-weight: 600;
     font-size: 40px;
