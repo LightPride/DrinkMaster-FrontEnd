@@ -1,9 +1,9 @@
-import{n as t,j as e}from"./index-083a7eb4.js";const a=t.div`
+import{n as e,j as t}from"./index-e71527fa.js";const f=e.div`
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top: 500px;
-`,n=t.h1`
+`,i=e.h1`
   margin: 0;
   margin-right: 10px;
   color: #ffffff;
@@ -13,8 +13,8 @@ import{n as t,j as e}from"./index-083a7eb4.js";const a=t.div`
     0 0 20px #00baff,
     0 0 40px #00baff,
     0 0 80px #00baff;
-`,f=t.img`
+`;e.img`
   width: 40px;
   height: 40px;
   object-fit: cover;
-`,s="/DrinkMaster-FrontEnd/assets/example-def0f7cb.png",o=()=>e.jsxs(a,{children:[e.jsx(n,{children:"Welcome Page"}),e.jsx(f,{src:s,alt:"Example"})]});export{o as default};
+`;const a=()=>t.jsx(f,{children:t.jsx(i,{children:"Welcome Page"})});export{a as default};

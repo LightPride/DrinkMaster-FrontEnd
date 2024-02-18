@@ -1,4 +1,4 @@
-import{u as e,j as i}from"./index-083a7eb4.js";import{P as s}from"./PageTitle-489c5c9f.js";import{r as o}from"./recipes-8f698c44.js";const c=e.div`
+import{u as e,j as i}from"./index-e71527fa.js";import{P as s}from"./PageTitle-67547c07.js";import{r as o}from"./recipes-8f698c44.js";const c=e.div`
   margin-left: auto;
   margin-right: auto;
   padding-left: 20px;
