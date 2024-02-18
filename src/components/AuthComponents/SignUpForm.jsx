@@ -58,7 +58,6 @@ const SignUpForm = () => {
     <StyledSignForm>
       <form
         className="inputContainer"
-        rules={{ required: 'Please check your name!' }}
         onSubmit={handleSubmit((data) => {
           console.log(data);
           dispatch(registerThunk(data));
