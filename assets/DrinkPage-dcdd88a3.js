@@ -1,4 +1,4 @@
-import{u as e,j as i}from"./index-72109395.js";import{T as s}from"./PageTitle-b04d426f.js";import{r as o}from"./recipes-8f698c44.js";const c=e.div`
+import{u as e,j as i}from"./index-083a7eb4.js";import{P as s}from"./PageTitle-489c5c9f.js";import{r as o}from"./recipes-8f698c44.js";const c=e.div`
   margin-left: auto;
   margin-right: auto;
   padding-left: 20px;
@@ -208,7 +208,7 @@ import{u as e,j as i}from"./index-72109395.js";import{T as s}from"./PageTitle-b0
   @media screen and (min-width: 1440px) {
     margin-top: 100px;
   }
-`,T=e.ul`
+`,I=e.ul`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-row-gap: 20px;
@@ -227,7 +227,7 @@ import{u as e,j as i}from"./index-72109395.js";import{T as s}from"./PageTitle-b0
     grid-column-gap: 35px;
     grid-row-gap: 35px;
   }
-`;let I=(r=21)=>crypto.getRandomValues(new Uint8Array(r)).reduce((t,n)=>(n&=63,n<36?t+=n.toString(36):n<62?t+=(n-26).toString(36).toUpperCase():n>62?t+="-":t+="_",t),"");const F=({ingredients:r})=>i.jsxs(i.Fragment,{children:[i.jsx(y,{children:"Ingredients"}),i.jsx(T,{children:r.map(t=>i.jsx("li",{children:i.jsx(P,{title:t.title,measure:t.measure,quantity:t.quantity,images:t.ingredientThumb})},I()))})]}),a="/DrinkMaster-FrontEnd/assets/coctails@1xMob-773a9476.jpg",M="/DrinkMaster-FrontEnd/assets/coctails@2xMob-fecfc36c.jpg",S="/DrinkMaster-FrontEnd/assets/coctails@1xTab-650f5580.jpg",R="/DrinkMaster-FrontEnd/assets/coctails@2xTab-ceb1294d.jpg",$="/DrinkMaster-FrontEnd/assets/coctails@1xDesk-461ecb5e.jpg",E="/DrinkMaster-FrontEnd/assets/coctails@2xDesk-d80c3656.jpg",W=e.h2`
+`;let T=(r=21)=>crypto.getRandomValues(new Uint8Array(r)).reduce((t,n)=>(n&=63,n<36?t+=n.toString(36):n<62?t+=(n-26).toString(36).toUpperCase():n>62?t+="-":t+="_",t),"");const F=({ingredients:r})=>i.jsxs(i.Fragment,{children:[i.jsx(y,{children:"Ingredients"}),i.jsx(I,{children:r.map(t=>i.jsx("li",{children:i.jsx(P,{title:t.title,measure:t.measure,quantity:t.quantity,images:t.ingredientThumb})},T()))})]}),a="/DrinkMaster-FrontEnd/assets/coctails@1xMob-773a9476.jpg",M="/DrinkMaster-FrontEnd/assets/coctails@2xMob-fecfc36c.jpg",S="/DrinkMaster-FrontEnd/assets/coctails@1xTab-650f5580.jpg",R="/DrinkMaster-FrontEnd/assets/coctails@2xTab-ceb1294d.jpg",$="/DrinkMaster-FrontEnd/assets/coctails@1xDesk-461ecb5e.jpg",E="/DrinkMaster-FrontEnd/assets/coctails@2xDesk-d80c3656.jpg",W=e.h2`
   color: var(--white-color);
   font-size: 28px;
   font-weight: 600;

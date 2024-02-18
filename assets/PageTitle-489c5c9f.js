@@ -1,4 +1,4 @@
-import{u as i,j as n}from"./index-72109395.js";const o=i.h1`
+import{u as i,j as n}from"./index-083a7eb4.js";const o=i.h1`
   font-size: 32px;
   font-weight: 600;
   color: var(--white-color);
@@ -10,4 +10,4 @@ import{u as i,j as n}from"./index-72109395.js";const o=i.h1`
   @media screen and (min-width: 1440px) {
     font-size: 64px;
   }
-`,s=({title:e,forwardRef:t})=>n.jsx(o,{ref:t,children:e}),a=s;export{a as T};
+`,s=({title:e,forwardRef:t})=>n.jsx(o,{ref:t,children:e}),a=s;export{a as P};
