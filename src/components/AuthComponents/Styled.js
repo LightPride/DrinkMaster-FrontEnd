@@ -6,7 +6,7 @@ import '@fontsource/roboto/700.css';
 
 export const StyledSignForm = styled.div`
   .formTitleSign {
-    font-weight: bold;
+    font-weight: 600;
     font-size: 40px;
     margin-bottom: 28px;
   }
@@ -59,5 +59,11 @@ export const StyledSignForm = styled.div`
     box-shadow: 0 0 0 1000px transparent inset;
     transition: background-color 5000s ease-in-out 0s;
     -webkit-text-fill-color: white;
+  }
+
+  .redirectLink {
+    font-size: 14px;
+    color: var(--white-color);
+    font-weight: 600;
   }
 `;

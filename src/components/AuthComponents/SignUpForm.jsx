@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 import { StyledSignForm } from './Styled';
 import { useForm, Controller } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 
 import FormControl from '@mui/material/FormControl';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { TextField } from '@mui/material';
+import { InputLabel, OutlinedInput, TextField } from '@mui/material';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
 
 const schema = yup.object({
   name: yup.string().min(3, 'Please put down more than 3 letters!').required(),
@@ -83,8 +82,12 @@ const SignUpForm = () => {
           defaultValue=""
           render={({ field }) => (
             <FormControl variant="outlined" className="textInput">
-              <TextField
-                endadornment={
+              <InputLabel htmlFor="outlined-adornment-date">
+                dd/mm/yyyy
+              </InputLabel>
+              <OutlinedInput
+                id="outlined-adornment-date"
+                endAdornment={
                   <InputAdornment position="end">
                     <IconButton className="iconInput" edge="end">
                       <CalendarTodayIcon />
@@ -124,10 +127,13 @@ const SignUpForm = () => {
           defaultValue=""
           render={({ field }) => (
             <FormControl variant="outlined" className="textInput">
-              <TextField
+              <InputLabel htmlFor="outlined-adornment-password">
+                Password
+              </InputLabel>
+              <OutlinedInput
                 id="outlined-adornment-password"
                 type={showPassword ? 'text' : 'password'}
-                endadornment={
+                endAdornment={
                   <InputAdornment position="end">
                     <IconButton
                       className="iconInput"
