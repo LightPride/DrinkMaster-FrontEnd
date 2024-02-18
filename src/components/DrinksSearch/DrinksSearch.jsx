@@ -2,10 +2,10 @@ import Selection from './Select';
 import { Filter, Wrapper } from './DrinksSearch.styled';
 
 // ============
-import categories from '../../helpers/Data/categories';
+import categories from '../../helpers/data/categories';
 const optionsCategories = categories.map((category) => category.categori);
 
-import ingredientsData from '../../helpers/Data/ingredients.json';
+import ingredientsData from '../../helpers/data/ingredients.json';
 const options = ingredientsData.map((ingredient) => ingredient.title);
 // ============
 
