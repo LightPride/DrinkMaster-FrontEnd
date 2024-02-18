@@ -5,6 +5,7 @@ import { StyledButton } from './StyledButton.styled';
 export const Button = ({
   children,
   className,
+  type,
   addRecipe,
   logOut,
   addToFavorite,
@@ -21,7 +22,6 @@ export const Button = ({
     addToFavorite,
     seeRecipe,
     subscribe,
-    active
   });
   const onClickAction = (e) => {
     if (disabled) {
@@ -37,9 +37,10 @@ export const Button = ({
     <ButtonTag
       className={buttonClasses}
       onClick={onClickAction}
-      // active={active}
       disabled={disabled}
+      active={active}
       {...otherProps}
+      type={type}
     >
       {children}
     </ButtonTag>
