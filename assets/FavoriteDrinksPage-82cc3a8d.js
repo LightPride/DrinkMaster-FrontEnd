@@ -1,1 +1,0 @@
-import{j as t}from"./index-5f7b6db4.js";import{T as r}from"./PageTitle-53645de3.js";import"./styled-components.browser.esm-2b7d5141.js";const i=()=>t.jsx(t.Fragment,{children:t.jsx(r,{title:"Favorites"})});export{i as default};
