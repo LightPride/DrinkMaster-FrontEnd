@@ -4,7 +4,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
-export const StyledSignUpForm = styled.div`
+export const StyledSignForm = styled.div`
   .formTitleSign {
     font-weight: bold;
     font-size: 40px;

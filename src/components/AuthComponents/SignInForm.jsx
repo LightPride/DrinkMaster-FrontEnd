@@ -8,20 +8,11 @@ import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { TextField } from '@mui/material';
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 const schema = yup.object({
-  name: yup.string().min(3, 'Please put down more than 3 letters!').required(),
-  date: yup
-    .string()
-    .matches(
-      /^(0[1-9]|[1-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/\d{4}$/,
-      'Date must to be as an example dd/mm/yyyy!'
-    )
-    .required(),
   email: yup
     .string()
     .matches(
@@ -38,7 +29,7 @@ const schema = yup.object({
     .required(),
 });
 
-const SignUpForm = () => {
+const SignInForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const {
     handleSubmit,
@@ -63,46 +54,6 @@ const SignUpForm = () => {
       >
         <Controller
           control={control}
-          name="name"
-          defaultValue=""
-          render={({ field }) => (
-            <TextField
-              className="textInput"
-              label="Name"
-              variant="outlined"
-              required
-              error={!!errors.name?.message}
-              helperText={errors.name?.message}
-              {...field}
-            />
-          )}
-        />
-        <Controller
-          control={control}
-          name="date"
-          defaultValue=""
-          render={({ field }) => (
-            <FormControl variant="outlined" className="textInput">
-              <TextField
-                endadornment={
-                  <InputAdornment position="end">
-                    <IconButton className="iconInput" edge="end">
-                      <CalendarTodayIcon />
-                    </IconButton>
-                  </InputAdornment>
-                }
-                label="dd/mm/yyyy"
-                required
-                error={!!errors.date?.message}
-                helperText={errors.date?.message}
-                {...field}
-              />
-            </FormControl>
-          )}
-        />
-
-        <Controller
-          control={control}
           name="email"
           defaultValue=""
           render={({ field }) => (
@@ -113,17 +64,17 @@ const SignUpForm = () => {
               required
               error={!!errors.email?.message}
               helperText={errors.email?.message}
+              required
               {...field}
             />
           )}
         />
-
         <Controller
           control={control}
           name="password"
           defaultValue=""
           render={({ field }) => (
-            <FormControl variant="outlined" className="textInput">
+            <FormControl variant="outlined" className="textInput" required>
               <TextField
                 id="outlined-adornment-password"
                 type={showPassword ? 'text' : 'password'}
@@ -141,19 +92,19 @@ const SignUpForm = () => {
                   </InputAdornment>
                 }
                 label="Password"
-                required
                 error={!!errors.password?.message}
                 helperText={errors.password?.message}
+                required
                 {...field}
               />
             </FormControl>
           )}
         />
 
-        <button type="submit">Sign Up</button>
+        <button type="submit">Sign In</button>
       </form>
     </StyledSignForm>
   );
 };
 
-export default SignUpForm;
+export default SignInForm;

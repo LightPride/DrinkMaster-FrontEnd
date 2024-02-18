@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyledSignUpForm } from './Styled';
+import { StyledSignForm } from './Styled';
 
 const TitleForm = ({ title }) => {
   return (
-    <StyledSignUpForm>
+    <StyledSignForm>
       <h1 className="formTitleSign">{title}</h1>
-    </StyledSignUpForm>
+    </StyledSignForm>
   );
 };
 
