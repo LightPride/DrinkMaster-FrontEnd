@@ -13,7 +13,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { loginThunk } from '../../redux/auth/auth.reducer';
 import { useDispatch } from 'react-redux';
-import Button from './Button';
+import UniversalBtn from './UniversalBtn';
 
 const schema = yup.object({
   email: yup
@@ -109,7 +109,7 @@ const SignInForm = () => {
           )}
         />
 
-        <Button
+        <UniversalBtn
           margin={'14px'}
           type={'summit'}
           title={'Sign In'}

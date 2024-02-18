@@ -13,7 +13,7 @@ import { InputLabel, OutlinedInput, TextField } from '@mui/material';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import { useDispatch } from 'react-redux';
 import { registerThunk } from '../../redux/auth/auth.reducer';
-import Button from './Button';
+import UniversalBtn from './UniversalBtn';
 
 const schema = yup.object({
   name: yup.string().min(3, 'Please put down more than 3 letters!').required(),
@@ -157,7 +157,7 @@ const SignUpForm = () => {
             </FormControl>
           )}
         />
-        <Button
+        <UniversalBtn
           type={'summit'}
           title={'Sign Up'}
           width={'400px'}

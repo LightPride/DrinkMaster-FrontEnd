@@ -24,6 +24,16 @@ export const StyledSignForm = styled.div`
     color: var(--white-color);
   }
 
+  .redirectLink {
+    display: block;
+    font-size: 14px;
+    color: var(--white-color);
+    font-weight: 600;
+    width: 400px;
+    text-align: center;
+    padding: 18px, 0px;
+  }
+
   .inputContainer {
     display: flex;
     flex-direction: column;
@@ -42,7 +52,7 @@ export const StyledSignForm = styled.div`
   }
 
   .textInput input {
-    color: white;
+    color: var(--white-color);
   }
 
   .textInput label {
@@ -50,11 +60,11 @@ export const StyledSignForm = styled.div`
   }
 
   .textInput:hover fieldset {
-    border-color: white;
+    border-color: var(--white-color);
   }
 
   .textInput:hover fieldset:focus {
-    border-color: white;
+    border-color: var(--white-color);
   }
   var( --white-color) .textInput input::placeholder {
     color: var(--white-color);
@@ -69,16 +79,6 @@ export const StyledSignForm = styled.div`
   select:-webkit-autofill {
     box-shadow: 0 0 0 1000px transparent inset;
     transition: background-color 5000s ease-in-out 0s;
-    -webkit-text-fill-color: white;
-  }
-
-  .redirectLink {
-    display: block;
-    font-size: 14px;
-    color: var(--white-color);
-    font-weight: 600;
-    width: 400px;
-    text-align: center;
-    padding: 18px, 0px;
+    -webkit-text-fill-color: var(--white-color);
   }
 `;

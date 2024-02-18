@@ -1,7 +1,14 @@
 import React from 'react';
 import { StyledSignForm } from './Styled';
 
-const Button = ({ margin, backgroundColor, color, width, title, type }) => {
+const UniversalBtn = ({
+  margin,
+  backgroundColor,
+  color,
+  width,
+  title,
+  type,
+}) => {
   return (
     <StyledSignForm
       backgroundColor={backgroundColor}
@@ -16,4 +23,4 @@ const Button = ({ margin, backgroundColor, color, width, title, type }) => {
   );
 };
 
-export default Button;
+export default UniversalBtn;
