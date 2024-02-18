@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { StyledButton } from './StyledButton.styled';
 
 export const Button = ({
@@ -21,6 +21,7 @@ export const Button = ({
     addToFavorite,
     seeRecipe,
     subscribe,
+    active
   });
   const onClickAction = (e) => {
     if (disabled) {
@@ -36,7 +37,7 @@ export const Button = ({
     <ButtonTag
       className={buttonClasses}
       onClick={onClickAction}
-      active={active}
+      // active={active}
       disabled={disabled}
       {...otherProps}
     >
@@ -45,23 +46,25 @@ export const Button = ({
   );
 };
 
-Button.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node.isRequired,
-  disabled: PropTypes.bool,
-  active: PropTypes.bool,
-  onClick: PropTypes.func,
-  addToFavorite: PropTypes.bool,
-  seeRecipe:PropTypes.bool,
-  subscribe:PropTypes.bool,
-};
+// Button.propTypes = {
+//   className: PropTypes.string,
+//   children: PropTypes.node.isRequired,
+//   disabled: PropTypes.bool,
+//   active: PropTypes.bool,
+//   onClick: PropTypes.func,
+//   addRecipe: PropTypes.bool,
+//   addToFavorite: PropTypes.bool,
+//   seeRecipe:PropTypes.bool,
+//   subscribe:PropTypes.bool,
+// };
 
-Button.defaultProps = {
-  className: '',
-  disabled: false,
-  active: false,
-  addToFavorite: false,
-  seeRecipe: false,
-  subscribe: false,
-  onClick: () => {},
-};
+// Button.defaultProps = {
+//   className: '',
+//   disabled: false,
+//   active: false,
+//   addRecipe: false,
+//   addToFavorite: false,
+//   seeRecipe: false,
+//   subscribe: false,
+//   onClick: () => {},
+// };

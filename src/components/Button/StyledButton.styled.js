@@ -3,6 +3,8 @@ import styled from 'styled-components';
 export const StyledButton = styled.button`
   display: flex;
   text-align: center;
+  align-items: center;
+  justify-content: center;
   border: none;
   height: 54px;
   border-radius: 42px;
@@ -73,7 +75,7 @@ export const StyledButton = styled.button`
     width: 309px;
     height: 56px;
     color: #f3f3f3;
-    background-color: #161f37;
+    background-color:#0A0A11;
     border-radius: 200px;
     opacity: 0.2;
     border: 1px solid rgb(243, 243, 243);
