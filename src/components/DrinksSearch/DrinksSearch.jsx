@@ -9,7 +9,7 @@ import ingredientsData from '../../helpers/Data/ingredients.json';
 const options = ingredientsData.map((ingredient) => ingredient.title);
 // ============
 
-const DrinksSearch = () => {
+const DrinksSearch = ({ handleChangeFilter }) => {
   return (
     // !isLoading && (
     <Wrapper>
@@ -18,7 +18,7 @@ const DrinksSearch = () => {
         type="text"
         placeholder="Enter the text"
         // value={filter}
-        // onChange={handleChangeFilter}
+        onChange={handleChangeFilter}
         debounceTimeout={1000}
       />
       <Selection
