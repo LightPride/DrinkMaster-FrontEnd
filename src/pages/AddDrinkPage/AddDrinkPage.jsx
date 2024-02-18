@@ -22,7 +22,7 @@ const AddDrinkPage = () => {
             <FollowUs />
           </div>
           <div>
-            <SubTitle mb="28px">Popular Drinks1</SubTitle>
+            <SubTitle mb="28px">Popular Drinks</SubTitle>
             <PopularDrinks />
           </div>
         </SubContainer>

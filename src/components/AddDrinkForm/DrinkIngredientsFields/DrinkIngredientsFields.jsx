@@ -1,3 +1,19 @@
+import {
+  SubtitleForm,
+  Wrapper,
+  InputsField,
+} from './DrinkIngredientsFields.styled';
+
 export const DrinkIngredientsFields = () => {
-  return <p>test DrinkIngredientsFields</p>;
+  return (
+    <Wrapper>
+      <SubtitleForm>Ingredients</SubtitleForm>
+
+      <InputsField>
+        <input type="text" />
+        <input type="text" />
+        <input type="text" />
+      </InputsField>
+    </Wrapper>
+  );
 };

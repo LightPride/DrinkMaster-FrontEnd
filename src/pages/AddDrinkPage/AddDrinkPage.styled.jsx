@@ -6,7 +6,6 @@ export const Wrapper = styled.div`
   gap: 40px;
   padding-top: 80px;
   padding-bottom: 80px;
-  background-color: #49555f;
 
   @media screen and (min-width: 768px) {
     padding-top: 140px;
