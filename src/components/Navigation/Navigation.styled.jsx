@@ -1,13 +1,11 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const NavigationWrap = styled.nav`
   display: inline-flex;
-
   align-items: center;
   gap: 16px;
-
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     flex-direction: row;
     margin-left: 224px;
     margin-right: 191px;
@@ -15,22 +13,24 @@ export const NavigationWrap = styled.nav`
 `;
 
 export const StyledNavigationLink = styled(NavLink)`
-  color: #f3f3f3;
-  background: #0a0a11;
-  border: 1px solid rgba(243, 243, 243, 0.2);
+  font-family: 'Manrope-500';
+  color: var(--white-color);
   font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
-  padding: 8px 16px;
+  line-height: 143%;
+  border: 1px solid var(--white-twenty-color);
   border-radius: 40px;
-  transition: background 0.25s;
-  /* overflow: hidden; */
-  &:hover {
-    background: rgba(243, 243, 243, 0.8);
-    color: #0a0a11;
+  background: var(--black-color);
+  padding: 8px 16px;
+  transition: all 0.25s ease-in-out;
+
+  &:hover,
+  &:focus {
+    color: var(--black-color);
+    background: var(--white-color);
   }
   &.active {
-    background: #161f37;
-    color: rgba(243, 243, 243, 0.8);
+    border-color: var(--dark-blue-color);
+    background: var(--dark-blue-color);
+    color: var(--white-color);
   }
 `;
