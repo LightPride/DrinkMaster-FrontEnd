@@ -1,19 +1,23 @@
 import React, { useState } from 'react';
 import { StyledSignForm } from './Styled';
 import { useForm, Controller } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import { loginThunk } from '../../redux/auth/auth.reducer';
+import { useDispatch } from 'react-redux';
+import UniversalBtn from './UniversalBtn';
 
 import FormControl from '@mui/material/FormControl';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { InputLabel, OutlinedInput, TextField } from '@mui/material';
-
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
-import { loginThunk } from '../../redux/auth/auth.reducer';
-import { useDispatch } from 'react-redux';
-import UniversalBtn from './UniversalBtn';
+import {
+  FormHelperText,
+  InputLabel,
+  OutlinedInput,
+  TextField,
+} from '@mui/material';
 
 const schema = yup.object({
   email: yup
@@ -80,13 +84,21 @@ const SignInForm = () => {
           name="password"
           defaultValue=""
           render={({ field }) => (
-            <FormControl variant="outlined" required className="textInput">
+            <FormControl
+              variant="outlined"
+              required
+              fullWidth
+              className="textInput"
+              error={!!errors?.password}
+            >
               <InputLabel htmlFor="outlined-adornment-password">
                 Password
               </InputLabel>
               <OutlinedInput
+                className="textInput"
                 id="outlined-adornment-password"
                 type={showPassword ? 'text' : 'password'}
+                {...field}
                 endAdornment={
                   <InputAdornment position="end">
                     <IconButton
@@ -101,10 +113,10 @@ const SignInForm = () => {
                   </InputAdornment>
                 }
                 label="Password"
-                error={!!errors.password?.message}
-                helperText={errors.password?.message}
-                {...field}
               />
+              {errors?.password && (
+                <FormHelperText>{errors.password.message}</FormHelperText>
+              )}
             </FormControl>
           )}
         />
@@ -115,10 +127,10 @@ const SignInForm = () => {
           title={'Sign In'}
           width={'400px'}
           color={'var(--dark-blue-color)'}
-          backgroundColor={'var(--white-color)'}
-          borderHover={'var(--white-fifty-color)'}
-          backgroundColorHover={'transparent'}
-          colorHover={'var(--white-color)'}
+          backgroundcolor={'var(--white-color)'}
+          borderhover={'var(--white-fifty-color)'}
+          backgroundcolorhover={'transparent'}
+          colorhover={'var(--white-color)'}
         />
       </form>
     </StyledSignForm>

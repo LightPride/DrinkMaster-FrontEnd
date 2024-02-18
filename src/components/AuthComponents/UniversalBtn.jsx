@@ -3,24 +3,24 @@ import { StyledSignForm } from './Styled';
 
 const UniversalBtn = ({
   margin,
-  backgroundColor,
+  backgroundcolor,
   color,
   width,
   title,
   type,
-  backgroundColorHover,
-  colorHover,
-  borderHover,
+  backgroundcolorhover,
+  colorhover,
+  borderhover,
 }) => {
   return (
     <StyledSignForm
-      backgroundColor={backgroundColor}
+      backgroundcolor={backgroundcolor}
       color={color}
       width={width}
       margin={margin}
-      backgroundColorHover={backgroundColorHover}
-      colorHover={colorHover}
-      borderHover={borderHover}
+      backgroundcolorhover={backgroundcolorhover}
+      colorhover={colorhover}
+      borderhover={borderhover}
     >
       <button className="universalBtn" type={type}>
         {title}

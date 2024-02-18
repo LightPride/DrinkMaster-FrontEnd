@@ -1,12 +1,12 @@
-import { Container, Title, StyledImage } from './WelcomePage.styled';
-import example from '../../assets/example.png';
+import React from 'react';
+import WelcomeLayout from '../../components/Layout/WelcomeLayout/WelcomeLayout';
+import TitleForm from '../../components/AuthComponents/TitleForm';
 
 const WelcomePage = () => {
   return (
-    <Container>
-      <Title>Welcome Page</Title>
-      <StyledImage src={example} alt="Example" />
-    </Container>
+    <WelcomeLayout>
+      <TitleForm title={'Welcome to the app!'} />
+    </WelcomeLayout>
   );
 };
 
