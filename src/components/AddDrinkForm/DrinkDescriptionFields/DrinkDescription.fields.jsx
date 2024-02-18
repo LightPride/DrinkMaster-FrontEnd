@@ -1,3 +1,6 @@
+import React from 'react';
+import Select from 'react-select';
+
 import {
   AddImageField,
   Wrapper,
@@ -14,8 +17,20 @@ export const DrinkDescriptionFields = () => {
         <InputsDescrField>
           <input type="text" name="itemTitle" />
           <input type="text" name="aboutRecipe" />
-          <select name="category"></select>
-          <select name="glass"></select>
+          <Select
+            name="category"
+            options={[
+              { value: 'raz', label: 'raz' },
+              { value: 'dwa', label: 'dwa' },
+            ]}
+          ></Select>
+          <Select
+            name="glass"
+            options={[
+              { value: 'raz', label: 'raz' },
+              { value: 'dwa', label: 'dwa' },
+            ]}
+          ></Select>
         </InputsDescrField>
         <DivAlcoholic>
           <input type="radio" />
