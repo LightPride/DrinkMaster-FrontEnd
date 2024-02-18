@@ -60,7 +60,7 @@ export const IngredientTitle = styled.p`
 
 export const IngredientMeasure = styled.p`
   margin-bottom: 0;
-  color: ${({ theme }) => theme.subTitleText};
+  color: var(--white-fifty-color);
   font-size: 14px;
   line-height: 1.29;
   text-align: end;
