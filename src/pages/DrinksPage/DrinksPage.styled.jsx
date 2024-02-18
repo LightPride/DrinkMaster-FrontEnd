@@ -16,3 +16,8 @@
 //     0 0 40px #00baff,
 //     0 0 80px #00baff;
 // `;
+import styled from 'styled-components';
+
+export const ErrorMessage = styled.p`
+  color: var(--white-color);
+`;
