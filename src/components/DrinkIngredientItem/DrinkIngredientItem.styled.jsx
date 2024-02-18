@@ -19,6 +19,8 @@ export const IngredientDescription = styled.div`
 
 export const IngredientPhoto = styled.img`
   width: 100%;
+  width: 157px;
+  height: 157px;
   /* border: 1px solid red; */
 
   @media screen and (min-width: 768px) {

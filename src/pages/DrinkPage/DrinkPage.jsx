@@ -4,6 +4,7 @@ import DrinkIngredientsList from '../../components/DrinkIngredientList/DrinkIngr
 import RecipePreparation from '../../components/RecipePreparation/RecipePreparation';
 
 import recipes from '../../helpers/data/recipes.json';
+// import ingredients from '../../helpers/data/ingredients.json';
 
 const DrinkPage = () => {
   return (
