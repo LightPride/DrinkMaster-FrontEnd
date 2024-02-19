@@ -5,7 +5,7 @@ import { StyleSheetManager } from 'styled-components';
 const WelcomeLayout = ({ children }) => {
   return (
     <StyleSheetManager shouldForwardProp={(prop) => prop !== 'backgroundcolor'}>
-      <StyledWelcomeLayout>{children}</StyledWelcomeLayout>;
+      <StyledWelcomeLayout>{children}</StyledWelcomeLayout>
     </StyleSheetManager>
   );
 };
