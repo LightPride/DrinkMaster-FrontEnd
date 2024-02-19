@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const NavigationWrap = styled.nav`
-  display: inline-flex;
+  display: flex;
   align-items: center;
+
   gap: 16px;
   @media screen and (min-width: 1280px) {
-    flex-direction: row;
     margin-left: 224px;
     margin-right: 191px;
   }

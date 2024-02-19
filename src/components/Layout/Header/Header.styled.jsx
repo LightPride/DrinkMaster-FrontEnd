@@ -1,19 +1,26 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
 export const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-
-  border-bottom: 1px solid rgba(243, 243, 243, 0.2);
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--white-twenty-color);
 
   @media screen and (min-width: 768px) {
-    padding: 23px 32px 32px;
+    padding-top: 22px;
+    padding-bottom: 22px;
   }
 
-  @media screen and (min-width: 1440px) {
-    padding-top: 28px;
-    padding-bottom: 28px;
-    align-items: center;
+  @media screen and (min-width: 1280px) {
+    padding-top: 22px;
+    padding-bottom: 22px;
   }
+`;
+
+export const HeaderWrapper = styled.div`
+  display: flex;
+  margin: auto;
+  justify-content: space-between;
 `;
