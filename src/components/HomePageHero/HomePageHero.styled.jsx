@@ -11,4 +11,3 @@ export const HomePageSubtitle = styled.p``;
 export const  HomePageImage = styled.img``;
 
 
-export const AddDrinkButton = styled.button``;

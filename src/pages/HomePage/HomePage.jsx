@@ -13,7 +13,6 @@ const HomePage = () => {
       imPath={recipes[0].drinkThumb}
       category={recipes[0].category}
       />
-      <HomePageHeroList/>
     </HomeContainer>
    </HomeWrapper>
   );

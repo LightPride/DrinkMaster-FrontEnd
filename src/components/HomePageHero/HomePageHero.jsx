@@ -1,6 +1,6 @@
+import { Button } from '../Button/Button';
 import PageTitle from '../PageTitle/PageTitle';
 import {
-  AddDrinkButton,
   HomePageHeroWrapper,
   HomePageSubtitle,
   HomePageTextWrapper,
@@ -8,25 +8,28 @@ import {
   HomePageImage,
 } from './HomePageHero.styled';
 
+
 const HomePageHero = () => {
+    const handleClick = () => {
+        console.log('Button clicked');}
   return (
-    <>
+
       <HomePageHeroWrapper>
         <HomePageTextWrapper>
           <PageTitle>Craft Your Perfect Drink with Drink Master</PageTitle>
           <HomePageSubtitle>
             Unlock your inner mixologist with Drink Master, your one-stop
-            destination for exploring, crafting, and mastering the world`s
+            destination for exploring, crafting, and mastering the worlds
             finest beverages.
           </HomePageSubtitle>
-          <AddDrinkButton>Add drink</AddDrinkButton>
+         <Button addRecipe onClick={handleClick}>Add drinks</Button>
         </HomePageTextWrapper>
-        
-        <HomePageImageWrapper>
+
+        {/* <HomePageImageWrapper>
           <HomePageImage />
-        </HomePageImageWrapper>
+        </HomePageImageWrapper> */}
       </HomePageHeroWrapper>
-    </>
+    
   );
 };
 
