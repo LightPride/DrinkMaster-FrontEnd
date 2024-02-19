@@ -3,48 +3,13 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import { NavLink } from 'react-router-dom';
 
 export const StyledSignForm = styled.div`
-  .universalBtn {
-    background-color: ${(props) => props.backgroundcolor};
-    color: ${(props) => props.color};
-    width: ${(props) => props.width};
-    padding: 18px 0px;
-    border-radius: 40px;
-    font-size: 16px;
-    font-weight: 600;
-    border: 1px solid ${(props) => props.backgroundcolor};
-    margin-bottom: ${(props) => props.margin};
-  }
-
-  .universalBtn:hover,
-  .universalBtn:focus {
-    background-color: ${(props) => props.backgroundcolorhover};
-    border: 1px solid ${(props) => props.bordercover};
-    color: ${(props) => props.colorhover};
-  }
-
   .welcomeDescription {
     font-size: 14px;
     font-weight: 400;
     color: var(--white-color);
-  }
-
-  .formTitleSign {
-    font-weight: 600;
-    font-size: 40px;
-    margin-bottom: 28px;
-    color: var(--white-color);
-  }
-
-  .redirectLink {
-    display: block;
-    font-size: 14px;
-    color: var(--white-color);
-    font-weight: 600;
-    width: 400px;
-    text-align: center;
-    padding: 18px, 0px;
   }
 
   .inputContainer {
@@ -93,5 +58,49 @@ export const StyledSignForm = styled.div`
     box-shadow: 0 0 0 1000px transparent inset;
     transition: background-color 5000s ease-in-out 0s;
     -webkit-text-fill-color: var(--white-color);
+  }
+`;
+
+export const StyledWelcomeDescription = styled.p`
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--white-color);
+`;
+
+export const StyledRedirectLink = styled(NavLink)`
+  && {
+    display: block;
+    font-size: 14px;
+    color: var(--white-color);
+    font-weight: 600;
+    width: 400px;
+    text-align: center;
+    padding: 18px 0px;
+  }
+`;
+
+export const StyledTitle = styled.h1`
+  font-weight: 600;
+  font-size: 40px;
+  margin-bottom: ${(props) => props.margin};
+  color: var(--white-color);
+`;
+
+export const StyledUniversalBtn = styled.button`
+    background-color: ${(props) => props.backgroundcolor};
+    color: ${(props) => props.color};
+    width: ${(props) => props.width};
+    padding: 18px 0px;
+    border-radius: 40px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 1px solid ${(props) => props.backgroundcolor};
+  }
+
+  button:hover,
+  button:focus {
+    background-color: ${(props) => props.backgroundcolorhover};
+    border: 1px solid ${(props) => props.bordercover};
+    color: ${(props) => props.colorhover};
   }
 `;

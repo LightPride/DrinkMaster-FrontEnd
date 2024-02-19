@@ -7,7 +7,7 @@ import WelcomeDescription from '../../components/AuthComponents/WelcomeDescribti
 const WelcomePage = () => {
   return (
     <WelcomeLayout>
-      <TitleForm title={'Welcome to the app!'} />
+      <TitleForm margin={'14px'} title={'Welcome to the app!'} />
       <WelcomeDescription />
       <RedirectLink link={'/signup'} title={'Sign Up'} />
       <RedirectLink link={'/signin'} title={'Sign In'} />

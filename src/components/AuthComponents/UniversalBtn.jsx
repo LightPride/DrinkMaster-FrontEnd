@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledSignForm } from './Styled';
+import { StyledUniversalBtn } from './Styled';
 
 const UniversalBtn = ({
   margin,
@@ -13,7 +13,7 @@ const UniversalBtn = ({
   borderhover,
 }) => {
   return (
-    <StyledSignForm
+    <StyledUniversalBtn
       backgroundcolor={backgroundcolor}
       color={color}
       width={width}
@@ -21,11 +21,10 @@ const UniversalBtn = ({
       backgroundcolorhover={backgroundcolorhover}
       colorhover={colorhover}
       borderhover={borderhover}
+      type={type}
     >
-      <button className="universalBtn" type={type}>
-        {title}
-      </button>
-    </StyledSignForm>
+      {title}
+    </StyledUniversalBtn>
   );
 };
 

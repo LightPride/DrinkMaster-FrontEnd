@@ -7,7 +7,7 @@ import WelcomeLayout from '../../components/Layout/WelcomeLayout/WelcomeLayout';
 const SigninPage = () => {
   return (
     <WelcomeLayout>
-      <TitleForm title={'Sign In'} />
+      <TitleForm margin={'28px'} title={'Sign In'} />
       <SignInForm />
       <RedirectLink link={'/signup'} title={'Sign Up'} />
     </WelcomeLayout>
