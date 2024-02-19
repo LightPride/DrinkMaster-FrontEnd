@@ -1,12 +1,21 @@
-import { Container, Title } from './HomePage.styled';
-
+import { HomeContainer, HomeWrapper } from './HomePage.styled';
+import HomePageHero from '../../components/HomePageHero/HomePageHero';
+import HomePageHeroList from '../../components/HomePageHero/HomePageHero';
+import recipes from '../../helpers/data/recipes.json';
 
 const HomePage = () => {
   return (
-    <Container>
-      <Title>Home Page</Title>
-     
-    </Container>
+   <HomeWrapper>
+    <HomeContainer>
+      <HomePageHero
+      id ={recipes._id}
+      name ={recipes[0].drink}
+      imPath={recipes[0].drinkThumb}
+      category={recipes[0].category}
+      />
+      <HomePageHeroList/>
+    </HomeContainer>
+   </HomeWrapper>
   );
 };
 
