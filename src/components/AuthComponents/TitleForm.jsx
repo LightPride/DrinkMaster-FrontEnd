@@ -1,12 +1,8 @@
 import React from 'react';
-import { StyledSignForm } from './Styled';
+import { StyledTitle } from './Styled';
 
-const TitleForm = ({ title }) => {
-  return (
-    <StyledSignForm>
-      <h1 className="formTitleSign">{title}</h1>
-    </StyledSignForm>
-  );
+const TitleForm = ({ margin, title }) => {
+  return <StyledTitle margin={margin}>{title}</StyledTitle>;
 };
 
 export default TitleForm;

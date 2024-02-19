@@ -9,7 +9,12 @@ import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { InputLabel, OutlinedInput, TextField } from '@mui/material';
+import {
+  FormHelperText,
+  InputLabel,
+  OutlinedInput,
+  TextField,
+} from '@mui/material';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import { useDispatch } from 'react-redux';
 import { registerThunk } from '../../redux/auth/auth.reducer';
@@ -19,7 +24,7 @@ const schema = yup.object({
   name: yup.string().min(3, 'Please put down more than 3 letters!').required(),
   dateOfBirth: yup
     .string()
-    .matches(/^\d{4}-\d{2}-\d{2}$/, 'Date must to be as an example dd/mm/yyyy!')
+    .matches(/^\d{4}-\d{2}-\d{2}$/, 'Date must to be as an example yyyy-mm-dd!')
     .required(),
   email: yup
     .string()
@@ -84,11 +89,17 @@ const SignUpForm = () => {
           name="dateOfBirth"
           defaultValue=""
           render={({ field }) => (
-            <FormControl variant="outlined" required className="textInput">
+            <FormControl
+              variant="outlined"
+              required
+              className="textInput"
+              error={!!errors?.dateOfBirth}
+            >
               <InputLabel htmlFor="outlined-adornment-date">
                 yyyy-mm-dd
               </InputLabel>
               <OutlinedInput
+                className="textInput"
                 id="outlined-adornment-date"
                 endAdornment={
                   <InputAdornment position="end">
@@ -98,10 +109,11 @@ const SignUpForm = () => {
                   </InputAdornment>
                 }
                 label="dd/mm/yyyy"
-                error={!!errors.dateOfBirth?.message}
-                helperText={errors.dateOfBirth?.message}
                 {...field}
               />
+              {errors?.dateOfBirth && (
+                <FormHelperText>{errors.dateOfBirth.message}</FormHelperText>
+              )}
             </FormControl>
           )}
         />
@@ -128,13 +140,20 @@ const SignUpForm = () => {
           name="password"
           defaultValue=""
           render={({ field }) => (
-            <FormControl variant="outlined" required className="textInput">
+            <FormControl
+              variant="outlined"
+              required
+              className="textInput"
+              error={!!errors?.password}
+            >
               <InputLabel htmlFor="outlined-adornment-password">
                 Password
               </InputLabel>
               <OutlinedInput
+                className="textInput"
                 id="outlined-adornment-password"
                 type={showPassword ? 'text' : 'password'}
+                {...field}
                 endAdornment={
                   <InputAdornment position="end">
                     <IconButton
@@ -149,10 +168,10 @@ const SignUpForm = () => {
                   </InputAdornment>
                 }
                 label="Password"
-                error={!!errors.password?.message}
-                helperText={errors.password?.message}
-                {...field}
               />
+              {errors?.password && (
+                <FormHelperText>{errors.password.message}</FormHelperText>
+              )}
             </FormControl>
           )}
         />
@@ -161,11 +180,11 @@ const SignUpForm = () => {
           title={'Sign Up'}
           width={'400px'}
           color={'var(--dark-blue-color)'}
-          backgroundColor={'var(--white-color)'}
+          backgroundcolor={'var(--white-color)'}
           margin={'14px'}
-          borderHover={'var(--white-fifty-color)'}
-          backgroundColorHover={'transparent'}
-          colorHover={'var(--white-color)'}
+          borderhover={'var(--white-fifty-color)'}
+          backgroundcolorhover={'transparent'}
+          colorhover={'var(--white-color)'}
         />
       </form>
     </StyledSignForm>
