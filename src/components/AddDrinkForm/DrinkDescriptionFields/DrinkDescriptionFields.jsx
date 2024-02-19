@@ -28,14 +28,12 @@ export const DrinkDescriptionFields = ({ categories, servings }) => {
             >
               <path
                 d="M14.5 5.8335V22.1668"
-                // stroke="#161F37"
                 strokeWidth="1.8"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
               <path
                 d="M6.33203 14H22.6654"
-                // stroke="#161F37"
                 strokeWidth="1.8"
                 strokeLinecap="round"
                 strokeLinejoin="round"
