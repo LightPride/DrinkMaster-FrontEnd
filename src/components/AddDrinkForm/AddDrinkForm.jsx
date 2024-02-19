@@ -1,5 +1,5 @@
 import { Wrapper } from './AddDrinkForm.styled';
-import { DrinkDescriptionFields } from './DrinkDescriptionFields/DrinkDescription.fields';
+import { DrinkDescriptionFields } from './DrinkDescriptionFields/DrinkDescriptionFields';
 import { DrinkIngredientsFields } from './DrinkIngredientsFields/DrinkIngredientsFields';
 import { RecipePreparation } from './RecipePreparation/RecipePreparation';
 
