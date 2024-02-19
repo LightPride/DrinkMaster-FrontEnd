@@ -1,13 +1,12 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import { StyledSignForm } from './Styled';
+import { StyledRedirectLink } from './Styled';
 
 const RedirectLink = ({ link, title }) => {
   return (
     <StyledSignForm>
-      <NavLink className="redirectLink" to={link}>
-        {title}
-      </NavLink>
+      <StyledRedirectLink to={link}>{title}</StyledRedirectLink>
     </StyledSignForm>
   );
 };

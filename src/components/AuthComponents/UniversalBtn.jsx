@@ -1,31 +1,30 @@
 import React from 'react';
-import { StyledSignForm } from './Styled';
+import { StyledUniversalBtn } from './Styled';
 
 const UniversalBtn = ({
   margin,
-  backgroundColor,
+  backgroundcolor,
   color,
   width,
   title,
   type,
-  backgroundColorHover,
-  colorHover,
-  borderHover,
+  backgroundcolorhover,
+  colorhover,
+  borderhover,
 }) => {
   return (
-    <StyledSignForm
-      backgroundColor={backgroundColor}
+    <StyledUniversalBtn
+      backgroundcolor={backgroundcolor}
       color={color}
       width={width}
       margin={margin}
-      backgroundColorHover={backgroundColorHover}
-      colorHover={colorHover}
-      borderHover={borderHover}
+      backgroundcolorhover={backgroundcolorhover}
+      colorhover={colorhover}
+      borderhover={borderhover}
+      type={type}
     >
-      <button className="universalBtn" type={type}>
-        {title}
-      </button>
-    </StyledSignForm>
+      {title}
+    </StyledUniversalBtn>
   );
 };
 
