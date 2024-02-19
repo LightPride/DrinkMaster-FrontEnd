@@ -88,6 +88,7 @@ export const SubWrapper = styled.div`
     width: 200px;
     height: 50px;
     margin-right: 8px;
+
     @media screen and (min-width: 768px) {
       width: 332px;
       height: 56px;
@@ -105,6 +106,16 @@ export const SubWrapper = styled.div`
     height: 50px;
     margin-right: 8px;
     color: #f3f3f3;
+    padding-left: 24px;
+    padding-right: 12px;
+
+    &::placeholder {
+      color: #f3f3f3;
+    }
+
+    &:hover {
+      border: 1px solid rgba(243, 243, 243, 0.918);
+    }
     @media screen and (min-width: 768px) {
       width: 150px;
       height: 56px;

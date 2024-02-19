@@ -32,6 +32,9 @@ export const InputField = styled.textarea`
   color: #f3f3f3;
   height: 184px;
   resize: none;
+  &:hover {
+    border: 1px solid rgba(243, 243, 243, 0.918);
+  }
   @media screen and (min-width: 768px) {
     width: 480px;
   }
