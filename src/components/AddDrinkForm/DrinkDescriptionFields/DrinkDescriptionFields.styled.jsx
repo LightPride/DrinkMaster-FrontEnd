@@ -237,17 +237,7 @@ export const customStylesSelect = {
       fontSize: '14px',
       lineHeight: 'calc(18 / 14)',
     },
-    color: isFocused
-      ? theme === 'dark'
-        ? '#f3f3f375'
-        : '#0A0A1175'
-      : isSelected
-      ? theme === 'dark'
-        ? '#f3f3f3'
-        : '#0A0A11'
-      : theme === 'dark'
-      ? '#f3f3f340'
-      : '#0A0A1140',
+    color: isFocused ? '#f3f3f375' : isSelected ? '#f3f3f3' : '#f3f3f340',
     cursor: 'pointer',
   }),
 };
@@ -272,6 +262,26 @@ export const DivAlcoholic = styled.div`
       height: 23px;
     }
   }
+
+  .styledRadio {
+    appearance: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f350;
+    margin-right: 4px;
+    margin-left: 0;
+    position: relative;
+    top: 3px;
+    @media only screen and (min-width: 768px) {
+      width: 18px;
+      height: 18px;
+    }
+  }
+  .styledRadio:checked {
+    border: 3px solid #ffffff;
+    background-color: #f3f3f3;
+  }
 `;
 
 export const LabelAlcoholic = styled.label`
@@ -281,20 +291,4 @@ export const LabelAlcoholic = styled.label`
 export const LabelNonAlcoholic = styled.label`
   opacity: 1;
   cursor: pointer;
-`;
-
-export const RadioInput = styled.input`
-  appearance: none;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  border: 3px solid #f3f3f350;
-  margin-right: 4px;
-  margin-left: 0;
-  position: relative;
-  top: 3px;
-  @media only screen and (min-width: 768px) {
-    width: 18px;
-    height: 18px;
-  }
 `;
