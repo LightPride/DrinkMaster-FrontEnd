@@ -10,7 +10,7 @@ import {
   addDrinkToFavorite,
   removeDrink,
   getFavoriteAll,
-} from './drinks-operations';
+} from './drinks.operations.js';
 
 const initialState = {
   searchQuery: '',
