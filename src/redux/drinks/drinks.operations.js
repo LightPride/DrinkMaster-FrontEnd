@@ -91,11 +91,13 @@ export const removeOwnDrink = createAsyncThunk(
 );
 
 export const getOwnDrinks = createAsyncThunk(
-  'drinks/own/all',
-  async ({ page, limit }, thunkAPI) => {
+  'drinks/own',
+  async (_, thunkAPI) => {
+    // async ({ page, limit }, thunkAPI) => {
     try {
       const res = await axios.get(
-        `/drinks/own/all?page=${page}&limit=${limit}`
+        `/drinks/own`
+        // `/drinks/own/all?page=${page}&limit=${limit}`
       );
       return res.data;
     } catch (error) {
@@ -105,11 +107,14 @@ export const getOwnDrinks = createAsyncThunk(
 );
 
 export const addDrinkToFavorite = createAsyncThunk(
-  'drinks/favorite/add/:id',
-  async (drinkId, thunkAPI) => {
+  'drinks/favorite/add',
+  // 'drinks/favorite/add/:id',
+  async (_, thunkAPI) => {
+    // async (drinkId, thunkAPI) => {
     try {
-      const res = await axios.post(`/drinks/favorite/add/${drinkId}`);
-      return res;
+      const res = await axios.post(`/drinks/favorite/add`);
+      // const res = await axios.post('drinks/favorite/add/:id');
+      return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -129,11 +134,13 @@ export const removeDrink = createAsyncThunk(
 );
 
 export const getFavoriteAll = createAsyncThunk(
-  'drinks/favorite/all',
-  async ({ page, limit }, thunkAPI) => {
+  'drinks/favorite',
+  async (_, thunkAPI) => {
+    // async ({ page, limit }, thunkAPI) => {
     try {
       const res = await axios.get(
-        `/drinks/favorite/all?page=${page}&limit=${limit}`
+        `/drinks/favorite`
+        // `/drinks/favorite/all?page=${page}&limit=${limit}`
       );
       return res.data;
     } catch (error) {
