@@ -1,4 +1,6 @@
 import React from 'react';
+import { FieldArray, Field, ErrorMessage } from 'formik';
+import Select from 'react-select';
 
 import {
   AddImageField,
@@ -16,7 +18,7 @@ import {
   RadioInput,
 } from './DrinkDescriptionFields.styled';
 
-export const DrinkDescriptionFields = () => {
+export const DrinkDescriptionFields = ({ categories, servings }) => {
   return (
     <Wrapper>
       <AddImageField>
@@ -44,36 +46,39 @@ export const DrinkDescriptionFields = () => {
                 strokeLinejoin="round"
               />
             </svg>
-            <HiddenInputAdd type="file" name="drinkThumb" accept="image/*" />
+            <Field
+              style={{ display: 'none' }}
+              type="file"
+              name="drinkThumb"
+              accept="image/*"
+            />
           </LabelAdd>
           <p>Add Image</p>
         </WrapperAddDiv>
       </AddImageField>
       <DescrField>
         <InputsDescrField>
-          <div>
-            <InputText
+          <div className="styledDivInput">
+            <Field
+              className="styledInputText"
               placeholder="Enter item title"
-              name="itemTitle"
-              required
-              title="Write drink description"
+              name="name"
             />
           </div>
-          <div>
-            <InputText
-              placeholder="Enter about recipe"
-              name="aboutReciepe"
-              required
-              title="Write about drink recipe"
+          <div className="styledDivInput">
+            <Field
+              className="styledInputText"
+              placeholder="Enter item title"
+              name="description"
             />
           </div>
-          <div>
+          <div className="styledDivInput">
             <LabelSelect>
               <p>Category</p>
               <select name="" id=""></select>
             </LabelSelect>
           </div>
-          <div>
+          <div className="styledDivInput">
             <LabelSelect>
               <p>Glass</p>
               <select name="" id=""></select>

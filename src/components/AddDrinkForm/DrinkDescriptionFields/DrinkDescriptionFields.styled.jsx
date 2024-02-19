@@ -93,12 +93,27 @@ export const InputsDescrField = styled.div`
     gap: 40px;
     width: 393px;
   }
-  div {
+  .styledDivInput {
     height: 34px;
     width: 100%;
     border-bottom: 1px solid rgba(243, 243, 243, 0.5);
     @media screen and (min-width: 768px) {
       height: 41px;
+    }
+  }
+  .styledInputText {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: -0.02em;
+    color: #f3f3f3;
+    width: 100%;
+    height: 90%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    @media screen and (min-width: 768px) {
+      font-size: 16px;
     }
   }
 `;
