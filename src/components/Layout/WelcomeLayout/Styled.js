@@ -13,11 +13,16 @@ export const StyledWelcomeLayout = styled.div`
   background-image: url(${dobleCircle}), url(${circle}), url(${bgMobile});
   background-repeat: no-repeat, no-repeat, no-repeat;
   background-position:
-    bottom 20px right -140px,
-    top 350px left,
+    top -200px right,
+    bottom -300px left 300px,
     center right -300px;
-  max-width: 375px;
-  height: 600px;
+  background-size:
+    auto auto,
+    auto auto,
+    auto 100%;
+  padding: 0 20px;
+  max-width: 100vw;
+  height: 100vh;
   color: var(--start-page-txt-color);
 
   @media screen and (min-width: 768px) {
@@ -29,8 +34,7 @@ export const StyledWelcomeLayout = styled.div`
       top -300px left -500px,
       bottom -200px right -600px,
       center right -250px;
-    max-width: 768px;
-    height: 1020px;
+    padding: 0 32px;
   }
   @media screen and (min-width: 1440px) {
     background-image: url(${dobleCircle}), url(${circle}), url(${bgDesktop});
@@ -38,7 +42,6 @@ export const StyledWelcomeLayout = styled.div`
       top -300px left -500px,
       bottom -400px right -500px,
       center right;
-    max-width: 1440px;
-    height: 770px;
+    padding: 0 100px;
   }
 `;
