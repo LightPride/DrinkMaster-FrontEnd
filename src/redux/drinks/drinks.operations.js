@@ -95,10 +95,8 @@ export const getOwnDrinks = createAsyncThunk(
   async (_, thunkAPI) => {
     // async ({ page, limit }, thunkAPI) => {
     try {
-      const res = await axios.get(
-        `/drinks/own`
-        // `/drinks/own/all?page=${page}&limit=${limit}`
-      );
+      const res = await axios.get(`/drinks/own`);
+      // `/drinks/own/all?page=${page}&limit=${limit}`);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -138,10 +136,8 @@ export const getFavoriteAll = createAsyncThunk(
   async (_, thunkAPI) => {
     // async ({ page, limit }, thunkAPI) => {
     try {
-      const res = await axios.get(
-        `/drinks/favorite`
-        // `/drinks/favorite/all?page=${page}&limit=${limit}`
-      );
+      const res = await axios.get(`/drinks/favorite`);
+      // `/drinks/favorite/all?page=${page}&limit=${limit}`);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
