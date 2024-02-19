@@ -1,4 +1,4 @@
-import{u as i,j as e}from"./index-893b7255.js";import{P as p}from"./PageTitle-875eebe2.js";const l=i.div`
+import{u as i,j as e}from"./index-fb86a73e.js";import{P as p}from"./PageTitle-c34be937.js";const l=i.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
