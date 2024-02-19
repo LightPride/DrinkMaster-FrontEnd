@@ -8,14 +8,12 @@ import {
   InputsDescrField,
   DescrField,
   DivAlcoholic,
-  InputText,
   WrapperAddDiv,
-  HiddenInputAdd,
   LabelAdd,
-  LabelSelect,
   LabelAlcoholic,
   LabelNonAlcoholic,
   RadioInput,
+  customStylesSelect,
 } from './DrinkDescriptionFields.styled';
 
 export const DrinkDescriptionFields = ({ categories, servings }) => {
@@ -73,16 +71,26 @@ export const DrinkDescriptionFields = ({ categories, servings }) => {
             />
           </div>
           <div className="styledDivInput">
-            <LabelSelect>
-              <p>Category</p>
-              <select name="" id=""></select>
-            </LabelSelect>
+            <label className="labelSelect">
+              <p className="labelTitle">Category</p>
+              <Select
+                className="selectStyled"
+                name="category"
+                options={categories}
+                styles={customStylesSelect}
+              />
+            </label>
           </div>
           <div className="styledDivInput">
-            <LabelSelect>
-              <p>Glass</p>
-              <select name="" id=""></select>
-            </LabelSelect>
+            <label className="labelSelect">
+              <p className="labelTitle">Glass</p>
+              <Select
+                className="selectStyled"
+                name="serving"
+                options={servings}
+                styles={customStylesSelect}
+              />
+            </label>
           </div>
         </InputsDescrField>
         <DivAlcoholic>

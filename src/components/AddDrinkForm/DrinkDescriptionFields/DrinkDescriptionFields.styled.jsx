@@ -100,6 +100,10 @@ export const InputsDescrField = styled.div`
     @media screen and (min-width: 768px) {
       height: 41px;
     }
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      border-bottom: 1px solid #f3f3f3;
+    }
   }
   .styledInputText {
     font-family: 'Manrope', sans-serif;
@@ -116,7 +120,139 @@ export const InputsDescrField = styled.div`
       font-size: 16px;
     }
   }
+  .styledInputText::placeholder {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: -0.02em;
+    color: #f3f3f3;
+    opacity: 0.5;
+    @media screen and (min-width: 768px) {
+      font-size: 16px;
+    }
+  }
+
+  .labelSelect {
+    height: 90%;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+
+  .labelTitle {
+    display: flex;
+    align-items: center;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: -0.02em;
+    color: #f3f3f3;
+    opacity: 0.5;
+    @media screen and (min-width: 768px) {
+      font-size: 16px;
+    }
+  }
+  .selectStyled {
+    display: flex;
+    align-items: center;
+    font-family: 'Manrope', sans-serif;
+    position: relative;
+  }
 `;
+
+////////////////////////////////
+
+export const customStylesSelect = {
+  dropdownIndicator: (provided, state) => ({
+    ...provided,
+    transform: state.selectProps.menuIsOpen && 'rotate(180deg)',
+  }),
+  control: (provided, { isFocused }) => ({
+    ...provided,
+    top: '-6px',
+    minHeight: '22px',
+    height: '22px',
+    background: 'inherit',
+    border: isFocused ? 'none' : 'none',
+    fontSize: '14px',
+    boxShadow: 'none',
+    cursor: 'pointer',
+  }),
+
+  placeholder: (provided, { isFocused }) => ({
+    ...provided,
+    fontSize: '14px',
+    boxShadow: 'none',
+    cursor: 'pointer',
+    color: '#f3f3f3',
+    display: 'flex',
+    alignItems: 'center',
+    fontWeight: '400',
+    fontSize: '14px',
+    '@media only screen and (min-width: 768px)': {
+      ...provided['@media only screen and (min-width: 768px)'],
+      fontSize: '16px',
+    },
+  }),
+
+  menu: (base) => ({
+    ...base,
+    position: 'absolute',
+    width: '131px',
+    right: '0px',
+    '@media only screen and (min-width: 768px)': {
+      ...base['@media only screen and (min-width: 768px)'],
+      padding: '4px',
+      width: '139px',
+      right: '-10%',
+      '@media only screen and (min-width: 1440px)': {
+        ...base['@media only screen and (min-width: 1440px)'],
+        width: '154px',
+        right: '-0%',
+      },
+    },
+    backgroundColor: '#161F37',
+    borderRadius: '12px',
+  }),
+  indicatorSeparator: (base) => ({
+    ...base,
+    display: 'none',
+  }),
+  valueContainer: (base) => ({
+    ...base,
+    padding: 0,
+  }),
+  singleValue: (base) => ({
+    ...base,
+    color: '#f3f3f3',
+  }),
+  option: (styles, { isFocused, isSelected }) => ({
+    ...styles,
+    padding: '3px 0 3px 10px',
+    fontSize: '12px',
+    lineHeight: 'calc(16 / 12)',
+    background: 'transparent',
+    '@media only screen and (min-width: 1440px)': {
+      ...styles['@media only screen and (min-width: 1440px)'],
+      fontSize: '14px',
+      lineHeight: 'calc(18 / 14)',
+    },
+    color: isFocused
+      ? theme === 'dark'
+        ? '#f3f3f375'
+        : '#0A0A1175'
+      : isSelected
+      ? theme === 'dark'
+        ? '#f3f3f3'
+        : '#0A0A11'
+      : theme === 'dark'
+      ? '#f3f3f340'
+      : '#0A0A1140',
+    cursor: 'pointer',
+  }),
+};
+
+// //////////////////////////////////
 
 export const DivAlcoholic = styled.div`
   display: flex;
@@ -138,46 +274,6 @@ export const DivAlcoholic = styled.div`
   }
 `;
 
-export const InputText = styled.input`
-  font-family: 'Manrope', sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  letter-spacing: -0.02em;
-  color: #f3f3f3;
-  width: 100%;
-  height: 90%;
-  background-color: transparent;
-  border: none;
-  outline: none;
-
-  @media screen and (min-width: 768px) {
-    font-size: 16px;
-  }
-`;
-
-////////////////////////////////
-// Selects
-export const LabelSelect = styled.label`
-  height: 90%;
-  display: flex;
-  justify-content: space-between;
-  cursor: pointer;
-  p {
-    display: flex;
-    align-items: center;
-    font-family: 'Manrope', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    letter-spacing: -0.02em;
-    color: #f3f3f3;
-    opacity: 0.5;
-    @media screen and (min-width: 768px) {
-      font-size: 16px;
-    }
-  }
-`;
-
-// //////////////////////////////////
 export const LabelAlcoholic = styled.label`
   opacity: 1;
   cursor: pointer;
