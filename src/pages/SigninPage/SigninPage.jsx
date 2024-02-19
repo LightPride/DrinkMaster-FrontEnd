@@ -1,16 +1,16 @@
 import React from 'react';
-import { StyledWelcomeLayout } from '../../components/Layout/WelcomeLayout/Styled';
 import TitleForm from '../../components/AuthComponents/TitleForm';
 import SignInForm from '../../components/AuthComponents/SignInForm';
 import RedirectLink from '../../components/AuthComponents/RedirectLink';
+import WelcomeLayout from '../../components/Layout/WelcomeLayout/WelcomeLayout';
 
 const SigninPage = () => {
   return (
-    <StyledWelcomeLayout>
-      <TitleForm title={'Sign In'} />
+    <WelcomeLayout>
+      <TitleForm margin={'28px'} title={'Sign In'} />
       <SignInForm />
       <RedirectLink link={'/signup'} title={'Sign Up'} />
-    </StyledWelcomeLayout>
+    </WelcomeLayout>
   );
 };
 
