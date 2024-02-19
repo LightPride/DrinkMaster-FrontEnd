@@ -1,70 +1,117 @@
-import styled from 'styled-components';
+import React from 'react';
+import { FieldArray, Field, ErrorMessage } from 'formik';
+import Select from 'react-select';
 
-export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  @media screen and (min-width: 768px) {
-    gap: 32px;
-    flex-direction: row;
-  }
-  @media screen and (min-width: 1440px) {
-    gap: 40px;
-  }
-`;
+import {
+  AddImageField,
+  Wrapper,
+  InputsDescrField,
+  DescrField,
+  DivAlcoholic,
+  WrapperAddDiv,
+  LabelAdd,
+  customStylesSelect,
+} from './DrinkDescriptionFields.styled';
 
-export const AddImageField = styled.div`
-  width: 100%;
-  height: 320px;
-  background: rgba(22, 31, 55, 0.5);
-  border-radius: 8px;
+export const DrinkDescriptionFields = ({ categories, servings }) => {
+  return (
+    <Wrapper>
+      <AddImageField>
+        <WrapperAddDiv>
+          <LabelAdd>
+            <svg
+              width="29"
+              height="28"
+              viewBox="0 0 29 28"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M14.5 5.8335V22.1668"
+                // stroke="#161F37"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M6.33203 14H22.6654"
+                // stroke="#161F37"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            <Field
+              style={{ display: 'none' }}
+              type="file"
+              name="drinkThumb"
+              accept="image/*"
+            />
+          </LabelAdd>
+          <p>Add Image</p>
+        </WrapperAddDiv>
+      </AddImageField>
+      <DescrField>
+        <InputsDescrField>
+          <div className="styledDivInput">
+            <Field
+              className="styledInputText"
+              placeholder="Enter item title"
+              name="name"
+            />
+          </div>
+          <div className="styledDivInput">
+            <Field
+              className="styledInputText"
+              placeholder="Enter item title"
+              name="description"
+            />
+          </div>
+          <div className="styledDivInput">
+            <label className="labelSelect">
+              <p className="labelTitle">Category</p>
+              <Select
+                className="selectStyled"
+                name="category"
+                options={categories}
+                styles={customStylesSelect}
+              />
+            </label>
+          </div>
+          <div className="styledDivInput">
+            <label className="labelSelect">
+              <p className="labelTitle">Glass</p>
+              <Select
+                className="selectStyled"
+                name="serving"
+                options={servings}
+                styles={customStylesSelect}
+              />
+            </label>
+          </div>
+        </InputsDescrField>
+        <DivAlcoholic>
+          <label className="radioLabel">
+            <Field
+              className="styledRadio"
+              type="radio"
+              name="alcoholic"
+              value="true"
+            />
+            <span className="styledSpan">Alcoholic</span>
+          </label>
 
-  @media screen and (min-width: 768px) {
-    width: 320px;
-  }
-  @media screen and (min-width: 1440px) {
-    width: 400px;
-    height: 400px;
-  }
-`;
-
-export const DescrField = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-`;
-
-export const InputsDescrField = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 31px;
-  @media screen and (min-width: 768px) {
-    width: 352px;
-  }
-  @media screen and (min-width: 1440px) {
-    gap: 40px;
-    width: 393px;
-  }
-  div {
-    background-color: #b6c9bf;
-    height: 34px;
-    width: 100%;
-    @media screen and (min-width: 768px) {
-      height: 41px;
-    }
-  }
-`;
-
-export const DivAlcoholic = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 14px;
-  div {
-    background-color: #ccddd5;
-    height: 19px;
-    @media screen and (min-width: 768px) {
-      height: 23px;
-    }
-  }
-`;
+          <label className="radioLabel">
+            <Field
+              className="styledRadio"
+              type="radio"
+              name="alcoholic"
+              value="false"
+            />
+            <span className="styledSpan">Non-alcoholic</span>
+          </label>
+        </DivAlcoholic>
+      </DescrField>
+    </Wrapper>
+  );
+};
