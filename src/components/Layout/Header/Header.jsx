@@ -3,6 +3,7 @@ import Logo from '../../Logo/Logo';
 import Navigation from '../../Navigation/Navigation';
 import { HeaderContainer } from './Header.styled';
 import { BurgerMenu } from './BurgerMenu/BurgerMenu';
+// import { Container } from '../Container/Container';
 
 export const Header = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
