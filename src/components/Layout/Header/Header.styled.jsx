@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   padding: 20px;
   border-bottom: 1px solid var(--white-twenty-color);
 
@@ -14,6 +14,11 @@ export const HeaderContainer = styled.header`
   @media screen and (min-width: 1280px) {
     padding-top: 28px;
     padding-bottom: 28px;
-    align-items: center;
   }
+`;
+
+export const HeaderWrapper = styled.div`
+  display: flex;
+  margin: auto;
+  justify-content: space-between;
 `;

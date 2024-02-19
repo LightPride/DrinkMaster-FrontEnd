@@ -28,5 +28,8 @@ export const MenuItems = styled.ul`
     @media screen and (max-width: 768px) {
       top: 83px;
   }
+  @media screen and (min-width: 1280px) {
+      top: 99px;
+  }
   `}
 `;

@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import Logo from '../../Logo/Logo';
 import Navigation from '../../Navigation/Navigation';
-import { HeaderContainer } from './Header.styled';
+import { HeaderContainer, HeaderWrapper } from './Header.styled';
 import { BurgerMenu } from './BurgerMenu/BurgerMenu';
-// import { Container } from '../Container/Container';
+import { Container } from '../Container/Container';
 
 export const Header = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -28,11 +28,15 @@ export const Header = () => {
 
   return (
     <HeaderContainer>
-      <Logo />
-      {windowWidth >= 1280 && <Navigation />}
-      {windowWidth < 1280 && (
-        <BurgerMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} />
-      )}
+      <Container>
+        <HeaderWrapper>
+          <Logo />
+          {windowWidth >= 1440 && <Navigation />}
+          {windowWidth < 1440 && (
+            <BurgerMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} />
+          )}
+        </HeaderWrapper>
+      </Container>
     </HeaderContainer>
   );
 };
