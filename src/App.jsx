@@ -32,6 +32,7 @@ function App() {
         <Route path="/drink/:drinkId" element={<DrinkPage />} />
         <Route path="/favorites" element={<FavoriteDrinksPage />} />
         <Route path="/add" element={<AddDrinkPage />} />
+        <Route path="/error" element={<ErrorPage />} />
 
         {/* <Route
           path="/signup"
