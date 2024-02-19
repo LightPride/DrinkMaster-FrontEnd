@@ -263,11 +263,18 @@ export const DivAlcoholic = styled.div`
     font-size: 14px;
     letter-spacing: -0.02em;
     color: #f3f3f3;
+
     @media only screen and (min-width: 768px) {
       font-size: 16px;
     }
   }
+  .styledSpan {
+    opacity: 0.5;
+  }
   .styledRadio {
     cursor: pointer;
+  }
+  .styledRadio:checked + .styledSpan {
+    opacity: 1;
   }
 `;
