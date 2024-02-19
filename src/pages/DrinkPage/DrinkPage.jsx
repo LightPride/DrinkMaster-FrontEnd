@@ -1,15 +1,31 @@
-import { Container, DrinkPageWrapper } from './DrinkPage.styled';
+import { Container } from '../../components/Layout/Container/Container';
+import { DrinkPageWrapper } from './DrinkPage.styled';
 import DrinkPageHero from '../../components/DrinkPageHero/DrinkPageHero';
 import DrinkIngredientsList from '../../components/DrinkIngredientList/DrinkIngredientsList';
 import RecipePreparation from '../../components/RecipePreparation/RecipePreparation';
 
 import recipes from '../../helpers/data/recipes.json';
+import { useParams } from 'react-router-dom';
+import { getDrinkById } from '../../redux/drinks/drinks.operations';
+import { selectDrinkById } from '../../redux/drinks/drinks.selectors';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 // import ingredients from '../../helpers/data/ingredients.json';
 
 const DrinkPage = () => {
+  const dispatch = useDispatch();
+  const { drinkId } = useParams();
+  console.log(drinkId);
+  const drink = useSelector((state) => selectDrinkById(state, drinkId));
+
+  useEffect(() => {
+    dispatch(getDrinkById(drinkId));
+  }, [dispatch, drinkId]);
+  console.log(drink);
+
   return (
-    <DrinkPageWrapper>
-      <Container>
+    <Container>
+      <DrinkPageWrapper>
         <DrinkPageHero
           id={recipes._id}
           name={recipes[0].drink}
@@ -20,8 +36,8 @@ const DrinkPage = () => {
         />
         <DrinkIngredientsList ingredients={recipes[0].ingredients} />
         <RecipePreparation instructions={recipes[0].instructions} />
-      </Container>
-    </DrinkPageWrapper>
+      </DrinkPageWrapper>
+    </Container>
   );
 };
 
