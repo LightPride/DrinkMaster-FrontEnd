@@ -1,15 +1,18 @@
-import coctailPNG from '../../shared/components/NotAdd/img/notFound.png';
-import coctailWEBP from '../../shared/components/NotAdd/img/notFound.webp';
-import coctail2x from '../../shared/components/NotAdd/img/notFound@2x.png';
+import coctailPNG1 from '../../images/404Images/blueIced@1xDesk.png';
+import coctailPNG2 from '../../images/404Images/blueIced@2xDesk.png';
+
 import { StyledImage } from './ErrorPage.styled';
 
 const Glass = () => {
   return (
     <picture>
-      <source srcSet={`${coctailWEBP} 1x, ${coctail2x} 2x`} type="image/webp" />
-      <source srcSet={`${coctailPNG}`} type="image/jpeg" />
+      <source
+        srcSet={`${coctailPNG1} 1x, ${coctailPNG2} 2x`}
+        type="image/webp"
+      />
+      <source srcSet={`${coctailPNG1}`} type="image/jpeg" />
       <StyledImage
-        src={coctailPNG}
+        src={coctailPNG1}
         alt="Coctail"
         width="123"
         height="156"

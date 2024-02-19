@@ -19,17 +19,15 @@ export const MenuItems = styled.ul`
     justify-content: center;
     align-items: center;
     position: fixed;
-    top: 98px;
+    top: 83px;
     left: 0;
     right: 0;
     bottom: 0;
     background-color: var(--black-color);
     z-index: 100;
-    @media screen and (max-width: 768px) {
-      top: 83px;
+    @media screen and (min-width: 768px) {
+      top: 87px;
   }
-  @media screen and (min-width: 1280px) {
-      top: 99px;
-  }
+  
   `}
 `;
