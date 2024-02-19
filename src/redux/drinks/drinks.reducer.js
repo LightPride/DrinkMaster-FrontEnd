@@ -46,7 +46,8 @@ const drinksSlice = createSlice({
         state.error = null;
       })
       .addCase(getDrinkById.fulfilled, (state, action) => {
-        state.drinks = [action.payload]; // ?? //
+        state.drinks = action.payload; // ?? //
+        // state.drinks = [action.payload]; // ?? //
         state.isLoading = false;
         state.error = null;
       })

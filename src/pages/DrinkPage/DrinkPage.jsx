@@ -4,9 +4,24 @@ import DrinkIngredientsList from '../../components/DrinkIngredientList/DrinkIngr
 import RecipePreparation from '../../components/RecipePreparation/RecipePreparation';
 
 import recipes from '../../helpers/data/recipes.json';
+import { useParams } from 'react-router-dom';
+import { getDrinkById } from '../../redux/drinks/drinks.operations';
+import { selectDrinkById } from '../../redux/drinks/drinks.selectors';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 // import ingredients from '../../helpers/data/ingredients.json';
 
 const DrinkPage = () => {
+  const dispatch = useDispatch();
+  const { drinkId } = useParams();
+  console.log(drinkId);
+  const drink = useSelector((state) => selectDrinkById(state, drinkId));
+
+  useEffect(() => {
+    dispatch(getDrinkById(drinkId));
+  }, [dispatch, drinkId]);
+  console.log(drink);
+
   return (
     <DrinkPageWrapper>
       <DrinkPageHero
