@@ -247,48 +247,19 @@ export const customStylesSelect = {
 export const DivAlcoholic = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: 14px;
-  font-family: 'Manrope', sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  letter-spacing: -0.02em;
-  color: #f3f3f3;
-  @media screen and (min-width: 768px) {
-    font-size: 16px;
-  }
-  div {
-    height: 19px;
-    @media screen and (min-width: 768px) {
-      height: 23px;
-    }
-  }
 
-  .styledRadio {
-    appearance: none;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    border: 3px solid #f3f3f350;
-    margin-right: 4px;
-    margin-left: 0;
+  .radioLabel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+
     position: relative;
-    top: 3px;
-    @media only screen and (min-width: 768px) {
-      width: 18px;
-      height: 18px;
-    }
   }
-  .styledRadio:checked {
-    border: 3px solid #ffffff;
-    background-color: #f3f3f3;
+  .styledRadio {
+    cursor: pointer;
   }
-`;
-
-export const LabelAlcoholic = styled.label`
-  opacity: 1;
-  cursor: pointer;
-`;
-export const LabelNonAlcoholic = styled.label`
-  opacity: 1;
-  cursor: pointer;
 `;

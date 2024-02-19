@@ -10,8 +10,6 @@ import {
   DivAlcoholic,
   WrapperAddDiv,
   LabelAdd,
-  LabelAlcoholic,
-  LabelNonAlcoholic,
   customStylesSelect,
 } from './DrinkDescriptionFields.styled';
 
@@ -93,28 +91,25 @@ export const DrinkDescriptionFields = ({ categories, servings }) => {
           </div>
         </InputsDescrField>
         <DivAlcoholic>
-          <div>
-            <LabelAlcoholic>
-              <Field
-                className="styledRadio"
-                type="radio"
-                name="alcoholic"
-                value="true"
-              />
-              <span className="styledSpan">Alcoholic</span>
-            </LabelAlcoholic>
-          </div>
-          <div>
-            <LabelNonAlcoholic>
-              <Field
-                className="styledRadio"
-                type="radio"
-                name="alcoholic"
-                value="false"
-              />
-              <span className="styledSpan">Non-alcoholic</span>
-            </LabelNonAlcoholic>
-          </div>
+          <label className="radioLabel">
+            <Field
+              className="styledRadio"
+              type="radio"
+              name="alcoholic"
+              value="true"
+            />
+            <span className="styledSpan">Alcoholic</span>
+          </label>
+
+          <label className="radioLabel">
+            <Field
+              className="styledRadio"
+              type="radio"
+              name="alcoholic"
+              value="false"
+            />
+            <span className="styledSpan">Non-alcoholic</span>
+          </label>
         </DivAlcoholic>
       </DescrField>
     </Wrapper>
