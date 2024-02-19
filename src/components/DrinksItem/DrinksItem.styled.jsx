@@ -60,6 +60,7 @@ export const Description = styled.p`
 
 export const DeleteBtn = styled.button`
   border-radius: 40px;
+  border: none;
   background-color: var(--dark-blue-color);
   height: 46px;
   width: 46px;
@@ -70,16 +71,18 @@ export const DeleteBtn = styled.button`
     background-color: var(--white-color);
   }
   @media screen and (min-width: 768px) {
-    height: 54px;
+    height: 56px;
     width: 56px;
   }
 `;
 
 export const IconTrash = styled.svg`
-  & div svg {
-    ${DeleteBtn}:hover & {
-      stroke: var(--dark-blue-color);
-    }
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: var(--white-color);
+  ${DeleteBtn}:hover & {
+    stroke: var(--dark-blue-color);
   }
 `;
 
