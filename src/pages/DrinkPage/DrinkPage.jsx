@@ -1,3 +1,4 @@
+import { Container } from '../../components/Layout/Container/Container';
 import { DrinkPageWrapper } from './DrinkPage.styled';
 import DrinkPageHero from '../../components/DrinkPageHero/DrinkPageHero';
 import DrinkIngredientsList from '../../components/DrinkIngredientList/DrinkIngredientsList';
@@ -23,18 +24,20 @@ const DrinkPage = () => {
   console.log(drink);
 
   return (
-    <DrinkPageWrapper>
-      <DrinkPageHero
-        id={recipes._id}
-        name={recipes[0].drink}
-        glass={recipes[0].glass}
-        alcoholic={recipes[0].alcoholic}
-        description={recipes[0].description}
-        imgPath={recipes[0].drinkThumb}
-      />
-      <DrinkIngredientsList ingredients={recipes[0].ingredients} />
-      <RecipePreparation instructions={recipes[0].instructions} />
-    </DrinkPageWrapper>
+    <Container>
+      <DrinkPageWrapper>
+        <DrinkPageHero
+          id={recipes._id}
+          name={recipes[0].drink}
+          glass={recipes[0].glass}
+          alcoholic={recipes[0].alcoholic}
+          description={recipes[0].description}
+          imgPath={recipes[0].drinkThumb}
+        />
+        <DrinkIngredientsList ingredients={recipes[0].ingredients} />
+        <RecipePreparation instructions={recipes[0].instructions} />
+      </DrinkPageWrapper>
+    </Container>
   );
 };
 
