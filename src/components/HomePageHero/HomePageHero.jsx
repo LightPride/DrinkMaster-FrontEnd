@@ -1,5 +1,4 @@
 import { Button } from '../Button/Button';
-// import PageTitle from '../PageTitle/PageTitle';
 
 import {
   HomePageHeroWrapper,
@@ -7,7 +6,7 @@ import {
   HomePageTextWrapper,
   HomePageImageWrapper,
   HomePageImage,
-  HomePageTitle
+  HomePageTitle,
 } from './HomePageHero.styled';
 
 const HomePageHero = () => {
@@ -17,8 +16,9 @@ const HomePageHero = () => {
   return (
     <HomePageHeroWrapper>
       <HomePageTextWrapper>
-        {/* <PageTitle>Craft Your Perfect Drink with Drink Master</PageTitle> */}
-        <HomePageTitle>Craft Your Perfect Drink with Drink Master</HomePageTitle>
+        <HomePageTitle>
+          Craft Your Perfect Drink with Drink Master
+        </HomePageTitle>
         <HomePageSubtitle>
           Unlock your inner mixologist with Drink Master, your one-stop
           destination for exploring, crafting, and mastering the worlds finest
@@ -32,24 +32,22 @@ const HomePageHero = () => {
         <picture>
           <source
             media="(min-width: 1440px)"
-            srcSet="../../../src/images/hero/hero@1xDesk.jpg, 
-          ../../src/images/hero/hero@2xDesktop.jpg"
+            srcSet="../../../src/images/404Images/blueIced@1xDesk.png, 
+          ../../../src/images/404Images/blueIced@2xDesk.png"
           />
           <source
             media="(min-width: 768px)"
-            srcSet="../../../src/images/hero/hero@1xTab.jpg, 
-          ../../../src/images/hero/hero@2xTab.jpg"
+            srcSet="../../../src/images/404Images/blueIced@1xTab.png, 
+          ../../../src/images/404Images/blueIced@2xTab.png"
           />
           <source
-            media="(min-width: 375px)"
-            srcSet="../../../src/images/hero/hero@1xMob.jpg, 
-          ../../../src/images/hero/hero@2xMob.jpg"
+            media="(max-width: 767px)"
+            srcSet="../../../src/images/404Images/blueIced@1xMob.png, 
+          ../../../src/images/404Images/blueIced@2xMob.png"
           />
           <HomePageImage
-            src="../../../src/images/hero/hero@1xDesk.jpg"
+            src="../../../src/images/404Images/blueIced@1xDesk.png"
             alt="glass photo"
-            // width="359"
-            // height="445p"
           />
         </picture>
       </HomePageImageWrapper>
