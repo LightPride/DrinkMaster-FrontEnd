@@ -36,7 +36,6 @@ export const loginThunk = createAsyncThunk(
   async (formData, thunkApi) => {
     try {
       const { data } = await instance.post('/auth/signin', formData);
-      console.log('data: ', data);
       setToken(data.token);
       return data;
     } catch (err) {
@@ -49,7 +48,7 @@ export const loginThunk = createAsyncThunk(
 //   'auth/logOut',
 //   async (_, thunkApi) => {
 //     try {
-//       const { data } = await instance.post('/auth/logout');
+//       const { data } = await instance.post('/auth/signout');
 //       return data;
 //     } catch (err) {
 //       return thunkApi.rejectWithValue(err.message);
@@ -64,7 +63,7 @@ export const loginThunk = createAsyncThunk(
 //       const state = thunkApi.getState();
 //       const token = state.auth.token;
 //       setToken(token);
-//       const { data } = await instance.get('/auth/current');
+//       const { data } = await instance.get('/users/current');
 //       return data;
 //     } catch (err) {
 //       return thunkApi.rejectWithValue(err.message);
@@ -98,15 +97,33 @@ const authSlice = createSlice({
         state.token = payload.token;
         state.userData = payload.user;
       })
+      // .addCase(logOutThunk.fulfilled, () => {
+      //   return initialState;
+      // })
+      // .addCase(refreshThunk.fulfilled, (state, { payload }) => {
+      //   state.isLoading = false;
+      //   state.authenticated = true;
+      //   state.userData = payload;
+      // })
       .addMatcher(
-        isAnyOf(registerThunk.pending, loginThunk.pending),
+        isAnyOf(
+          registerThunk.pending,
+          loginThunk.pending
+          // logOutThunk.pending,
+          // refreshThunk.pending
+        ),
         (state) => {
           state.isLoading = true;
           state.error = null;
         }
       )
       .addMatcher(
-        isAnyOf(registerThunk.rejected, loginThunk.rejected),
+        isAnyOf(
+          registerThunk.rejected,
+          loginThunk.rejected
+          // logOutThunk.rejected,
+          // refreshThunk.rejected
+        ),
         (state, { payload }) => {
           state.isLoading = false;
           state.error = payload;
