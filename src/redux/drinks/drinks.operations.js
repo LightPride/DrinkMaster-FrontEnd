@@ -19,7 +19,6 @@ export const getMainPageDrinks = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const res = await instance.get('/drinks/mainpage');
-      console.log(res.data);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -65,7 +64,6 @@ export const getDrinkById = createAsyncThunk(
   async (drinkId, thunkAPI) => {
     try {
       const res = await instance.get(`/drinks/${drinkId}`);
-      console.log(res.data);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
