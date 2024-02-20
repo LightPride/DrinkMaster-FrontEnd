@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { BurgerContainer, Gradient, MenuItems } from './BurgerMenu.styled';
+import { BurgerContainer, MenuItems } from './BurgerMenu.styled';
 
 import { StyledNavigationLink } from '../../../Navigation/Navigation.styled';
 
@@ -83,8 +83,6 @@ export const BurgerMenu = ({ isOpen, toggleMenu }) => {
       )}
 
       <MenuItems open={isOpen}>
-        <Gradient color="--light-green-forty-color" top="-20%" left="-20%" />
-        <Gradient color="--blue-fifty-color" top="50%" left="80%" />
         <StyledNavigationLink to="/home" onClick={toggleMenu}>
           Home
         </StyledNavigationLink>

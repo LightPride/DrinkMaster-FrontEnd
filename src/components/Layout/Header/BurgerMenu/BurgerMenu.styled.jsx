@@ -30,14 +30,3 @@ export const MenuItems = styled.ul`
   }
   `}
 `;
-
-export const Gradient = styled.div`
-  width: 500px;
-  height: 500px;
-  border-radius: 320px;
-  background: var(--gradient-color, rgba(188, 230, 210, 0.3));
-  filter: blur(130px);
-  position: absolute;
-  top: ${(props) => props.top};
-  left: ${(props) => props.left};
-`;
