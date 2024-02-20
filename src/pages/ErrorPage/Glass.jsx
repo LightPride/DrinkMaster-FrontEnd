@@ -8,9 +8,9 @@ const Glass = () => {
     <picture>
       <source
         srcSet={`${coctailPNG1} 1x, ${coctailPNG2} 2x`}
-        type="image/webp"
+        type="image/png"
       />
-      <source srcSet={`${coctailPNG1}`} type="image/jpeg" />
+      <source srcSet={`${coctailPNG1}`} type="image/png" />
       <StyledImage
         src={coctailPNG1}
         alt="Coctail"

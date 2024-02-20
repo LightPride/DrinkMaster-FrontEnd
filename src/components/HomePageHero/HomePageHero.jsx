@@ -1,5 +1,12 @@
 import { Button } from '../Button/Button';
 
+import coctailDesk1 from '../../images/404Images/blueIced@1xDesk.png';
+import coctailDesk2 from '../../images/404Images/blueIced@2xDesk.png';
+import coctailTab1 from '../../images/404Images/blueIced@1xTab.png';
+import coctailTab2 from '../../images/404Images/blueIced@2xTab.png';
+import coctailMob1 from '../../images/404Images/blueIced@1xMob.png';
+import coctailMob2 from '../../images/404Images/blueIced@2xMob.png';
+
 import {
   HomePageHeroWrapper,
   HomePageSubtitle,
@@ -32,24 +39,21 @@ const HomePageHero = () => {
         <picture>
           <source
             media="(min-width: 1440px)"
-            srcSet="../../src/images/404Images/blueIced@1xDesk.png 1x, 
-          ../../src/images/404Images/blueIced@2xDesk.png 2x"
+            srcSet={`${coctailDesk1} 1x, ${coctailDesk2} 2x`}
             type="image/png"
           />
           <source
             media="(min-width: 768px)"
-            srcSet="../../src/images/404Images/blueIced@1xTab.png 1x, 
-          ../../src/images/404Images/blueIced@2xTab.png 2x"
+            srcSet={`${coctailTab1} 1x, ${coctailTab2} 2x`}
             type="image/png"
           />
           <source
             media="(max-width: 767px)"
-            srcSet="../../src/images/404Images/blueIced@1xMob.png 1x, 
-          ../../src/images/404Images/blueIced@2xMob.png 2x"
+            srcSet={`${coctailMob1} 1x, ${coctailMob2} 2x`}
             type="image/png"
           />
           <HomePageImage
-            src="../../src/images/404Images/blueIced@1xDesk.png"
+            src={coctailDesk1}
             alt="glass photo"
             loading="lazy"
             width="349"
