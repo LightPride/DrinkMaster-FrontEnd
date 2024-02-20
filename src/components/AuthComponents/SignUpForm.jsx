@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { StyledSignForm } from './Styled';
 import { useForm, Controller } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { registerThunk } from '../../redux/auth/auth.reducer';
 
+import { yupResolver } from '@hookform/resolvers/yup';
 import FormControl from '@mui/material/FormControl';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
@@ -16,31 +17,9 @@ import {
   TextField,
 } from '@mui/material';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-import { useDispatch } from 'react-redux';
-import { registerThunk } from '../../redux/auth/auth.reducer';
 import UniversalBtn from './UniversalBtn';
 
-const schema = yup.object({
-  name: yup.string().min(3, 'Please put down more than 3 letters!').required(),
-  dateOfBirth: yup
-    .string()
-    .matches(/^\d{4}-\d{2}-\d{2}$/, 'Date must to be as an example yyyy-mm-dd!')
-    .required(),
-  email: yup
-    .string()
-    .matches(
-      /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$/,
-      'Please, check your email address!'
-    )
-    .required(),
-  password: yup
-    .string()
-    .matches(
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
-      'Password must contain at least 8 characters, one uppercase letter, one lowercase letter, and one digit!'
-    )
-    .required(),
-});
+import { signUpSchema } from '../../schemas/authSchemas';
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
@@ -50,7 +29,7 @@ const SignUpForm = () => {
     control,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(signUpSchema),
   });
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -60,14 +39,13 @@ const SignUpForm = () => {
   };
 
   return (
-    <StyledSignForm>
-      <form
-        className="inputContainer"
-        onSubmit={handleSubmit((data) => {
-          console.log(data);
-          dispatch(registerThunk(data));
-        })}
-      >
+    <form
+      onSubmit={handleSubmit((data) => {
+        console.log(data);
+        dispatch(registerThunk(data));
+      })}
+    >
+      <StyledSignForm>
         <Controller
           control={control}
           name="name"
@@ -175,19 +153,19 @@ const SignUpForm = () => {
             </FormControl>
           )}
         />
-        <UniversalBtn
-          type={'summit'}
-          title={'Sign Up'}
-          width={'400px'}
-          color={'var(--dark-blue-color)'}
-          backgroundcolor={'var(--white-color)'}
-          margin={'14px'}
-          borderhover={'var(--white-fifty-color)'}
-          backgroundcolorhover={'transparent'}
-          colorhover={'var(--white-color)'}
-        />
-      </form>
-    </StyledSignForm>
+      </StyledSignForm>
+      <UniversalBtn
+        type={'summit'}
+        title={'Sign Up'}
+        width={'400px'}
+        color={'var(--dark-blue-color)'}
+        backgroundcolor={'var(--white-color)'}
+        margin={'14px'}
+        borderhover={'var(--white-fifty-color)'}
+        backgroundcolorhover={'transparent'}
+        colorhover={'var(--white-color)'}
+      />
+    </form>
   );
 };
 
