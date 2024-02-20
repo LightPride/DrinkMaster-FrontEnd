@@ -119,6 +119,7 @@ export const SubWrapper = styled.div`
     @media screen and (min-width: 768px) {
       width: 150px;
       height: 56px;
+      margin-left: 14px;
       margin-right: auto;
     }
   }
