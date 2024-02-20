@@ -1,4 +1,4 @@
-import{u as e,N as a,j as n,f as l}from"./index-0aff3c1c.js";const h=e.div`
+import{u as e,N as a,j as n,i as l}from"./index-a7de6986.js";const h=e.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -94,7 +94,7 @@ import{u as e,N as a,j as n,f as l}from"./index-0aff3c1c.js";const h=e.div`
     font-size: 40px;
     line-height: 44px;
   }
-`,f=e.button`
+`,m=e.button`
   background-color: ${t=>t.backgroundcolor};
   color: ${t=>t.color};
   width: 335px;
@@ -116,7 +116,7 @@ import{u as e,N as a,j as n,f as l}from"./index-0aff3c1c.js";const h=e.div`
     font-size: 16px;
     width: 400px;
   }
-`,m=e.div`
+`,f=e.div`
   display: flex;
   gap: 14px;
   align-items: center;
@@ -192,4 +192,4 @@ import{u as e,N as a,j as n,f as l}from"./index-0aff3c1c.js";const h=e.div`
       center right;
     padding: 0 100px;
   }
-`,k=({children:t})=>n.jsx(l,{shouldForwardProp:o=>o!=="backgroundcolor",children:n.jsx(x,{children:t})});export{u as S,w as T,k as W,m as a,h as b,f as c,b as d};
+`,k=({children:t})=>n.jsx(l,{shouldForwardProp:o=>o!=="backgroundcolor",children:n.jsx(x,{children:t})});export{u as S,w as T,k as W,f as a,h as b,m as c,b as d};
