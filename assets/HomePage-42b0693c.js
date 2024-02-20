@@ -1,4 +1,4 @@
-import{u as i,j as e,C as k}from"./index-fb420ff9.js";import{c as j}from"./clsx-0839fdbe.js";import{r as o}from"./recipes-8f698c44.js";i.div``;const v=i.div``,d=i.button`
+import{u as i,j as e,C as k}from"./index-d1be262c.js";import{c as j}from"./clsx-0839fdbe.js";import{r as o}from"./recipes-8f698c44.js";i.div``;const v=i.div``,d=i.button`
   display: flex;
   text-align: center;
   align-items: center;
@@ -82,7 +82,7 @@ import{u as i,j as e,C as k}from"./index-fb420ff9.js";import{c as j}from"./clsx-
     background-color: #f3f3f3;
     color: #161f37;
   }
-`,I=({children:n,className:c,type:s,addRecipe:p,logOut:l,addToFavorite:x,seeRecipe:g,subscribe:m,disabled:r,active:h,onClick:f,...t})=>{const u=j(d,c,{addRecipe:p,logOut:l,addToFavorite:x,seeRecipe:g,subscribe:m}),b=a=>{if(r)a.preventDefault();else return f(a)},w=t.href?"a":d;return e.jsx(w,{className:u,onClick:b,disabled:r,active:h,...t,type:s,children:n})},y=i.div`
+`,I=({children:n,className:c,type:s,addRecipe:p,logOut:x,addToFavorite:l,seeRecipe:g,subscribe:m,disabled:r,active:h,onClick:f,...t})=>{const u=j(d,c,{addRecipe:p,logOut:x,addToFavorite:l,seeRecipe:g,subscribe:m}),b=a=>{if(r)a.preventDefault();else return f(a)},w=t.href?"a":d;return e.jsx(w,{className:u,onClick:b,disabled:r,active:h,...t,type:s,children:n})},y=i.div`
   @media screen and (max-width: 767px) {
     display: flex;
     flex-direction: column;
@@ -174,7 +174,7 @@ import{u as i,j as e,C as k}from"./index-fb420ff9.js";import{c as j}from"./clsx-
     width: 359px;
     height: 445px;
   }
-`,z=()=>{const n=()=>{console.log("Button clicked")};return e.jsxs(y,{children:[e.jsxs(H,{children:[e.jsx(T,{children:"Craft Your Perfect Drink with Drink Master"}),e.jsx(C,{children:"Unlock your inner mixologist with Drink Master, your one-stop destination for exploring, crafting, and mastering the worlds finest beverages."}),e.jsx(I,{addRecipe:!0,onClick:n,children:"Add drink"})]}),e.jsx(P,{children:e.jsxs("picture",{children:[e.jsx("source",{media:"(min-width: 1440px)",srcSet:`../../../src/images/404Images/blueIced@1xDesk.png, 
-          ../../../src/images/404Images/blueIced@2xDesk.png`}),e.jsx("source",{media:"(min-width: 768px)",srcSet:`../../../src/images/404Images/blueIced@1xTab.png, 
-          ../../../src/images/404Images/blueIced@2xTab.png`}),e.jsx("source",{media:"(max-width: 767px)",srcSet:`../../../src/images/404Images/blueIced@1xMob.png, 
-          ../../../src/images/404Images/blueIced@2xMob.png`}),e.jsx(R,{src:"../../../src/images/404Images/blueIced@1xDesk.png",alt:"glass photo"})]})})]})},A=()=>e.jsx(v,{children:e.jsx(k,{children:e.jsx(z,{id:o._id,name:o[0].drink,imPath:o[0].drinkThumb,category:o[0].category})})});export{A as default};
+`,z=()=>{const n=()=>{console.log("Button clicked")};return e.jsxs(y,{children:[e.jsxs(H,{children:[e.jsx(T,{children:"Craft Your Perfect Drink with Drink Master"}),e.jsx(C,{children:"Unlock your inner mixologist with Drink Master, your one-stop destination for exploring, crafting, and mastering the worlds finest beverages."}),e.jsx(I,{addRecipe:!0,onClick:n,children:"Add drink"})]}),e.jsx(P,{children:e.jsxs("picture",{children:[e.jsx("source",{media:"(min-width: 1440px)",srcSet:`../../src/images/404Images/blueIced@1xDesk.png 1x, 
+          ../../src/images/404Images/blueIced@2xDesk.png 2x`}),e.jsx("source",{media:"(min-width: 768px)",srcSet:`../../src/images/404Images/blueIced@1xTab.png 1x, 
+          ../../src/images/404Images/blueIced@2xTab.png 2x`}),e.jsx("source",{media:"(max-width: 767px)",srcSet:`../../src/images/404Images/blueIced@1xMob.png 1x, 
+          ../../src/images/404Images/blueIced@2xMob.png 2x`}),e.jsx(R,{src:"../../src/images/404Images/blueIced@1xDesk.png",alt:"glass photo"})]})})]})},A=()=>e.jsx(v,{children:e.jsx(k,{children:e.jsx(z,{id:o._id,name:o[0].drink,imPath:o[0].drinkThumb,category:o[0].category})})});export{A as default};
