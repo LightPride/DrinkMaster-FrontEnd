@@ -96,8 +96,9 @@ export const HomePageSubtitle = styled.p`
 `;
 
 export const HomePageImage = styled.img`
-  @media screen and (min-width: 1440px) {
-    width: 100%;
+  width: 252px;
+  height: 313px;
+  @media screen and (min-width: 768px) {
     width: 359px;
     height: 445px;
   }

@@ -34,20 +34,26 @@ const HomePageHero = () => {
             media="(min-width: 1440px)"
             srcSet="../../src/images/404Images/blueIced@1xDesk.png 1x, 
           ../../src/images/404Images/blueIced@2xDesk.png 2x"
+            type="image/png"
           />
           <source
             media="(min-width: 768px)"
             srcSet="../../src/images/404Images/blueIced@1xTab.png 1x, 
           ../../src/images/404Images/blueIced@2xTab.png 2x"
+            type="image/png"
           />
           <source
             media="(max-width: 767px)"
             srcSet="../../src/images/404Images/blueIced@1xMob.png 1x, 
           ../../src/images/404Images/blueIced@2xMob.png 2x"
+            type="image/png"
           />
           <HomePageImage
             src="../../src/images/404Images/blueIced@1xDesk.png"
             alt="glass photo"
+            loading="lazy"
+            width="349"
+            height="445"
           />
         </picture>
       </HomePageImageWrapper>
