@@ -1,4 +1,6 @@
-import { Wrapper, SubtitleForm, InputField } from './RecipePreparation.styled';
+import { Wrapper, SubtitleForm } from './RecipePreparation.styled';
+import React from 'react';
+import { Field, ErrorMessage } from 'formik';
 
 export const RecipePreparation = () => {
   return (
@@ -7,10 +9,12 @@ export const RecipePreparation = () => {
         <h4>Recipe Preparation</h4>
       </SubtitleForm>
 
-      <InputField
+      <Field
+        as="textarea"
+        className="inputField"
         placeholder="Enter the recipe"
-        name="ReciepePreparation"
-      ></InputField>
+        name="preparation"
+      />
     </Wrapper>
   );
 };

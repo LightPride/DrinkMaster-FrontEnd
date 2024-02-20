@@ -9,7 +9,6 @@ import { RecipePreparation } from './RecipePreparation/RecipePreparation';
 
 export const AddDrinkForm = ({ categories, servings, ingredients }) => {
   const validationSchema = Yup.object().shape({
-    photo: Yup.string().required("Фото коктейлю обов'язкове"),
     name: Yup.string().required("Назва коктейлю обов'язкова"),
     description: Yup.string().required("Опис коктейлю обов'язковий"),
     category: Yup.string().required("Категорія коктейлю обов'язкова"),
@@ -19,14 +18,13 @@ export const AddDrinkForm = ({ categories, servings, ingredients }) => {
       Yup.object().shape({
         name: Yup.string().required("Назва інгредієнту обов'язкова"),
         quantity: Yup.string().required("Кількість інгредієнту обов'язкова"),
-        unit: Yup.string().required("Одиниця виміру інгредієнту обов'язкова"),
       })
     ),
     preparation: Yup.string().required("Інструкція приготування обов'язкова"),
   });
 
   const handleSubmit = (values, { setSubmitting }) => {
-    //  логіка для відправки даних на сервер
+    console.log('qqq'); // Місце для виведення логу 'qqq'
     console.log(values);
     setSubmitting(false);
   };
@@ -41,7 +39,7 @@ export const AddDrinkForm = ({ categories, servings, ingredients }) => {
           category: '',
           serving: '',
           alcoholic: '',
-          ingredients: [{ name: '', quantity: '', unit: '' }],
+          ingredients: [{ name: '', quantity: '' }],
           preparation: '',
         }}
         validationSchema={validationSchema}
@@ -61,6 +59,9 @@ export const AddDrinkForm = ({ categories, servings, ingredients }) => {
                 className="buttonAdd"
                 type="submit"
                 disabled={isSubmitting}
+                onClick={() => {
+                  handleSubmit;
+                }}
               >
                 Add
               </button>
