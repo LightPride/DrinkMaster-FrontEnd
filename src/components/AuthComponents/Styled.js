@@ -6,13 +6,12 @@ import '@fontsource/roboto/700.css';
 import { NavLink } from 'react-router-dom';
 
 export const StyledSignForm = styled.div`
-  .inputContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 14px;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 28px;
 
   .textInput {
     width: 335px;
@@ -55,6 +54,7 @@ export const StyledSignForm = styled.div`
   }
 
   @media screen and (min-width: 768px) {
+    margin-bottom: 40px;
     .textInput {
       width: 400px;
     }

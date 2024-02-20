@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { StyledSignForm } from './Styled';
 import { useForm, Controller } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
 import { loginThunk } from '../../redux/auth/auth.reducer';
-import { useDispatch } from 'react-redux';
-import UniversalBtn from './UniversalBtn';
 
+import { yupResolver } from '@hookform/resolvers/yup';
+import UniversalBtn from './UniversalBtn';
 import FormControl from '@mui/material/FormControl';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
@@ -19,22 +18,7 @@ import {
   TextField,
 } from '@mui/material';
 
-const schema = yup.object({
-  email: yup
-    .string()
-    .matches(
-      /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$/,
-      'Please, check your email address!'
-    )
-    .required(),
-  password: yup
-    .string()
-    .matches(
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
-      'Password must contain at least 8 characters, one uppercase letter, one lowercase letter, and one digit!'
-    )
-    .required(),
-});
+import { signInSchema } from '../../schemas/authSchemas';
 
 const SignInForm = () => {
   const dispatch = useDispatch();
@@ -44,7 +28,7 @@ const SignInForm = () => {
     control,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(signInSchema),
   });
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -54,15 +38,13 @@ const SignInForm = () => {
   };
 
   return (
-    <StyledSignForm>
-      <form
-        className="inputContainer"
-        rules={{ required: 'Please check your name!' }}
-        onSubmit={handleSubmit((data) => {
-          console.log(data);
-          dispatch(loginThunk(data));
-        })}
-      >
+    <form
+      onSubmit={handleSubmit((data) => {
+        console.log(data);
+        dispatch(loginThunk(data));
+      })}
+    >
+      <StyledSignForm>
         <Controller
           control={control}
           name="email"
@@ -120,20 +102,19 @@ const SignInForm = () => {
             </FormControl>
           )}
         />
-
-        <UniversalBtn
-          margin={'14px'}
-          type={'summit'}
-          title={'Sign In'}
-          width={'400px'}
-          color={'var(--dark-blue-color)'}
-          backgroundcolor={'var(--white-color)'}
-          borderhover={'var(--white-fifty-color)'}
-          backgroundcolorhover={'transparent'}
-          colorhover={'var(--white-color)'}
-        />
-      </form>
-    </StyledSignForm>
+      </StyledSignForm>
+      <UniversalBtn
+        margin={'14px'}
+        type={'summit'}
+        title={'Sign In'}
+        width={'400px'}
+        color={'var(--dark-blue-color)'}
+        backgroundcolor={'var(--white-color)'}
+        borderhover={'var(--white-fifty-color)'}
+        backgroundcolorhover={'transparent'}
+        colorhover={'var(--white-color)'}
+      />
+    </form>
   );
 };
 
