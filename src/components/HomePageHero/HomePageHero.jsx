@@ -32,21 +32,21 @@ const HomePageHero = () => {
         <picture>
           <source
             media="(min-width: 1440px)"
-            srcSet="../../../src/images/404Images/blueIced@1xDesk.png, 
-          ../../../src/images/404Images/blueIced@2xDesk.png"
+            srcSet="../../src/images/404Images/blueIced@1xDesk.png 1x, 
+          ../../src/images/404Images/blueIced@2xDesk.png 2x"
           />
           <source
             media="(min-width: 768px)"
-            srcSet="../../../src/images/404Images/blueIced@1xTab.png, 
-          ../../../src/images/404Images/blueIced@2xTab.png"
+            srcSet="../../src/images/404Images/blueIced@1xTab.png 1x, 
+          ../../src/images/404Images/blueIced@2xTab.png 2x"
           />
           <source
             media="(max-width: 767px)"
-            srcSet="../../../src/images/404Images/blueIced@1xMob.png, 
-          ../../../src/images/404Images/blueIced@2xMob.png"
+            srcSet="../../src/images/404Images/blueIced@1xMob.png 1x, 
+          ../../src/images/404Images/blueIced@2xMob.png 2x"
           />
           <HomePageImage
-            src="../../../src/images/404Images/blueIced@1xDesk.png"
+            src="../../src/images/404Images/blueIced@1xDesk.png"
             alt="glass photo"
           />
         </picture>
