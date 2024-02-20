@@ -1,5 +1,7 @@
-// import { useSelector } from 'react-redux';
-// import { NotAdd } from '../../shared/components/NotAdd/NotAdd';
+// import { useEffect, useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import { useDispatch } from 'react-redux';
+// import { getOwnDrinks } from '../../redux/drinks/drinks.operations';
 import {
   ButtonsContainer,
   Card,
@@ -10,17 +12,43 @@ import {
   IconTrash,
   IsAlco,
 } from '../../components/DrinksItem/DrinksItem.styled';
+import { Container } from '../../components/Layout/Container/Container';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import SeeMoreBtn from '../../components/SeeMoreBtn/SeeMoreBtn';
 import placeholderImage from '../../images/drinkPage/coctailPlaceholder.png';
 
-// треба ще імпортувати селектори, пагінацію, card list
+export default function MyDrinks() {
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const navigate = useNavigate();
+  // const dispatch = useDispatch();
 
-const MyDrinks = () => {
-  // const own = useSelector(selectOwn);
+  // const drinksPerPage = 6;
+
+  // const onPageChange = (pageNum) => {
+  //   setCurrentPage(pageNum);
+  // };
+
+  // const totalPages = Math.ceil(total / drinksPerPage);
+
+  // useEffect(() => {
+  //   if (drinks?.length === 0 && currentPage > 1) {
+  //     onPageChange(currentPage - 1);
+  //   }
+  //   setHasDrinks(drinks?.length > 0);
+  // }, [drinks]);
+
+  // useEffect(() => {
+  //   navigate(`?page=${currentPage}`);
+  // }, [currentPage]);
+
+  // useEffect(() => {
+  //   dispatch(getOwnDrinks({ page: currentPage, limit: drinksPerPage }))
+  //     .unwrap()
+  //     .catch((error) => console.log(error));
+  // }, [dispatch, currentPage, total, drinksPerPage]);
 
   return (
-    <>
+    <Container>
       <PageTitle title="My drinks" />
       <Card>
         <CardImage src={placeholderImage} />
@@ -42,8 +70,6 @@ const MyDrinks = () => {
       </Card>
       {/* {own.length > 0 ? <CardList data={own} /> : <NotAdd />}
       <Pagination paginationThunk={getOwnThunk} /> */}
-    </>
+    </Container>
   );
-};
-
-export default MyDrinks;
+}
