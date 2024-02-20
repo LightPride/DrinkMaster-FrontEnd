@@ -28,6 +28,5 @@ export const MenuItems = styled.ul`
     @media screen and (min-width: 768px) {
       top: 87px;
   }
-  
   `}
 `;

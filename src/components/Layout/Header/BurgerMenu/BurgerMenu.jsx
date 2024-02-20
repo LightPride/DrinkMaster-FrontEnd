@@ -1,8 +1,21 @@
+import { useEffect } from 'react';
 import { BurgerContainer, MenuItems } from './BurgerMenu.styled';
 
 import { StyledNavigationLink } from '../../../Navigation/Navigation.styled';
 
 export const BurgerMenu = ({ isOpen, toggleMenu }) => {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isOpen]);
+
   return (
     <BurgerContainer>
       {isOpen === false ? (
