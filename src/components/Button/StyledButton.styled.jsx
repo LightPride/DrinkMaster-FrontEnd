@@ -6,17 +6,41 @@ export const StyledButton = styled.button`
   align-items: center;
   justify-content: center;
   border: none;
-  height: 54px;
-  border-radius: 42px;
-  background-color: #f3f3f3;
-  padding: 18px 44px 18px 44px;
+  background-color: var(--white-color);
   cursor: pointer;
+  padding: 14px 40px;
+  border-radius: 42px;
 
   font-family: Manrope;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: 0%;
+  line-height: 1.1;
+
+  &.addDrinks {
+    max-width: 151px;
+    height: 46px;
+  }
+
+  &.addDrinks:active {
+    border: 2px solid var(--blue-color);
+    background-color: var(--dark-blue-color);
+    color: var(--white-color);
+  }
+
+  @media screen and (min-width: 768px) {
+    &.addDrinks {
+      max-width: 169px;
+      height: 54px;
+    }
+    &.addDrinks:hover {
+      color: var(--white-color);
+      background-color: var(--dark-blue-color);
+    }
+  }
+  @media screen and (min-width: 1440px) {
+    width: 160px;
+    height: 54px;
+  }
 
   &.addRecipe {
     width: 170px;
@@ -75,9 +99,9 @@ export const StyledButton = styled.button`
     width: 309px;
     height: 56px;
     color: #f3f3f3;
-    background-color:#0A0A11;
+    background-color: #0a0a11;
     border-radius: 200px;
-    border: 1px solid rgba(243, 243, 243,0.2);
+    border: 1px solid rgba(243, 243, 243, 0.2);
   }
 
   &.subscribe:hover {

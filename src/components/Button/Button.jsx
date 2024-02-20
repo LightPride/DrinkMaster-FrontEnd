@@ -8,6 +8,7 @@ export const Button = ({
   type,
   addRecipe,
   logOut,
+  addDrinks,
   addToFavorite,
   seeRecipe,
   subscribe,
@@ -22,6 +23,7 @@ export const Button = ({
     addToFavorite,
     seeRecipe,
     subscribe,
+    addDrinks
   });
   const onClickAction = (e) => {
     if (disabled) {
