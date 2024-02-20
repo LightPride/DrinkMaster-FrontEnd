@@ -14,7 +14,7 @@ import {
 
 const initialState = {
   searchQuery: '',
-  mainPageDrinks: {},
+  mainPageDrinks: [],
   drinks: [],
   favoriteDrinks: [],
   popularDrinks: [],
