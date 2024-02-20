@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
 export const HomePageHeroWrapper = styled.div`
+   padding-top: 80px;
+  @media screen and (min-width: 768px) {
+    padding-top: 120px;
+  }
   @media screen and (min-width: 1440px) {
     padding-top: 185px;
     display: flex;
