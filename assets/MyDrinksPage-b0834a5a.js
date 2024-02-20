@@ -1,4 +1,4 @@
-import{u as o,j as e,L as r}from"./index-43a52f5f.js";import{P as n}from"./PageTitle-4002bca4.js";import{p as s}from"./coctailPlaceholder-7dc3e525.js";const a=o.li`
+import{u as o,j as e,L as r}from"./index-49a5af1d.js";import{P as n}from"./PageTitle-d65d9321.js";import{p as s}from"./coctailPlaceholder-7dc3e525.js";const a=o.li`
   width: 335px;
 
   @media screen and (min-width: 768px) {

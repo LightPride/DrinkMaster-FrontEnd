@@ -1,4 +1,4 @@
-import{u as i,j as e,C as k}from"./index-43a52f5f.js";import{c as j}from"./clsx-0839fdbe.js";import{r as o}from"./recipes-8f698c44.js";i.div``;const v=i.div``,d=i.button`
+import{u as i,j as e,C as k}from"./index-49a5af1d.js";import{c as j}from"./clsx-0839fdbe.js";import{r as o}from"./recipes-8f698c44.js";i.div``;const v=i.div``,d=i.button`
   display: flex;
   text-align: center;
   align-items: center;
