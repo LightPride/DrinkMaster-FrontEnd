@@ -9,6 +9,8 @@ import {
 } from './HomePageHero.styled';
 
 
+
+
 const HomePageHero = () => {
     const handleClick = () => {
         console.log('Button clicked');}
@@ -25,9 +27,18 @@ const HomePageHero = () => {
          <Button addRecipe onClick={handleClick}>Add drinks</Button>
         </HomePageTextWrapper>
 
-        {/* <HomePageImageWrapper>
-          <HomePageImage />
-        </HomePageImageWrapper> */}
+        <HomePageImageWrapper>
+          <picture> 
+          <source media="(min-width: 1440px)" srcSet="../../images/404images/blueIced@1xDesk.png, 
+          ../../images/404images/blueced@2xDesktop.png"  />
+          <source media="(min-width: 768px)" srcSet="../../images/404images/blueIced@1xTab.png, 
+          ../../images/404images/blueced@2xTab.png" />
+          <source media="(min-width: 375px)" srcSet="../../images/404images/blueIced@1xMob.png, 
+          ../../images/404images/blueced@2xMob.png" />
+            <HomePageImage src="../../images/404Images/blueIced@1xDesk.png" alt="glass photo" />
+          </picture>
+         
+        </HomePageImageWrapper>
       </HomePageHeroWrapper>
     
   );
