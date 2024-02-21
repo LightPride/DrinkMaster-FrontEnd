@@ -8,6 +8,7 @@ import {
 import React from 'react';
 import { FieldArray, Field, ErrorMessage } from 'formik';
 import Select from 'react-select';
+import { nanoid } from 'nanoid';
 
 export const DrinkIngredientsFields = ({ ingredients }) => {
   return (
@@ -69,17 +70,19 @@ export const DrinkIngredientsFields = ({ ingredients }) => {
               </IngredientsButton>
             </div>
           </SubtitleForm>
-
           <SubWrapper>
-            {form.values.ingredients.map((ingredient, index) => (
+            {form.values.ingredients.map(({ name, quantity }, index) => (
               <div className="inputsWrapper" key={index}>
                 <Select
                   className="styledSelect"
                   name={`ingredients.${index}.name`}
-                  options={[ingredient]}
-                  onChange={(option) =>
-                    form.setFieldValue(`ingredients.${index}.name`, option)
-                  }
+                  options={ingredients}
+                  onChange={(option) => {
+                    form.setFieldValue(
+                      `ingredients.${index}.name`,
+                      option.value
+                    );
+                  }}
                   styles={customStylesSelectIngr}
                 />
                 <Field

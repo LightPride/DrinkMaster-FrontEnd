@@ -9,6 +9,21 @@ export const Wrapper = styled.div`
   @media screen and (min-width: 1440px) {
     width: 540px;
   }
+  .inputField {
+    background-color: transparent;
+    border: 1px solid rgba(243, 243, 243, 0.5);
+    border-radius: 14px;
+    padding: 18px 16px;
+    color: #f3f3f3;
+    height: 184px;
+    resize: none;
+    &:hover {
+      border: 1px solid rgba(243, 243, 243, 0.918);
+    }
+    @media screen and (min-width: 768px) {
+      width: 480px;
+    }
+  }
 `;
 
 export const SubtitleForm = styled.div`
@@ -22,20 +37,5 @@ export const SubtitleForm = styled.div`
       font-size: 40px;
       line-height: 1.1;
     }
-  }
-`;
-export const InputField = styled.textarea`
-  background-color: transparent;
-  border: 1px solid rgba(243, 243, 243, 0.5);
-  border-radius: 14px;
-  padding: 18px 16px;
-  color: #f3f3f3;
-  height: 184px;
-  resize: none;
-  &:hover {
-    border: 1px solid rgba(243, 243, 243, 0.918);
-  }
-  @media screen and (min-width: 768px) {
-    width: 480px;
   }
 `;
