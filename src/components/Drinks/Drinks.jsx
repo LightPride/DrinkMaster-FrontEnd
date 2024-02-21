@@ -7,8 +7,8 @@ export const Drinks = ({ drinks }) => {
       {drinks.map(({ drink, drinkThumb, _id }) => {
         return (
           <DrinksItem
-            key={_id.$oid} 
-            id={_id.$oid} 
+            key={_id}
+            id={_id}
             drinkTitle={drink}
             drinkThumb={drinkThumb}
           />

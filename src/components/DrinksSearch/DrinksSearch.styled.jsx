@@ -30,9 +30,14 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 14px;
+  margin-top: 40px;
   margin-bottom: 40px;
   @media screen and (min-width: 768px) {
+    margin-top: 60px;
     flex-direction: row;
     gap: 8px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-top: 80px;
   }
 `;

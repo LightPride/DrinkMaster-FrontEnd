@@ -52,7 +52,9 @@ export const SelectContainer = styled(Select)`
       color: var(--white-color);
     }
   }
-
+  .react-select__option--is-focused {
+    background-color: transparent !important;
+  }
   & .react-select__single-value {
     color: var(--white-color);
   }
