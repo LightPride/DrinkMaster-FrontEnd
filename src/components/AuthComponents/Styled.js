@@ -85,13 +85,16 @@ export const StyledRedirectLink = styled(NavLink)`
     line-height: 16px;
     color: var(--white-color);
     font-weight: 600;
-    width: 400px;
+    width: 335px;
     text-align: center;
     padding: 18px 0px;
   }
 
   @media screen and (min-width: 768px) {
-    font-size: 14px;
+    && {
+      font-size: 14px;
+      width: 400px;
+    }
   }
 `;
 
@@ -104,6 +107,21 @@ export const StyledTitle = styled.h1`
   color: var(--white-color);
 
   @media screen and (min-width: 768px) {
+    font-size: 40px;
+    line-height: 44px;
+  }
+`;
+export const StyledTitleWelcome = styled.h1`
+  text-align: center;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: -2%;
+  margin-bottom: 14px;
+  color: var(--white-color);
+
+  @media screen and (min-width: 768px) {
+    text-align: start;
     font-size: 40px;
     line-height: 44px;
   }
@@ -135,6 +153,8 @@ export const StyledUniversalBtn = styled.button`
 
 export const StyledWelcomeNavLinks = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 14px;
   align-items: center;
   flex-wrap: wrap;
@@ -159,6 +179,7 @@ export const StyledWelcomeNavLinks = styled.div`
   }
 
   @media screen and (min-width: 768px) {
+      justify-content: flex-start;
     a {
       font-size: 16px;
       width: 140px;
