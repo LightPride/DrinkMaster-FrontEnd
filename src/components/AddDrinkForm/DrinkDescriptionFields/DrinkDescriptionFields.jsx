@@ -29,6 +29,9 @@ export const DrinkDescriptionFields = ({
   const [categoryOptions, setCategoriesOptions] = useState([]);
   const [glasseOptions, setGlassesOptions] = useState([]);
 
+  const [selectedCategoriesOption, setSelectedCategoriesOption] = useState([]);
+  const [selectedGlassesOption, setSelectedGlassesOption] = useState([]);
+
   useEffect(() => {
     async function fetchCategories() {
       try {
@@ -59,6 +62,29 @@ export const DrinkDescriptionFields = ({
     fetchCategories();
     fetchGlasses();
   }, []);
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setFieldValue('drinkThumb', file);
+    if (file) {
+      setSelectedImage(URL.createObjectURL(file));
+    } else {
+      setSelectedImage(null);
+    }
+  };
+
+  const handleDescriptionChange = (e) => {
+    const { value } = e.target;
+  };
+
+  const handleInputChange = (e) => {
+    const { value } = e.target;
+  };
+
+  const handleSelectCategoriesChange = (selectedOption) => {
+    setSelectedCategoriesOption(selectedOption);
+    setFieldValue(`category`, selectedOption.value);
+  };
   return (
     <Wrapper>
       <AddImageField>
@@ -90,6 +116,7 @@ export const DrinkDescriptionFields = ({
               type="file"
               name="drinkThumb"
               accept="drinkThumb/*"
+              onChange={(e) => handleImageChange(e)}
             />
           </LabelAdd>
           <p>Add Image</p>
@@ -104,6 +131,10 @@ export const DrinkDescriptionFields = ({
               type="text"
               id="drink"
               name="drink"
+              onChange={(e) => {
+                handleInputChange(e);
+                handleChange(e);
+              }}
             />
           </div>
           <div className="styledDivInput">
@@ -112,6 +143,10 @@ export const DrinkDescriptionFields = ({
               placeholder="Enter item title"
               id="description"
               name="description"
+              onChange={(e) => {
+                handleDescriptionChange(e);
+                handleChange(e);
+              }}
             />
           </div>
           <div className="styledDivInput">
@@ -121,6 +156,10 @@ export const DrinkDescriptionFields = ({
                 className="selectStyled"
                 name="category"
                 options={categoryOptions}
+                value={selectedCategoriesOption}
+                onChange={(selectedCategoriesOption) =>
+                  handleSelectCategoriesChange(selectedCategoriesOption)
+                }
                 styles={customStylesSelect}
               />
             </label>
@@ -132,6 +171,10 @@ export const DrinkDescriptionFields = ({
                 className="selectStyled"
                 name="glass"
                 options={glasseOptions}
+                value={selectedGlassesOption}
+                onChange={(selectedGlassesOption) =>
+                  handleSelectGlassesChange(selectedGlassesOption)
+                }
                 styles={customStylesSelect}
               />
             </label>
@@ -145,6 +188,7 @@ export const DrinkDescriptionFields = ({
               name="alcoholic"
               value="true"
               checked={values.alcoholic === 'true'}
+              onChange={handleChange}
             />
             <span className="styledSpan">Alcoholic</span>
           </label>
@@ -156,6 +200,7 @@ export const DrinkDescriptionFields = ({
               name="alcoholic"
               value="false"
               checked={values.alcoholic === 'false'}
+              onChange={handleChange}
             />
             <span className="styledSpan">Non-alcoholic</span>
           </label>

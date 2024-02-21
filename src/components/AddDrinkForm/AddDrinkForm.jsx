@@ -19,6 +19,7 @@ export const AddDrinkForm = () => {
       category: '',
       glass: '',
       alcoholic: 'Non alcoholic',
+      description: '',
     },
     validationSchema: Yup.object().shape({
       drink: Yup.string().required('This field is mandatory'),
