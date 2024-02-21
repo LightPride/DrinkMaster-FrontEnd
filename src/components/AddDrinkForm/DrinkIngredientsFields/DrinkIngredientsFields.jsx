@@ -25,7 +25,6 @@ export const DrinkIngredientsFields = ({
     async function fetchIngredients() {
       try {
         const ingredients = await getIngredients();
-        console.log(ingredients);
         const ingredientOptions = ingredients.map((ingredient) => ({
           label: ingredient.title,
           value: ingredient._id,

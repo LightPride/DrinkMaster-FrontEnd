@@ -13,10 +13,13 @@ import {
   LabelAdd,
   customStylesSelect,
 } from './DrinkDescriptionFields.styled';
+
+import { useDispatch, useSelector } from 'react-redux';
 import {
-  getCategories,
-  getGlasses,
-} from '../../../redux/filters/filters.operations';
+  selectCategories,
+  selectGlasses,
+} from '../../../redux/filters/filters.selectors';
+import { getCategories } from '../../../redux/filters/filters.operations';
 
 export const DrinkDescriptionFields = ({
   values,
@@ -26,6 +29,14 @@ export const DrinkDescriptionFields = ({
   handleBlur,
   setFieldValue,
 }) => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getCategories());
+  }, [dispatch]);
+
+  const categories = useSelector(selectCategories());
+  const glasses = useSelector(selectGlasses());
+
   const [categoryOptions, setCategoriesOptions] = useState([]);
   const [glasseOptions, setGlassesOptions] = useState([]);
 
@@ -35,7 +46,6 @@ export const DrinkDescriptionFields = ({
   useEffect(() => {
     async function fetchCategories() {
       try {
-        const categories = await getCategories();
         const categoryOptions = categories.map((category) => ({
           value: category,
           label: category,
@@ -48,14 +58,13 @@ export const DrinkDescriptionFields = ({
     }
     async function fetchGlasses() {
       try {
-        const glasses = await getGlasses();
         const glassesOptions = glasses.map((glasse) => ({
           value: glasse,
           label: glasse,
         }));
         setGlassesOptions(glassesOptions);
       } catch (error) {
-        console.error('Ошибка при загрузке категорий:', error);
+        console.error('Ошибка при загрузці скла:', error);
       }
     }
 
