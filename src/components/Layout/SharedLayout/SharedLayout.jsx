@@ -10,7 +10,8 @@ import { useSelector } from 'react-redux';
 const SharedLayout = () => {
   const authenticated = useSelector((state) => state.auth.authenticated);
   return (
-    <StyledBackground>
+    <>
+      <StyledBackground />
       <div className={authenticated ? 'mainBackground' : 'welcomeBackground'}>
         <Header />
         <Suspense fallback={<Loader />}>
@@ -18,7 +19,7 @@ const SharedLayout = () => {
         </Suspense>
         <Footer />
       </div>
-    </StyledBackground>
+    </>
   );
 };
 

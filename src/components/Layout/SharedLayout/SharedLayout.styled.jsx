@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import bgMobile from '../../../images/BackgroundImages/bgMobile.png';
 import bgTablet from '../../../images/BackgroundImages/bgTablet.png';
 import bgDesktop from '../../../images/BackgroundImages/bgDesktop.png';
@@ -7,7 +7,7 @@ import circle from '../../../images/BackgroundImages/circle.png';
 import dobleCircle from '../../../images/BackgroundImages/dobleCircle.png';
 import circleFooter from '../../../images/BackgroundImages/circleFooter.png';
 
-export const StyledBackground = styled.div`
+export const StyledBackground = createGlobalStyle`
   .welcomeBackground {
     background-image: url(${dobleCircle}), url(${circle}), url(${bgMobile});
     background-repeat: no-repeat, no-repeat, no-repeat;
