@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-// import PropTypes from 'prop-types';
 import { StyledButton } from './StyledButton.styled';
 
 export const Button = ({
