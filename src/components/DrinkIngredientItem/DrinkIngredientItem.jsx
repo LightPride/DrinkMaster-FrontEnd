@@ -4,7 +4,6 @@ import {
   IngredientDescription,
   IngredientTitle,
   IngredientMeasure,
-  // StubPhotoWrapper,
 } from './DrinkIngredientItem.styled';
 
 const DrinkIngredientItem = ({ title, measure, quantity, image }) => {

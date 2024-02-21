@@ -27,6 +27,7 @@ const DrinkPage = () => {
         {drink && (
           <>
             <DrinkPageHero
+              id={drink._id}
               // id={recipes[0]._id}
               name={drink.drink}
               // name={recipes[0].drink}
