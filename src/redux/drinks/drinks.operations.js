@@ -40,14 +40,14 @@ export const getPopularDrinks = createAsyncThunk(
 
 export const getSearchedDrink = createAsyncThunk(
   'drinks/search',
-  async ({ query, category, ingredient, limit, page }, thunkAPI) => {
+  async ({ name, category, ingredient, page, size }, thunkAPI) => {
     const searchParams = {
       params: {
-        query,
+        name,
         category,
         ingredient,
-        limit,
         page,
+        size,
       },
     };
     try {

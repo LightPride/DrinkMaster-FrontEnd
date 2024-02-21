@@ -18,6 +18,7 @@ const DrinkPageHero = ({
   description,
   imgPath,
 }) => {
+  console.log(imgPath);
   return (
     <>
       <DrinkHeroWrapper>
@@ -33,6 +34,17 @@ const DrinkPageHero = ({
         <DrinkPhotoWrapper>
           <DrinkPhoto src={imgPath} alt="img"></DrinkPhoto>
         </DrinkPhotoWrapper>
+
+        {/* <DrinkPhotoWrapper>
+          {imgPath ? (
+            <DrinkPhoto src={imgPath} alt="img"></DrinkPhoto>
+          ) : (
+            <DrinkPhoto
+              src="../../images/drinkPage/coctailPlaceholder.png"
+              alt="img"
+            ></DrinkPhoto>
+          )}
+        </DrinkPhotoWrapper> */}
       </DrinkHeroWrapper>
     </>
   );

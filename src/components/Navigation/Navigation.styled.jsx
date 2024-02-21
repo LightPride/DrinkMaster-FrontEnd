@@ -21,7 +21,7 @@ export const StyledNavigationLink = styled(NavLink)`
   border-radius: 40px;
   background: var(--black-color);
   padding: 8px 16px;
-  transition: all 0.25s ease-in-out;
+  transition: all 0.2s ease-in-out;
 
   &:hover,
   &:focus {
