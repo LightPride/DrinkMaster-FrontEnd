@@ -8,8 +8,7 @@ import { getDrinkById } from '../../redux/drinks/drinks.operations';
 import { selectDrinkById } from '../../redux/drinks/drinks.selectors';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import recipes from '../../helpers/data/recipes.json';
-
+// import recipes from '../../helpers/data/recipes.json';
 // import ingredients from '../../helpers/data/ingredients.json';
 
 const DrinkPage = () => {
