@@ -24,3 +24,9 @@ export const HeaderWrapper = styled.div`
   margin: auto;
   justify-content: space-between;
 `;
+
+export const Div = styled.div`
+  display: flex;
+  gap: 14px;
+  justify-content: flex-end;
+`;

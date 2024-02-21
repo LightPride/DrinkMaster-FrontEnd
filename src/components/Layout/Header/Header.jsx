@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
+
 import Logo from '../../Logo/Logo';
+import UserLogo from './UserLogo/UserLogo';
+
 import Navigation from '../../Navigation/Navigation';
-import { HeaderContainer, HeaderWrapper } from './Header.styled';
+import { HeaderContainer, HeaderWrapper, Div } from './Header.styled';
 import { BurgerMenu } from './BurgerMenu/BurgerMenu';
 import { Container } from '../Container/Container';
 
@@ -31,9 +34,17 @@ export const Header = () => {
       <Container>
         <HeaderWrapper>
           <Logo />
-          {windowWidth >= 1440 && <Navigation />}
+          {windowWidth >= 1440 && (
+            <Div>
+              <Navigation /> <UserLogo />
+            </Div>
+          )}
+
           {windowWidth < 1440 && (
-            <BurgerMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} />
+            <Div>
+              <UserLogo />
+              <BurgerMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} />
+            </Div>
           )}
         </HeaderWrapper>
       </Container>
