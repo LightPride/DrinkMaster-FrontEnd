@@ -2,19 +2,25 @@ import styled from 'styled-components';
 
 export const StyledButton = styled.button`
   display: flex;
-  text-align: center;
+  /* text-align: center;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
   border: none;
   background-color: var(--white-color);
   cursor: pointer;
   padding: 14px 40px;
   border-radius: 42px;
 
+  color: rgb(22, 31, 55);
   font-family: Manrope;
   font-size: 14px;
   font-weight: 600;
-  line-height: 1.1;
+  line-height: 18px;
+  letter-spacing: 0%;
+  text-align: left;
 
   &.addDrinks {
     max-width: 151px;
@@ -22,24 +28,27 @@ export const StyledButton = styled.button`
   }
 
   &.addDrinks:active {
-    border: 2px solid var(--blue-color);
+    border: 1px solid var(--blue-color);
     background-color: var(--dark-blue-color);
     color: var(--white-color);
   }
 
   @media screen and (min-width: 768px) {
     &.addDrinks {
+      padding: 18px 44px;
       max-width: 169px;
+      height: 54px;
+    }
+  }
+  @media screen and (min-width: 1440px) {
+    &.addDrinks {
+      max-width: 160px;
       height: 54px;
     }
     &.addDrinks:hover {
       color: var(--white-color);
       background-color: var(--dark-blue-color);
     }
-  }
-  @media screen and (min-width: 1440px) {
-    width: 160px;
-    height: 54px;
   }
 
   &.addRecipe {
