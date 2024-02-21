@@ -16,7 +16,7 @@ const DrinkIngredientsList = ({ ingredients }) => {
               title={ingredient.title}
               measure={ingredient.measure}
               quantity={ingredient.quantity}
-              images={ingredient.ingredientThumb}
+              image={ingredient.ingredient.ingredientThumb}
             />
           </li>
         ))}

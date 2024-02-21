@@ -14,7 +14,7 @@ import { useSelector, useDispatch } from 'react-redux';
 const DrinkPage = () => {
   const dispatch = useDispatch();
   const { drinkId } = useParams();
-  console.log(drinkId);
+  // console.log(drinkId);
   const drink = useSelector((state) => selectDrinkById(state, drinkId));
   console.log(drink);
 
