@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { StyledSignForm } from './Styled';
 import { useForm, Controller } from 'react-hook-form';
-import { loginThunk } from '../../redux/auth/auth.reducer';
+import { loginThunk } from '../../redux/auth/auth.operations';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import UniversalBtn from './UniversalBtn';

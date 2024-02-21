@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyledSignForm } from './Styled';
 import { useForm, Controller } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { registerThunk } from '../../redux/auth/auth.reducer';
+import { registerThunk } from '../../redux/auth/auth.operations';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import FormControl from '@mui/material/FormControl';
