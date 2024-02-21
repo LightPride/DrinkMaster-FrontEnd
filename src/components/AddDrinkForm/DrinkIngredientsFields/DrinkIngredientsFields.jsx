@@ -5,22 +5,84 @@ import {
   IngredientsButton,
   customStylesSelectIngr,
 } from './DrinkIngredientsFields.styled';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FieldArray, Field, ErrorMessage } from 'formik';
 import Select from 'react-select';
-import { nanoid } from 'nanoid';
+import { getIngredients } from '../../../redux/filters/filters.operations';
 
-export const DrinkIngredientsFields = ({ ingredients }) => {
+export const DrinkIngredientsFields = ({
+  values,
+  errors,
+  touched,
+  handleChange,
+  handleBlur,
+  setFieldValue,
+}) => {
+  const [options, setOptions] = useState([]);
+  const [selectedOptions, setSelectedOptions] = useState([]);
+
+  useEffect(() => {
+    async function fetchIngredients() {
+      try {
+        const ingredients = await getIngredients();
+        console.log(ingredients);
+        const ingredientOptions = ingredients.map((ingredient) => ({
+          label: ingredient.title,
+          value: ingredient._id,
+        }));
+        setOptions(ingredientOptions);
+      } catch (error) {
+        console.error('Помилка:', error);
+      }
+    }
+
+    fetchIngredients();
+  }, []);
+
+  const handleSelectChange = (selectedOption, index) => {
+    const { value, label } = selectedOption;
+    setFieldValue(`ingredients[${index}].title`, label);
+    setFieldValue(`ingredients[${index}]._id`, value);
+    setSelectedOptions((prevOptions) => {
+      const newOptions = [...prevOptions];
+      newOptions[index] = selectedOption;
+      return newOptions;
+    });
+  };
+
+  const handleAddIngredient = () => {
+    const newIngredient = { name: '' };
+    setFieldValue('ingredients', [...values.ingredients, newIngredient]);
+    setSelectedOptions((prevOptions) => [...prevOptions, null]);
+  };
+
+  const handleRemoveIngredient = (index) => {
+    const newIngredients = [...values.ingredients];
+    newIngredients.splice(index, 1);
+    setFieldValue('ingredients', newIngredients);
+    setSelectedOptions((prevOptions) => {
+      const newOptions = [...prevOptions];
+      newOptions.splice(index, 1);
+      return newOptions;
+    });
+  };
+
+  const isRemoveButtonDisabled = values.ingredients.length === 1;
+
   return (
     <FieldArray name="ingredients">
-      {({ push, remove, form }) => (
+      {/* {({ form }) => (
         <Wrapper>
           <SubtitleForm>
             <h4 className="titleIngredientsForm">Ingredients</h4>
             <div className="containerIngredientInputs">
               <IngredientsButton
                 className="buttonAddRemove"
-                onClick={() => remove(-1)}
+                type="button"
+                onClick={() =>
+                  handleRemoveIngredient(values.ingredients.length - 1)
+                }
+                disabled={isRemoveButtonDisabled}
               >
                 <svg
                   width="16"
@@ -39,10 +101,10 @@ export const DrinkIngredientsFields = ({ ingredients }) => {
                   />
                 </svg>
               </IngredientsButton>
-              <p className="quantityTitle">{form.values.ingredients.length}</p>
+              <p className="quantityTitle">3</p>
               <IngredientsButton
                 type="button"
-                onClick={() => push({ name: '', quantity: '' })}
+                onClick={handleAddIngredient}
                 className="buttonAddRemove"
               >
                 <svg
@@ -71,27 +133,33 @@ export const DrinkIngredientsFields = ({ ingredients }) => {
             </div>
           </SubtitleForm>
           <SubWrapper>
-            {form.values.ingredients.map(({ name, quantity }, index) => (
+            {form.values.ingredients.map((ingredient, index) => (
               <div className="inputsWrapper" key={index}>
                 <Select
                   className="styledSelect"
-                  name={`ingredients.${index}.name`}
-                  options={ingredients}
-                  onChange={(option) => {
-                    form.setFieldValue(
-                      `ingredients.${index}.name`,
-                      option.value
-                    );
-                  }}
+                  name={`ingredients[${index}].title`}
+                  options={options}
+                  value={selectedOptions[index]}
+                  onChange={(selectedOption) =>
+                    handleSelectChange(selectedOption, index)
+                  }
+                  onBlur={handleBlur}
                   styles={customStylesSelectIngr}
                 />
                 <Field
                   className="styledInput"
-                  name={`ingredients.${index}.quantity`}
                   type="text"
-                  placeholder="1 Cl"
+                  name={`ingredients[${index}].measure`}
+                  placeholder="1 cl"
+                  value={ingredient.measure || ''}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
                 />
-                <IngredientsButton type="button" onClick={() => remove(index)}>
+                <IngredientsButton
+                  type="button"
+                  onClick={() => handleRemoveIngredient(index)}
+                  disabled={isRemoveButtonDisabled}
+                >
                   <svg
                     width="18"
                     height="18"
@@ -119,7 +187,7 @@ export const DrinkIngredientsFields = ({ ingredients }) => {
             ))}
           </SubWrapper>
         </Wrapper>
-      )}
+      )} */}
     </FieldArray>
   );
 };

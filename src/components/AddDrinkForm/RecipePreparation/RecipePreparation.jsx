@@ -13,7 +13,7 @@ export const RecipePreparation = () => {
         as="textarea"
         className="inputField"
         placeholder="Enter the recipe"
-        name="preparation"
+        name="instructions"
       />
     </Wrapper>
   );
