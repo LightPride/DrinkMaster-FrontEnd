@@ -1,36 +1,54 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import DrinksSearch from '../../components/DrinksSearch/DrinksSearch';
 import { Drinks } from '../../components/Drinks/Drinks';
 import { Container } from '../../components/Layout/Container/Container';
 import { ErrorMessage } from './DrinksPage.styled';
 import { Wrapper } from './DrinksPage.styled';
-// ==============
-import recipes from '../../helpers/data/recipes.json';
-// ==============
+
+import {
+  selectDrinks,
+  selectIsLoading,
+  selectErrorDrinks,
+} from '../../redux/drinks/drinks.selectors';
+
+import { getSearchedDrink } from '../../redux/drinks/drinks.operations';
 
 export default function DrinksPage() {
-  const [filter, setFilter] = useState('');
+  const dispatch = useDispatch();
+  const drinks = useSelector(selectDrinks);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectErrorDrinks);
 
-  const filteredDrinks = recipes.filter((drink) =>
-    filter.trim() !== ''
-      ? drink.drink.toLowerCase().includes(filter.toLowerCase())
-      : true
-  );
+  const name = '';
+  const category = '';
+  const ingredient = '';
+  const page = 1;
+  const size = 9;
 
-  const handleChangeFilter = (event) => {
-    setFilter(event.target.value);
-  };
+  useEffect(() => {
+    dispatch(getSearchedDrink({ name, category, ingredient, page, size }));
+  }, [dispatch]);
+
   return (
     <Container>
       <Wrapper>
         <PageTitle title="Drinks" />
-        <DrinksSearch handleChangeFilter={handleChangeFilter} />
+        <DrinksSearch />
+        {isLoading ? (
+          <p>Loading...</p>
+        ) : error ? (
+          <ErrorMessage>Error: {error}</ErrorMessage>
+        ) : (
+          <Drinks drinks={drinks} />
+        )}
+        {/* <DrinksSearch handleChangeFilter={handleChangeFilter} />
         {filteredDrinks.length > 0 ? (
           <Drinks drinks={filteredDrinks} />
         ) : (
           <ErrorMessage>No cocktails were found for your request</ErrorMessage>
-        )}
+        )} */}
       </Wrapper>
     </Container>
   );
