@@ -1,4 +1,23 @@
-import{u as e,N as a,j as n,i as l}from"./index-2671aaa2.js";const h=e.div`
+import{u as e,j as o,i as n,N as r}from"./index-05b061f5.js";const a=e.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  max-width: 100vw;
+  height: 100vh;
+  color: var(--start-page-txt-color);
+
+  @media screen and (min-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 32px;
+  }
+  @media screen and (min-width: 1440px) {
+    padding: 0 100px;
+  }
+`,c=({children:t})=>o.jsx(n,{shouldForwardProp:i=>i!=="backgroundcolor",children:o.jsx(a,{children:t})});const d=e.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -52,7 +71,7 @@ import{u as e,N as a,j as n,i as l}from"./index-2671aaa2.js";const h=e.div`
       width: 400px;
     }
   }
-`,u=e.p`
+`,p=e.p`
   font-size: 14px;
   text-align: center;
   font-weight: 400;
@@ -67,22 +86,25 @@ import{u as e,N as a,j as n,i as l}from"./index-2671aaa2.js";const h=e.div`
     font-size: 18px;
     line-height: 24px;
   }
-`,b=e(a)`
+`,s=e(r)`
   && {
     display: block;
     font-size: 14px;
     line-height: 16px;
     color: var(--white-color);
     font-weight: 600;
-    width: 400px;
+    width: 335px;
     text-align: center;
     padding: 18px 0px;
   }
 
   @media screen and (min-width: 768px) {
-    font-size: 14px;
+    && {
+      font-size: 14px;
+      width: 400px;
+    }
   }
-`,c=e.h1`
+`,x=e.h1`
   font-weight: 600;
   font-size: 28px;
   line-height: 32px;
@@ -94,7 +116,21 @@ import{u as e,N as a,j as n,i as l}from"./index-2671aaa2.js";const h=e.div`
     font-size: 40px;
     line-height: 44px;
   }
-`,m=e.button`
+`,h=e.h1`
+  text-align: center;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: -2%;
+  margin-bottom: 14px;
+  color: var(--white-color);
+
+  @media screen and (min-width: 768px) {
+    text-align: start;
+    font-size: 40px;
+    line-height: 44px;
+  }
+`,g=e.button`
   background-color: ${t=>t.backgroundcolor};
   color: ${t=>t.color};
   width: 335px;
@@ -118,6 +154,8 @@ import{u as e,N as a,j as n,i as l}from"./index-2671aaa2.js";const h=e.div`
   }
 `,f=e.div`
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 14px;
   align-items: center;
   flex-wrap: wrap;
@@ -142,6 +180,7 @@ import{u as e,N as a,j as n,i as l}from"./index-2671aaa2.js";const h=e.div`
   }
 
   @media screen and (min-width: 768px) {
+      justify-content: flex-start;
     a {
       font-size: 16px;
       width: 140px;
@@ -153,43 +192,4 @@ import{u as e,N as a,j as n,i as l}from"./index-2671aaa2.js";const h=e.div`
       width: 147px;
     }
   }
-`,w=({margin:t,title:o})=>n.jsx(c,{margin:t,children:o}),p="/DrinkMaster-FrontEnd/assets/bgMobile-e383a012.png",s="/DrinkMaster-FrontEnd/assets/bgTablet-14e49859.png",d="/DrinkMaster-FrontEnd/assets/bgDesktop-b848fba0.png",r="/DrinkMaster-FrontEnd/assets/circle-2c400467.png",i="/DrinkMaster-FrontEnd/assets/dobleCircle-e4528854.png",x=e.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-image: url(${i}), url(${r}), url(${p});
-  background-repeat: no-repeat, no-repeat, no-repeat;
-  background-position:
-    top -200px right,
-    bottom -300px left 300px,
-    center right -300px;
-  background-size:
-    auto auto,
-    auto auto,
-    auto 100%;
-  padding: 0 20px;
-  max-width: 100vw;
-  height: 100vh;
-  color: var(--start-page-txt-color);
-
-  @media screen and (min-width: 768px) {
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    background-image: url(${i}), url(${r}), url(${s});
-    background-position:
-      top -300px left -500px,
-      bottom -200px right -600px,
-      center right -250px;
-    padding: 0 32px;
-  }
-  @media screen and (min-width: 1440px) {
-    background-image: url(${i}), url(${r}), url(${d});
-    background-position:
-      top -300px left -500px,
-      bottom -400px right -500px,
-      center right;
-    padding: 0 100px;
-  }
-`,k=({children:t})=>n.jsx(l,{shouldForwardProp:o=>o!=="backgroundcolor",children:n.jsx(x,{children:t})});export{u as S,w as T,k as W,f as a,h as b,m as c,b as d};
+`;export{p as S,c as W,f as a,h as b,d as c,g as d,x as e,s as f};
