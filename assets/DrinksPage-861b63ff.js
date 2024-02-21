@@ -1,4 +1,4 @@
-import{u as m,j as h,b as C,r as W,L as K,C as H}from"./index-2b8905c5.js";import{P as J}from"./PageTitle-f1dc34bf.js";import{S as Z}from"./react-select.esm-2d7ddc77.js";import{p as Q}from"./coctailPlaceholder-7dc3e525.js";import{r as X}from"./recipes-8f698c44.js";import"./assertThisInitialized-41284c0e.js";const ee=m(Z)`
+import{u as m,j as h,d as C,r as W,L as K,C as H}from"./index-7425699f.js";import{P as J}from"./PageTitle-5550cbcf.js";import{S as Z}from"./react-select.esm-aa9c7f4d.js";import{p as Q}from"./coctailPlaceholder-7dc3e525.js";import{r as X}from"./recipes-8f698c44.js";const ee=m(Z)`
   & .react-select__control {
     border-radius: 200px;
     background-color: var(--dark-blue-color);
@@ -991,4 +991,4 @@ The cucumber is a creeping vine that roots in the ground and grows up trellises 
   }
 `,Ke=m.p`
   color: var(--white-color);
-`;function ii(){const[e,t]=W.useState(""),n=X.filter(i=>e.trim()!==""?i.drink.toLowerCase().includes(e.toLowerCase()):!0),a=i=>{t(i.target.value)};return h.jsx(H,{children:h.jsxs(Ye,{children:[h.jsx(J,{title:"Drinks"}),h.jsx(Ne,{handleChangeFilter:a}),n.length>0?h.jsx(Ve,{drinks:n}):h.jsx(Ke,{children:"No cocktails were found for your request"})]})})}export{ii as default};
+`;function ei(){const[e,t]=W.useState(""),n=X.filter(i=>e.trim()!==""?i.drink.toLowerCase().includes(e.toLowerCase()):!0),a=i=>{t(i.target.value)};return h.jsx(H,{children:h.jsxs(Ye,{children:[h.jsx(J,{title:"Drinks"}),h.jsx(Ne,{handleChangeFilter:a}),n.length>0?h.jsx(Ve,{drinks:n}):h.jsx(Ke,{children:"No cocktails were found for your request"})]})})}export{ei as default};
