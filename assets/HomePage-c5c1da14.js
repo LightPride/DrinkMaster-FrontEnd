@@ -1,4 +1,4 @@
-import{u as i,c as j,j as e,a as d,b as v,C as y}from"./index-7425699f.js";import{r as t}from"./recipes-8f698c44.js";i.div``;const H=i.div``,c=i.button`
+import{u as i,c as j,j as e,a as d,b as v,C as y}from"./index-d0a82043.js";import{r as t}from"./recipes-8f698c44.js";i.div``;const H=i.div``,c=i.button`
   display: flex;
   text-align: center;
   align-items: center;
