@@ -6,9 +6,9 @@ import {
   DrinkDescriptionWrapper,
   DrinkHeroWrapper,
   DrinkPhotoWrapper,
-  // DrinkSvgWrapper,
 } from './DrinkPageHero.styled';
 import PageTitle from '../PageTitle/PageTitle';
+import defaultImage from '../../images/drinkPage/coctailPlaceholder.png';
 
 const DrinkPageHero = ({
   // id,
@@ -18,7 +18,6 @@ const DrinkPageHero = ({
   description,
   imgPath,
 }) => {
-  console.log(imgPath);
   return (
     <>
       <DrinkHeroWrapper>
@@ -32,19 +31,12 @@ const DrinkPageHero = ({
         </DrinkDescriptionWrapper>
 
         <DrinkPhotoWrapper>
-          <DrinkPhoto src={imgPath} alt="img"></DrinkPhoto>
-        </DrinkPhotoWrapper>
-
-        {/* <DrinkPhotoWrapper>
           {imgPath ? (
             <DrinkPhoto src={imgPath} alt="img"></DrinkPhoto>
           ) : (
-            <DrinkPhoto
-              src="../../images/drinkPage/coctailPlaceholder.png"
-              alt="img"
-            ></DrinkPhoto>
+            <DrinkPhoto src={defaultImage} alt="img"></DrinkPhoto>
           )}
-        </DrinkPhotoWrapper> */}
+        </DrinkPhotoWrapper>
       </DrinkHeroWrapper>
     </>
   );
