@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { BurgerContainer, MenuItems } from './BurgerMenu.styled';
+import { BurgerContainer, MenuItems, IconSvg } from './BurgerMenu.styled';
 
 import { StyledNavigationLink } from '../../../Navigation/Navigation.styled';
 
@@ -19,10 +19,10 @@ export const BurgerMenu = ({ isOpen, toggleMenu }) => {
   return (
     <BurgerContainer>
       {isOpen === false ? (
-        <svg
-          width="38"
-          height="38"
-          viewBox="0 0 38 38"
+        <IconSvg
+          width="32"
+          height="32"
+          viewBox="0 0 32 32"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           onClick={toggleMenu}
@@ -55,12 +55,12 @@ export const BurgerMenu = ({ isOpen, toggleMenu }) => {
             strokeLinecap="round"
             strokeLinejoin="round"
           />
-        </svg>
+        </IconSvg>
       ) : (
-        <svg
-          width="38"
-          height="38"
-          viewBox="0 0 38 38"
+        <IconSvg
+          width="32"
+          height="32"
+          viewBox="0 0 32 32"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           onClick={toggleMenu}
@@ -79,7 +79,7 @@ export const BurgerMenu = ({ isOpen, toggleMenu }) => {
             strokeLinecap="round"
             strokeLinejoin="round"
           />
-        </svg>
+        </IconSvg>
       )}
 
       <MenuItems open={isOpen}>

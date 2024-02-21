@@ -30,3 +30,14 @@ export const MenuItems = styled.ul`
   }
   `}
 `;
+
+export const IconSvg = styled.svg`
+  width: 32px;
+  height: 32px;
+  fill: var(--white-color);
+
+  @media screen and (min-width: 768px) {
+    width: 38px;
+    height: 38px;
+  }
+`;
