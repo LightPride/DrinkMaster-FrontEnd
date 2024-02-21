@@ -18,6 +18,8 @@ const DrinkPage = () => {
   console.log(drinkId);
   const drink = useSelector((state) => selectDrinkById(state, drinkId));
   console.log(drink);
+  // console.log(drink.drink);
+  // console.log(drink.ingredients);
 
   useEffect(() => {
     dispatch(getDrinkById(drinkId));
@@ -41,8 +43,8 @@ const DrinkPage = () => {
               imgPath={drink.drinkThumb}
               // imgPath={recipes[0].drinkThumb}
             />
-            <DrinkIngredientsList ingredients={recipes[0].ingredients} />
-            <RecipePreparation instructions={recipes[0].instructions} />
+            <DrinkIngredientsList ingredients={drink.ingredients} />
+            <RecipePreparation instructions={drink.instructions} />
           </>
         )}
       </DrinkPageWrapper>
