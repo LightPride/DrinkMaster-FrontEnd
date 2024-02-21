@@ -20,15 +20,20 @@ export const UserLogoText = styled.p`
   font-family: 'Manrope-500';
   font-size: 14px;
   line-height: 129%;
-
+  margin-right: 14px;
   transition: color 100ms ease;
   &:hover,
   &:focus {
     color: var(--white-fifty-color);
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 768px) {
     font-size: 16px;
     line-height: 150%;
+    margin-right: 24px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-right: 0;
   }
 `;

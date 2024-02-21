@@ -27,6 +27,5 @@ export const HeaderWrapper = styled.div`
 
 export const Div = styled.div`
   display: flex;
-  gap: 14px;
   justify-content: flex-end;
 `;
