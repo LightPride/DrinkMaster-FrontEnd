@@ -18,8 +18,6 @@ const DrinkPage = () => {
   console.log(drinkId);
   const drink = useSelector((state) => selectDrinkById(state, drinkId));
   console.log(drink);
-  // console.log(drink.drink);
-  // console.log(drink.ingredients);
 
   useEffect(() => {
     dispatch(getDrinkById(drinkId));
