@@ -19,13 +19,6 @@ const HomePage = () => {
 
 useEffect(() => {
   dispatch(getMainPageDrinks())
-    .then(() => {
-      alert('Cocktails downloaded successfully!');
-    
-    })
-    .catch(error => {
-      alert(`Error downloading cocktails: ${error}`);
-    });
 }, [dispatch]);
 
 
