@@ -6,21 +6,26 @@ import {
 // import { nanoid } from 'nanoid'; // тимчасове рішення, щоб не було warning
 
 const DrinkIngredientsList = ({ ingredients }) => {
+  console.log(ingredients);
   return (
     <>
-      <IngredientsTitle>Ingredients</IngredientsTitle>
-      <IngredientsList>
-        {ingredients.map((ingredient) => (
-          <li key={ingredient._id}>
-            <DrinkIngredientItem
-              title={ingredient.title}
-              measure={ingredient.measure}
-              quantity={ingredient.quantity}
-              image={ingredient.ingredient.ingredientThumb}
-            />
-          </li>
-        ))}
-      </IngredientsList>
+      {ingredients > 0 && (
+        <>
+          <IngredientsTitle>Ingredients</IngredientsTitle>
+          <IngredientsList>
+            {ingredients.map((ingredient) => (
+              <li key={ingredient._id}>
+                <DrinkIngredientItem
+                  title={ingredient.title}
+                  measure={ingredient.measure}
+                  quantity={ingredient.quantity}
+                  image={ingredient.ingredient.ingredientThumb}
+                />
+              </li>
+            ))}
+          </IngredientsList>
+        </>
+      )}
     </>
   );
 };
