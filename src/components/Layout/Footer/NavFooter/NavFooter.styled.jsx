@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const FooterNav = styled.li`
   font-family: 'Manrope', sans-serif;
@@ -35,5 +36,11 @@ export const FooterUl = styled.ul`
 
   @media screen and (min-width: 1440px) {
     gap: 24px;
+  }
+`;
+
+export const FooterLink = styled(Link)`
+  &:visited {
+    color: inherit;
   }
 `;
