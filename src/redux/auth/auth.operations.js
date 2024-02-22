@@ -48,25 +48,25 @@ export const loginThunk = createAsyncThunk(
 //   }
 // );
 
-// export const refreshThunk = createAsyncThunk(
-//   'auth/refresh',
-//   async (_, thunkApi) => {
-//     try {
-//       const state = thunkApi.getState();
-//       const token = state.auth.token;
-//       setToken(token);
-//       const { data } = await instance.get('/users/current');
-//       return data;
-//     } catch (err) {
-//       return thunkApi.rejectWithValue(err.message);
-//     }
-//   },
-//   {
-//     condition: (_, thunkApi) => {
-//       const state = thunkApi.getState();
-//       const token = state.auth.token;
-//       if (!token) return false;
-//       return true;
-//     },
-//   }
-// );
+export const refreshThunk = createAsyncThunk(
+  'auth/refresh',
+  async (_, thunkApi) => {
+    try {
+      const state = thunkApi.getState();
+      const token = state.auth.token;
+      setToken(token);
+      const { data } = await instance.get('/users/current');
+      return data;
+    } catch (err) {
+      return thunkApi.rejectWithValue(err.message);
+    }
+  },
+  {
+    condition: (_, thunkApi) => {
+      const state = thunkApi.getState();
+      const token = state.auth.token;
+      if (!token) return false;
+      return true;
+    },
+  }
+);
