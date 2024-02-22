@@ -1,15 +1,26 @@
 import Selection from './Select';
 import { Filter, Wrapper } from './DrinksSearch.styled';
-
-// ============
-import categories from '../../helpers/data/categories';
-const optionsCategories = categories.map((category) => category.categori);
-
-import ingredientsData from '../../helpers/data/ingredients.json';
-const options = ingredientsData.map((ingredient) => ingredient.title);
-// ============
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  getCategories,
+  getIngredients,
+} from '../../redux/filters/filters.operations';
+import {
+  selectCategories,
+  selectIngredients,
+} from '../../redux/filters/filters.selectors';
 
 const DrinksSearch = ({ handleChangeFilter }) => {
+  const dispatch = useDispatch();
+  const categories = useSelector(selectCategories);
+  const ingredients = useSelector(selectIngredients);
+
+  useEffect(() => {
+    dispatch(getCategories());
+    dispatch(getIngredients());
+  }, [dispatch]);
+
   return (
     // !isLoading && (
     <Wrapper>
@@ -24,14 +35,14 @@ const DrinksSearch = ({ handleChangeFilter }) => {
       <Selection
         id="categorySelect"
         placeholder="All categories"
-        options={optionsCategories}
+        options={categories.map((category) => category.category)}
         // onChange={handleChangeCategory}
         // value={category}
       />
       <Selection
         id="ingredientSelect"
         placeholder="Ingredients"
-        options={options}
+        options={ingredients.map((ingredient) => ingredient.title)}
         // onChange={handleChangeIngredient}
         // value={ingredient.value}
       />
