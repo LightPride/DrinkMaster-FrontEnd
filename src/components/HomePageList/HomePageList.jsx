@@ -3,17 +3,18 @@ import  HomePageItem  from '../HomePageItem/HomePageItem';
 import { useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import { selectMainPageDrinks } from '../../redux/drinks/drinks.selectors';
+import { Category, CategoryContainer } from './HomePageList.styled';
 
 const HomePageList = () => {
   const drinksData = useSelector(selectMainPageDrinks);
   return (
-    <>
+    <CategoryContainer>
       <CardList>
         {drinksData.map(({ category, drinks }) => {
           return (
-            <div className="categoryContainer" key={nanoid()}>
-              <h2 key={nanoid()}>{category}</h2>
-              <div className="coctailsContainer" key={nanoid()}>
+            <div key={nanoid()}>
+              <Category key={nanoid()}>{category}</Category>
+              <div key={nanoid()}>
                 {drinks.map(({ drink, drinkThumb, _id }) => {
                   return (
                     <HomePageItem
@@ -28,7 +29,7 @@ const HomePageList = () => {
           );
         })}
       </CardList>
-    </>
+    </CategoryContainer>
   );
 };
 
