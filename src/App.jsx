@@ -1,10 +1,12 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { lazy } from 'react';
+import { lazy, useEffect } from 'react';
 
 import SharedLayout from './components/Layout/SharedLayout/SharedLayout';
 import PublicRoute from './routes/PublicRoute';
 import PrivateRoute from './routes/PrivateRoute';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
+import { useDispatch } from 'react-redux';
+import { refreshThunk } from './redux/auth/auth.operations';
 
 const WelcomePage = lazy(() => import('./pages/WelcomePage/WelcomePage'));
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
@@ -19,6 +21,11 @@ const FavoriteDrinksPage = lazy(() =>
 const AddDrinkPage = lazy(() => import('./pages/AddDrinkPage/AddDrinkPage'));
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshThunk());
+  }, [dispatch]);
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
