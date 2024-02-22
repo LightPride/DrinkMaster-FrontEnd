@@ -1,22 +1,21 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
 import { FooterNav, FooterUl } from './NavFooter.styled';
+import { FooterLink } from './NavFooter.styled';
 
 export const NavFooter = () => {
   return (
     <nav>
       <FooterUl>
         <FooterNav>
-          <Link to="/drinks">Drinks</Link>
+          <FooterLink to="/drinks">Drinks</FooterLink>
         </FooterNav>
         <FooterNav>
-          <Link to="/add">Add Drink</Link>
+          <FooterLink to="/add">Add Drink</FooterLink>
         </FooterNav>
         <FooterNav>
-          <Link to="/my">My Drinks</Link>
+          <FooterLink to="/my">My Drinks</FooterLink>
         </FooterNav>
         <FooterNav>
-          <Link to="/favorites">Favorites drinks</Link>
+          <FooterLink to="/favorites">Favorites drinks</FooterLink>
         </FooterNav>
       </FooterUl>
     </nav>
