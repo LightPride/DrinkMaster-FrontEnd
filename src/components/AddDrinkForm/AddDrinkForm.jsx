@@ -19,7 +19,7 @@ export const AddDrinkForm = () => {
         instructions: '',
         category: '',
         glass: '',
-        alcoholic: 'Non alcoholic',
+        alcoholic: 'false',
         description: '',
       }}
       validationSchema={Yup.object().shape({

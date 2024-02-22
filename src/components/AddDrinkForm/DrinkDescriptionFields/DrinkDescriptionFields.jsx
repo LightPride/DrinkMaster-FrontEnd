@@ -30,6 +30,8 @@ export const DrinkDescriptionFields = ({
   const [selectedCategoriesOption, setSelectedCategoriesOption] = useState([]);
   const [selectedGlassesOption, setSelectedGlassesOption] = useState([]);
 
+  const userNoAdult = false;
+
   useEffect(() => {
     async function fetchCategories() {
       try {
@@ -169,6 +171,7 @@ export const DrinkDescriptionFields = ({
               value="true"
               checked={values.alcoholic === 'true'}
               onChange={handleChange}
+              disabled={userNoAdult}
             />
             <span className="styledSpan">Alcoholic</span>
           </label>
