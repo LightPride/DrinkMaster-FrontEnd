@@ -25,7 +25,7 @@ export const DrinkIngredientsFields = ({
     async function fetchIngredients() {
       try {
         const filteredIngredientsArray =
-          values.alcoholic === 'false'
+          values.alcoholic === 'Non alcoholic'
             ? ingredientsArray.filter(
                 (ingredient) => ingredient.alcohol !== 'Yes'
               )
@@ -57,7 +57,7 @@ export const DrinkIngredientsFields = ({
   };
 
   const handleAddIngredient = () => {
-    const newIngredient = { name: '' };
+    const newIngredient = { title: '' };
     setFieldValue('ingredients', [...values.ingredients, newIngredient]);
     setSelectedOptions((prevOptions) => [...prevOptions, null]);
   };

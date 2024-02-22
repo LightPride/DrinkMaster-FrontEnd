@@ -124,8 +124,8 @@ export const DrinkDescriptionFields = ({
             <Field
               className="styledInputText"
               placeholder="Enter item title"
-              id="description"
-              name="description"
+              id="shortDescription"
+              name="shortDescription"
               onChange={(e) => {
                 handleChange(e);
               }}
@@ -168,8 +168,8 @@ export const DrinkDescriptionFields = ({
               className="styledRadio"
               type="radio"
               name="alcoholic"
-              value="true"
-              checked={values.alcoholic === 'true'}
+              value="Alcoholic"
+              checked={values.alcoholic === 'Alcoholic'}
               onChange={handleChange}
               disabled={userNoAdult}
             />
@@ -181,8 +181,8 @@ export const DrinkDescriptionFields = ({
               className="styledRadio"
               type="radio"
               name="alcoholic"
-              value="false"
-              checked={values.alcoholic === 'false'}
+              value="Non alcoholic"
+              checked={values.alcoholic === 'Non alcoholic'}
               onChange={handleChange}
             />
             <span className="styledSpan">Non-alcoholic</span>

@@ -19,12 +19,12 @@ export const AddDrinkForm = () => {
         instructions: '',
         category: '',
         glass: '',
-        alcoholic: 'false',
-        description: '',
+        alcoholic: 'Non alcoholic',
+        shortDescription: '',
       }}
       validationSchema={Yup.object().shape({
         drink: Yup.string().required('This field is mandatory'),
-        description: Yup.string().required('This field is mandatory'),
+        shortDescription: Yup.string().required('This field is mandatory'),
         ingredients: Yup.array().required('This field is mandatory'),
         instructions: Yup.string().required('This field is mandatory'),
         category: Yup.string().required('This field is mandatory'),
@@ -36,7 +36,7 @@ export const AddDrinkForm = () => {
         const formData = new FormData();
         formData.append('drink', values.drink);
         formData.append('category', values.category);
-        formData.append('description', values.description);
+        formData.append('shortDescription', values.shortDescription);
         formData.append('alcoholic', values.alcoholic);
         formData.append('instructions', values.instructions);
         formData.append('glass', values.glass);
