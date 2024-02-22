@@ -7,7 +7,7 @@ import {
 } from './DrinkIngredientItem.styled';
 import defaultImage from '../../images/drinkPage/coctailPlaceholder.png';
 
-const DrinkIngredientItem = ({ title, measure, quantity, image }) => {
+const DrinkIngredientItem = ({ title, measure, quantity }) => {
   return (
     <>
       <IngredientPhotoWrapper>

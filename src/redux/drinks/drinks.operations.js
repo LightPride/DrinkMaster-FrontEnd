@@ -1,18 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-// import { selectAuthToken } from '../auth/auth.selectors';
-
-// Якщо цей токен стане не валідним, треба створити нового користувача,
-// логінуватися, отримати токен, та підставити сюди (потім будемо брати token з redux store)
-const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZDRhMzRmZTc2Yzg3YzEwODVkNGRiMSIsIm5hbWUiOiJEYXZ5IEpvbmVzMSIsImlhdCI6MTcwODQzNDMxMSwiZXhwIjoxNzEwMjQ4NzExfQ.rOBfDfto61kTTyT_CJ_Dg7vwHmoaMlOpZ9of-n7Otus';
-
-export const instance = axios.create({
-  baseURL: 'https://drink-master-api-umd0.onrender.com/api',
-  headers: {
-    Authorization: `Bearer ${token}`,
-  },
-});
+import { instance } from '../auth/auth.operations';
 
 export const getMainPageDrinks = createAsyncThunk(
   'drinks/getAll',

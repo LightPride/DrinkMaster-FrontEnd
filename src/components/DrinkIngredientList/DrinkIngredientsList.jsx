@@ -8,7 +8,7 @@ import {
 const DrinkIngredientsList = ({ ingredients }) => {
   // console.log(ingredients);
   // console.log(ingredients[0].ingredient.description);
-  console.log(ingredients[0].ingredient.ingredientThumb);
+  // console.log(ingredients[0].ingredient.ingredientThumb);
   return (
     <>
       {ingredients && (
@@ -21,7 +21,7 @@ const DrinkIngredientsList = ({ ingredients }) => {
                   title={ingredient.title}
                   measure={ingredient.measure}
                   quantity={ingredient.quantity}
-                  image={ingredient.ingredient.ingredientThumb}
+                  // image={ingredient.ingredient.ingredientThumb}
                 />
               </li>
             ))}
