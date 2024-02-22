@@ -38,17 +38,11 @@ export default function DrinksPage() {
         <DrinksSearch />
         {isLoading ? (
           <p>Loading...</p>
-        ) : error ? (
-          <ErrorMessage>Error: {error}</ErrorMessage>
+        ) : error || drinks.length === 0 ? (
+          <ErrorMessage>No cocktails were found for your request</ErrorMessage>
         ) : (
           <Drinks drinks={drinks} />
         )}
-        {/* <DrinksSearch handleChangeFilter={handleChangeFilter} />
-        {filteredDrinks.length > 0 ? (
-          <Drinks drinks={filteredDrinks} />
-        ) : (
-          <ErrorMessage>No cocktails were found for your request</ErrorMessage>
-        )} */}
       </Wrapper>
     </Container>
   );
