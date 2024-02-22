@@ -82,3 +82,9 @@ export const InfoText = styled.p`
     line-height: 1.28571;
   }
 `;
+
+export const InfoLink = styled.a`
+  &:visited {
+    color: inherit;
+  }
+`;
