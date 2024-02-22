@@ -3,10 +3,10 @@ import {
   IngredientsTitle,
   IngredientsList,
 } from './DrinkIngredientsList.styled';
-// import { nanoid } from 'nanoid'; // тимчасове рішення, щоб не було warning
+import { nanoid } from 'nanoid'; // тимчасове рішення, щоб не було warning
 
 const DrinkIngredientsList = ({ ingredients }) => {
-  // console.log(ingredients);
+  console.log(ingredients);
   // console.log(ingredients[0].ingredient.description);
   // console.log(ingredients[0].ingredient.ingredientThumb);
   return (
@@ -16,12 +16,16 @@ const DrinkIngredientsList = ({ ingredients }) => {
           <IngredientsTitle>Ingredients</IngredientsTitle>
           <IngredientsList>
             {ingredients.map((ingredient) => (
-              <li key={ingredient._id}>
+              <li key={nanoid()}>
+                {/* // <li key={ingredient._id}> */}
                 <DrinkIngredientItem
                   title={ingredient.title}
                   measure={ingredient.measure}
                   quantity={ingredient.quantity}
-                  // image={ingredient.ingredient.ingredientThumb}
+                  image={
+                    ingredient.ingredient &&
+                    ingredient.ingredient.ingredientThumb
+                  }
                 />
               </li>
             ))}
