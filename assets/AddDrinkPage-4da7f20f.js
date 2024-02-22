@@ -1,4 +1,4 @@
-import{u as O,a2 as kr,r as d,j as o,C as Rr,a3 as Pr}from"./index-941414fa.js";import{c as Lr,a as re,b as Nr,d as Dr}from"./index.esm-e09377a9.js";import{S as Le,c as zr,i as Br}from"./ingredients-58c598fc.js";import{u as Ur}from"./useDispatch-78d005e2.js";import{P as Vr}from"./PageTitle-50ad99b5.js";const Gr=O.div`
+import{u as O,a3 as kr,r as d,j as o,C as Rr,a4 as Pr}from"./index-0f7ede90.js";import{c as Lr,a as re,b as Nr,d as Dr}from"./index.esm-cf8a2c5f.js";import{S as Le,c as zr,i as Br}from"./ingredients-22062443.js";import{u as Ur}from"./useDispatch-2d97a61b.js";import{P as Vr}from"./PageTitle-6f360e14.js";const Gr=O.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
