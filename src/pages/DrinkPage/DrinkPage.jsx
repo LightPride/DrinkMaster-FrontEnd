@@ -15,7 +15,7 @@ const DrinkPage = () => {
   const { drinkId } = useParams();
   // console.log(drinkId);
   const drink = useSelector((state) => selectDrinkById(state, drinkId));
-  console.log(drink);
+  // console.log(drink);
 
   useEffect(() => {
     dispatch(getDrinkById(drinkId));
