@@ -1,12 +1,4 @@
 import { styled } from 'styled-components';
-import Mob1x from './img/EllipseMob@1x.png';
-import Mob2x from './img/EllipseMob@2x.png';
-
-import Tab1x from './img/EllipseTab@1x.png';
-import Tab2x from './img/EllipseTab@2x.png';
-
-import Desk1x from './img/EllipseDesk@1x.png';
-import Desk2x from './img/EllipseDesk@2x.png';
 
 export const FooterContainer = styled.footer`
   border-top: 1px solid rgba(243, 243, 243, 0.2);
@@ -25,36 +17,7 @@ export const FooterContainer = styled.footer`
   }
 `;
 export const FooterSection = styled.section`
-  background-image: url(${Mob1x});
-  background-repeat: no-repeat;
   margin: 0 auto;
-  background-size: cover;
-
-  @media screen and (min-device-pixel-ratio: 2) and (min-width: 320px),
-    screen and (min-resolution: 192dpi) and (min-width: 320px),
-    screen and (min-resolution: 2dppx) and (min-width: 320px) {
-    background-image: url(${Mob2x});
-  }
-
-  @media screen and (min-width: 768px) {
-    background-image: url(${Tab1x});
-    height: 428px;
-  }
-
-  @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
-    screen and (min-resolution: 192dpi) and (min-width: 768px),
-    screen and (min-resolution: 2dppx) and (min-width: 768px) {
-    background-image: url(${Tab2x});
-  }
-  @media screen and (min-width: 1440px) {
-    background-image: url(${Desk1x});
-  }
-
-  @media screen and (min-device-pixel-ratio: 2) and (min-width: 1440px),
-    screen and (min-resolution: 192dpi) and (min-width: 1440px),
-    screen and (min-resolution: 2dppx) and (min-width: 1440px) {
-    background-image: url(${Desk2x});
-  }
 `;
 export const FooterDiv = styled.div`
   display: flex;
