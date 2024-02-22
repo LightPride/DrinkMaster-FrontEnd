@@ -24,10 +24,18 @@ export const DrinkIngredientsFields = ({
   useEffect(() => {
     async function fetchIngredients() {
       try {
-        const ingredientOptions = ingredientsArray.map((ingredient) => ({
-          label: ingredient.title,
-          value: ingredient._id,
-        }));
+        const filteredIngredientsArray =
+          values.alcoholic === 'false'
+            ? ingredientsArray.filter(
+                (ingredient) => ingredient.alcohol !== 'Yes'
+              )
+            : ingredientsArray;
+        const ingredientOptions = filteredIngredientsArray.map(
+          (ingredient) => ({
+            label: ingredient.title,
+            value: ingredient._id,
+          })
+        );
         setOptions(ingredientOptions);
       } catch (error) {
         console.error('Помилка при завантаженні інгрідієнтів:', error);
@@ -35,7 +43,7 @@ export const DrinkIngredientsFields = ({
     }
 
     fetchIngredients();
-  }, []);
+  }, [values.alcoholic]);
 
   const handleSelectChange = (selectedOption, index) => {
     const { value, label } = selectedOption;
