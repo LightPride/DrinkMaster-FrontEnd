@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { loginThunk, registerThunk } from './auth.operations';
+import { loginThunk, registerThunk, refreshThunk } from './auth.operations';
 
 const initialState = {
   userData: null,
@@ -30,17 +30,17 @@ const authSlice = createSlice({
       // .addCase(logOutThunk.fulfilled, () => {
       //   return initialState;
       // })
-      // .addCase(refreshThunk.fulfilled, (state, { payload }) => {
-      //   state.isLoading = false;
-      //   state.authenticated = true;
-      //   state.userData = payload;
-      // })
+      .addCase(refreshThunk.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.authenticated = true;
+        state.userData = payload;
+      })
       .addMatcher(
         isAnyOf(
           registerThunk.pending,
-          loginThunk.pending
+          loginThunk.pending,
           // logOutThunk.pending,
-          // refreshThunk.pending
+          refreshThunk.pending
         ),
         (state) => {
           state.isLoading = true;
@@ -50,9 +50,9 @@ const authSlice = createSlice({
       .addMatcher(
         isAnyOf(
           registerThunk.rejected,
-          loginThunk.rejected
+          loginThunk.rejected,
           // logOutThunk.rejected,
-          // refreshThunk.rejected
+          refreshThunk.rejected
         ),
         (state, { payload }) => {
           state.isLoading = false;

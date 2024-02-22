@@ -1,74 +1,98 @@
 import React from 'react';
-import { Formik, Form } from 'formik';
+import { Formik, Form } from 'formik'; // Змінив імпорт
 import * as Yup from 'yup';
 
 import { Wrapper } from './AddDrinkForm.styled';
 import { DrinkDescriptionFields } from './DrinkDescriptionFields/DrinkDescriptionFields';
 import { DrinkIngredientsFields } from './DrinkIngredientsFields/DrinkIngredientsFields';
 import { RecipePreparation } from './RecipePreparation/RecipePreparation';
+import { useDispatch } from 'react-redux';
 
-export const AddDrinkForm = ({ categories, servings, ingredients }) => {
-  const validationSchema = Yup.object().shape({
-    name: Yup.string().required("Назва коктейлю обов'язкова"),
-    description: Yup.string().required("Опис коктейлю обов'язковий"),
-    category: Yup.string().required("Категорія коктейлю обов'язкова"),
-    serving: Yup.string().required("Тип сервірування обов'язковий"),
-    alcoholic: Yup.string().required('Вкажіть чи є коктейль алкогольним чи ні'),
-    ingredients: Yup.array().of(
-      Yup.object().shape({
-        name: Yup.string().required("Назва інгредієнту обов'язкова"),
-        quantity: Yup.string().required("Кількість інгредієнту обов'язкова"),
-      })
-    ),
-    preparation: Yup.string().required("Інструкція приготування обов'язкова"),
-  });
-
-  const handleSubmit = (values, { setSubmitting }) => {
-    console.log('qqq'); // Місце для виведення логу 'qqq'
-    console.log(values);
-    setSubmitting(false);
-  };
+export const AddDrinkForm = () => {
+  const dispatch = useDispatch();
 
   return (
-    <>
-      <Formik
-        initialValues={{
-          photo: '',
-          name: '',
-          description: '',
-          category: '',
-          serving: '',
-          alcoholic: '',
-          ingredients: [{ name: '', quantity: '' }],
-          preparation: '',
-        }}
-        validationSchema={validationSchema}
-        onSubmit={handleSubmit}
-      >
-        {({ isSubmitting }) => (
-          <Form>
-            <Wrapper>
-              <DrinkDescriptionFields
-                categories={categories}
-                servings={servings}
-              />
-              <DrinkIngredientsFields ingredients={ingredients} />
-              <RecipePreparation />
+    <Formik
+      initialValues={{
+        drink: '',
+        ingredients: [{ title: '' }],
+        instructions: '',
+        category: '',
+        glass: '',
+        alcoholic: 'false',
+        description: '',
+      }}
+      validationSchema={Yup.object().shape({
+        drink: Yup.string().required('This field is mandatory'),
+        description: Yup.string().required('This field is mandatory'),
+        ingredients: Yup.array().required('This field is mandatory'),
+        instructions: Yup.string().required('This field is mandatory'),
+        category: Yup.string().required('This field is mandatory'),
+        glass: Yup.string().required('This field is mandatory'),
+        alcoholic: Yup.string().required('Select the type of cocktail'),
+        drinkThumb: Yup.mixed(),
+      })}
+      onSubmit={async (values) => {
+        const formData = new FormData();
+        formData.append('drink', values.drink);
+        formData.append('category', values.category);
+        formData.append('description', values.description);
+        formData.append('alcoholic', values.alcoholic);
+        formData.append('instructions', values.instructions);
+        formData.append('glass', values.glass);
+        formData.append('drinkThumb', values.drinkThumb);
 
-              <button
-                className="buttonAdd"
-                type="submit"
-                disabled={isSubmitting}
-                onClick={() => {
-                  handleSubmit;
-                }}
-              >
-                Add
-              </button>
-            </Wrapper>
-          </Form>
-        )}
-      </Formik>
-    </>
+        const ingredientsStr = JSON.stringify(values.ingredients);
+        formData.append('ingredients', ingredientsStr);
+
+        try {
+          console.log(values);
+          // dispatch  додавання коктейлю.
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      }}
+    >
+      {({
+        values,
+        errors,
+        touched,
+        handleChange,
+        handleBlur,
+        setFieldValue,
+      }) => (
+        <Form>
+          <Wrapper>
+            <DrinkDescriptionFields
+              values={values}
+              errors={errors}
+              touched={touched}
+              handleChange={handleChange}
+              handleBlur={handleBlur}
+              setFieldValue={setFieldValue}
+            />
+            <DrinkIngredientsFields
+              values={values}
+              errors={errors}
+              touched={touched}
+              handleChange={handleChange}
+              handleBlur={handleBlur}
+              setFieldValue={setFieldValue}
+            />
+            <RecipePreparation
+              values={values}
+              errors={errors}
+              touched={touched}
+              handleChange={handleChange}
+              handleBlur={handleBlur}
+            />
+
+            <button className="buttonAdd" type="submit">
+              Add
+            </button>
+          </Wrapper>
+        </Form>
+      )}
+    </Formik>
   );
 };
