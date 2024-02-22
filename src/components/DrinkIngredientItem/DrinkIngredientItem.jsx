@@ -11,7 +11,7 @@ const DrinkIngredientItem = ({ title, measure, quantity, image }) => {
   return (
     <>
       <IngredientPhotoWrapper>
-        {!image['ingredientThumb'] ? (
+        {/* {!image['ingredientThumb'] ? (
           <picture>
             <source
               media="(min-width: 1440px)"
@@ -21,9 +21,9 @@ const DrinkIngredientItem = ({ title, measure, quantity, image }) => {
             <source media="(min-width: 375px)" srcSet={image['thumb-small']} />
             <IngredientPhoto src={image} alt="ingredient photo" />
           </picture>
-        ) : (
-          <IngredientPhoto src={defaultImage} alt="img"></IngredientPhoto>
-        )}
+        ) : ( */}
+        <IngredientPhoto src={defaultImage} alt="img"></IngredientPhoto>
+        {/* )} */}
       </IngredientPhotoWrapper>
       <IngredientDescription>
         <IngredientTitle>{title}</IngredientTitle>
