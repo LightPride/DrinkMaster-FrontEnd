@@ -54,8 +54,13 @@ export const AddDrinkForm = () => {
 
   return (
     <>
-      <Formik>
-        <form onSubmit={formik.handleSubmit}>
+      <Formik
+        onSubmit={(e) => {
+          e.preventDefault();
+          formik.handleSubmit(e);
+        }}
+      >
+        <form>
           <Wrapper>
             <DrinkDescriptionFields
               values={formik.values}

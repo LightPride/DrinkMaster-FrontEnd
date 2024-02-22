@@ -13,13 +13,8 @@ import {
   LabelAdd,
   customStylesSelect,
 } from './DrinkDescriptionFields.styled';
-
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  selectCategories,
-  selectGlasses,
-} from '../../../redux/filters/filters.selectors';
-import { getCategories } from '../../../redux/filters/filters.operations';
+import categories from '../../../helpers/data/categories';
+import glasses from '../../../helpers/data/glasses';
 
 export const DrinkDescriptionFields = ({
   values,
@@ -29,14 +24,6 @@ export const DrinkDescriptionFields = ({
   handleBlur,
   setFieldValue,
 }) => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getCategories());
-  }, [dispatch]);
-
-  const categories = useSelector(selectCategories());
-  const glasses = useSelector(selectGlasses());
-
   const [categoryOptions, setCategoriesOptions] = useState([]);
   const [glasseOptions, setGlassesOptions] = useState([]);
 
@@ -47,8 +34,8 @@ export const DrinkDescriptionFields = ({
     async function fetchCategories() {
       try {
         const categoryOptions = categories.map((category) => ({
-          value: category,
-          label: category,
+          value: category.categori,
+          label: category.categori,
         }));
 
         setCategoriesOptions(categoryOptions);
@@ -59,8 +46,8 @@ export const DrinkDescriptionFields = ({
     async function fetchGlasses() {
       try {
         const glassesOptions = glasses.map((glasse) => ({
-          value: glasse,
-          label: glasse,
+          value: glasse.glass,
+          label: glasse.glass,
         }));
         setGlassesOptions(glassesOptions);
       } catch (error) {
@@ -82,17 +69,13 @@ export const DrinkDescriptionFields = ({
     }
   };
 
-  const handleDescriptionChange = (e) => {
-    const { value } = e.target;
-  };
-
-  const handleInputChange = (e) => {
-    const { value } = e.target;
-  };
-
   const handleSelectCategoriesChange = (selectedOption) => {
     setSelectedCategoriesOption(selectedOption);
     setFieldValue(`category`, selectedOption.value);
+  };
+  const handleSelectGlassesChange = (selectedOption) => {
+    setSelectedGlassesOption(selectedOption);
+    setFieldValue(`glass`, selectedOption.value);
   };
   return (
     <Wrapper>
@@ -141,7 +124,6 @@ export const DrinkDescriptionFields = ({
               id="drink"
               name="drink"
               onChange={(e) => {
-                handleInputChange(e);
                 handleChange(e);
               }}
             />
@@ -153,7 +135,6 @@ export const DrinkDescriptionFields = ({
               id="description"
               name="description"
               onChange={(e) => {
-                handleDescriptionChange(e);
                 handleChange(e);
               }}
             />
