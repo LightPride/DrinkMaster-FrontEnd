@@ -59,16 +59,6 @@ export const DrinkDescriptionFields = ({
     fetchGlasses();
   }, []);
 
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    setFieldValue('drinkThumb', file);
-    if (file) {
-      setSelectedImage(URL.createObjectURL(file));
-    } else {
-      setSelectedImage(null);
-    }
-  };
-
   const handleSelectCategoriesChange = (selectedOption) => {
     setSelectedCategoriesOption(selectedOption);
     setFieldValue(`category`, selectedOption.value);
@@ -108,7 +98,7 @@ export const DrinkDescriptionFields = ({
               type="file"
               name="drinkThumb"
               accept="drinkThumb/*"
-              onChange={(e) => handleImageChange(e)}
+              // onChange - ??
             />
           </LabelAdd>
           <p>Add Image</p>
