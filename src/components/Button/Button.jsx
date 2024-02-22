@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-// import PropTypes from 'prop-types';
 import { StyledButton } from './StyledButton.styled';
 
 export const Button = ({
@@ -8,6 +7,7 @@ export const Button = ({
   type,
   addRecipe,
   logOut,
+  addDrinks,
   addToFavorite,
   seeRecipe,
   subscribe,
@@ -22,6 +22,7 @@ export const Button = ({
     addToFavorite,
     seeRecipe,
     subscribe,
+    addDrinks
   });
   const onClickAction = (e) => {
     if (disabled) {

@@ -31,8 +31,8 @@ const HomePageHero = () => {
           destination for exploring, crafting, and mastering the worlds finest
           beverages.
         </HomePageSubtitle>
-        <Button addRecipe onClick={handleClick}>
-          Add drink
+        <Button addDrinks onClick={handleClick}>
+          Add drinks
         </Button>
       </HomePageTextWrapper>
       <HomePageImageWrapper>

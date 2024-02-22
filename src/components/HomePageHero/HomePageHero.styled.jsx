@@ -16,6 +16,7 @@ export const HomePageHeroWrapper = styled.div`
     flex-direction: row;
     align-items: normal;
     justify-content: space-between;
+    padding-bottom: 218px;
   }
 `;
 
