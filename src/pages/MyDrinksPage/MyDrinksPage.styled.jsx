@@ -1,18 +1,15 @@
-// import styled from '@emotion/styled';
+import styled from 'styled-components';
 
-// export const Container = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   padding-top: 500px;
-// `;
+export const MyDrinksWrapper = styled.div`
+  margin-top: 80px;
+  margin-bottom: 80px;
 
-// export const Title = styled.h1`
-//   color: #ffffff;
-//   text-shadow:
-//     0 0 5px #00baff,
-//     0 0 10px #00baff,
-//     0 0 20px #00baff,
-//     0 0 40px #00baff,
-//     0 0 80px #00baff;
-// `;
+  @media screen and (min-width: 768px) {
+    margin-top: 140px;
+    margin-bottom: 140px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-top: 158px;
+  }
+`;
