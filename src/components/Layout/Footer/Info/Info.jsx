@@ -4,6 +4,7 @@ import {
   InfoUl,
   InfoLi,
   InfoText,
+  InfoLink,
 } from './Info.styled';
 
 export const Info = () => {
@@ -13,14 +14,14 @@ export const Info = () => {
       <InfoContPriv>
         <InfoUl>
           <InfoLi>
-            <a href="" rel="noreferrer noopener" target="_blank">
+            <InfoLink href="" rel="noreferrer noopener" target="_blank">
               Privacy Policy
-            </a>
+            </InfoLink>
           </InfoLi>
           <InfoLi>
-            <a href="" rel="noreferrer noopener" target="_blank">
+            <InfoLink href="" rel="noreferrer noopener" target="_blank">
               Terms of Service
-            </a>
+            </InfoLink>
           </InfoLi>
         </InfoUl>
       </InfoContPriv>
