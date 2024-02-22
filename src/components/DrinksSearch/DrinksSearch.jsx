@@ -22,14 +22,24 @@ const DrinksSearch = () => {
   useEffect(() => {
     dispatch(getCategories());
     dispatch(getIngredients());
+    const savedSearchQuery = localStorage.getItem('searchQuery');
+    if (savedSearchQuery) {
+      setName(savedSearchQuery);
+      dispatch(getSearchedDrink({ name: savedSearchQuery }));
+    }
   }, [dispatch]);
 
   const handleChangeName = (event) => {
-    setName(event.target.value);
+    const value = event.target.value;
+    setName(value);
+
+    localStorage.setItem('searchQuery', value);
   };
 
   useEffect(() => {
     dispatch(getSearchedDrink({ name }));
+
+    localStorage.setItem('searchQuery', name);
   }, [dispatch, name]);
 
   return (
