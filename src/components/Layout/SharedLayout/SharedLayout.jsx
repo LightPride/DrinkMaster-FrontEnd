@@ -9,17 +9,17 @@ import { useSelector } from 'react-redux';
 import { selectIsLoggedIn } from '../../../redux/auth/auth.selectors';
 
 const SharedLayout = () => {
-  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const { token } = useSelector((state) => state.auth);
 
   return (
     <>
       <StyledBackground />
-      <div className={isLoggedIn ? 'mainBackground' : 'welcomeBackground'}>
-        {isLoggedIn && <Header />}
+      <div className={token ? 'mainBackground' : 'welcomeBackground'}>
+        {token && <Header />}
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
-        {isLoggedIn && <Footer />}
+        {token && <Footer />}
       </div>
     </>
   );
