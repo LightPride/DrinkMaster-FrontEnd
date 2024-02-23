@@ -104,3 +104,35 @@ export const HomePageImage = styled.img`
     height: 445px;
   }
 `;
+
+export const AddDrinksButton = styled.button`
+  border: none;
+  background-color: var(--white-color);
+  cursor: pointer;
+  padding: 14px 40px;
+  border-radius: 42px;
+  font-family: inherit;
+  font: inherit;
+  color: rgb(22, 31, 55);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  border: 1px solid transparent;
+
+  &:active {
+    border: 1px solid var(--blue-color);
+  }
+
+  &:hover,
+  &:focus {
+    color: var(--white-color);
+    background: var(--dark-blue-color);
+  }
+  &:disabled {
+    background: var(--grey-color);
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 18px 44px;
+  }
+`;

@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import circle2 from '../../../../images/BackgroundImages/circle2.png';
+import circle from '../../../../images/BackgroundImages/circle.png';
 
 export const BurgerContainer = styled.div`
   position: relative;
@@ -24,8 +26,19 @@ export const MenuItems = styled.ul`
     right: 0;
     bottom: 0;
     background-color: var(--black-color);
+     background-image: url(${circle2}), url(${circle});
+  background-repeat: no-repeat, no-repeat;
+  background-position:
+    top -150px left -150px,
+    top -100px left -600px;
+  background-size:
+    auto auto,
+    auto auto;
     z-index: 100;
     @media screen and (min-width: 768px) {
+        background-position:
+    top -100px left -400px,
+    bottom right -600px;
       top: 87px;
   }
   `}

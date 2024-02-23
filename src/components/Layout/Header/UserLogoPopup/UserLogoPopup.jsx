@@ -7,8 +7,11 @@ import {
 import EditIcon from '@mui/icons-material/Edit';
 import { Box } from '@mui/material';
 import { IconButton } from '@mui/material';
+import { logOutThunk } from '../../../../redux/auth/auth.operations';
+import { useDispatch } from 'react-redux';
 
 export const UserLogoPopup = ({ isPopupOpen, setIsPopupOpen }) => {
+  const dispatch = useDispatch();
   console.log('Сработала кнопка!', isPopupOpen);
   console.log(setIsPopupOpen);
 
@@ -27,7 +30,13 @@ export const UserLogoPopup = ({ isPopupOpen, setIsPopupOpen }) => {
           <EditIcon sx={{ width: '14px', height: '14px', color: '#F3F3F3' }} />
         </IconButton>
       </Box>
-      <LogOutBtn>Log out</LogOutBtn>
+      <LogOutBtn
+        onClick={() => {
+          dispatch(logOutThunk());
+        }}
+      >
+        Log out
+      </LogOutBtn>
     </StyledPopupWindow>
   );
 };

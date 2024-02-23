@@ -1,4 +1,4 @@
-import {  HomeWrapper } from './HomePage.styled';
+import {  HomeWrapper, OtherDrinksButton } from './HomePage.styled';
 import HomePageHero from '../../components/HomePageHero/HomePageHero';
 import { Container } from '../../components/Layout/Container/Container'
 import { useDispatch, useSelector } from 'react-redux';
@@ -29,6 +29,7 @@ useEffect(() => {
       {error !== null && <p className="error-bage">{error}</p>}
       <div>{isLoadingFromRedux && 'Request in progress...'}</div>
       {showCocktails && <HomePageList />}
+      <OtherDrinksButton>Other drinks</OtherDrinksButton>
     </Container>
    </HomeWrapper>
   );

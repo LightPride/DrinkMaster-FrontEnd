@@ -1,11 +1,6 @@
-import {
-  ButtonsContainer,
-  Card,
-  CardImage,
-  DrinkName,
-} from '../DrinksItem/DrinksItem.styled';
+import { Card, CardImage } from '../DrinksItem/DrinksItem.styled';
 import placeholderImage from '../../images/drinkPage/coctailPlaceholder.png';
-import SeeMoreBtn from '../../components/SeeMoreBtn/SeeMoreBtn';
+import { ButtonsContentWrapper, DrinkTitle, SeeMoreRef } from './HomePageItem.styled';
 
 const HomePageItem = ({ drinkName, _id, drinkThumb }) => {
   return (
@@ -18,10 +13,11 @@ const HomePageItem = ({ drinkName, _id, drinkThumb }) => {
           e.target.src = placeholderImage;
         }}
       />
-      <DrinkName>{drinkName}</DrinkName>
-      <ButtonsContainer>
-        <SeeMoreBtn navLink={`/drinks/${_id}`}></SeeMoreBtn>
-      </ButtonsContainer>
+
+      <ButtonsContentWrapper>
+        <DrinkTitle>{drinkName}</DrinkTitle>
+        <SeeMoreRef navLink={`/drinks/${_id}`}>see more</SeeMoreRef>
+      </ButtonsContentWrapper>
     </Card>
   );
 };

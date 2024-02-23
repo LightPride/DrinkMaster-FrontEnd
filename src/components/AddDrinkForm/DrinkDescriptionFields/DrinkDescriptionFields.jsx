@@ -24,6 +24,8 @@ export const DrinkDescriptionFields = ({
   handleBlur,
   setFieldValue,
 }) => {
+  const [selectedImage, setSelectedImage] = useState(null); //
+
   const [categoryOptions, setCategoriesOptions] = useState([]);
   const [glasseOptions, setGlassesOptions] = useState([]);
 
@@ -69,6 +71,17 @@ export const DrinkDescriptionFields = ({
     setSelectedGlassesOption(selectedOption);
     setFieldValue(`glass`, selectedOption.value);
   };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setFieldValue('drinkThumb', file);
+    if (file) {
+      setSelectedImage(URL.createObjectURL(file));
+    } else {
+      setSelectedImage(null);
+    }
+  };
+
   return (
     <Wrapper>
       <AddImageField>
@@ -94,13 +107,13 @@ export const DrinkDescriptionFields = ({
                 strokeLinejoin="round"
               />
             </svg>
-            <Field
+            <input
               style={{ display: 'none' }}
               id="drinkThumb"
               type="file"
               name="drinkThumb"
               accept="drinkThumb/*"
-              // onChange - ??
+              onChange={(e) => handleImageChange(e)}
             />
           </LabelAdd>
           <p>Add Image</p>
@@ -124,8 +137,8 @@ export const DrinkDescriptionFields = ({
             <Field
               className="styledInputText"
               placeholder="Enter item title"
-              id="description"
-              name="description"
+              id="shortDescription"
+              name="shortDescription"
               onChange={(e) => {
                 handleChange(e);
               }}
@@ -168,8 +181,8 @@ export const DrinkDescriptionFields = ({
               className="styledRadio"
               type="radio"
               name="alcoholic"
-              value="true"
-              checked={values.alcoholic === 'true'}
+              value="Alcoholic"
+              checked={values.alcoholic === 'Alcoholic'}
               onChange={handleChange}
               disabled={userNoAdult}
             />
@@ -181,8 +194,8 @@ export const DrinkDescriptionFields = ({
               className="styledRadio"
               type="radio"
               name="alcoholic"
-              value="false"
-              checked={values.alcoholic === 'false'}
+              value="Non alcoholic"
+              checked={values.alcoholic === 'Non alcoholic'}
               onChange={handleChange}
             />
             <span className="styledSpan">Non-alcoholic</span>

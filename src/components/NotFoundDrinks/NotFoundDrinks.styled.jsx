@@ -13,12 +13,12 @@ export const NotFoundPageContainer = styled.div`
   gap: 32px;
   justify-content: center;
   align-items: center;
+  margin-top: 67px;
 `;
 
 export const NotFoundText = styled.p`
   color: var(--white-color);
   text-align: center;
-  font-family: 'Manrope';
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
