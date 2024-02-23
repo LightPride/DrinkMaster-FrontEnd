@@ -2,9 +2,6 @@ import styled from 'styled-components';
 
 export const StyledButton = styled.button`
   display: flex;
-  /* text-align: center;
-  align-items: center;
-  justify-content: center; */
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;

@@ -1,5 +1,3 @@
-import { Button } from '../Button/Button';
-
 import coctailDesk1 from '../../images/404Images/blueIced@1xDesk.png';
 import coctailDesk2 from '../../images/404Images/blueIced@2xDesk.png';
 import coctailTab1 from '../../images/404Images/blueIced@1xTab.png';
@@ -14,6 +12,7 @@ import {
   HomePageImageWrapper,
   HomePageImage,
   HomePageTitle,
+  AddDrinksButton,
 } from './HomePageHero.styled';
 
 const HomePageHero = () => {
@@ -31,9 +30,9 @@ const HomePageHero = () => {
           destination for exploring, crafting, and mastering the worlds finest
           beverages.
         </HomePageSubtitle>
-        <Button addDrinks onClick={handleClick}>
+        <AddDrinksButton  onClick={handleClick}>
           Add drinks
-        </Button>
+        </AddDrinksButton>
       </HomePageTextWrapper>
       <HomePageImageWrapper>
         <picture>
