@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   getCategories,
@@ -18,6 +18,8 @@ const DrinksSearch = () => {
   const ingredients = useSelector(selectIngredients);
 
   const [name, setName] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedIngredient, setSelectedIngredient] = useState('');
 
   useEffect(() => {
     dispatch(getCategories());
@@ -27,20 +29,62 @@ const DrinksSearch = () => {
       setName(savedSearchQuery);
       dispatch(getSearchedDrink({ name: savedSearchQuery }));
     }
+    const savedCategory = localStorage.getItem('selectedCategory');
+    if (savedCategory) {
+      setSelectedCategory(savedCategory);
+    }
+    const savedIngredient = localStorage.getItem('selectedIngredient');
+    if (savedIngredient) {
+      setSelectedIngredient(savedIngredient);
+    }
   }, [dispatch]);
 
   const handleChangeName = (event) => {
     const value = event.target.value;
     setName(value);
-
     localStorage.setItem('searchQuery', value);
   };
 
-  useEffect(() => {
-    dispatch(getSearchedDrink({ name }));
+  const handleCategoryChange = (selectedOption) => {
+    if (selectedOption) {
+      const value = selectedOption.value;
+      setSelectedCategory(value);
+      localStorage.setItem('selectedCategory', value);
+    } else {
+      setSelectedCategory(''); // Очищення вибраної категорії
+      localStorage.removeItem('selectedCategory'); // Видалення ключа з локального сховища
+    }
+  };
 
+  const handleIngredientChange = (selectedOption) => {
+    if (selectedOption) {
+      const value = selectedOption.value;
+      setSelectedIngredient(value);
+      localStorage.setItem('selectedIngredient', value);
+    } else {
+      setSelectedIngredient(''); // Очищення вибраного інгредієнта
+      localStorage.removeItem('selectedIngredient'); // Видалення ключа з локального сховища
+    }
+  };
+
+  useEffect(() => {
+    dispatch(
+      getSearchedDrink({
+        name,
+        category: selectedCategory,
+        ingredient: selectedIngredient,
+      })
+    );
     localStorage.setItem('searchQuery', name);
-  }, [dispatch, name]);
+  }, [dispatch, name, selectedCategory, selectedIngredient]);
+
+  // Фільтрація опцій для відображення вибору
+  const filteredCategories = categories
+    .map((category) => category.category)
+    .filter((category) => category !== selectedCategory);
+  const filteredIngredients = ingredients
+    .map((ingredient) => ingredient.title)
+    .filter((ingredient) => ingredient !== selectedIngredient);
 
   return (
     <Wrapper>
@@ -55,12 +99,14 @@ const DrinksSearch = () => {
       <Selection
         id="categorySelect"
         placeholder="All categories"
-        options={categories.map((category) => category.category)}
+        options={filteredCategories}
+        onChange={handleCategoryChange}
       />
       <Selection
         id="ingredientSelect"
         placeholder="Ingredients"
-        options={ingredients.map((ingredient) => ingredient.title)}
+        options={filteredIngredients}
+        onChange={handleIngredientChange}
       />
     </Wrapper>
   );
