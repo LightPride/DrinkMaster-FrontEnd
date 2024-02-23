@@ -14,7 +14,6 @@ export const registerThunk = createAsyncThunk(
   async (formData, thunkApi) => {
     try {
       const { data } = await instance.post('/auth/signup', formData);
-      console.log('data: ', data);
       setToken(data.token);
       return data;
     } catch (err) {
@@ -31,22 +30,22 @@ export const loginThunk = createAsyncThunk(
       setToken(data.token);
       return data;
     } catch (err) {
-      return thunkApi.rejectWithValue(err.message);
+      return thunkApi.rejectWithValue(err.response.data.message);
     }
   }
 );
 
-// export const logOutThunk = createAsyncThunk(
-//   'auth/logOut',
-//   async (_, thunkApi) => {
-//     try {
-//       const { data } = await instance.post('/auth/signout');
-//       return data;
-//     } catch (err) {
-//       return thunkApi.rejectWithValue(err.message);
-//     }
-//   }
-// );
+export const logOutThunk = createAsyncThunk(
+  'auth/logOut',
+  async (_, thunkApi) => {
+    try {
+      const { data } = await instance.post('/auth/signout');
+      return data;
+    } catch (err) {
+      return thunkApi.rejectWithValue(err.message);
+    }
+  }
+);
 
 export const refreshThunk = createAsyncThunk(
   'auth/refresh',

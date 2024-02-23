@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { StyledSignForm } from './Styled';
 import { useForm, Controller } from 'react-hook-form';
 import { loginThunk } from '../../redux/auth/auth.operations';
 
-import { yupResolver } from '@hookform/resolvers/yup';
 import UniversalBtn from './UniversalBtn';
 import FormControl from '@mui/material/FormControl';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -17,19 +16,13 @@ import {
   OutlinedInput,
   TextField,
 } from '@mui/material';
-
-import { signInSchema } from '../../schemas/authSchemas';
+import { selectError } from '../../redux/auth/auth.selectors';
 
 const SignInForm = () => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
-  const {
-    handleSubmit,
-    control,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(signInSchema),
-  });
+  const error = useSelector(selectError);
+  const { handleSubmit, control } = useForm();
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -40,7 +33,6 @@ const SignInForm = () => {
   return (
     <form
       onSubmit={handleSubmit((data) => {
-        console.log(data);
         dispatch(loginThunk(data));
       })}
     >
@@ -54,8 +46,8 @@ const SignInForm = () => {
               label="Email"
               variant="outlined"
               className="textInput"
-              error={!!errors.email?.message}
-              helperText={errors.email?.message}
+              error={error !== null}
+              helperText={error}
               required
               {...field}
             />
@@ -71,7 +63,7 @@ const SignInForm = () => {
               required
               fullWidth
               className="textInput"
-              error={!!errors?.password}
+              error={error !== null}
             >
               <InputLabel htmlFor="outlined-adornment-password">
                 Password
@@ -96,9 +88,7 @@ const SignInForm = () => {
                 }
                 label="Password"
               />
-              {errors?.password && (
-                <FormHelperText>{errors.password.message}</FormHelperText>
-              )}
+              {error !== null && <FormHelperText>{error}</FormHelperText>}
             </FormControl>
           )}
         />
