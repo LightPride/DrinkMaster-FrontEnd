@@ -25,15 +25,15 @@ export const DrinkIngredientsFields = ({
     async function fetchIngredients() {
       try {
         const filteredIngredientsArray =
-          values.alcoholic === 'false'
+          values.alcoholic === 'Non alcoholic'
             ? ingredientsArray.filter(
                 (ingredient) => ingredient.alcohol !== 'Yes'
               )
             : ingredientsArray;
         const ingredientOptions = filteredIngredientsArray.map(
-          (ingredient) => ({
-            label: ingredient.title,
-            value: ingredient._id,
+          ({ title, _id: ingredientsId }) => ({
+            label: title,
+            value: ingredientsId,
           })
         );
         setOptions(ingredientOptions);
@@ -48,7 +48,7 @@ export const DrinkIngredientsFields = ({
   const handleSelectChange = (selectedOption, index) => {
     const { value, label } = selectedOption;
     setFieldValue(`ingredients[${index}].title`, label);
-    setFieldValue(`ingredients[${index}]._id`, value);
+    setFieldValue(`ingredients[${index}].ingredientsId`, value);
     setSelectedOptions((prevOptions) => {
       const newOptions = [...prevOptions];
       newOptions[index] = selectedOption;
@@ -57,7 +57,7 @@ export const DrinkIngredientsFields = ({
   };
 
   const handleAddIngredient = () => {
-    const newIngredient = { name: '' };
+    const newIngredient = { title: '' };
     setFieldValue('ingredients', [...values.ingredients, newIngredient]);
     setSelectedOptions((prevOptions) => [...prevOptions, null]);
   };
