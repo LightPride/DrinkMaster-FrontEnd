@@ -8,22 +8,29 @@ import {
 import defaultImage from '../../images/drinkPage/coctailPlaceholder.png';
 
 const DrinkIngredientItem = ({ title, measure, quantity, image }) => {
+  // console.log(image['ingredientThumb']);
+  // console.log(image.ingredientThumb);
+  console.log(image);
   return (
     <>
       <IngredientPhotoWrapper>
-        {/* {!image['ingredientThumb'] ? (
+        {/* {image && image['ingredientThumb'] === '' ? ( */}
+        {image ? (
           <picture>
             <source
               media="(min-width: 1440px)"
-              srcSet={image['ingredientThumb']}
+              srcSet={image}
+              // srcSet={image['ingredientThumb']}
             />
-            <source media="(min-width: 768px)" srcSet={image['thumb-medium']} />
-            <source media="(min-width: 375px)" srcSet={image['thumb-small']} />
+            <source media="(min-width: 768px)" srcSet={image} />
+            {/* <source media="(min-width: 768px)" srcSet={image['thumb-medium']} />
+           <source media="(min-width: 375px)" srcSet={image['thumb-small']} /> */}
+            <source media="(min-width: 375px)" srcSet={image} />
             <IngredientPhoto src={image} alt="ingredient photo" />
           </picture>
-        ) : ( */}
-        <IngredientPhoto src={defaultImage} alt="img"></IngredientPhoto>
-        {/* )} */}
+        ) : (
+          <IngredientPhoto src={defaultImage} alt="img"></IngredientPhoto>
+        )}
       </IngredientPhotoWrapper>
       <IngredientDescription>
         <IngredientTitle>{title}</IngredientTitle>
