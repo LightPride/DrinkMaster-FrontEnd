@@ -1,4 +1,4 @@
-import{u as e,d as m,c as d,r as g,a5 as k,j as i,a6 as v,a7 as D,a8 as y,a9 as F,C as I}from"./index-fa479165.js";import{e as z,a as P,d as f,f as T}from"./coctailPlaceholder-e68093cd.js";import{P as M}from"./PageTitle-a50a2529.js";import{n as E}from"./index.browser-7e542916.js";const R=e.section`
+import{u as e,d as m,c as d,r as g,a4 as k,j as i,a5 as v,a6 as D,a7 as y,a8 as F,C as I}from"./index-0a465c1b.js";import{e as z,a as P,d as f,f as T}from"./coctailPlaceholder-c832daee.js";import{P as M}from"./PageTitle-736753d0.js";import{n as E}from"./index.browser-7e542916.js";const R=e.section`
   padding-top: 80px;
   padding-bottom: 80px;
 
