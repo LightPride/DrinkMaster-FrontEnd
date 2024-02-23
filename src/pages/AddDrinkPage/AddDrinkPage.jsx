@@ -10,8 +10,17 @@ import { PopularDrinks } from '../../components/PopularDrinks/PopularDrinks';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import FollowUs from '../../components/FollowUs/FollowUs';
 import { Container } from '../../components/Layout/Container/Container';
+import { useDispatch } from 'react-redux';
+import { getPopularDrinks } from '../../redux/drinks/drinks.operations';
+import { useEffect } from 'react';
 
 const AddDrinkPage = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getPopularDrinks());
+  }, [dispatch]);
+
   return (
     <Container>
       <Wrapper>
