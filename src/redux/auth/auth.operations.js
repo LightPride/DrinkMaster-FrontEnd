@@ -35,17 +35,17 @@ export const loginThunk = createAsyncThunk(
   }
 );
 
-// export const logOutThunk = createAsyncThunk(
-//   'auth/logOut',
-//   async (_, thunkApi) => {
-//     try {
-//       const { data } = await instance.post('/auth/signout');
-//       return data;
-//     } catch (err) {
-//       return thunkApi.rejectWithValue(err.message);
-//     }
-//   }
-// );
+export const logOutThunk = createAsyncThunk(
+  'auth/logOut',
+  async (_, thunkApi) => {
+    try {
+      const { data } = await instance.post('/auth/signout');
+      return data;
+    } catch (err) {
+      return thunkApi.rejectWithValue(err.message);
+    }
+  }
+);
 
 export const refreshThunk = createAsyncThunk(
   'auth/refresh',

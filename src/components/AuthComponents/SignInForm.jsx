@@ -16,11 +16,12 @@ import {
   OutlinedInput,
   TextField,
 } from '@mui/material';
+import { selectError } from '../../redux/auth/auth.selectors';
 
 const SignInForm = () => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
-  const error = useSelector((state) => state.auth.error);
+  const error = useSelector(selectError);
   const { handleSubmit, control } = useForm();
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -32,7 +33,6 @@ const SignInForm = () => {
   return (
     <form
       onSubmit={handleSubmit((data) => {
-        console.log(data);
         dispatch(loginThunk(data));
       })}
     >
