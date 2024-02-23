@@ -62,7 +62,7 @@ export const addOwnDrink = createAsyncThunk(
   'drinks/own/add',
   async (data, thunkAPI) => {
     try {
-      const res = await instance.post('/drinks/own/add', data, {
+      const res = await instance.post('/drinks/own', data, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -78,7 +78,7 @@ export const removeOwnDrink = createAsyncThunk(
   'drinks/own/remove/:id',
   async (drinkId, thunkAPI) => {
     try {
-      const res = await instance.delete(`/drinks/own/remove/${drinkId}`);
+      const res = await instance.delete(`/drinks/own/${drinkId}`);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -102,11 +102,11 @@ export const getOwnDrinks = createAsyncThunk(
 
 export const addDrinkToFavorite = createAsyncThunk(
   'drinks/favorite/add',
-  // 'drinks/favorite/add/:id',
   async (_, thunkAPI) => {
     // async (drinkId, thunkAPI) => {
     try {
-      const res = await instance.post(`/drinks/favorite/add`);
+      const res = await instance.post(`/drinks/favorite`);
+      // const res = await instance.post(`/drinks/favorite/add`);
       // const res = await axios.post('drinks/favorite/add/:id');
       return res.data;
     } catch (error) {
@@ -115,11 +115,11 @@ export const addDrinkToFavorite = createAsyncThunk(
   }
 );
 
-export const removeDrink = createAsyncThunk(
+export const removeDrinkFromFavorite = createAsyncThunk(
   'drinks/favorite/remove/:id',
   async (drinkId, thunkAPI) => {
     try {
-      const res = await instance.delete(`/drinks/favorite/remove/${drinkId}`);
+      const res = await instance.delete(`/drinks/favorite/${drinkId}`);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -128,7 +128,7 @@ export const removeDrink = createAsyncThunk(
 );
 
 export const getFavoriteAll = createAsyncThunk(
-  'drinks/favorite',
+  'drinks/favorite/',
   async (_, thunkAPI) => {
     // async ({ page, limit }, thunkAPI) => {
     try {

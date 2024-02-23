@@ -7,7 +7,7 @@ import {
 import {
   getFavoriteAll,
   addDrinkToFavorite,
-  removeDrink,
+  removeDrinkFromFavorite,
 } from '../../redux/drinks/drinks.operations';
 import {
   DrinkSubTitle,
@@ -63,7 +63,7 @@ const DrinkPageHero = ({
               </AddToFavoriteButton>
             ) : (
               <AddToFavoriteButton
-                onClick={() => dispatch(removeDrink(id))}
+                onClick={() => dispatch(removeDrinkFromFavorite(id))}
                 disabled={isLoading}
               >
                 Remove from favorite drinks
