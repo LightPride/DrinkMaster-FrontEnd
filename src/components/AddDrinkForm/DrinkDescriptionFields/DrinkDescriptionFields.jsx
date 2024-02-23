@@ -24,6 +24,8 @@ export const DrinkDescriptionFields = ({
   handleBlur,
   setFieldValue,
 }) => {
+  const [selectedImage, setSelectedImage] = useState(null); //
+
   const [categoryOptions, setCategoriesOptions] = useState([]);
   const [glasseOptions, setGlassesOptions] = useState([]);
 
@@ -69,6 +71,17 @@ export const DrinkDescriptionFields = ({
     setSelectedGlassesOption(selectedOption);
     setFieldValue(`glass`, selectedOption.value);
   };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setFieldValue('drinkThumb', file);
+    if (file) {
+      setSelectedImage(URL.createObjectURL(file));
+    } else {
+      setSelectedImage(null);
+    }
+  };
+
   return (
     <Wrapper>
       <AddImageField>
@@ -94,13 +107,13 @@ export const DrinkDescriptionFields = ({
                 strokeLinejoin="round"
               />
             </svg>
-            <Field
+            <input
               style={{ display: 'none' }}
               id="drinkThumb"
               type="file"
               name="drinkThumb"
               accept="drinkThumb/*"
-              // onChange - ??
+              onChange={(e) => handleImageChange(e)}
             />
           </LabelAdd>
           <p>Add Image</p>
