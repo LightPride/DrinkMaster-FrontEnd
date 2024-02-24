@@ -45,14 +45,7 @@ export const LogOutModal = ({ isOpen, onClose, onLogOut }) => {
       <StyledPar>Are you sure you want to log out?</StyledPar>
       <StyledButtonsWrapper>
         <LogOutModalBtn onClick={onLogOut}>Log out</LogOutModalBtn>
-        <CloseModalBtn
-          onClick={onClose}
-          textColor="var(--white-color)"
-          backgroundColor="var(--grey-color)"
-          borderColor="var(--grey-color)"
-        >
-          Cancel
-        </CloseModalBtn>
+        <CloseModalBtn onClick={onClose}>Cancel</CloseModalBtn>
       </StyledButtonsWrapper>
     </StyledLogOutWrapper>
   );
