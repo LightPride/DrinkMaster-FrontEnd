@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-// import { useSelector } from 'react-redux/es/hooks/useSelector';
-// import { selectUser } from '../../../../redux/auth/auth.selectors';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
+import { selectUser } from '../../../../redux/auth/auth.selectors';
 
 import {
   UserLogoWrapper,
@@ -13,7 +13,7 @@ import {
 import { UserLogoPopup } from '../UserLogoPopup/UserLogoPopup';
 
 const UserLogo = () => {
-  // const { name } = useSelector(selectUser);
+  const { name } = useSelector(selectUser);
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
@@ -45,7 +45,7 @@ const UserLogo = () => {
         {/* //HACK Удалить после того как с сервера начну получать картинки */}
         <UserLogoPlaceholder />
 
-        <UserLogoText>No Name User</UserLogoText>
+        <UserLogoText>{name}</UserLogoText>
       </UserLogoBtn>
       {isPopupOpen && (
         <UserLogoPopup
