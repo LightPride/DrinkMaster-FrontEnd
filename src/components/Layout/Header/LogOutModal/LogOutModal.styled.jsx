@@ -64,10 +64,33 @@ export const LogOutModalBtn = styled.button`
   }
 `;
 
-export const CloseModalBtn = styled(LogOutModalBtn)`
-  color: ${(props) => props.textColor || 'var(--dark-blue-color)'};
-  background-color: ${(props) => props.backgroundColor || 'var(--white-color)'};
-  border: 1px solid ${(props) => props.borderColor || 'var(--white-color)'};
+export const CloseModalBtn = styled.button`
+  width: 190px;
+  height: 44px;
+  padding-left: 45px;
+  padding-right: 45px;
+  text-align: center;
+  font-family: 'Manrope-600', sans-serif;
+  color: var(--white-color);
+  background-color: var(--grey-color);
+  font-size: 16px;
+  line-height: 112%;
+  border: 1px solid var(--grey-color);
+  border-radius: 22px;
+  transition: all 0.2s ease-in-out;
+
+  &:hover,
+  &:focus {
+    color: var(--white-color);
+    background-color: var(--dark-blue-color);
+    border-color: var(--white-twenty-color);
+  }
+  &:active {
+    border-color: var(--whitefifty-color);
+  }
+  @media screen and (max-width: 768px) {
+    gap: 5px;
+  }
 `;
 
 export const StyledCloseIcon = styled(CloseIcon)`
