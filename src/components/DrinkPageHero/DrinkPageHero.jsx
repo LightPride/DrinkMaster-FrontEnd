@@ -94,6 +94,7 @@ const DrinkPageHero = ({
               disabled={isLoading}
             >
               {/* {isDrinkFavoritelist(id) */}
+
               {isFavorite
                 ? 'Remove from favorite drinks'
                 : 'Add to favorite drinks'}

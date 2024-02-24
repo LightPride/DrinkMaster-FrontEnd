@@ -85,7 +85,7 @@ const drinksSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.favoriteDrinks = state.favoriteDrinks.filter(
-          (drink) => drink._id === action.payload.result_id
+          (drink) => drink._id === action.payload.result._id
         );
       })
       // .addCase(removeDrinkFromFavorite.fulfilled, (state, action) => {
