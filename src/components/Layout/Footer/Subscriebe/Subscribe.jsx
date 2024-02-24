@@ -1,9 +1,6 @@
-import React from 'react';
-
 import {
   ButtonSubmit,
   FormContainer,
-  InputForm,
   Title,
   InputNameEmail,
 } from './Subscribe.styled';
@@ -15,15 +12,13 @@ export const Subscribe = () => {
         Subscribe up to our newsletter. Be in touch with latest news and special
         offers, etc.
       </Title>
-      <InputForm>
-        <InputNameEmail
-          placeholder="Enter the email"
-          type="email"
-          name="user-email"
-          id="user-email"
-          required
-        />
-      </InputForm>
+      <InputNameEmail
+        placeholder="Enter the email"
+        type="email"
+        name="user-email"
+        id="user-email"
+        required
+      />
 
       <ButtonSubmit type="submit">Sign In</ButtonSubmit>
     </FormContainer>

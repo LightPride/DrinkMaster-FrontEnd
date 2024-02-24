@@ -4,7 +4,6 @@ export const FooterContainer = styled.footer`
   border-top: 1px solid rgba(243, 243, 243, 0.2);
   margin: 0 auto;
   padding: 40px 20px 18px 20px;
-  min-width: 320px;
 
   @media (min-width: 768px) {
     min-width: 768px;
@@ -16,9 +15,7 @@ export const FooterContainer = styled.footer`
     padding: 80px 100px 24px 100px;
   }
 `;
-export const FooterSection = styled.section`
-  margin: 0 auto;
-`;
+
 export const FooterDiv = styled.div`
   display: flex;
 
@@ -31,9 +28,6 @@ export const FooterDivTwo = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   flex-direction: row;
-
-  @media (min-width: 375px) {
-  }
 
   @media (min-width: 768px) and (max-width: 1439px) {
     display: flex;
