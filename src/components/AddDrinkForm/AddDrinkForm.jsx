@@ -7,6 +7,7 @@ import { DrinkDescriptionFields } from './DrinkDescriptionFields/DrinkDescriptio
 import { DrinkIngredientsFields } from './DrinkIngredientsFields/DrinkIngredientsFields';
 import { RecipePreparation } from './RecipePreparation/RecipePreparation';
 import { useDispatch } from 'react-redux';
+import { addOwnDrink } from '../../redux/drinks/drinks.operations';
 
 export const AddDrinkForm = () => {
   const dispatch = useDispatch();
@@ -47,8 +48,10 @@ export const AddDrinkForm = () => {
         formData.append('ingredients', ingredientsStr);
 
         try {
-          console.log(values);
-          // dispatch  додавання коктейлю.
+          const resp = await dispatch(addOwnDrink(formData));
+          if (resp) {
+            console.log(resp);
+          }
         } catch (error) {
           console.error('Error:', error);
         }

@@ -18,8 +18,23 @@ import {
   selectCategories,
   selectGlasses,
 } from '../../../redux/filters/filters.selectors';
-// import categories from '../../../helpers/data/categories';
-// import glasses from '../../../helpers/data/glasses';
+import { selectUser } from '../../../redux/auth/auth.selectors';
+function getUserAge(dateOfBirth) {
+  const today = new Date();
+  const birthDate = new Date(dateOfBirth);
+
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const monthDifference = today.getMonth() - birthDate.getMonth();
+
+  if (
+    monthDifference < 0 ||
+    (monthDifference === 0 && today.getDate() < birthDate.getDate())
+  ) {
+    age--;
+  }
+
+  return age;
+}
 
 export const DrinkDescriptionFields = ({
   values,
@@ -31,6 +46,7 @@ export const DrinkDescriptionFields = ({
 }) => {
   const categories = useSelector(selectCategories);
   const glasses = useSelector(selectGlasses);
+  const userData = useSelector(selectUser);
 
   const [selectedImage, setSelectedImage] = useState(null); //
 
@@ -40,7 +56,7 @@ export const DrinkDescriptionFields = ({
   const [selectedCategoriesOption, setSelectedCategoriesOption] = useState([]);
   const [selectedGlassesOption, setSelectedGlassesOption] = useState([]);
 
-  const userNoAdult = false;
+  const userNoAdult = getUserAge(userData.dateOfBirth) < 18 ? true : false;
 
   useEffect(() => {
     async function fetchCategories() {
