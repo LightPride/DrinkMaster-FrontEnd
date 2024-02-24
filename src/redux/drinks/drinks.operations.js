@@ -104,7 +104,9 @@ export const addDrinkToFavorite = createAsyncThunk(
   'drinks/favorite/add',
   async (data, thunkAPI) => {
     try {
-      const res = await instance.post(`/drinks/favorite/add`);
+      const res = await instance.post(`/drinks/favorite/add`, {
+        drinkId: data,
+      });
       // const res = await instance.post(`/drinks/favorite/add`);
       // const res = await axios.post('drinks/favorite/add/:id');
       return res.data;
