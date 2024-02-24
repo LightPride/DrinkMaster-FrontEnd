@@ -13,8 +13,28 @@ import {
   LabelAdd,
   customStylesSelect,
 } from './DrinkDescriptionFields.styled';
-import categories from '../../../helpers/data/categories';
-import glasses from '../../../helpers/data/glasses';
+import { useSelector } from 'react-redux';
+import {
+  selectCategories,
+  selectGlasses,
+} from '../../../redux/filters/filters.selectors';
+import { selectUser } from '../../../redux/auth/auth.selectors';
+function getUserAge(dateOfBirth) {
+  const today = new Date();
+  const birthDate = new Date(dateOfBirth);
+
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const monthDifference = today.getMonth() - birthDate.getMonth();
+
+  if (
+    monthDifference < 0 ||
+    (monthDifference === 0 && today.getDate() < birthDate.getDate())
+  ) {
+    age--;
+  }
+
+  return age;
+}
 
 export const DrinkDescriptionFields = ({
   values,
@@ -24,6 +44,10 @@ export const DrinkDescriptionFields = ({
   handleBlur,
   setFieldValue,
 }) => {
+  const categories = useSelector(selectCategories);
+  const glasses = useSelector(selectGlasses);
+  const userData = useSelector(selectUser);
+
   const [selectedImage, setSelectedImage] = useState(null); //
 
   const [categoryOptions, setCategoriesOptions] = useState([]);
@@ -32,14 +56,14 @@ export const DrinkDescriptionFields = ({
   const [selectedCategoriesOption, setSelectedCategoriesOption] = useState([]);
   const [selectedGlassesOption, setSelectedGlassesOption] = useState([]);
 
-  const userNoAdult = false;
+  const userNoAdult = getUserAge(userData.dateOfBirth) < 18 ? true : false;
 
   useEffect(() => {
     async function fetchCategories() {
       try {
-        const categoryOptions = categories.map((category) => ({
-          value: category.categori,
-          label: category.categori,
+        const categoryOptions = categories.map(({ category }) => ({
+          value: category,
+          label: category,
         }));
 
         setCategoriesOptions(categoryOptions);
@@ -49,9 +73,9 @@ export const DrinkDescriptionFields = ({
     }
     async function fetchGlasses() {
       try {
-        const glassesOptions = glasses.map((glasse) => ({
-          value: glasse.glass,
-          label: glasse.glass,
+        const glassesOptions = glasses.map(({ glass }) => ({
+          value: glass,
+          label: glass,
         }));
         setGlassesOptions(glassesOptions);
       } catch (error) {
@@ -61,7 +85,7 @@ export const DrinkDescriptionFields = ({
 
     fetchCategories();
     fetchGlasses();
-  }, []);
+  }, [categories, glasses]);
 
   const handleSelectCategoriesChange = (selectedOption) => {
     setSelectedCategoriesOption(selectedOption);
@@ -85,28 +109,8 @@ export const DrinkDescriptionFields = ({
   return (
     <Wrapper>
       <AddImageField>
-        <WrapperAddDiv>
-          <LabelAdd>
-            <svg
-              width="29"
-              height="28"
-              viewBox="0 0 29 28"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M14.5 5.8335V22.1668"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M6.33203 14H22.6654"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+        {selectedImage ? (
+          <label className="labelPhoto">
             <input
               style={{ display: 'none' }}
               id="drinkThumb"
@@ -115,9 +119,43 @@ export const DrinkDescriptionFields = ({
               accept="drinkThumb/*"
               onChange={(e) => handleImageChange(e)}
             />
-          </LabelAdd>
-          <p>Add Image</p>
-        </WrapperAddDiv>
+            <img className="labelPhoto" src={selectedImage} alt="Selected" />
+          </label>
+        ) : (
+          <WrapperAddDiv>
+            <LabelAdd>
+              <svg
+                width="29"
+                height="28"
+                viewBox="0 0 29 28"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14.5 5.8335V22.1668"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M6.33203 14H22.6654"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <input
+                style={{ display: 'none' }}
+                id="drinkThumb"
+                type="file"
+                name="drinkThumb"
+                accept="drinkThumb/*"
+                onChange={(e) => handleImageChange(e)}
+              />
+            </LabelAdd>
+            <p>Add Image</p>
+          </WrapperAddDiv>
+        )}
       </AddImageField>
       <DescrField>
         <InputsDescrField>

@@ -22,6 +22,7 @@ export const AddImageField = styled.div`
   align-items: center;
   text-align: center;
   justify-content: center;
+  overflow: hidden;
 
   @media screen and (min-width: 768px) {
     width: 320px;
@@ -29,6 +30,12 @@ export const AddImageField = styled.div`
   @media screen and (min-width: 1440px) {
     width: 400px;
     height: 400px;
+  }
+  .labelPhoto {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
   }
 `;
 
