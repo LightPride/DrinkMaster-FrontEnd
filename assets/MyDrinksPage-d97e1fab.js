@@ -1,4 +1,4 @@
-import{u as i,j as t,C as n}from"./index-797b43d4.js";import{P as r}from"./PageTitle-5387e73d.js";import{N as a}from"./NotFoundDrinks-662da057.js";import"./blueIced@2xMob-abf058dd.js";const o=i.div`
+import{u as i,j as t,C as n}from"./index-daefe206.js";import{P as r}from"./PageTitle-72c8b188.js";import{N as a}from"./NotFoundDrinks-7f61cd53.js";import"./blueIced@2xMob-abf058dd.js";const o=i.div`
   margin-top: 80px;
   margin-bottom: 80px;
 
