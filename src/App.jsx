@@ -23,6 +23,10 @@ const PrivacyPolicyPage = lazy(() =>
   import('./pages/PrivacyPolicyPage/PrivacyPolicyPage')
 );
 
+const TermsOfServicePage = lazy(() =>
+  import('./pages/TermsOfServicePage/TermsOfServicePage')
+);
+
 function App() {
   const dispatch = useDispatch();
 
@@ -87,9 +91,22 @@ function App() {
           }
         >
           {/* <Route
-            path="/privacy"
+            path="/policy"
             element={
-              <PrivateRoute redirectTo="/signin" component={<PrivacyPolicyPage />} />
+              <PrivateRoute
+                redirectTo="/signin"
+                component={<PrivacyPolicyPage />}
+              />
+            }
+          />
+
+          <Route
+            path="/service"
+            element={
+              <PrivateRoute
+                redirectTo="/signin"
+                component={<TermsOfServicePage />}
+              />
             }
           /> */}
 
