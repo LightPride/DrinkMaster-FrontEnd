@@ -49,7 +49,7 @@ function App() {
         <Route
           path="/signup"
           element={
-            <PublicRoute redirectTo="/home" component={<SignupPage />} />
+            <PublicRoute redirectTo="/signin" component={<SignupPage />} />
           }
         />
         <Route
@@ -90,9 +90,18 @@ function App() {
           element={
             <PrivateRoute redirectTo="/signin" component={<DrinksPage />} />
           }
+
         >
           <Route path=":drinkId" element={<DrinkPage />} />
         </Route>
+
+
+        <Route
+          path="/drinks/:drinkId"
+          element={
+            <PrivateRoute redirectTo="/signin" component={<DrinkPage />} />
+          }
+        />
 
         <Route
           path="*"
