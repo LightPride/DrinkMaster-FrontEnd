@@ -110,7 +110,7 @@ export const SubWrapper = styled.div`
     padding-right: 12px;
 
     &::placeholder {
-      color: #f3f3f3;
+      opacity: 0.5;
     }
 
     &:hover {

@@ -45,7 +45,7 @@ const UserLogo = () => {
         {/* //HACK Удалить после того как с сервера начну получать картинки */}
         <UserLogoPlaceholder />
 
-        <UserLogoText>No Name User</UserLogoText>
+        <UserLogoText>No name</UserLogoText>
       </UserLogoBtn>
       {isPopupOpen && (
         <UserLogoPopup

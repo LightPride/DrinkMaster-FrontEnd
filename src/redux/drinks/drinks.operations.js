@@ -62,7 +62,7 @@ export const addOwnDrink = createAsyncThunk(
   'drinks/own/add',
   async (data, thunkAPI) => {
     try {
-      const res = await instance.post('/drinks/own', data, {
+      const res = await instance.post('/drinks/own/add', data, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -75,10 +75,10 @@ export const addOwnDrink = createAsyncThunk(
 );
 
 export const removeOwnDrink = createAsyncThunk(
-  'drinks/own/remove/:id',
+  'drinks/own/remove/',
   async (drinkId, thunkAPI) => {
     try {
-      const res = await instance.delete(`/drinks/own/${drinkId}`);
+      const res = await instance.delete(`/drinks/own/remove/${drinkId}`);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -104,9 +104,9 @@ export const addDrinkToFavorite = createAsyncThunk(
   'drinks/favorite/add',
   async (data, thunkAPI) => {
     try {
-      const res = await instance.post('/drinks/favorite', {
-        drinkId: data,
-      });
+      const res = await instance.post(`/drinks/favorite/add`);
+      // const res = await instance.post(`/drinks/favorite/add`);
+      // const res = await axios.post('drinks/favorite/add/:id');
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -115,10 +115,10 @@ export const addDrinkToFavorite = createAsyncThunk(
 );
 
 export const removeDrinkFromFavorite = createAsyncThunk(
-  'drinks/favorite/remove/:id',
+  'drinks/favorite/remove',
   async (drinkId, thunkAPI) => {
     try {
-      const res = await instance.delete(`/drinks/favorite/${drinkId}`);
+      const res = await instance.delete(`/drinks/favorite/remove/${drinkId}`);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
