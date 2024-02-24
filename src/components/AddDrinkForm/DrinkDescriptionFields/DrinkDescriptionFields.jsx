@@ -13,8 +13,13 @@ import {
   LabelAdd,
   customStylesSelect,
 } from './DrinkDescriptionFields.styled';
-import categories from '../../../helpers/data/categories';
-import glasses from '../../../helpers/data/glasses';
+import { useSelector } from 'react-redux';
+import {
+  selectCategories,
+  selectGlasses,
+} from '../../../redux/filters/filters.selectors';
+// import categories from '../../../helpers/data/categories';
+// import glasses from '../../../helpers/data/glasses';
 
 export const DrinkDescriptionFields = ({
   values,
@@ -24,6 +29,9 @@ export const DrinkDescriptionFields = ({
   handleBlur,
   setFieldValue,
 }) => {
+  const categories = useSelector(selectCategories);
+  const glasses = useSelector(selectGlasses);
+
   const [selectedImage, setSelectedImage] = useState(null); //
 
   const [categoryOptions, setCategoriesOptions] = useState([]);
@@ -37,9 +45,9 @@ export const DrinkDescriptionFields = ({
   useEffect(() => {
     async function fetchCategories() {
       try {
-        const categoryOptions = categories.map((category) => ({
-          value: category.categori,
-          label: category.categori,
+        const categoryOptions = categories.map(({ category }) => ({
+          value: category,
+          label: category,
         }));
 
         setCategoriesOptions(categoryOptions);
@@ -49,9 +57,9 @@ export const DrinkDescriptionFields = ({
     }
     async function fetchGlasses() {
       try {
-        const glassesOptions = glasses.map((glasse) => ({
-          value: glasse.glass,
-          label: glasse.glass,
+        const glassesOptions = glasses.map(({ glass }) => ({
+          value: glass,
+          label: glass,
         }));
         setGlassesOptions(glassesOptions);
       } catch (error) {
@@ -61,7 +69,7 @@ export const DrinkDescriptionFields = ({
 
     fetchCategories();
     fetchGlasses();
-  }, []);
+  }, [categories]);
 
   const handleSelectCategoriesChange = (selectedOption) => {
     setSelectedCategoriesOption(selectedOption);
