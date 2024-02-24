@@ -19,13 +19,13 @@ const FavoriteDrinksPage = lazy(() =>
   import('./pages/FavoriteDrinksPage/FavoriteDrinksPage')
 );
 const AddDrinkPage = lazy(() => import('./pages/AddDrinkPage/AddDrinkPage'));
-const PrivacyPolicyPage = lazy(() =>
-  import('./pages/PrivacyPolicyPage/PrivacyPolicyPage')
-);
+// const PrivacyPolicyPage = lazy(() =>
+//   import('./pages/PrivacyPolicyPage/PrivacyPolicyPage')
+// );
 
-const TermsOfServicePage = lazy(() =>
-  import('./pages/TermsOfServicePage/TermsOfServicePage')
-);
+// const TermsOfServicePage = lazy(() =>
+//   import('./pages/TermsOfServicePage/TermsOfServicePage')
+// );
 
 function App() {
   const dispatch = useDispatch();
@@ -90,7 +90,22 @@ function App() {
             <PrivateRoute redirectTo="/signin" component={<DrinksPage />} />
           }
         >
-          {/* <Route
+          <Route path=":drinkId" element={<DrinkPage />} />
+        </Route>
+
+        <Route
+          path="*"
+          redirectTo="/signin"
+          element={<PrivateRoute component={<ErrorPage />} />}
+        />
+      </Route>
+    </Routes>
+  );
+}
+export default App;
+
+{
+  /* <Route
             path="/policy"
             element={
               <PrivateRoute
@@ -108,18 +123,5 @@ function App() {
                 component={<TermsOfServicePage />}
               />
             }
-          /> */}
-
-          <Route path=":drinkId" element={<DrinkPage />} />
-        </Route>
-
-        <Route
-          path="*"
-          redirectTo="/signin"
-          element={<PrivateRoute component={<ErrorPage />} />}
-        />
-      </Route>
-    </Routes>
-  );
+          /> */
 }
-export default App;
