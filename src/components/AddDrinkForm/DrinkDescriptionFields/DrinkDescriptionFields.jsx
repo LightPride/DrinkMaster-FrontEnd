@@ -85,28 +85,8 @@ export const DrinkDescriptionFields = ({
   return (
     <Wrapper>
       <AddImageField>
-        <WrapperAddDiv>
-          <LabelAdd>
-            <svg
-              width="29"
-              height="28"
-              viewBox="0 0 29 28"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M14.5 5.8335V22.1668"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M6.33203 14H22.6654"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+        {selectedImage ? (
+          <label className="labelPhoto">
             <input
               style={{ display: 'none' }}
               id="drinkThumb"
@@ -115,9 +95,43 @@ export const DrinkDescriptionFields = ({
               accept="drinkThumb/*"
               onChange={(e) => handleImageChange(e)}
             />
-          </LabelAdd>
-          <p>Add Image</p>
-        </WrapperAddDiv>
+            <img className="labelPhoto" src={selectedImage} alt="Selected" />
+          </label>
+        ) : (
+          <WrapperAddDiv>
+            <LabelAdd>
+              <svg
+                width="29"
+                height="28"
+                viewBox="0 0 29 28"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14.5 5.8335V22.1668"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M6.33203 14H22.6654"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <input
+                style={{ display: 'none' }}
+                id="drinkThumb"
+                type="file"
+                name="drinkThumb"
+                accept="drinkThumb/*"
+                onChange={(e) => handleImageChange(e)}
+              />
+            </LabelAdd>
+            <p>Add Image</p>
+          </WrapperAddDiv>
+        )}
       </AddImageField>
       <DescrField>
         <InputsDescrField>
