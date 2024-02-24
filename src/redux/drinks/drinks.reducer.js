@@ -8,7 +8,7 @@ import {
   removeOwnDrink,
   getOwnDrinks,
   addDrinkToFavorite,
-  removeDrink,
+  removeDrinkFromFavorite,
   getFavoriteAll,
 } from './drinks.operations.js';
 
@@ -55,7 +55,7 @@ const drinksSlice = createSlice({
         state.isLoading = false;
         state.error = null;
       })
-      .addCase(removeDrink.fulfilled, (state, action) => {
+      .addCase(removeDrinkFromFavorite.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         state.favoriteDrinks = state.favoriteDrinks.filter(
@@ -112,7 +112,7 @@ const drinksSlice = createSlice({
           removeOwnDrink.pending,
           getOwnDrinks.pending,
           addDrinkToFavorite.pending,
-          removeDrink.pending,
+          removeDrinkFromFavorite.pending,
           getFavoriteAll.pending
         ),
         (state) => {
@@ -130,7 +130,7 @@ const drinksSlice = createSlice({
           removeOwnDrink.rejected,
           getOwnDrinks.rejected,
           addDrinkToFavorite.rejected,
-          removeDrink.rejected,
+          removeDrinkFromFavorite.rejected,
           getFavoriteAll.rejected
         ),
         (state, action) => {

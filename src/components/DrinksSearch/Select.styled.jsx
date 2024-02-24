@@ -17,6 +17,10 @@ export const SelectContainer = styled(Select)`
     background-color: var(--dark-blue-color);
     width: 199px;
     margin-top: 4px;
+    padding-left: 14px;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.56;
   }
 
   & .react-select__menu-list::-webkit-scrollbar {
@@ -25,6 +29,7 @@ export const SelectContainer = styled(Select)`
 
   & .react-select__dropdown-indicator {
     color: var(--white-color);
+
     &:hover {
       color: var(--white-color);
     }
@@ -48,6 +53,8 @@ export const SelectContainer = styled(Select)`
   & .react-select__option {
     background-color: none;
     color: var(--white-fifty-color);
+    padding-top: 3px;
+    padding-bottom: 3px;
     &:hover {
       color: var(--white-color);
     }

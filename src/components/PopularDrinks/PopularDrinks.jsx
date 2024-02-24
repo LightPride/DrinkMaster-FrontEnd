@@ -1,76 +1,28 @@
+import { useDispatch, useSelector } from 'react-redux';
 import { WraperList } from './PopularDrinks.styled';
+import { selectPopularDrinks } from '../../redux/drinks/drinks.selectors';
+import { Link } from 'react-router-dom';
 
 export const PopularDrinks = () => {
+  const dispatch = useDispatch();
+
+  const popularDrinks = useSelector(selectPopularDrinks);
+
   return (
     <WraperList>
-      <li>
-        <a href="">
-          <img
-            src="https://ftp.goit.study/img/drinkify/recipes/Quentin.jpg"
-            alt="img"
-          />
-          <div>
-            <h4>Lone Tree Cooler</h4>
-            <p>
-              highball cockаааtail made with gin and tonic water poured over a
-              large amount of ice. The ratio of gin to tonic varies according to
-              taste, strength of the gin, other drink mixers being added, etc.,
-              with most recipes calling for a ratio between 1:1 and 1:3.
-            </p>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="">
-          <img
-            src="https://ftp.goit.study/img/drinkify/recipes/Quentin.jpg"
-            alt="img"
-          />
-          <div>
-            <h4>Lone Tree Cooler</h4>
-            <p>
-              highball cockаааtail made with gin and tonic water poured over a
-              large amount of ice. The ratio of gin to tonic varies according to
-              taste, strength of the gin, other drink mixers being added, etc.,
-              with most recipes calling for a ratio between 1:1 and 1:3.
-            </p>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="">
-          <img
-            src="https://ftp.goit.study/img/drinkify/recipes/Quentin.jpg"
-            alt="img"
-          />
-          <div>
-            <h4>Lone Tree Cooler</h4>
-            <p>
-              highball cockаааtail made with gin and tonic water poured over a
-              large amount of ice. The ratio of gin to tonic varies according to
-              taste, strength of the gin, other drink mixers being added, etc.,
-              with most recipes calling for a ratio between 1:1 and 1:3.
-            </p>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="">
-          <img
-            src="https://ftp.goit.study/img/drinkify/recipes/Quentin.jpg"
-            alt="img"
-          />
-          <div>
-            <h4>Lone Tree Cooler</h4>
-            <p>
-              highball cockаааtail made with gin and tonic water poured over a
-              large amount of ice. The ratio of gin to tonic varies according to
-              taste, strength of the gin, other drink mixers being added, etc.,
-              with most recipes calling for a ratio between 1:1 and 1:3.
-            </p>
-          </div>
-        </a>
-      </li>
+      {popularDrinks.map((item) => {
+        return (
+          <li key={item._id}>
+            <Link to={`/drinks/${item._id}`}>
+              <img src={item.drinkThumb} alt={item.tags} />
+              <div>
+                <h4>{item.drink} </h4>
+                <p>{item.description}</p>
+              </div>
+            </Link>
+          </li>
+        );
+      })}
     </WraperList>
   );
 };

@@ -3,7 +3,6 @@ import { styled } from 'styled-components';
 export const FooterContainer = styled.footer`
   margin: 0 auto;
   padding: 40px 20px 18px 20px;
-  width: 100%;
   max-width: 375px;
 
   @media (min-width: 768px) {
@@ -16,10 +15,12 @@ export const FooterContainer = styled.footer`
     padding: 80px 100px 24px 100px;
   }
 `;
+
 export const FooterSection = styled.section`
   margin: 0 auto;
   border-top: 1px solid var(--white-twenty-color);
 `;
+
 export const FooterDiv = styled.div`
   display: flex;
 
@@ -32,9 +33,6 @@ export const FooterDivTwo = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   flex-direction: row;
-
-  @media (min-width: 375px) {
-  }
 
   @media (min-width: 768px) and (max-width: 1439px) {
     display: flex;

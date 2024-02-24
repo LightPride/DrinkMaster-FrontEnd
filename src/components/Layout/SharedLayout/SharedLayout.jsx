@@ -4,9 +4,8 @@ import { Header } from 'components/Layout/Header/Header';
 import { Footer } from 'components/Layout/Footer/Footer';
 
 import Loader from '../../../ui/Loader';
-import { StyledBackground } from './SharedLayout.styled';
+import { StyledBackground, StyledMain } from './SharedLayout.styled';
 import { useSelector } from 'react-redux';
-import { selectIsLoggedIn } from '../../../redux/auth/auth.selectors';
 
 const SharedLayout = () => {
   const { token } = useSelector((state) => state.auth);
@@ -16,9 +15,11 @@ const SharedLayout = () => {
       <StyledBackground />
       <div className={token ? 'mainBackground' : 'welcomeBackground'}>
         {token && <Header />}
-        <Suspense fallback={<Loader />}>
-          <Outlet />
-        </Suspense>
+        <StyledMain>
+          <Suspense fallback={<Loader />}>
+            <Outlet />
+          </Suspense>
+        </StyledMain>
         {token && <Footer />}
       </div>
     </>

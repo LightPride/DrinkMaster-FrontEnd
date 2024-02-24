@@ -6,6 +6,7 @@ export const FormContainer = styled.form`
   justify-content: flex-start;
   flex-direction: column;
   gap: 24px;
+  width: 100%;
   max-width: 335px;
 
   @media screen and (min-width: 768px) {
@@ -16,14 +17,13 @@ export const FormContainer = styled.form`
   }
 `;
 
-export const InputForm = styled.label``;
-
 export const InputNameEmail = styled.input`
   padding-left: 24px;
 
   border: 1px solid rgba(243, 243, 243, 0.2);
   border-radius: 200px;
-  width: 280px;
+  width: 100%;
+  max-width: 335px;
   height: 54px;
 
   background-color: transparent;
@@ -40,10 +40,6 @@ export const InputNameEmail = styled.input`
   }
   &:focus {
     border: 1px solid rgba(243, 243, 243, 0.5);
-  }
-
-  @media screen and (min-width: 375px) {
-    width: 335px;
   }
 
   @media screen and (min-width: 768px) {
@@ -74,7 +70,8 @@ export const Title = styled.p`
 export const ButtonSubmit = styled.button`
   border: 1px solid rgba(243, 243, 243, 0.2);
   border-radius: 200px;
-  width: 280px;
+  width: 100%;
+  max-width: 335px;
   height: 54px;
 
   background-color: transparent;
@@ -93,10 +90,6 @@ export const ButtonSubmit = styled.button`
   &:focus {
     background-color: #f3f3f3;
     color: #161f37;
-  }
-
-  @media screen and (min-width: 375px) {
-    width: 335px;
   }
 
   @media screen and (min-width: 768px) {

@@ -3,9 +3,11 @@ import { instance } from '../auth/auth.operations';
 
 export const getMainPageDrinks = createAsyncThunk(
   'drinks/getAll',
-  async (_, thunkAPI) => {
+  async (quantity, thunkAPI) => {
     try {
-      const res = await instance.get('/drinks/mainpage');
+      const res = await instance.get(
+        `/drinks/mainpage?drinksPerCategory=${quantity}`
+      );
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -75,7 +77,7 @@ export const addOwnDrink = createAsyncThunk(
 );
 
 export const removeOwnDrink = createAsyncThunk(
-  'drinks/own/remove/:id',
+  'drinks/own/remove/',
   async (drinkId, thunkAPI) => {
     try {
       const res = await instance.delete(`/drinks/own/remove/${drinkId}`);
@@ -102,11 +104,11 @@ export const getOwnDrinks = createAsyncThunk(
 
 export const addDrinkToFavorite = createAsyncThunk(
   'drinks/favorite/add',
-  // 'drinks/favorite/add/:id',
   async (_, thunkAPI) => {
     // async (drinkId, thunkAPI) => {
     try {
       const res = await instance.post(`/drinks/favorite/add`);
+      // const res = await instance.post(`/drinks/favorite/add`);
       // const res = await axios.post('drinks/favorite/add/:id');
       return res.data;
     } catch (error) {
@@ -115,8 +117,8 @@ export const addDrinkToFavorite = createAsyncThunk(
   }
 );
 
-export const removeDrink = createAsyncThunk(
-  'drinks/favorite/remove/:id',
+export const removeDrinkFromFavorite = createAsyncThunk(
+  'drinks/favorite/remove',
   async (drinkId, thunkAPI) => {
     try {
       const res = await instance.delete(`/drinks/favorite/remove/${drinkId}`);
@@ -128,7 +130,7 @@ export const removeDrink = createAsyncThunk(
 );
 
 export const getFavoriteAll = createAsyncThunk(
-  'drinks/favorite',
+  'drinks/favorite/',
   async (_, thunkAPI) => {
     // async ({ page, limit }, thunkAPI) => {
     try {

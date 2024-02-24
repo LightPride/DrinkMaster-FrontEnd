@@ -8,7 +8,9 @@ import {
 import React, { useEffect, useState } from 'react';
 import { FieldArray, Field, ErrorMessage } from 'formik';
 import Select from 'react-select';
-import ingredientsArray from '../../../helpers/data/ingredients.json';
+import { useSelector } from 'react-redux';
+import { selectIngredients } from '../../../redux/filters/filters.selectors';
+// import ingredientsArray from '../../../helpers/data/ingredients.json';
 
 export const DrinkIngredientsFields = ({
   values,
@@ -18,6 +20,8 @@ export const DrinkIngredientsFields = ({
   handleBlur,
   setFieldValue,
 }) => {
+  const ingredientsArray = useSelector(selectIngredients);
+
   const [options, setOptions] = useState([]);
   const [selectedOptions, setSelectedOptions] = useState([]);
 
@@ -31,9 +35,9 @@ export const DrinkIngredientsFields = ({
               )
             : ingredientsArray;
         const ingredientOptions = filteredIngredientsArray.map(
-          ({ title, _id: ingredientsId }) => ({
+          ({ title, _id: ingredientId }) => ({
             label: title,
-            value: ingredientsId,
+            value: ingredientId,
           })
         );
         setOptions(ingredientOptions);
@@ -43,12 +47,12 @@ export const DrinkIngredientsFields = ({
     }
 
     fetchIngredients();
-  }, [values.alcoholic]);
+  }, [values.alcoholic, ingredientsArray]);
 
   const handleSelectChange = (selectedOption, index) => {
     const { value, label } = selectedOption;
     setFieldValue(`ingredients[${index}].title`, label);
-    setFieldValue(`ingredients[${index}].ingredientsId`, value);
+    setFieldValue(`ingredients[${index}].ingredientId`, value);
     setSelectedOptions((prevOptions) => {
       const newOptions = [...prevOptions];
       newOptions[index] = selectedOption;
@@ -57,7 +61,7 @@ export const DrinkIngredientsFields = ({
   };
 
   const handleAddIngredient = () => {
-    const newIngredient = { title: '' };
+    const newIngredient = { title: '', measure: '' };
     setFieldValue('ingredients', [...values.ingredients, newIngredient]);
     setSelectedOptions((prevOptions) => [...prevOptions, null]);
   };
