@@ -4,7 +4,7 @@ export const CategoryContainer = styled.div`
   display: flex;
 `;
 
-export const CategoryCardList = styled.div`
+export const CategoryCardList = styled.li`
   display: flex;
   flex-direction: column;
 `;
