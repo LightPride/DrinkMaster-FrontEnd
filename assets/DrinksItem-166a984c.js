@@ -1,4 +1,4 @@
-import{u as t,k as s,j as e}from"./index-9a9f05a7.js";import{d as a}from"./coctailPlaceholder-82987b74.js";const d=t.li`
+import{u as t,k as s,j as e}from"./index-68bbb3e8.js";import{d as a}from"./coctailPlaceholder-82987b74.js";const d=t.li`
   width: 335px;
 
   @media screen and (min-width: 768px) {
