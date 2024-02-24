@@ -19,6 +19,7 @@ const FavoriteDrinksPage = lazy(() =>
   import('./pages/FavoriteDrinksPage/FavoriteDrinksPage')
 );
 const AddDrinkPage = lazy(() => import('./pages/AddDrinkPage/AddDrinkPage'));
+
 // const PrivacyPolicyPage = lazy(() =>
 //   import('./pages/PrivacyPolicyPage/PrivacyPolicyPage')
 // );
@@ -103,25 +104,3 @@ function App() {
   );
 }
 export default App;
-
-{
-  /* <Route
-            path="/policy"
-            element={
-              <PrivateRoute
-                redirectTo="/signin"
-                component={<PrivacyPolicyPage />}
-              />
-            }
-          />
-
-          <Route
-            path="/service"
-            element={
-              <PrivateRoute
-                redirectTo="/signin"
-                component={<TermsOfServicePage />}
-              />
-            }
-          /> */
-}
