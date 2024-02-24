@@ -24,7 +24,8 @@ const HomePage = () => {
   const handleWindowResize = () => {
     setWindowWidth(window.innerWidth);
   };
-
+  
+/*функція для рендерингу на три екрани*/
   const setQuantity = (windowWidth) => {
     let quantity = 0;
     if (windowWidth < 768) {
