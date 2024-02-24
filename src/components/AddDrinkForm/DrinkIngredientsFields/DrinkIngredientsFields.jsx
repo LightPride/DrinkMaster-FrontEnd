@@ -17,15 +17,9 @@ export const DrinkIngredientsFields = ({
   handleChange,
   handleBlur,
   setFieldValue,
-  // ingredientsFromOtherDrink,
 }) => {
   const [options, setOptions] = useState([]);
   const [selectedOptions, setSelectedOptions] = useState([]);
-
-  // useEffect(() => {
-  //   if (ingredientsFromOtherDrink) {
-  //   }
-  // }, [ingredientsFromOtherDrink]);
 
   useEffect(() => {
     async function fetchIngredients() {

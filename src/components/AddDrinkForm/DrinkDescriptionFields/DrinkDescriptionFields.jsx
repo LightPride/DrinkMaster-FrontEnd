@@ -23,26 +23,7 @@ export const DrinkDescriptionFields = ({
   handleChange,
   handleBlur,
   setFieldValue,
-  categoryFromOtherDrink,
-  glassFromOtherDrink,
 }) => {
-  useEffect(() => {
-    if (categoryFromOtherDrink) {
-      setSelectedCategoriesOption({
-        value: categoryFromOtherDrink,
-        label: categoryFromOtherDrink,
-      });
-    }
-  }, [glassFromOtherDrink]);
-  useEffect(() => {
-    if (categoryFromOtherDrink) {
-      setSelectedGlassesOption({
-        value: glassFromOtherDrink,
-        label: glassFromOtherDrink,
-      });
-    }
-  }, [glassFromOtherDrink]);
-
   const [selectedImage, setSelectedImage] = useState(null); //
 
   const [categoryOptions, setCategoriesOptions] = useState([]);
@@ -170,7 +151,6 @@ export const DrinkDescriptionFields = ({
                 className="selectStyled"
                 name="category"
                 options={categoryOptions}
-                placeholder="Select..."
                 value={selectedCategoriesOption}
                 onChange={(selectedCategoriesOption) =>
                   handleSelectCategoriesChange(selectedCategoriesOption)
@@ -186,7 +166,6 @@ export const DrinkDescriptionFields = ({
                 className="selectStyled"
                 name="glass"
                 options={glasseOptions}
-                placeholder="Select..."
                 value={selectedGlassesOption}
                 onChange={(selectedGlassesOption) =>
                   handleSelectGlassesChange(selectedGlassesOption)

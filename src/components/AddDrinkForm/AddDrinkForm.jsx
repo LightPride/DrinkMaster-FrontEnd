@@ -8,7 +8,7 @@ import { DrinkIngredientsFields } from './DrinkIngredientsFields/DrinkIngredient
 import { RecipePreparation } from './RecipePreparation/RecipePreparation';
 import { useDispatch } from 'react-redux';
 
-export const AddDrinkForm = ({ dataDrinkFromOtherComponent }) => {
+export const AddDrinkForm = () => {
   const dispatch = useDispatch();
 
   return (
@@ -21,7 +21,6 @@ export const AddDrinkForm = ({ dataDrinkFromOtherComponent }) => {
         glass: '',
         alcoholic: 'Non alcoholic',
         shortDescription: '',
-        drinkThumb: '',
       }}
       validationSchema={Yup.object().shape({
         drink: Yup.string().required('This field is mandatory'),
@@ -60,76 +59,40 @@ export const AddDrinkForm = ({ dataDrinkFromOtherComponent }) => {
         touched,
         handleChange,
         handleBlur,
-        setFieldValue, // Отримання методу setFieldValue
-      }) => {
-        useEffect(() => {
-          // Оновлення значень форми при зміні dataDrinkFromOtherComponent
-          setFieldValue('drink', dataDrinkFromOtherComponent.drink || '');
-          // setFieldValue(
-          //   'ingredients',
-          //   dataDrinkFromOtherComponent.ingredients || [{ title: '' }]
-          // );
-          setFieldValue(
-            'instructions',
-            dataDrinkFromOtherComponent.instructions || ''
-          );
-          // setFieldValue('category', dataDrinkFromOtherComponent.category || '');
-          // setFieldValue('glass', dataDrinkFromOtherComponent.glass || '');
-          setFieldValue(
-            'alcoholic',
-            dataDrinkFromOtherComponent.alcoholic || 'Non alcoholic'
-          );
-          setFieldValue(
-            'shortDescription',
-            dataDrinkFromOtherComponent.shortDescription || ''
-          );
-          setFieldValue(
-            'drinkThumb',
-            dataDrinkFromOtherComponent.drinkThumb || ''
-          );
-        }, [dataDrinkFromOtherComponent]);
+        setFieldValue,
+      }) => (
+        <Form>
+          <Wrapper>
+            <DrinkDescriptionFields
+              values={values}
+              errors={errors}
+              touched={touched}
+              handleChange={handleChange}
+              handleBlur={handleBlur}
+              setFieldValue={setFieldValue}
+            />
+            <DrinkIngredientsFields
+              values={values}
+              errors={errors}
+              touched={touched}
+              handleChange={handleChange}
+              handleBlur={handleBlur}
+              setFieldValue={setFieldValue}
+            />
+            <RecipePreparation
+              values={values}
+              errors={errors}
+              touched={touched}
+              handleChange={handleChange}
+              handleBlur={handleBlur}
+            />
 
-        return (
-          <Form>
-            <Wrapper>
-              <DrinkDescriptionFields
-                values={values}
-                errors={errors}
-                touched={touched}
-                handleChange={handleChange}
-                handleBlur={handleBlur}
-                setFieldValue={setFieldValue}
-                categoryFromOtherDrink={
-                  dataDrinkFromOtherComponent.category || false
-                }
-                glassFromOtherDrink={dataDrinkFromOtherComponent.glass || false}
-              />
-              <DrinkIngredientsFields
-                values={values}
-                errors={errors}
-                touched={touched}
-                handleChange={handleChange}
-                handleBlur={handleBlur}
-                setFieldValue={setFieldValue}
-                ingredientsFromOtherDrink={
-                  dataDrinkFromOtherComponent.ingredients || false
-                }
-              />
-              <RecipePreparation
-                values={values}
-                errors={errors}
-                touched={touched}
-                handleChange={handleChange}
-                handleBlur={handleBlur}
-              />
-
-              <button className="buttonAdd" type="submit">
-                Add
-              </button>
-            </Wrapper>
-          </Form>
-        );
-      }}
+            <button className="buttonAdd" type="submit">
+              Add
+            </button>
+          </Wrapper>
+        </Form>
+      )}
     </Formik>
   );
 };
