@@ -32,17 +32,22 @@ const DrinkPageHero = ({
   const dispatch = useDispatch();
   const favoriteDrinkList = useSelector(selectFavoriteDrinks);
   const isLoading = useSelector(selectIsLoading);
-  // console.log(favoriteDrinkList);
+  console.log(favoriteDrinkList);
 
   const isDrinkFavoritelist = (id) => {
-    if (favoriteDrinkList) {
-      return favoriteDrinkList.find((drink) => drink._id === id);
+    if (favoriteDrinkList.length > 0) {
+      const lastDrink = favoriteDrinkList[favoriteDrinkList.length - 1];
+      if (lastDrink) {
+        return favoriteDrinkList.find((drink) => drink._id === id);
+      }
     }
   };
-
   useEffect(() => {
     dispatch(getFavoriteAll());
   }, [dispatch]);
+
+  // const noticeAdd = 'Remove from favorite';
+  // const noticeRemove = 'Add to favorite';
 
   return (
     <>
@@ -56,14 +61,24 @@ const DrinkPageHero = ({
             <DrinkDescription>{description}</DrinkDescription>
             {!isDrinkFavoritelist(id) ? (
               <AddToFavoriteButton
-                onClick={() => dispatch(addDrinkToFavorite(id))}
+                onClick={
+                  () =>
+                    dispatch(addDrinkToFavorite(id)).then(() => console.log(1))
+                  // dispatch(addDrinkToFavorite(id)).then(() => noticeAdd)
+                }
                 disabled={isLoading}
               >
                 Add to favorite drinks
               </AddToFavoriteButton>
             ) : (
               <AddToFavoriteButton
-                onClick={() => dispatch(removeDrinkFromFavorite(id))}
+                onClick={
+                  () =>
+                    dispatch(removeDrinkFromFavorite(id)).then(() =>
+                      console.log(2)
+                    )
+                  // dispatch(removeDrinkFromFavorite(id)).then(() => noticeRemove)
+                }
                 disabled={isLoading}
               >
                 Remove from favorite drinks
