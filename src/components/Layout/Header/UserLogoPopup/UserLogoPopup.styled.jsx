@@ -53,10 +53,4 @@ export const StyledTypography = styled(Typography)`
   color: var(--white-color);
   font-size: 14px;
   line-height: 129%;
-  cursor: pointer;
-  transition: color 200ms ease;
-  &:hover,
-  &:focus {
-    color: var(--white-fifty-color);
-  }
 `;
