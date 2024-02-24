@@ -6,6 +6,7 @@ import { Drinks } from '../../components/Drinks/Drinks';
 import { Container } from '../../components/Layout/Container/Container';
 import { ErrorMessage } from './DrinksPage.styled';
 import { Wrapper } from './DrinksPage.styled';
+import Loader from '../../ui/Loader';
 
 import {
   selectDrinks,
@@ -37,7 +38,7 @@ export default function DrinksPage() {
         <PageTitle title="Drinks" />
         <DrinksSearch />
         {isLoading ? (
-          <p>Loading...</p>
+          <Loader />
         ) : error || drinks.length === 0 ? (
           <ErrorMessage>No cocktails were found for your request</ErrorMessage>
         ) : (
