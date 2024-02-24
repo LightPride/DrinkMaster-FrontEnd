@@ -35,9 +35,9 @@ export const DrinkIngredientsFields = ({
               )
             : ingredientsArray;
         const ingredientOptions = filteredIngredientsArray.map(
-          ({ title, _id: ingredientsId }) => ({
+          ({ title, _id: ingredientId }) => ({
             label: title,
-            value: ingredientsId,
+            value: ingredientId,
           })
         );
         setOptions(ingredientOptions);
@@ -52,7 +52,7 @@ export const DrinkIngredientsFields = ({
   const handleSelectChange = (selectedOption, index) => {
     const { value, label } = selectedOption;
     setFieldValue(`ingredients[${index}].title`, label);
-    setFieldValue(`ingredients[${index}].ingredientsId`, value);
+    setFieldValue(`ingredients[${index}].ingredientId`, value);
     setSelectedOptions((prevOptions) => {
       const newOptions = [...prevOptions];
       newOptions[index] = selectedOption;

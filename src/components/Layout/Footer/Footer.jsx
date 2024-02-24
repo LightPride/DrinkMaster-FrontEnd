@@ -1,6 +1,5 @@
 import {
   FooterContainer,
-  FooterSection,
   FooterDivOne,
   FooterDivTwo,
   FooterDivDesk,
@@ -8,6 +7,8 @@ import {
   FooterDivMob,
   FooterDiv,
 } from './Footer.styled';
+
+import { Container } from '../Container/Container';
 
 import Subscribe from './Subscriebe/Subscribe';
 import Info from './Info/Info';
@@ -17,8 +18,8 @@ import FollowUs from '../../FollowUs/FollowUs';
 
 export const Footer = () => {
   return (
-    <FooterSection>
-      <FooterContainer>
+    <FooterContainer>
+      <Container>
         <FooterDiv>
           <FooterDivMob>
             <FooterDivTwo>
@@ -37,8 +38,8 @@ export const Footer = () => {
           </FooterDivMob>
           <Info />
         </FooterDiv>
-      </FooterContainer>
-    </FooterSection>
+      </Container>
+    </FooterContainer>
   );
 };
 export default Footer;

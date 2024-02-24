@@ -3,9 +3,11 @@ import { instance } from '../auth/auth.operations';
 
 export const getMainPageDrinks = createAsyncThunk(
   'drinks/getAll',
-  async (_, thunkAPI) => {
+  async (quantity, thunkAPI) => {
     try {
-      const res = await instance.get('/drinks/mainpage');
+      const res = await instance.get(
+        `/drinks/mainpage?drinksPerCategory=${quantity}`
+      );
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
