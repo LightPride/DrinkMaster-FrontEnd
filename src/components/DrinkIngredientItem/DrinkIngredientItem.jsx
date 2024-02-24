@@ -7,23 +7,30 @@ import {
 } from './DrinkIngredientItem.styled';
 import defaultImage from '../../images/drinkPage/coctailPlaceholder.png';
 
-const DrinkIngredientItem = ({ title, measure, quantity, image }) => {
+const DrinkIngredientItem = ({ title, measure, quantity, images }) => {
+  // console.log(images);
   return (
     <>
       <IngredientPhotoWrapper>
-        {/* {!image['ingredientThumb'] ? (
+        {images['ingredientThumb'] === '' ? (
+          <IngredientPhoto src={defaultImage} alt="img"></IngredientPhoto>
+        ) : (
           <picture>
             <source
               media="(min-width: 1440px)"
-              srcSet={image['ingredientThumb']}
+              srcSet={images['ingredientThumb']}
             />
-            <source media="(min-width: 768px)" srcSet={image['thumb-medium']} />
-            <source media="(min-width: 375px)" srcSet={image['thumb-small']} />
-            <IngredientPhoto src={image} alt="ingredient photo" />
+            <source
+              media="(min-width: 768px)"
+              srcSet={images['thumb-medium']}
+            />
+            <source media="(min-width: 375px)" srcSet={images['thumb-small']} />
+            <IngredientPhoto
+              src={images['ingredientThumb']}
+              alt="ingredient photo"
+            />
           </picture>
-        ) : ( */}
-        <IngredientPhoto src={defaultImage} alt="img"></IngredientPhoto>
-        {/* )} */}
+        )}
       </IngredientPhotoWrapper>
       <IngredientDescription>
         <IngredientTitle>{title}</IngredientTitle>
