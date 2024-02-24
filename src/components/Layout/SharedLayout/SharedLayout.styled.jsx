@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, styled } from 'styled-components';
 import bgMobile from '../../../images/BackgroundImages/bgMobile.png';
 import bgTablet from '../../../images/BackgroundImages/bgTablet.png';
 import bgDesktop from '../../../images/BackgroundImages/bgDesktop.png';
@@ -69,4 +69,8 @@ export const StyledBackground = createGlobalStyle`
         bottom -650px right 250px;
     }
   }
+`;
+
+export const StyledMain = styled.main`
+  min-height: calc(100vh - 85px);
 `;
