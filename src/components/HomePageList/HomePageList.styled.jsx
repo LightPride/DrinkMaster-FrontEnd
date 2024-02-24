@@ -4,7 +4,7 @@ export const CategoryContainer = styled.div`
   display: flex;
 `;
 
-export const CategoryCardList = styled.li`
+export const CategoryCardList = styled.div`
   display: flex;
   flex-direction: column;
 `;
@@ -17,9 +17,9 @@ export const Category = styled.h2`
   margin-bottom: 20px;
 `;
 
-export const CardsWrapper = styled.div`
+export const CardsWrapper = styled.ul`
   display: flex;
-  flex-direction: row;
+  flex-direction: colum;
   gap: 20px;
   margin-bottom: 80px;
 `;
