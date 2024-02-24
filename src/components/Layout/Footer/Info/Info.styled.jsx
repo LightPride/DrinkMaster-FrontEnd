@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 export const InfoContainer = styled.div`
@@ -83,7 +84,9 @@ export const InfoText = styled.p`
   }
 `;
 
-export const InfoLink = styled.a`
+export const InfoLink = styled(Link)`
+  color: rgba(243, 243, 243, 0.5);
+
   &:visited {
     color: inherit;
   }

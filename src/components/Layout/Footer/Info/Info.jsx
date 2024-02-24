@@ -14,14 +14,10 @@ export const Info = () => {
       <InfoContPriv>
         <InfoUl>
           <InfoLi>
-            <InfoLink href="" rel="noreferrer noopener" target="_blank">
-              Privacy Policy
-            </InfoLink>
+            <InfoLink to="/policy"> Privacy Policy</InfoLink>
           </InfoLi>
           <InfoLi>
-            <InfoLink href="" rel="noreferrer noopener" target="_blank">
-              Terms of Service
-            </InfoLink>
+            <InfoLink to="/service"> Terms of Service</InfoLink>
           </InfoLi>
         </InfoUl>
       </InfoContPriv>

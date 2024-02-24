@@ -1,10 +1,10 @@
 import { styled } from 'styled-components';
 
 export const FooterContainer = styled.footer`
-  border-top: 1px solid rgba(243, 243, 243, 0.2);
   margin: 0 auto;
   padding: 40px 20px 18px 20px;
-  min-width: 320px;
+  width: 100%;
+  max-width: 375px;
 
   @media (min-width: 768px) {
     min-width: 768px;
@@ -18,6 +18,7 @@ export const FooterContainer = styled.footer`
 `;
 export const FooterSection = styled.section`
   margin: 0 auto;
+  border-top: 1px solid var(--white-twenty-color);
 `;
 export const FooterDiv = styled.div`
   display: flex;
