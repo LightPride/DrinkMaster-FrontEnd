@@ -69,7 +69,7 @@ export const DrinkDescriptionFields = ({
 
     fetchCategories();
     fetchGlasses();
-  }, [categories]);
+  }, [categories, glasses]);
 
   const handleSelectCategoriesChange = (selectedOption) => {
     setSelectedCategoriesOption(selectedOption);
