@@ -4,6 +4,9 @@ export const WraperList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 24px;
+  li {
+    position: relative;
+  }
   a {
     display: flex;
     flex-direction: row;
@@ -57,5 +60,20 @@ export const WraperList = styled.ul`
     gap: 28px;
     flex-direction: column;
     flex-wrap: nowrap;
+  }
+  button {
+    position: absolute;
+    right: 0;
+    top: -20%;
+    background-color: #5fda88dd;
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    color: #f3f3f3;
+    font-size: large;
   }
 `;
