@@ -7,7 +7,7 @@ import {
   selectIsLoading,
   selectErrorDrinks,
 } from '../../redux/drinks/drinks.selectors';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { getMainPageDrinks } from '../../redux/drinks/drinks.operations';
 import HomePageList from '../../components/HomePageList/HomePageList';
 import Loader from '../../ui/Loader';
@@ -24,6 +24,35 @@ const HomePage = () => {
   const showCocktails =
     !error && !isLoadingFromRedux && drinks && drinks.length > 0;
 
+  // const handleWindowResize = () => {
+  //   setWindowWidth(window.innerWidth);
+  // };
+
+  // /*функція для рендерингу на три екрани*/
+  // const setQuantity = (windowWidth) => {
+  //   let quantity = 0;
+  //   if (windowWidth < 768) {
+  //     quantity = 1;
+  //   } else if (windowWidth >= 768 && windowWidth < 1440) {
+  //     quantity = 2;
+  //   } else if (windowWidth >= 1440) {
+  //     quantity = 3;
+  //   }
+  //   return quantity;
+  // };
+
+  // useEffect(() => {
+  //   window.addEventListener('resize', handleWindowResize);
+  //   const quantity = setQuantity(windowWidth);
+
+  //   dispatch(getMainPageDrinks(quantity));
+  //   return () => {
+  //     window.removeEventListener('resize', handleWindowResize);
+  //   };
+  // }, [dispatch, windowWidth]);
+
+  /* новий код **/
+  
   const handleWindowResize = () => {
     setWindowWidth(window.innerWidth);
   };
@@ -41,14 +70,25 @@ const HomePage = () => {
     return quantity;
   };
 
+  const throttledRef = useRef(null);
+
   useEffect(() => {
     window.addEventListener('resize', handleWindowResize);
-    const quantity = setQuantity(windowWidth);
-
-    dispatch(getMainPageDrinks(quantity));
     return () => {
       window.removeEventListener('resize', handleWindowResize);
     };
+  }, []);
+
+  useEffect(() => {
+    // if (throttledRef.current) return;
+
+    throttledRef.current = setTimeout(() => {
+      const quantity = setQuantity(windowWidth);
+      dispatch(getMainPageDrinks(quantity));
+      throttledRef.current = null;
+    }, 1000);
+
+    return () => clearTimeout(throttledRef.current);
   }, [dispatch, windowWidth]);
 
   return (
