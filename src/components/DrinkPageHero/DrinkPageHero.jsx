@@ -32,7 +32,7 @@ const DrinkPageHero = ({
   const dispatch = useDispatch();
   const favoriteDrinkList = useSelector(selectFavoriteDrinks);
   const isLoading = useSelector(selectIsLoading);
-  console.log(favoriteDrinkList);
+  // console.log(favoriteDrinkList);
 
   const isDrinkFavoritelist = (id) => {
     if (favoriteDrinkList.length > 0) {
