@@ -13,13 +13,21 @@ export const Card = styled.li`
 `;
 
 export const CardImage = styled.img`
-  width: 100%;
-  height: auto;
+  width: 335px;
+  height: 360px;
   margin-bottom: 18px;
   border-radius: 8px;
 
   @media screen and (min-width: 768px) {
     margin-bottom: 24px;
+    width: 342px;
+    height: 360px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 24px;
+    width: 400px;
+    height: 400px;
   }
 `;
 
@@ -48,13 +56,28 @@ export const IsAlco = styled.p`
 `;
 
 export const Description = styled.p`
+  width: 100%;
+  height: 75px;
   margin-bottom: 18px;
+  overflow: hidden;
   font-size: 14px;
+  line-height: 18px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  text-overflow: ellipsis;
   color: var(--white-color);
 
   @media screen and (min-width: 768px) {
     margin-bottom: 24px;
+    height: 110px;
+    -webkit-line-clamp: 5;
     font-size: 16px;
+    line-height: 22px;
+  }
+  @media screen and (min-width: 1440px) {
+    height: 92px;
+    -webkit-line-clamp: 4;
   }
 `;
 
