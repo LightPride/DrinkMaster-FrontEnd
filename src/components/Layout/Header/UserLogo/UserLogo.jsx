@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-// import { useSelector } from 'react-redux/es/hooks/useSelector';
-// import { selectUser } from '../../../../redux/auth/auth.selectors';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
+import { selectUser } from '../../../../redux/auth/auth.selectors';
 
 import {
   UserLogoWrapper,
@@ -13,7 +13,7 @@ import {
 import { UserLogoPopup } from '../UserLogoPopup/UserLogoPopup';
 
 const UserLogo = () => {
-  // const { name } = useSelector(selectUser);
+  const { name } = useSelector(selectUser);
   const modalRef = useRef(null);
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -43,7 +43,7 @@ const UserLogo = () => {
       document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isPopupOpen, setIsPopupOpen]);
+  }, [isPopupOpen, setIsPopupOpen, name]);
 
   const handlePopup = () => {
     setIsPopupOpen((prev) => !prev);
@@ -52,10 +52,8 @@ const UserLogo = () => {
   return (
     <UserLogoWrapper ref={modalRef}>
       <UserLogoBtn onClick={handlePopup}>
-        {/* //HACK Удалить после того как с сервера начну получать картинки */}
         <UserLogoPlaceholder />
-
-        <UserLogoText>No name</UserLogoText>
+        <UserLogoText>{name}</UserLogoText>
       </UserLogoBtn>
       {isPopupOpen && (
         <UserLogoPopup

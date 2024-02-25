@@ -108,7 +108,6 @@ export const addDrinkToFavorite = createAsyncThunk(
     try {
       const res = await instance.post(`/drinks/favorite/add`, {
         drinkId: data,
-        // drinkId: `${data}`,
       });
       return res.data;
     } catch (error) {
@@ -132,8 +131,10 @@ export const removeDrinkFromFavorite = createAsyncThunk(
 export const getFavoriteAll = createAsyncThunk(
   'drinks/favorite/',
   async (_, thunkAPI) => {
+    // async ({ page, limit }, thunkAPI) => {
     try {
-      const res = await instance.get('/drinks/favorite');
+      const res = await instance.get(`/drinks/favorite`);
+      // `/drinks/favorite/all?page=${page}&limit=${limit}`);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   selectFavoriteDrinks,
@@ -32,29 +32,22 @@ const DrinkPageHero = ({
   const dispatch = useDispatch();
   const favoriteDrinkList = useSelector(selectFavoriteDrinks);
   const isLoading = useSelector(selectIsLoading);
-  // console.log(favoriteDrinkList);
 
-  const isDrinkFavoritelist = (id) => {
-    if (favoriteDrinkList.length > 0) {
-      const lastDrink = favoriteDrinkList[favoriteDrinkList.length - 1];
-      if (lastDrink) {
-        return favoriteDrinkList.find((drink) => drink._id === id);
-      }
+  const isDrinkFavoriteList = (id) => {
+    if (favoriteDrinkList) {
+      return !!favoriteDrinkList.find((drink) => drink._id === id);
     }
+    return false;
   };
-
-  const [isFavorite, setIsFavorite] = useState(isDrinkFavoritelist(id));
 
   const handleClickAddFavorite = () => {
     dispatch(addDrinkToFavorite(id)).then(() => {
-      setIsFavorite(true);
       dispatch(getFavoriteAll());
     });
   };
 
   const handleClickRemoveFavorite = () => {
     dispatch(removeDrinkFromFavorite(id)).then(() => {
-      setIsFavorite(false);
       dispatch(getFavoriteAll());
     });
   };
@@ -75,13 +68,13 @@ const DrinkPageHero = ({
             <DrinkDescription>{description}</DrinkDescription>
             <AddToFavoriteButton
               onClick={
-                isDrinkFavoritelist(id)
+                isDrinkFavoriteList(id)
                   ? handleClickRemoveFavorite
                   : handleClickAddFavorite
               }
               disabled={isLoading}
             >
-              {isFavorite
+              {isDrinkFavoriteList(id)
                 ? 'Remove from favorite drinks'
                 : 'Add to favorite drinks'}
             </AddToFavoriteButton>
