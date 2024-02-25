@@ -87,6 +87,7 @@ export const SubWrapper = styled.div`
   .styledSelect {
     background-color: transparent;
     width: 100%;
+    min-width: 120px;
     max-width: 200px;
     height: 50px;
     margin-right: 8px;
@@ -150,7 +151,6 @@ export const customStylesSelectIngr = {
   }),
   control: (base, styles) => ({
     ...base,
-    width: '200px',
     height: '50px',
     border: '     1px solid rgba(243, 243, 243, 0.5)',
     background: 'inherit',
@@ -160,7 +160,7 @@ export const customStylesSelectIngr = {
     cursor: 'pointer',
     '@media only screen and (min-width: 768px)': {
       ...styles['@media only screen and (min-width: 768px)'],
-      width: '332px',
+
       height: '56px',
       fontSize: '17px',
       lineHeight: '1.56',
@@ -169,12 +169,12 @@ export const customStylesSelectIngr = {
   menu: (base) => ({
     ...base,
     marginTop: '2px',
-    padding: '0px 12px',
+    padding: '6px 12px',
     backgroundColor: ' #161f37',
     borderRadius: '12px',
     '@media only screen and (min-width: 768px)': {
       ...base['@media only screen and (min-width: 768px)'],
-      padding: '0px 18px',
+      padding: '6px 18px',
     },
   }),
   indicatorSeparator: (base) => ({
