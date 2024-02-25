@@ -10,6 +10,7 @@ export const SelectContainer = styled(Select)`
     width: auto;
     padding: 14px 24px;
     height: 54px;
+    cursor: pointer;
   }
 
   & .react-select__menu {
@@ -21,6 +22,7 @@ export const SelectContainer = styled(Select)`
     font-weight: 400;
     font-size: 17px;
     line-height: 1.56;
+    cursor: pointer;
   }
 
   & .react-select__menu-list::-webkit-scrollbar {
@@ -55,6 +57,7 @@ export const SelectContainer = styled(Select)`
     color: var(--white-fifty-color);
     padding-top: 3px;
     padding-bottom: 3px;
+    cursor: pointer;
     &:hover {
       color: var(--white-color);
     }
