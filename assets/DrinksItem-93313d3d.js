@@ -1,4 +1,4 @@
-import{u as i,m as s,j as e}from"./index-dacbfed1.js";import{d as h}from"./coctailPlaceholder-82987b74.js";const d=i.li`
+import{u as i,m as s,j as e}from"./index-a06ae6c6.js";import{d as h}from"./coctailPlaceholder-82987b74.js";const d=i.li`
   width: 100%;
   height: 392px;
 
