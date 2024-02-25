@@ -77,7 +77,7 @@ const drinksSlice = createSlice({
         state.error = null;
       })
       .addCase(addDrinkToFavorite.fulfilled, (state, action) => {
-        state.favoriteDrinks.push(action.payload.result);
+        state.favoriteDrinks.push(action.payload);
         state.isLoading = false;
         state.error = null;
       })
@@ -85,17 +85,9 @@ const drinksSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.favoriteDrinks = state.favoriteDrinks.filter(
-          (drink) => drink._id === action.payload.result._id
+          (drink) => drink._id !== action.payload._id
         );
       })
-      // .addCase(removeDrinkFromFavorite.fulfilled, (state, action) => {
-      //   state.isLoading = false;
-      //   state.error = null;
-      //   const index = state.favoriteDrinks.findIndex(
-      //     (drink) => drink._id === action.payload.result._id
-      //   );
-      //   state.favoriteDrinks.splice(index, 1);
-      // })
       .addCase(getFavoriteAll.fulfilled, (state, action) => {
         state.favoriteDrinks = action.payload;
         state.total = action.payload.total;

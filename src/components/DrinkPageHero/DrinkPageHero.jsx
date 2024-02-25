@@ -42,31 +42,21 @@ const DrinkPageHero = ({
       }
     }
   };
-  // console.log(favoriteDrinkList.find((drink) => drink._id === id));
 
-  // const [isFavorite, setIsFavorite] = useState(isDrinkFavoritelist(id));
   const [isFavorite, setIsFavorite] = useState(isDrinkFavoritelist(id));
 
-  // if (isDrinkFavoritelist) {
-  //   setIsFavorite(true);
-  // } else {
-  //   setIsFavorite(false);
-  // }
-
-  // const handleClickAddFavorite = () => {
-  //   dispatch(addDrinkToFavorite(id));
-  // };
-
   const handleClickAddFavorite = () => {
-    dispatch(addDrinkToFavorite(id)).then(() => setIsFavorite(true));
+    dispatch(addDrinkToFavorite(id)).then(() => {
+      setIsFavorite(true);
+      dispatch(getFavoriteAll());
+    });
   };
 
-  // const handleClickRemoveFavorite = () => {
-  //   dispatch(removeDrinkFromFavorite(id));
-  // };
-
   const handleClickRemoveFavorite = () => {
-    dispatch(removeDrinkFromFavorite(id)).then(() => setIsFavorite(false));
+    dispatch(removeDrinkFromFavorite(id)).then(() => {
+      setIsFavorite(false);
+      dispatch(getFavoriteAll());
+    });
   };
 
   useEffect(() => {
@@ -83,45 +73,18 @@ const DrinkPageHero = ({
               {glass} / {alcoholic}
             </DrinkSubTitle>
             <DrinkDescription>{description}</DrinkDescription>
-            {/* {!isDrinkFavoritelist(id) ? ( */}
             <AddToFavoriteButton
               onClick={
-                // isFavorite ? handleClickRemoveFavorite : handleClickAddFavorite
                 isDrinkFavoritelist(id)
                   ? handleClickRemoveFavorite
                   : handleClickAddFavorite
               }
               disabled={isLoading}
             >
-              {/* {isDrinkFavoritelist(id) */}
-
               {isFavorite
                 ? 'Remove from favorite drinks'
                 : 'Add to favorite drinks'}
-
-              {/* //     onClick={ */}
-              {/* () =>
-                     dispatch(addDrinkToFavorite(id)).then(() => console.log(1))
-                    dispatch(addDrinkToFavorite(id)).then(() => noticeAdd)
-                 }
-                 disabled={isLoading}
-               >
-                 Add to favorite drinks
-               </AddToFavoriteButton>
-             ) : (
-               <AddToFavoriteButton
-                 onClick={
-                   () =>
-                     dispatch(removeDrinkFromFavorite(id)).then(() =>
-                       console.log(2)
-                     )
-                   // dispatch(removeDrinkFromFavorite(id)).then(() => noticeRemove)
-                 }
-                 disabled={isLoading}
-               >
-                 Remove from favorite drinks */}
             </AddToFavoriteButton>
-            {/* )} */}
           </DrinkDescriptionWrapper>
           <DrinkPhotoWrapper>
             {imgPath ? (
