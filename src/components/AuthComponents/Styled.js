@@ -14,7 +14,12 @@ export const StyledSignForm = styled.div`
   margin-bottom: 28px;
 
   .textInput {
-    width: 335px;
+    max-width: 335px;
+    width: 100%;
+  }
+
+  .textInput button {
+    color: var(--white-color);
   }
 
   .textInput fieldset {
@@ -56,7 +61,7 @@ export const StyledSignForm = styled.div`
   @media screen and (min-width: 768px) {
     margin-bottom: 40px;
     .textInput {
-      width: 400px;
+      max-width: 400px;
     }
   }
 `;
@@ -85,7 +90,8 @@ export const StyledRedirectLink = styled(NavLink)`
     line-height: 16px;
     color: var(--white-color);
     font-weight: 600;
-    width: 335px;
+    max-width: 335px;
+    width: 100%;
     text-align: center;
     padding: 18px 0px;
   }
@@ -93,7 +99,7 @@ export const StyledRedirectLink = styled(NavLink)`
   @media screen and (min-width: 768px) {
     && {
       font-size: 14px;
-      width: 400px;
+      max-width: 400px;
     }
   }
 `;
@@ -130,7 +136,8 @@ export const StyledTitleWelcome = styled.h1`
 export const StyledUniversalBtn = styled.button`
   background-color: ${(props) => props.backgroundcolor};
   color: ${(props) => props.color};
-  width: 335px;
+  max-width: 335px;
+  width: 100%;
   padding: 18px 0px;
   border-radius: 40px;
   font-size: 14px;
@@ -147,7 +154,7 @@ export const StyledUniversalBtn = styled.button`
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
-    width: 400px;
+    max-width: 400px;
   }
 `;
 

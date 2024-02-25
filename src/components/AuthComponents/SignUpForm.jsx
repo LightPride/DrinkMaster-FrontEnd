@@ -10,6 +10,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import {
   FormHelperText,
   InputLabel,
@@ -20,6 +21,9 @@ import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import UniversalBtn from './UniversalBtn';
 
 import { signUpSchema } from '../../schemas/authSchemas';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import dayjs from 'dayjs';
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
@@ -73,10 +77,10 @@ const SignUpForm = () => {
               className="textInput"
               error={!!errors?.dateOfBirth}
             >
-              <InputLabel htmlFor="outlined-adornment-date">
+              {/* <InputLabel htmlFor="outlined-adornment-date">
                 yyyy-mm-dd
-              </InputLabel>
-              <OutlinedInput
+              </InputLabel> */}
+              {/* <OutlinedInput
                 className="textInput"
                 id="outlined-adornment-date"
                 endAdornment={
@@ -88,7 +92,23 @@ const SignUpForm = () => {
                 }
                 label="dd/mm/yyyy"
                 {...field}
-              />
+              /> */}
+              {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DatePicker
+                  label="yyyy-mm-dd"
+                  className="textInput"
+                  {...field}
+                />
+              </LocalizationProvider> */}
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DatePicker
+                  label="mm/dd/yyyy"
+                  required
+                  className="textInput"
+                  // {...field}
+                />
+              </LocalizationProvider>
+
               {errors?.dateOfBirth && (
                 <FormHelperText>{errors.dateOfBirth.message}</FormHelperText>
               )}
