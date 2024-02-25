@@ -1,4 +1,4 @@
-import{u as i,m as s,j as e}from"./index-a06ae6c6.js";import{d as h}from"./coctailPlaceholder-82987b74.js";const d=i.li`
+import{u as e,L as d,j as i}from"./index-0083a27d.js";import{d as s}from"./coctailPlaceholder-82987b74.js";const p=e.li`
   width: 100%;
   height: 392px;
 
@@ -11,7 +11,7 @@ import{u as i,m as s,j as e}from"./index-a06ae6c6.js";import{d as h}from"./cocta
     width: 400px;
     height: 438px;
   }
-`,a=i.img`
+`,a=e.img`
   width: 100%;
   height: 360px;
   margin-bottom: 14px;
@@ -19,7 +19,7 @@ import{u as i,m as s,j as e}from"./index-a06ae6c6.js";import{d as h}from"./cocta
   @media screen and (min-width: 1440px) {
     height: 400px;
   }
-`,c=i.h2`
+`,h=e.h2`
   font-size: 16px;
   font-weight: 500;
   line-height: 1.33;
@@ -28,7 +28,7 @@ import{u as i,m as s,j as e}from"./index-a06ae6c6.js";import{d as h}from"./cocta
   @media screen and (min-width: 768px) {
     font-size: 18px;
   }
-`,p=i(s)`
+`,x=e(d)`
   font-size: 14px;
   line-height: 1.125;
   color: var(--white-fifty-color);
@@ -40,7 +40,21 @@ import{u as i,m as s,j as e}from"./index-a06ae6c6.js";import{d as h}from"./cocta
   @media screen and (min-width: 768px) {
     font-size: 16px;
   }
-`,x=i.div`
+`,c=e.div`
   display: flex;
   justify-content: space-between;
-`,w=({drinkThumb:r,drinkTitle:t,id:n})=>e.jsxs(d,{children:[e.jsx(a,{src:r,alt:t,onError:o=>{o.currentTarget.src=h}}),e.jsxs(x,{children:[e.jsx(c,{children:t}),e.jsx(p,{to:`/drinks/${n}`,children:"See more"})]})]});export{w as D};
+`,l=({drinkThumb:r,drinkTitle:t,id:n})=>i.jsxs(p,{children:[i.jsx(a,{src:r,alt:t,onError:o=>{o.currentTarget.src=s}}),i.jsxs(c,{children:[i.jsx(h,{children:t}),i.jsx(x,{to:`/drinks/${n}`,children:"See more"})]})]}),w=e.div`
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 140px;
+    padding-bottom: 140px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding-top: 160px;
+  }
+`,f=e.p`
+  color: var(--white-color);
+`;export{l as D,f as E,w as W};
