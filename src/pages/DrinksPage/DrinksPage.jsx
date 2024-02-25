@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import DrinksSearch from '../../components/DrinksSearch/DrinksSearch';
 import { Drinks } from '../../components/Drinks/Drinks';
@@ -14,23 +13,10 @@ import {
   selectErrorDrinks,
 } from '../../redux/drinks/drinks.selectors';
 
-import { getSearchedDrink } from '../../redux/drinks/drinks.operations';
-
 export default function DrinksPage() {
-  const dispatch = useDispatch();
   const drinks = useSelector(selectDrinks);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectErrorDrinks);
-
-  const name = '';
-  const category = '';
-  const ingredient = '';
-  const page = 1;
-  const size = 9;
-
-  useEffect(() => {
-    dispatch(getSearchedDrink({ name, category, ingredient, page, size }));
-  }, [dispatch]);
 
   return (
     <Container>

@@ -50,11 +50,8 @@ const DrinksSearch = () => {
       if (searchQuery) params.append('name', searchQuery);
       if (selectedCategory) params.append('category', selectedCategory);
       if (selectedIngredient) params.append('ingredient', selectedIngredient);
-
       const queryString = params.toString();
-      console.log('New URL parameters:', queryString);
       navigate(`?${queryString}`);
-      console.log('URL updated');
     };
 
     searchAndNavigate();
