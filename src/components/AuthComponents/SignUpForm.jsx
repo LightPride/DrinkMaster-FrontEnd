@@ -31,6 +31,7 @@ const SignUpForm = () => {
   const {
     handleSubmit,
     control,
+    setValue,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(signUpSchema),
@@ -45,6 +46,8 @@ const SignUpForm = () => {
   return (
     <form
       onSubmit={handleSubmit((data) => {
+        // Конвертація дати перед відправленням на сервер
+        data.dateOfBirth = dayjs(data.dateOfBirth).format('YYYY-MM-DD');
         console.log(data);
         dispatch(registerThunk(data));
       })}
@@ -69,7 +72,7 @@ const SignUpForm = () => {
         <Controller
           control={control}
           name="dateOfBirth"
-          defaultValue=""
+          defaultValue={dayjs('2022-04-17')}
           render={({ field }) => (
             <FormControl
               variant="outlined"
@@ -77,35 +80,11 @@ const SignUpForm = () => {
               className="textInput"
               error={!!errors?.dateOfBirth}
             >
-              {/* <InputLabel htmlFor="outlined-adornment-date">
-                yyyy-mm-dd
-              </InputLabel> */}
-              {/* <OutlinedInput
-                className="textInput"
-                id="outlined-adornment-date"
-                endAdornment={
-                  <InputAdornment position="end">
-                    <IconButton className="iconInput" edge="end">
-                      <CalendarTodayIcon />
-                    </IconButton>
-                  </InputAdornment>
-                }
-                label="dd/mm/yyyy"
-                {...field}
-              /> */}
-              {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DatePicker
-                  label="yyyy-mm-dd"
-                  className="textInput"
-                  {...field}
-                />
-              </LocalizationProvider> */}
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
                   label="mm/dd/yyyy"
-                  required
-                  className="textInput"
-                  // {...field}
+                  onChange={(date) => setValue('dateOfBirth', date)}
+                  {...field}
                 />
               </LocalizationProvider>
 
