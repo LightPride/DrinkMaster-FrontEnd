@@ -97,8 +97,26 @@ const drinksSlice = createSlice({
       //   );
       //   state.drinks.splice(index, 1);
       // })
+      .addCase(getOwnDrinks.fulfilled, (state, action) => {
+        state.drinks = action.payload.drinks;
+        state.total = action.payload.total;
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(addDrinkToFavorite.fulfilled, (state, action) => {
+        state.favoriteDrinks.push(action.payload);
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(removeDrinkFromFavorite.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.favoriteDrinks = state.favoriteDrinks.filter(
+          (drink) => drink._id !== action.payload._id
+        );
+      })
       .addCase(getFavoriteAll.fulfilled, (state, action) => {
-        state.favoriteDrinks = action.payload.drinks;
+        state.favoriteDrinks = action.payload.favoriteDrinks;
         state.total = action.payload.total;
         state.isLoading = false;
         state.error = null;

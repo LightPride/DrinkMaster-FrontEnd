@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   selectFavoriteDrinks,
@@ -35,9 +35,28 @@ const DrinkPageHero = ({
   // console.log(favoriteDrinkList);
 
   const isDrinkFavoritelist = (id) => {
-    if (favoriteDrinkList) {
-      return favoriteDrinkList.find((drink) => drink._id === id);
+    if (favoriteDrinkList.length > 0) {
+      const lastDrink = favoriteDrinkList[favoriteDrinkList.length - 1];
+      if (lastDrink) {
+        return favoriteDrinkList.find((drink) => drink._id === id);
+      }
     }
+  };
+
+  const [isFavorite, setIsFavorite] = useState(isDrinkFavoritelist(id));
+
+  const handleClickAddFavorite = () => {
+    dispatch(addDrinkToFavorite(id)).then(() => {
+      setIsFavorite(true);
+      dispatch(getFavoriteAll());
+    });
+  };
+
+  const handleClickRemoveFavorite = () => {
+    dispatch(removeDrinkFromFavorite(id)).then(() => {
+      setIsFavorite(false);
+      dispatch(getFavoriteAll());
+    });
   };
 
   useEffect(() => {
@@ -54,21 +73,18 @@ const DrinkPageHero = ({
               {glass} / {alcoholic}
             </DrinkSubTitle>
             <DrinkDescription>{description}</DrinkDescription>
-            {!isDrinkFavoritelist(id) ? (
-              <AddToFavoriteButton
-                onClick={() => dispatch(addDrinkToFavorite(id))}
-                disabled={isLoading}
-              >
-                Add to favorite drinks
-              </AddToFavoriteButton>
-            ) : (
-              <AddToFavoriteButton
-                onClick={() => dispatch(removeDrinkFromFavorite(id))}
-                disabled={isLoading}
-              >
-                Remove from favorite drinks
-              </AddToFavoriteButton>
-            )}
+            <AddToFavoriteButton
+              onClick={
+                isDrinkFavoritelist(id)
+                  ? handleClickRemoveFavorite
+                  : handleClickAddFavorite
+              }
+              disabled={isLoading}
+            >
+              {isFavorite
+                ? 'Remove from favorite drinks'
+                : 'Add to favorite drinks'}
+            </AddToFavoriteButton>
           </DrinkDescriptionWrapper>
           <DrinkPhotoWrapper>
             {imgPath ? (
