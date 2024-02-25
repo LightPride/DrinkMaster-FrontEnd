@@ -27,7 +27,7 @@ const HomePage = () => {
   const showCocktails =
     !error && !isLoadingFromRedux && drinks && drinks.length > 0;
 
-    /*-------------------перший варіант--------------------------**/
+  /*-------------------перший варіант--------------------------**/
   // const handleWindowResize = () => {
   //   setWindowWidth(window.innerWidth);
   // };
@@ -55,9 +55,8 @@ const HomePage = () => {
   //   };
   // }, [dispatch, windowWidth]);
 
+  /*-------------------другий варіант--------------------------**/
 
-/*-------------------другий варіант--------------------------**/
-  
   // const handleWindowResize = () => {
   //   setWindowWidth(window.innerWidth);
   // };
@@ -95,7 +94,7 @@ const HomePage = () => {
   // }, [dispatch, windowWidth]);
 
   /*-------------------третій варіант--------------------------**/
-  
+
   let quantity = 1;
   if (deviceType === 'tablet') {
     quantity = 2;
@@ -135,17 +134,18 @@ const HomePage = () => {
     }
   }
 
-
   return (
     <Container>
       <HomeWrapper>
         <HomePageHero />
         {error !== null && <ErrorMessage>{error}</ErrorMessage>}
         {isLoadingFromRedux && <Loader />}
-        {showCocktails && <HomePageList quantity={quantity}/>}
-        <Link to={`/drinks`}>
-          <OtherDrinksButton type="button">Other drinks</OtherDrinksButton>
-        </Link>
+        {showCocktails && <HomePageList quantity={quantity} />}
+        {showCocktails && (
+          <Link to={`/drinks`}>
+            <OtherDrinksButton type="button">Other drinks</OtherDrinksButton>
+          </Link>
+        )}
       </HomeWrapper>
     </Container>
   );
