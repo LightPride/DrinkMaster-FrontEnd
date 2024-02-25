@@ -40,7 +40,7 @@ export default function MyDrinks() {
     dispatch(getOwnDrinks({ page: currentPage, limit: drinksPerPage }))
       .unwrap()
       .catch((error) => console.log(error));
-  }, [dispatch, currentPage, total, drinksPerPage]);
+  }, [dispatch, currentPage, total, drinksPerPage, ownDrinks]);
 
   return (
     <Container>

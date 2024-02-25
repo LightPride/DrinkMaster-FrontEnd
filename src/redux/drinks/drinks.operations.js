@@ -1,6 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../auth/auth.operations';
-import axios from 'axios';
 
 export const getMainPageDrinks = createAsyncThunk(
   'drinks/getAll',
@@ -91,10 +90,10 @@ export const removeOwnDrink = createAsyncThunk(
 
 export const getOwnDrinks = createAsyncThunk(
   'drinks/own',
-  async ({ page, limit }, thunkAPI) => {
+  async (_, thunkAPI) => {
     // async ({ page, limit }, thunkAPI) => {
     try {
-      const res = await instance.get(`drinks/own?page=${page}&limit=${limit}`);
+      const res = await instance.get(`/drinks/own`);
       // `/drinks/own/all?page=${page}&limit=${limit}`);
       return res.data;
     } catch (error) {
@@ -102,20 +101,6 @@ export const getOwnDrinks = createAsyncThunk(
     }
   }
 );
-
-// export const getOwnDrinks = createAsyncThunk(
-//   'drinks/own/',
-//   async ({ page, limit }, thunkAPI) => {
-//     try {
-//       const response = await axios.get(
-//         `drinks/own?page=${page}&limit=${limit}`
-//       );
-//       return response.data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
 
 export const addDrinkToFavorite = createAsyncThunk(
   'drinks/favorite/add',
