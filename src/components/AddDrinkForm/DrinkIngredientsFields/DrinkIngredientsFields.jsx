@@ -141,8 +141,13 @@ export const DrinkIngredientsFields = ({
         </div>
       </SubtitleForm>
       <SubWrapper>
+        {errors.ingredients && touched.ingredients && (
+          <p className="errorIngredietns">
+            please fill in all added ingredient fields or remove them{' '}
+          </p>
+        )}
         {values.ingredients.map((ingredient, index) => (
-          <div className="inputsWrapper" key={index}>
+          <div key={index} className="inputsWrapper">
             <Select
               className="styledSelect"
               name={`ingredients[${index}].title`}
