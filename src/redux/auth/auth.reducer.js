@@ -7,7 +7,7 @@ import {
 } from './auth.operations';
 
 const initialState = {
-  userData: null,
+  userData: { name: '', email: '', avatarURL: '', id: '' },
   isLoading: false,
   error: null,
   authenticated: false,

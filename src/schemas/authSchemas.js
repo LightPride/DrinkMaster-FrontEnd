@@ -4,7 +4,10 @@ const signUpSchema = yup.object({
   name: yup.string().min(3, 'Please put down more than 3 letters!').required(),
   dateOfBirth: yup
     .string()
-    .matches(/^\d{4}-\d{2}-\d{2}$/, 'Date must be in the format yyyy-mm-dd!')
+    // .matches(
+    //   /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2[0-9]|3[01])\/\d{4}$/,
+    //   'Date must be in the format mm-dd-yyyy!'
+    // )
     .test(
       'is-future-date',
       'Date of birth cannot be in the future',
