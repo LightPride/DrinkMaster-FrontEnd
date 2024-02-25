@@ -156,10 +156,16 @@ export const DrinkDescriptionFields = ({
             <p>Add Image</p>
           </WrapperAddDiv>
         )}
+        {errors.drinkThumb && <p className="errorImage">required</p>}
       </AddImageField>
+
       <DescrField>
         <InputsDescrField>
-          <div className="styledDivInput">
+          <div
+            className={`styledDivInput ${
+              errors.drink && touched.drink && 'styledDivInputErrorDrink'
+            }`}
+          >
             <Field
               className="styledInputText"
               placeholder="Enter item title"
@@ -171,10 +177,16 @@ export const DrinkDescriptionFields = ({
               }}
             />
           </div>
-          <div className="styledDivInput">
+          <div
+            className={`styledDivInput ${
+              errors.shortDescription &&
+              touched.shortDescription &&
+              'styledDivInputErrorShortDescription'
+            }`}
+          >
             <Field
               className="styledInputText"
-              placeholder="Enter item title"
+              placeholder="Enter short description"
               id="shortDescription"
               name="shortDescription"
               onChange={(e) => {
@@ -182,7 +194,13 @@ export const DrinkDescriptionFields = ({
               }}
             />
           </div>
-          <div className="styledDivInput">
+          <div
+            className={`styledDivInput ${
+              errors.category &&
+              touched.category &&
+              'styledDivInputErrorCategory'
+            }`}
+          >
             <label className="labelSelect">
               <p className="labelTitle">Category</p>
               <Select
@@ -197,7 +215,11 @@ export const DrinkDescriptionFields = ({
               />
             </label>
           </div>
-          <div className="styledDivInput">
+          <div
+            className={`styledDivInput ${
+              errors.glass && touched.glass && 'styledDivInputErrorGlass'
+            }`}
+          >
             <label className="labelSelect">
               <p className="labelTitle">Glass</p>
               <Select

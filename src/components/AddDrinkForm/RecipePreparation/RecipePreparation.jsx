@@ -1,24 +1,39 @@
-import { Wrapper, SubtitleForm } from './RecipePreparation.styled';
+import {
+  Wrapper,
+  SubtitleForm,
+  TextAreaLabel,
+} from './RecipePreparation.styled';
 import React from 'react';
 import { Field, ErrorMessage } from 'formik';
 
-export const RecipePreparation = ({ values, errors, handleChange }) => {
+export const RecipePreparation = ({
+  values,
+  errors,
+  handleChange,
+  touched,
+}) => {
   return (
     <Wrapper>
       <SubtitleForm>
         <h4>Recipe Preparation</h4>
       </SubtitleForm>
-
-      <Field
-        as="textarea"
-        className="inputField"
-        placeholder="Enter the recipe"
-        name="instructions"
-        onChange={(e) => {
-          handleChange(e);
-        }}
-        value={values.instructions}
-      />
+      <TextAreaLabel>
+        <Field
+          as="textarea"
+          placeholder="Enter the recipe"
+          name="instructions"
+          onChange={(e) => {
+            handleChange(e);
+          }}
+          value={values.instructions}
+          className={`inputField ${
+            errors.instructions && touched.instructions && 'inputFieldErr'
+          }`}
+        />
+        {errors.instructions && touched.instructions && (
+          <p className="errorInstructions">this field is mandatory</p>
+        )}
+      </TextAreaLabel>
     </Wrapper>
   );
 };

@@ -14,6 +14,7 @@ export const Wrapper = styled.div`
 `;
 
 export const AddImageField = styled.div`
+  position: relative;
   width: 100%;
   height: 320px;
   background: rgba(22, 31, 55, 0.5);
@@ -36,6 +37,16 @@ export const AddImageField = styled.div`
     width: 100%;
     height: 100%;
     cursor: pointer;
+  }
+  .errorImage {
+    position: absolute;
+    display: block;
+    right: 10px;
+    bottom: 10px;
+    color: red;
+
+    font-style: italic;
+    font-size: small;
   }
 `;
 
@@ -112,6 +123,28 @@ export const InputsDescrField = styled.div`
       border-bottom: 1px solid #f3f3f3;
     }
   }
+  .styledDivInputErrorDrink,
+  .styledDivInputErrorShortDescription,
+  .styledDivInputErrorCategory,
+  .styledDivInputErrorGlass {
+    position: relative;
+    border-color: red;
+    color: red;
+  }
+  .styledDivInputErrorDrink::before,
+  .styledDivInputErrorShortDescription::before,
+  .styledDivInputErrorCategory::before,
+  .styledDivInputErrorGlass:before {
+    content: 'required';
+    position: absolute;
+    display: block;
+    right: 0;
+    bottom: -50%;
+    color: red;
+
+    font-style: italic;
+    font-size: small;
+  }
   .styledInputText {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
@@ -127,6 +160,7 @@ export const InputsDescrField = styled.div`
       font-size: 16px;
     }
   }
+
   .styledInputText::placeholder {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;

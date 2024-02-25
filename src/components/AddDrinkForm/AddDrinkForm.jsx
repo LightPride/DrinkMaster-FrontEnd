@@ -26,13 +26,22 @@ export const AddDrinkForm = () => {
       validationSchema={Yup.object().shape({
         drink: Yup.string().required('This field is mandatory'),
         shortDescription: Yup.string().required('This field is mandatory'),
-        ingredients: Yup.array().required('This field is mandatory'),
-        instructions: Yup.string().required('This field is mandatory'),
+
         instructions: Yup.string().required('This field is mandatory'),
         category: Yup.string().required('This field is mandatory'),
         glass: Yup.string().required('This field is mandatory'),
         alcoholic: Yup.string().required('Select the type of cocktail'),
         drinkThumb: Yup.mixed().required('Select image please'),
+
+        // ingredients: Yup.array().required('This field is mandatory'),
+        ingredients: Yup.array()
+          .of(
+            Yup.object().shape({
+              title: Yup.string().required('Ingredient title is required'),
+              measure: Yup.string().required('Ingredient measure is required'),
+            })
+          )
+          .required('At least one ingredient is required'),
       })}
       onSubmit={async (values) => {
         const formData = new FormData();
