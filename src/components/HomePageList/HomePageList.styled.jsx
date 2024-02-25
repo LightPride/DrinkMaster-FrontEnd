@@ -20,7 +20,7 @@ export const CategoryWrapper = styled.ul`
 export const Category = styled.h2`
   font-weight: 600;
   font-size: 40px;
-  height: 44px;
+  width: 100%;
   color: rgb(243, 243, 243);
   margin-bottom: 20px;
 `;

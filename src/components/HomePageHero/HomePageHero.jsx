@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import coctailDesk1 from '../../images/404Images/blueIced@1xDesk.png';
 import coctailDesk2 from '../../images/404Images/blueIced@2xDesk.png';
 import coctailTab1 from '../../images/404Images/blueIced@1xTab.png';
@@ -16,9 +18,9 @@ import {
 } from './HomePageHero.styled';
 
 const HomePageHero = () => {
-  const handleClick = () => {
-    console.log('Button clicked');
-  };
+  // const handleClick = () => {
+  //   console.log('Button clicked');
+  // };
   return (
     <HomePageHeroWrapper>
       <HomePageTextWrapper>
@@ -30,9 +32,9 @@ const HomePageHero = () => {
           destination for exploring, crafting, and mastering the worlds finest
           beverages.
         </HomePageSubtitle>
-        <AddDrinksButton  onClick={handleClick}>
-          Add drinks
-        </AddDrinksButton>
+        <Link to={`/add`}>
+          <AddDrinksButton type="button">Add drinks</AddDrinksButton>
+        </Link>
       </HomePageTextWrapper>
       <HomePageImageWrapper>
         <picture>

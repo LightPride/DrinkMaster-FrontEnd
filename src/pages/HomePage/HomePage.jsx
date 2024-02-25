@@ -10,6 +10,9 @@ import {
 import { useEffect, useState } from 'react';
 import { getMainPageDrinks } from '../../redux/drinks/drinks.operations';
 import HomePageList from '../../components/HomePageList/HomePageList';
+import Loader from '../../ui/Loader';
+import { Link } from 'react-router-dom';
+import { ErrorMessage } from '../DrinksPage/DrinksPage.styled';
 
 const HomePage = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -24,8 +27,8 @@ const HomePage = () => {
   const handleWindowResize = () => {
     setWindowWidth(window.innerWidth);
   };
-  
-/*функція для рендерингу на три екрани*/
+
+  /*функція для рендерингу на три екрани*/
   const setQuantity = (windowWidth) => {
     let quantity = 0;
     if (windowWidth < 768) {
@@ -52,10 +55,12 @@ const HomePage = () => {
     <Container>
       <HomeWrapper>
         <HomePageHero />
-        {error !== null && <p className="error-bage">{error}</p>}
-        {isLoadingFromRedux && 'Request in progress...'}
+        {error !== null && <ErrorMessage>{error}</ErrorMessage>}
+        {isLoadingFromRedux && <Loader />}
         {showCocktails && <HomePageList />}
-        <OtherDrinksButton>Other drinks</OtherDrinksButton>
+        <Link to={`/drinks`}>
+          <OtherDrinksButton type="button">Other drinks</OtherDrinksButton>
+        </Link>
       </HomeWrapper>
     </Container>
   );
