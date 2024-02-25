@@ -47,6 +47,7 @@ export const DrinkDescriptionFields = ({
   const categories = useSelector(selectCategories);
   const glasses = useSelector(selectGlasses);
   const userData = useSelector(selectUser);
+  const [userNoAdult, setNoAdult] = useState(true);
 
   const [selectedImage, setSelectedImage] = useState(null); //
 
@@ -56,8 +57,9 @@ export const DrinkDescriptionFields = ({
   const [selectedCategoriesOption, setSelectedCategoriesOption] = useState([]);
   const [selectedGlassesOption, setSelectedGlassesOption] = useState([]);
 
-  const userNoAdult = getUserAge(userData.dateOfBirth) < 18 ? true : false;
-
+  useEffect(() => {
+    setNoAdult(getUserAge(userData.dateOfBirth) < 18 ? true : false);
+  }, [userData]);
   useEffect(() => {
     async function fetchCategories() {
       try {

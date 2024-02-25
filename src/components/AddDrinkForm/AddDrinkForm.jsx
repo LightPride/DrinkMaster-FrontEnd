@@ -8,9 +8,13 @@ import { DrinkIngredientsFields } from './DrinkIngredientsFields/DrinkIngredient
 import { RecipePreparation } from './RecipePreparation/RecipePreparation';
 import { useDispatch } from 'react-redux';
 import { addOwnDrink } from '../../redux/drinks/drinks.operations';
+import Notiflix, { Loading } from 'notiflix';
+import { useNavigate } from 'react-router-dom';
 
 export const AddDrinkForm = () => {
   const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(false);
+  const redirect = useNavigate();
 
   return (
     <Formik
@@ -44,6 +48,8 @@ export const AddDrinkForm = () => {
           .required('At least one ingredient is required'),
       })}
       onSubmit={async (values) => {
+        setIsLoading(true);
+
         const formData = new FormData();
         formData.append('drink', values.drink);
         formData.append('category', values.category);
@@ -58,11 +64,26 @@ export const AddDrinkForm = () => {
 
         try {
           const resp = await dispatch(addOwnDrink(formData));
-          if (resp) {
-            console.log(resp);
+
+          if (resp.meta.requestStatus === 'fulfilled') {
+            Notiflix.Notify.success(
+              resp.payload.message + ' ,name: ' + resp.payload.newDrink.drink
+            );
+            Notiflix.Notify.info(
+              'in 5 seconds you will be redirected to the page with your cocktails'
+            );
+            setTimeout(() => {
+              setIsLoading(false);
+              redirect('/my');
+            }, 5000);
+          } else {
+            Notiflix.Notify.failure(resp.payload.message);
           }
         } catch (error) {
+          Notiflix.Notify.failure(error);
+
           console.error('Error:', error);
+          setIsLoading(false);
         }
       }}
     >
@@ -100,8 +121,8 @@ export const AddDrinkForm = () => {
               handleBlur={handleBlur}
             />
 
-            <button className="buttonAdd" type="submit">
-              Add
+            <button className="buttonAdd" type="submit" disabled={isLoading}>
+              {isLoading ? 'Loading...' : 'Add'}
             </button>
           </Wrapper>
         </Form>
