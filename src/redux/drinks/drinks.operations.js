@@ -89,33 +89,33 @@ export const removeOwnDrink = createAsyncThunk(
   }
 );
 
-// export const getOwnDrinks = createAsyncThunk(
-//   'drinks/own',
-//   async (_, thunkAPI) => {
-//     // async ({ page, limit }, thunkAPI) => {
-//     try {
-//       const res = await instance.get(`/drinks/own`);
-//       // `/drinks/own/all?page=${page}&limit=${limit}`);
-//       return res.data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
-
 export const getOwnDrinks = createAsyncThunk(
-  'drinks/own/all',
+  'drinks/own',
   async ({ page, limit }, thunkAPI) => {
+    // async ({ page, limit }, thunkAPI) => {
     try {
-      const response = await axios.get(
-        `drinks/own?page=${page}&limit=${limit}`
-      );
-      return response.data;
+      const res = await instance.get(`drinks/own?page=${page}&limit=${limit}`);
+      // `/drinks/own/all?page=${page}&limit=${limit}`);
+      return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
+
+// export const getOwnDrinks = createAsyncThunk(
+//   'drinks/own/',
+//   async ({ page, limit }, thunkAPI) => {
+//     try {
+//       const response = await axios.get(
+//         `drinks/own?page=${page}&limit=${limit}`
+//       );
+//       return response.data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
 
 export const addDrinkToFavorite = createAsyncThunk(
   'drinks/favorite/add',

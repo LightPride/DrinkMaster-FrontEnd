@@ -14,3 +14,5 @@ export const selectPopularDrinks = createSelector(
   [selectInitialPopularDrinks],
   (drinks) => drinks.slice(0, 4) // ?? //
 );
+
+export const selectOwnDrinks = (state) => state.drinks.ownDrinks;

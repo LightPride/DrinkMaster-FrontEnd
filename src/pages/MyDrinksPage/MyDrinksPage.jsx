@@ -14,7 +14,7 @@ export default function MyDrinks() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [currentPage, setCurrentPage] = useState(1);
-  const { total, drinks } = useDrink();
+  const { total, ownDrinks } = useDrink();
   const [hasDrinks, setHasDrinks] = useState(false);
 
   const drinksPerPage = 6;
@@ -26,11 +26,11 @@ export default function MyDrinks() {
   // const totalPages = Math.ceil(total / drinksPerPage);
 
   useEffect(() => {
-    if (drinks?.length === 0 && currentPage > 1) {
+    if (ownDrinks?.length === 0 && currentPage > 1) {
       onPageChange(currentPage - 1);
     }
-    setHasDrinks(drinks?.length > 0);
-  }, [currentPage, drinks]);
+    setHasDrinks(ownDrinks?.length > 0);
+  }, [currentPage, ownDrinks]);
 
   useEffect(() => {
     navigate(`?page=${currentPage}`);
@@ -48,7 +48,7 @@ export default function MyDrinks() {
         <PageTitle title="My drinks" />
         {hasDrinks > 0 ? (
           <DrinksList
-            drinksData={drinks}
+            drinksData={ownDrinks}
             onPageChange={onPageChange}
             currentPage={currentPage}
           />

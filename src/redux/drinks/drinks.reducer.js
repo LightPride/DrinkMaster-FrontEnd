@@ -21,6 +21,7 @@ const initialState = {
   isLoading: false,
   error: null,
   total: 0,
+  ownDrinks: [],
 };
 
 const drinksSlice = createSlice({
@@ -71,7 +72,7 @@ const drinksSlice = createSlice({
       //   state.favoriteDrinks.splice(index, 1);
       // })
       .addCase(getOwnDrinks.fulfilled, (state, action) => {
-        state.drinks = action.payload.drinks;
+        state.ownDrinks = action.payload.ownDrinks;
         state.total = action.payload.total;
         state.isLoading = false;
         state.error = null;
