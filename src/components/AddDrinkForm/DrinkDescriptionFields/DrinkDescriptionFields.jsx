@@ -156,7 +156,9 @@ export const DrinkDescriptionFields = ({
             <p>Add Image</p>
           </WrapperAddDiv>
         )}
-        {errors.drinkThumb && <p className="errorImage">required</p>}
+        {errors.drinkThumb && touched.drinkThumb && (
+          <p className="errorImage">required</p>
+        )}
       </AddImageField>
 
       <DescrField>

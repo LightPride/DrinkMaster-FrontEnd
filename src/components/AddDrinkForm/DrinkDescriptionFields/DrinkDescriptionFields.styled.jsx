@@ -269,7 +269,7 @@ export const customStylesSelect = {
   }),
   option: (styles, { isFocused, isSelected }) => ({
     ...styles,
-    padding: '3px 0 3px 10px',
+    padding: '3px 0 6px 12px',
     fontSize: '12px',
     lineHeight: 'calc(16 / 12)',
     background: 'transparent',
