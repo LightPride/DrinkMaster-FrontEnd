@@ -1,4 +1,4 @@
-import{u as e,j as o,a7 as n,N as r}from"./index-0083a27d.js";const a=e.div`
+import{u as e,j as o,af as n,N as r}from"./index-44f7c73b.js";const a=e.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,7 +26,12 @@ import{u as e,j as o,a7 as n,N as r}from"./index-0083a27d.js";const a=e.div`
   margin-bottom: 28px;
 
   .textInput {
-    width: 335px;
+    max-width: 335px;
+    width: 100%;
+  }
+
+  .textInput button {
+    color: var(--white-color);
   }
 
   .textInput fieldset {
@@ -68,10 +73,10 @@ import{u as e,j as o,a7 as n,N as r}from"./index-0083a27d.js";const a=e.div`
   @media screen and (min-width: 768px) {
     margin-bottom: 40px;
     .textInput {
-      width: 400px;
+      max-width: 400px;
     }
   }
-`,p=e.p`
+`,x=e.p`
   font-size: 14px;
   text-align: center;
   font-weight: 400;
@@ -86,14 +91,15 @@ import{u as e,j as o,a7 as n,N as r}from"./index-0083a27d.js";const a=e.div`
     font-size: 18px;
     line-height: 24px;
   }
-`,s=e(r)`
+`,p=e(r)`
   && {
     display: block;
     font-size: 14px;
     line-height: 16px;
     color: var(--white-color);
     font-weight: 600;
-    width: 335px;
+    max-width: 335px;
+    width: 100%;
     text-align: center;
     padding: 18px 0px;
   }
@@ -101,10 +107,10 @@ import{u as e,j as o,a7 as n,N as r}from"./index-0083a27d.js";const a=e.div`
   @media screen and (min-width: 768px) {
     && {
       font-size: 14px;
-      width: 400px;
+      max-width: 400px;
     }
   }
-`,x=e.h1`
+`,s=e.h1`
   font-weight: 600;
   font-size: 28px;
   line-height: 32px;
@@ -130,10 +136,11 @@ import{u as e,j as o,a7 as n,N as r}from"./index-0083a27d.js";const a=e.div`
     font-size: 40px;
     line-height: 44px;
   }
-`,g=e.button`
+`,m=e.button`
   background-color: ${t=>t.backgroundcolor};
   color: ${t=>t.color};
-  width: 335px;
+  max-width: 335px;
+  width: 100%;
   padding: 18px 0px;
   border-radius: 40px;
   font-size: 14px;
@@ -150,9 +157,9 @@ import{u as e,j as o,a7 as n,N as r}from"./index-0083a27d.js";const a=e.div`
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
-    width: 400px;
+    max-width: 400px;
   }
-`,f=e.div`
+`,w=e.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -192,4 +199,4 @@ import{u as e,j as o,a7 as n,N as r}from"./index-0083a27d.js";const a=e.div`
       width: 147px;
     }
   }
-`;export{p as S,c as W,f as a,h as b,d as c,g as d,x as e,s as f};
+`;export{x as S,c as W,w as a,h as b,d as c,m as d,s as e,p as f};
