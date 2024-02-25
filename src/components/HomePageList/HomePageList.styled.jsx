@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+// import DrinksItem from '../Drinks/DrinksItem';
 
 export const CategoryContainer = styled.div`
   padding-top: 124px;
@@ -20,7 +21,7 @@ export const CategoryWrapper = styled.ul`
 export const Category = styled.h2`
   font-weight: 600;
   font-size: 40px;
-  height: 44px;
+  width: 100%;
   color: rgb(243, 243, 243);
   margin-bottom: 20px;
 `;
@@ -28,7 +29,15 @@ export const Category = styled.h2`
 export const CardsWrapper = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  flex-direction: colum;
+  /* flex-direction: colum; */
+  justify-content: space-between;
   gap: 20px;
   margin-bottom: 80px;
 `;
+//  export const CardsHover = styled(DrinksItem)`
+//  cursor: pointer;
+// transition: transform 0.3s ease-in-out;
+// &:hover {
+//   transform: scale(1.05);
+// };
+//  `;
