@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   text-align: start;
   gap: 40px;
+  position: relative;
   @media screen and (min-width: 1440px) {
     width: 540px;
   }
@@ -17,12 +18,29 @@ export const Wrapper = styled.div`
     color: #f3f3f3;
     height: 184px;
     resize: none;
+    width: 100%;
     &:hover {
       border: 1px solid rgba(243, 243, 243, 0.918);
     }
     @media screen and (min-width: 768px) {
       width: 480px;
     }
+  }
+  .inputFieldErr {
+    border-color: red;
+  }
+`;
+export const TextAreaLabel = styled.label`
+  position: relative;
+  .errorInstructions {
+    position: absolute;
+    display: block;
+    left: 1%;
+    top: -30px;
+    color: red;
+
+    font-style: italic;
+    font-size: small;
   }
 `;
 
