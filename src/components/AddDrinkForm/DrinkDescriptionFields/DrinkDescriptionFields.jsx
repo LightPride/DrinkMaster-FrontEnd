@@ -46,7 +46,7 @@ export const DrinkDescriptionFields = ({
 }) => {
   const categories = useSelector(selectCategories);
   const glasses = useSelector(selectGlasses);
-  const userData = useSelector(selectUser);
+  const userData = useSelector(selectUser) || [];
   const [userNoAdult, setNoAdult] = useState(true);
 
   const [selectedImage, setSelectedImage] = useState(null); //
@@ -158,9 +158,7 @@ export const DrinkDescriptionFields = ({
             <p>Add Image</p>
           </WrapperAddDiv>
         )}
-        {errors.drinkThumb && touched.drinkThumb && (
-          <p className="errorImage">required</p>
-        )}
+        {errors.drinkThumb && <p className="errorImage">required</p>}
       </AddImageField>
 
       <DescrField>
