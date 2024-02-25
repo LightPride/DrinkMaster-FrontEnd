@@ -63,14 +63,6 @@ const drinksSlice = createSlice({
           (drink) => drink._id === action.payload._id
         );
       })
-      // .addCase(removeOwnDrink.fulfilled, (state, action) => {
-      //   state.isLoading = false;
-      //   state.error = null;
-      //   const index = state.drinks.findIndex(
-      //     (drink) => drink._id === action.payload.result._id
-      //   );
-      //   state.drinks.splice(index, 1);
-      // })
       .addCase(getOwnDrinks.fulfilled, (state, action) => {
         state.ownDrinks = action.payload.ownDrinks;
         state.total = action.payload.total;
