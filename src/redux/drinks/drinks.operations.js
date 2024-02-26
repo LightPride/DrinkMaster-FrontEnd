@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../auth/auth.operations';
+import Notiflix from 'notiflix';
 
 export const getMainPageDrinks = createAsyncThunk(
   'drinks/getAll',
@@ -70,8 +71,16 @@ export const addOwnDrink = createAsyncThunk(
           'Content-Type': 'multipart/form-data',
         },
       });
+      Notiflix.Notify.success(`Drink has been added to own drinks!`, {
+        position: 'сenter-top',
+        timeout: 3000,
+      });
       return res.data;
     } catch (error) {
+      Notiflix.Notify.failure(`Error! Drink was not added from own drink!`, {
+        position: 'сenter-top',
+        timeout: 3000,
+      });
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -82,8 +91,16 @@ export const removeOwnDrink = createAsyncThunk(
   async (drinkId, thunkAPI) => {
     try {
       const res = await instance.delete(`/drinks/own/remove/${drinkId}`);
+      Notiflix.Notify.info(`Drink has been removed from own drinks!`, {
+        position: 'сenter-top',
+        timeout: 3000,
+      });
       return res.data;
     } catch (error) {
+      Notiflix.Notify.failure(`Error! Drink was not removed from own drink!`, {
+        position: 'сenter-top',
+        timeout: 3000,
+      });
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -92,10 +109,8 @@ export const removeOwnDrink = createAsyncThunk(
 export const getOwnDrinks = createAsyncThunk(
   'drinks/own',
   async (_, thunkAPI) => {
-    // async ({ page, limit }, thunkAPI) => {
     try {
       const res = await instance.get(`/drinks/own`);
-      // `/drinks/own/all?page=${page}&limit=${limit}`);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -110,8 +125,16 @@ export const addDrinkToFavorite = createAsyncThunk(
       const res = await instance.post(`/drinks/favorite/add`, {
         drinkId: data,
       });
+      Notiflix.Notify.success(`Drink has been added to favorite!`, {
+        position: 'сenter-top',
+        timeout: 3000,
+      });
       return res.data;
     } catch (error) {
+      Notiflix.Notify.failure(`Error! Drink was not added to favorite!`, {
+        position: 'сenter-top',
+        timeout: 3000,
+      });
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -122,8 +145,16 @@ export const removeDrinkFromFavorite = createAsyncThunk(
   async (drinkId, thunkAPI) => {
     try {
       const res = await instance.delete(`/drinks/favorite/remove/${drinkId}`);
+      Notiflix.Notify.info(`Drink has been removed from favorite!`, {
+        position: 'сenter-top',
+        timeout: 3000,
+      });
       return res.data;
     } catch (error) {
+      Notiflix.Notify.failure(`Error! Drink was not removed from favorite!`, {
+        position: 'сenter-top',
+        timeout: 3000,
+      });
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -132,10 +163,8 @@ export const removeDrinkFromFavorite = createAsyncThunk(
 export const getFavoriteAll = createAsyncThunk(
   'drinks/favorite/',
   async (_, thunkAPI) => {
-    // async ({ page, limit }, thunkAPI) => {
     try {
       const res = await instance.get(`/drinks/favorite`);
-      // `/drinks/favorite/all?page=${page}&limit=${limit}`);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
