@@ -7,6 +7,7 @@ import PrivateRoute from './routes/PrivateRoute';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 import { useDispatch } from 'react-redux';
 import { refreshThunk } from './redux/auth/auth.operations';
+import { setupAPI } from './redux/API/axios';
 
 const WelcomePage = lazy(() => import('./pages/WelcomePage/WelcomePage'));
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
@@ -22,6 +23,7 @@ const AddDrinkPage = lazy(() => import('./pages/AddDrinkPage/AddDrinkPage'));
 
 function App() {
   const dispatch = useDispatch();
+  setupAPI(dispatch);
 
   useEffect(() => {
     dispatch(refreshThunk());

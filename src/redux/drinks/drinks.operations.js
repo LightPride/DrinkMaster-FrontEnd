@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { instance } from '../auth/auth.operations';
+import { instance } from '../API/axios';
 import Notiflix from 'notiflix';
 
 export const getMainPageDrinks = createAsyncThunk(

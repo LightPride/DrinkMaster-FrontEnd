@@ -1,15 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-
-export const instance = axios.create({
-  baseURL: 'https://drink-master-api-umd0.onrender.com/api',
-});
+import { instance } from '../API/axios';
 
 const setToken = (token) => {
   instance.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-const cleanAuthToken = () => {
+export const cleanAuthToken = () => {
   instance.defaults.headers.common.Authorization = '';
 };
 
