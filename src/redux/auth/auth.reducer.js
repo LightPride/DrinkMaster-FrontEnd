@@ -35,6 +35,9 @@ const authSlice = createSlice({
       .addCase(logOutThunk.fulfilled, () => {
         return initialState;
       })
+      .addCase(logOutThunk.rejected, () => {
+        return initialState;
+      })
       .addCase(refreshThunk.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.authenticated = true;
