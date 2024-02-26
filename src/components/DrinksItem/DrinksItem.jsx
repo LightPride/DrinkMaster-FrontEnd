@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   ButtonsContainer,
   Card,
@@ -11,17 +11,43 @@ import {
 } from './DrinksItem.styled';
 import placeholderImage from '../../images/drinkPage/coctailPlaceholder.png';
 import SeeMoreBtn from '../../components/SeeMoreBtn/SeeMoreBtn';
-import { removeDrinkFromFavorite } from '../../redux/drinks/drinks.operations';
-import { removeOwnDrink } from '../../redux/drinks/drinks.operations';
+import {
+  getOwnDrinks,
+  removeOwnDrink,
+  removeDrinkFromFavorite,
+  getFavoriteAll,
+} from '../../redux/drinks/drinks.operations';
+import {
+  selectFavoriteDrinks,
+  selectOwnDrinks,
+  selectPage,
+} from '../../redux/drinks/drinks.selectors';
 
 const DrinksItem = ({ drinkData, favorite }) => {
   const dispatch = useDispatch();
   const { drink, drinkThumb, alcoholic, description, _id } = drinkData;
+  const favoriteDrinkList = useSelector(selectFavoriteDrinks);
+  const ownDrinkList = useSelector(selectOwnDrinks);
+  const page = useSelector(selectPage);
 
   const handleRemove = () => {
     favorite
-      ? dispatch(removeDrinkFromFavorite(_id))
-      : dispatch(removeOwnDrink(_id));
+      ? dispatch(removeDrinkFromFavorite(_id)).then(() => {
+          if (favoriteDrinkList.length - 1 === 0) {
+            if (page > 1) {
+              const currentPage = page - 1;
+              dispatch(getFavoriteAll({ page: currentPage }));
+            }
+          }
+        })
+      : dispatch(removeOwnDrink(_id)).then(() => {
+          if (ownDrinkList.length - 1 === 0) {
+            if (page > 1) {
+              const currentPage = page - 1;
+              dispatch(getOwnDrinks({ page: currentPage }));
+            }
+          }
+        });
   };
 
   return (
