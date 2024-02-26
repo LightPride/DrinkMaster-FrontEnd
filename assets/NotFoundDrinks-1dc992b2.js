@@ -1,4 +1,4 @@
-import{c as o,u as i,j as n,L as g,d as u,al as w,aj as k,ao as b,ai as v,a as f,b as D}from"./index-98916455.js";import{s as j,a as C,e as F,g as y,b as N,h as z,f as $,i as I,j as L}from"./drinks.selectors-3cec3c8b.js";import{d as l}from"./coctailPlaceholder-82987b74.js";import{n as M,b as _,N as B,a as V}from"./blueIced@2xMob-abf058dd.js";const tn=()=>{const e=o(j),r=o(C),t=o(F),s=o(y),d=o(N),p=o(z),c=o($),a=o(I),x=o(L);return{mainPageDrinks:e,isLoading:r,drinks:t,drinkById:s,error:d,total:p,favoriteDrinks:c,popularDrinks:a,ownDrinks:x}},P=i.ul`
+import{c as o,u as i,j as n,L as g,d as u,al as w,aj as k,ao as b,ai as v,a as f,b as D}from"./index-782a58f8.js";import{s as j,a as C,e as F,g as y,b as N,h as z,f as $,i as I,j as L}from"./drinks.selectors-1d1d99db.js";import{d as l}from"./coctailPlaceholder-82987b74.js";import{n as M,b as _,N as B,a as V}from"./blueIced@2xMob-abf058dd.js";const tn=()=>{const e=o(j),r=o(C),t=o(F),s=o(y),d=o(N),p=o(z),c=o($),a=o(I),x=o(L);return{mainPageDrinks:e,isLoading:r,drinks:t,drinkById:s,error:d,total:p,favoriteDrinks:c,popularDrinks:a,ownDrinks:x}},P=i.ul`
   display: grid;
   grid-template-columns: 335px;
   gap: 40px;
