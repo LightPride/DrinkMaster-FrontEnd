@@ -11,26 +11,17 @@ import {
 } from './DrinksItem.styled';
 import placeholderImage from '../../images/drinkPage/coctailPlaceholder.png';
 import SeeMoreBtn from '../../components/SeeMoreBtn/SeeMoreBtn';
-import {
-  getFavoriteAll,
-  getOwnDrinks,
-  removeDrinkFromFavorite,
-} from '../../redux/drinks/drinks.operations';
+import { removeDrinkFromFavorite } from '../../redux/drinks/drinks.operations';
 import { removeOwnDrink } from '../../redux/drinks/drinks.operations';
 
 const DrinksItem = ({ drinkData, favorite }) => {
   const dispatch = useDispatch();
-
   const { drink, drinkThumb, alcoholic, description, _id } = drinkData;
 
   const handleRemove = () => {
     favorite
-      ? dispatch(removeDrinkFromFavorite(_id)).then(() => {
-          dispatch(getFavoriteAll());
-        })
-      : dispatch(removeOwnDrink(_id)).then(() => {
-          dispatch(getOwnDrinks());
-        });
+      ? dispatch(removeDrinkFromFavorite(_id))
+      : dispatch(removeOwnDrink(_id));
   };
 
   return (

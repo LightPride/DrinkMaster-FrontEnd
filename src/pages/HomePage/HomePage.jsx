@@ -12,7 +12,7 @@ import { getMainPageDrinks } from '../../redux/drinks/drinks.operations';
 import HomePageList from '../../components/HomePageList/HomePageList';
 import Loader from '../../ui/Loader';
 import { Link } from 'react-router-dom';
-import { ErrorMessage } from '../DrinksPage/DrinksPage.styled';
+// import { ErrorMessage } from '../DrinksPage/DrinksPage.styled';
 
 const HomePage = () => {
   // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -138,7 +138,7 @@ const HomePage = () => {
     <Container>
       <HomeWrapper>
         <HomePageHero />
-        {error !== null && <ErrorMessage>{error}</ErrorMessage>}
+        {/* {error !== null && <ErrorMessage>{error}</ErrorMessage>} */}
         {isLoadingFromRedux && <Loader />}
         {showCocktails && <HomePageList quantity={quantity} />}
         {showCocktails && (

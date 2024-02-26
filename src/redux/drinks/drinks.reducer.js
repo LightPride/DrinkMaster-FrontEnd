@@ -64,8 +64,8 @@ const drinksSlice = createSlice({
       .addCase(removeOwnDrink.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.drinks = state.drinks.filter(
-          (drink) => drink._id === action.payload._id
+        state.ownDrinks = state.ownDrinks.filter(
+          (drink) => drink._id !== action.payload.drinkId
         );
       })
       .addCase(getOwnDrinks.fulfilled, (state, action) => {
@@ -83,11 +83,12 @@ const drinksSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.favoriteDrinks = state.favoriteDrinks.filter(
-          (drink) => drink._id === action.payload._id
+          (drink) => drink._id !== action.payload.drinkId
         );
       })
       .addCase(getFavoriteAll.fulfilled, (state, action) => {
         state.favoriteDrinks = action.payload.favoriteDrinks;
+        state.page = action.payload.currentPage;
         state.total = action.payload.total;
         state.isLoading = false;
         state.error = null;

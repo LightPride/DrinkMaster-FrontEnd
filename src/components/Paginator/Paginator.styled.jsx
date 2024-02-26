@@ -1,4 +1,3 @@
-import { devices } from 'constants';
 import styled from 'styled-components';
 
 export const WrapperGeneralStyled = styled.div`
@@ -10,12 +9,12 @@ export const WrapperGeneralStyled = styled.div`
   flex-wrap: nowrap;
   align-items: center;
 
-  @media ${devices.tablet} {
+  @media (min-width: 768px) {
     margin-top: 80px;
     margin-bottom: 140px;
   }
 
-  @media ${devices.desktop} {
+  @media (min-width: 1440px) {
     margin-top: 118px;
     max-width: 436px;
   }
