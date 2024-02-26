@@ -91,11 +91,15 @@ export const removeOwnDrink = createAsyncThunk(
 
 export const getOwnDrinks = createAsyncThunk(
   'drinks/own',
-  async (_, thunkAPI) => {
-    // async ({ page, limit }, thunkAPI) => {
+  async ({ page, size }, thunkAPI) => {
+    const searchParams = {
+      params: {
+        page,
+        size,
+      },
+    };
     try {
-      const res = await instance.get(`/drinks/own`);
-      // `/drinks/own/all?page=${page}&limit=${limit}`);
+      const res = await instance.get('/drinks/own', searchParams);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
