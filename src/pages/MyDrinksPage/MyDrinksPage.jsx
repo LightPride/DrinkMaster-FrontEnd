@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useDrink } from '../../hooks/useDrink';
 import { getOwnDrinks } from '../../redux/drinks/drinks.operations';
 import { Container } from '../../components/Layout/Container/Container';
@@ -8,7 +8,8 @@ import { MyDrinksWrapper } from './MyDrinksPage.styled';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import DrinksList from '../../components/DrinksList/DrinksList';
 import NotFoundDrinks from '../../components/NotFoundDrinks/NotFoundDrinks';
-// import Pagination from '../../components/Pagination/Pagination';
+import { Paginator } from '../../components/Paginator/Paginator';
+import { selectPage } from '../../redux/drinks/drinks.selectors';
 
 export default function MyDrinks() {
   const navigate = useNavigate();
@@ -16,8 +17,9 @@ export default function MyDrinks() {
   const [currentPage, setCurrentPage] = useState(1);
   const { total, ownDrinks } = useDrink();
   const [hasDrinks, setHasDrinks] = useState(false);
+  const page = useSelector(selectPage);
 
-  const drinksPerPage = 6;
+  // const drinksPerPage = 6;
 
   const onPageChange = (pageNum) => {
     setCurrentPage(pageNum);
@@ -37,10 +39,10 @@ export default function MyDrinks() {
   }, [currentPage, navigate]);
 
   useEffect(() => {
-    dispatch(getOwnDrinks({ page: currentPage, limit: drinksPerPage }))
+    dispatch(getOwnDrinks({ page: page }))
       .unwrap()
       .catch((error) => console.log(error));
-  }, [dispatch, currentPage, total, drinksPerPage]);
+  }, [dispatch, page, total]);
 
   return (
     <Container>
@@ -55,6 +57,7 @@ export default function MyDrinks() {
         ) : (
           <NotFoundDrinks text="You haven't added any cocktails" />
         )}
+        <Paginator />
       </MyDrinksWrapper>
     </Container>
   );

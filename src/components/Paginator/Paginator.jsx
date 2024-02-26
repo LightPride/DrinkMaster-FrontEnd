@@ -6,7 +6,7 @@ import { useMediaRules } from '../../hooks/useMediaRules';
 import { selectPage, selectTotal } from '../../redux/drinks/drinks.selectors';
 
 export const Paginator = () => {
-  let page = useSelector(selectPage);
+  let page = Number(useSelector(selectPage));
   const dispatch = useDispatch();
   const { isMobile, isDesktop } = useMediaRules();
   const total = useSelector(selectTotal);

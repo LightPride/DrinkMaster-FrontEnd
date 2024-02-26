@@ -20,7 +20,6 @@ export default function FavoriteDrinksPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [hasDrinks, setHasDrinks] = useState(false);
   const page = useSelector(selectPage);
-  console.log(page);
 
   // const drinksPerPage = 6;
 
@@ -49,7 +48,6 @@ export default function FavoriteDrinksPage() {
   // }, [dispatch, currentPage, total, drinksPerPage]);
 
   useEffect(() => {
-    // dispatch(getFavoriteAll({ page: page }))
     dispatch(getFavoriteAll({ page: page }))
       .unwrap()
       .catch((error) => console.log(error));
