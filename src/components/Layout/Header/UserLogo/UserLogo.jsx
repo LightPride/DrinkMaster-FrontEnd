@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { selectUser } from '../../../../redux/auth/auth.selectors';
 
@@ -6,25 +6,17 @@ import {
   UserLogoWrapper,
   UserLogoText,
   UserLogoBtn,
-  // UserLogoImg,
+  UserLogoImg,
   UserLogoPlaceholder,
 } from './UserLogo.styled';
 
 import { UserLogoPopup } from '../UserLogoPopup/UserLogoPopup';
 
 const UserLogo = () => {
-  const { name } = useSelector(selectUser);
-  const modalRef = useRef(null);
-
+  const { name, avatarURL } = useSelector(selectUser);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (modalRef.current && !modalRef.current.contains(event.target)) {
-        setIsPopupOpen(false);
-      }
-    };
-
     const handleKeyDown = (event) => {
       if (event.key === 'Escape') {
         setIsPopupOpen(false);
@@ -32,27 +24,28 @@ const UserLogo = () => {
     };
 
     if (isPopupOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
       document.addEventListener('keydown', handleKeyDown);
     } else {
-      document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('keydown', handleKeyDown);
     }
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isPopupOpen, setIsPopupOpen, name]);
+  }, [isPopupOpen]);
 
   const handlePopup = () => {
     setIsPopupOpen((prev) => !prev);
   };
 
   return (
-    <UserLogoWrapper ref={modalRef}>
+    <UserLogoWrapper>
       <UserLogoBtn onClick={handlePopup}>
-        <UserLogoPlaceholder />
+        {avatarURL ? (
+          <UserLogoImg src={avatarURL} alt="user icon" />
+        ) : (
+          <UserLogoPlaceholder />
+        )}
         <UserLogoText>{name}</UserLogoText>
       </UserLogoBtn>
       {isPopupOpen && (

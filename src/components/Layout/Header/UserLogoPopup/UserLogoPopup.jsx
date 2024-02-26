@@ -12,12 +12,14 @@ import { IconButton } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 
 import { LogOutModal } from '../LogOutModal/LogOutModal';
+import { UserInfoModal } from '../UserInfoModal/UserInfoModal';
 
 export const UserLogoPopup = ({ isPopupOpen, setIsPopupOpen }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const modalRef = useRef(null);
 
+  const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
   const [isLogOutOpen, SetLogOutOpen] = useState(false);
 
   useEffect(() => {
@@ -31,14 +33,13 @@ export const UserLogoPopup = ({ isPopupOpen, setIsPopupOpen }) => {
     } else {
       document.removeEventListener('mousedown', handleClickOutside);
     }
-    // UNDONE ===================================================================
-    if (isLogOutOpen) {
+    if (isProfileModalOpen || isLogOutOpen) {
       document.removeEventListener('mousedown', handleClickOutside);
     }
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [isPopupOpen, setIsPopupOpen, isLogOutOpen]);
+  }, [isPopupOpen, setIsPopupOpen, isProfileModalOpen, isLogOutOpen]);
 
   const handleLogout = (values) => {
     try {
@@ -53,9 +54,17 @@ export const UserLogoPopup = ({ isPopupOpen, setIsPopupOpen }) => {
     SetLogOutOpen((prev) => !prev);
   };
 
+  const handleOpenProfile = () => {
+    setIsProfileModalOpen(true);
+  };
+
+  const handleClose = () => {
+    setIsProfileModalOpen(false);
+  };
+
   return (
     <>
-      <StyledPopupWindow>
+      <StyledPopupWindow ref={modalRef}>
         <Box
           sx={{
             display: 'flex',
@@ -65,7 +74,7 @@ export const UserLogoPopup = ({ isPopupOpen, setIsPopupOpen }) => {
           }}
         >
           <StyledTypography>Edit profile</StyledTypography>
-          <IconButton>
+          <IconButton onClick={handleOpenProfile}>
             <EditIcon
               sx={{ width: '14px', height: '14px', color: '#F3F3F3' }}
             />
@@ -73,12 +82,17 @@ export const UserLogoPopup = ({ isPopupOpen, setIsPopupOpen }) => {
         </Box>
         <LogOutBtn onClick={handleLogOutClick}>Log out</LogOutBtn>
       </StyledPopupWindow>
+
       {isLogOutOpen && (
         <LogOutModal
           isOpen={isLogOutOpen}
           onLogOut={handleLogout}
           onClose={handleLogOutClick}
         ></LogOutModal>
+      )}
+
+      {isProfileModalOpen && (
+        <UserInfoModal isOpen={isProfileModalOpen} handleClose={handleClose} />
       )}
     </>
   );
