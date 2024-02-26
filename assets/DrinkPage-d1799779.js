@@ -1,4 +1,4 @@
-import{u as e,d as g,c as p,r as u,ax as d,j as i,ay as F,az as y,aA as T,aB as z,C as I}from"./index-197b6da2.js";import{f as P,a as M,g as E}from"./drinks.selectors-870a2686.js";import{P as R}from"./PageTitle-eabd6940.js";import{d as f}from"./coctailPlaceholder-82987b74.js";import{n as S}from"./index.browser-7e542916.js";const $=e.section`
+import{u as e,d as g,c as p,r as u,av as d,j as i,aw as F,ax as y,ay as T,az as z,C as I}from"./index-5daad91e.js";import{e as P,a as M,f as E}from"./drinks.selectors-cd947628.js";import{P as R}from"./PageTitle-dc835bfc.js";import{d as f}from"./coctailPlaceholder-82987b74.js";import{n as S}from"./index.browser-7e542916.js";const $=e.section`
   padding-top: 80px;
   padding-bottom: 80px;
 
@@ -34,7 +34,7 @@ import{u as e,d as g,c as p,r as u,ax as d,j as i,ay as F,az as y,aA as T,aB as 
     font-size: 16px;
     line-height: 1.375;
   }
-`,A=e.button`
+`,C=e.button`
   color: var(--dark-blue-color);
   padding: 14px 40px;
   font-family: inherit;
@@ -72,7 +72,7 @@ import{u as e,d as g,c as p,r as u,ax as d,j as i,ay as F,az as y,aA as T,aB as 
   object-fit: cover;
   object-position: top;
   border-radius: 4px;
-`,C=e.div`
+`,A=e.div`
   @media screen and (min-width: 1440px) {
     display: flex;
     justify-content: space-between;
@@ -110,7 +110,7 @@ import{u as e,d as g,c as p,r as u,ax as d,j as i,ay as F,az as y,aA as T,aB as 
     width: 400px;
     height: 400px;
   }
-`;const _=({id:r,name:n,glass:t,alcoholic:o,description:w,imgPath:c})=>{const a=g(),s=p(P),b=p(M),x=v=>s?!!s.find(D=>D._id===v):!1,j=()=>{a(F(r)).then(()=>{a(d())})},k=()=>{a(y(r)).then(()=>{a(d())})};return u.useEffect(()=>{a(d())},[a]),i.jsx(i.Fragment,{children:s&&i.jsxs(C,{children:[i.jsxs(H,{children:[i.jsx(R,{title:n}),i.jsxs(L,{children:[t," / ",o]}),i.jsx(W,{children:w}),i.jsx(A,{onClick:x(r)?k:j,disabled:b,children:x(r)?"Remove from favorite drinks":"Add to favorite drinks"})]}),i.jsx(B,{children:c?i.jsx(h,{src:c,alt:"img"}):i.jsx(h,{src:f,alt:"img"})})]})})},q=e.div`
+`;const _=({id:r,name:n,glass:t,alcoholic:o,description:w,imgPath:c})=>{const a=g(),s=p(P),b=p(M),x=v=>s?!!s.find(D=>D._id===v):!1,j=()=>{a(F(r)).then(()=>{a(d())})},k=()=>{a(y(r)).then(()=>{a(d())})};return u.useEffect(()=>{a(d())},[a]),i.jsx(i.Fragment,{children:s&&i.jsxs(A,{children:[i.jsxs(H,{children:[i.jsx(R,{title:n}),i.jsxs(L,{children:[t," / ",o]}),i.jsx(W,{children:w}),i.jsx(C,{onClick:x(r)?k:j,disabled:b,children:x(r)?"Remove from favorite drinks":"Add to favorite drinks"})]}),i.jsx(B,{children:c?i.jsx(h,{src:c,alt:"img"}):i.jsx(h,{src:f,alt:"img"})})]})})},q=e.div`
   display: flex;
   justify-content: space-between;
   margin-top: 8px;
