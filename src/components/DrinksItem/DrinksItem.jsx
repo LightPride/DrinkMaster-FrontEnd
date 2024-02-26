@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
   ButtonsContainer,
   Card,
@@ -11,27 +11,17 @@ import {
 } from './DrinksItem.styled';
 import placeholderImage from '../../images/drinkPage/coctailPlaceholder.png';
 import SeeMoreBtn from '../../components/SeeMoreBtn/SeeMoreBtn';
-import {
-  getFavoriteAll,
-  getOwnDrinks,
-  removeDrinkFromFavorite,
-} from '../../redux/drinks/drinks.operations';
+import { removeDrinkFromFavorite } from '../../redux/drinks/drinks.operations';
 import { removeOwnDrink } from '../../redux/drinks/drinks.operations';
-import { selectPage } from '../../redux/drinks/drinks.selectors';
 
 const DrinksItem = ({ drinkData, favorite }) => {
   const dispatch = useDispatch();
-  const page = useSelector(selectPage);
   const { drink, drinkThumb, alcoholic, description, _id } = drinkData;
 
   const handleRemove = () => {
     favorite
-      ? dispatch(removeDrinkFromFavorite(_id)).then(() => {
-          dispatch(getFavoriteAll({ page: page }));
-        })
-      : dispatch(removeOwnDrink(_id)).then(() => {
-          dispatch(getOwnDrinks());
-        });
+      ? dispatch(removeDrinkFromFavorite(_id))
+      : dispatch(removeOwnDrink(_id));
   };
 
   return (
