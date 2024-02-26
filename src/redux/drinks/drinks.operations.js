@@ -93,10 +93,8 @@ export const removeOwnDrink = createAsyncThunk(
 export const getOwnDrinks = createAsyncThunk(
   'drinks/own',
   async (_, thunkAPI) => {
-    // async ({ page, limit }, thunkAPI) => {
     try {
       const res = await instance.get(`/drinks/own`);
-      // `/drinks/own/all?page=${page}&limit=${limit}`);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -137,6 +135,13 @@ export const removeDrinkFromFavorite = createAsyncThunk(
       });
       return res.data;
     } catch (error) {
+      Notiflix.Notify.failure(
+        `Drink do not removed from favorite! Server error!`,
+        {
+          position: 'сenter-top',
+          timeout: 3000,
+        }
+      );
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -145,10 +150,8 @@ export const removeDrinkFromFavorite = createAsyncThunk(
 export const getFavoriteAll = createAsyncThunk(
   'drinks/favorite/',
   async (_, thunkAPI) => {
-    // async ({ page, limit }, thunkAPI) => {
     try {
       const res = await instance.get(`/drinks/favorite`);
-      // `/drinks/favorite/all?page=${page}&limit=${limit}`);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
