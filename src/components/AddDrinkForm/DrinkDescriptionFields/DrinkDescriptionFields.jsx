@@ -46,7 +46,7 @@ export const DrinkDescriptionFields = ({
 }) => {
   const categories = useSelector(selectCategories);
   const glasses = useSelector(selectGlasses);
-  const userData = useSelector(selectUser);
+  const userData = useSelector(selectUser) || [];
   const [userNoAdult, setNoAdult] = useState(true);
 
   const [selectedImage, setSelectedImage] = useState(null); //
@@ -158,9 +158,7 @@ export const DrinkDescriptionFields = ({
             <p>Add Image</p>
           </WrapperAddDiv>
         )}
-        {errors.drinkThumb && touched.drinkThumb && (
-          <p className="errorImage">required</p>
-        )}
+        {errors.drinkThumb && <p className="errorImage">select image please</p>}
       </AddImageField>
 
       <DescrField>
@@ -242,7 +240,7 @@ export const DrinkDescriptionFields = ({
         <DivAlcoholic>
           <label className="radioLabel">
             <Field
-              className="styledRadio"
+              className="hiddenRadio"
               type="radio"
               name="alcoholic"
               value="Alcoholic"
@@ -250,19 +248,27 @@ export const DrinkDescriptionFields = ({
               onChange={handleChange}
               disabled={userNoAdult}
             />
-            <span className="styledSpan">Alcoholic</span>
+
+            <div className="styledSpan">
+              <span className="styledRadio"></span>
+              <p>Alcoholic</p>
+            </div>
           </label>
 
           <label className="radioLabel">
             <Field
-              className="styledRadio"
+              className="hiddenRadio"
               type="radio"
               name="alcoholic"
               value="Non alcoholic"
               checked={values.alcoholic === 'Non alcoholic'}
               onChange={handleChange}
             />
-            <span className="styledSpan">Non-alcoholic</span>
+
+            <div className="styledSpan">
+              <span className="styledRadio"></span>
+              <p>Non-alcoholic</p>
+            </div>
           </label>
         </DivAlcoholic>
       </DescrField>
