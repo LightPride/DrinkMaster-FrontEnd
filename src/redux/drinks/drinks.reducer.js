@@ -64,7 +64,7 @@ const drinksSlice = createSlice({
       .addCase(removeOwnDrink.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.drinks = state.drinks.filter(
+        state.ownDrinks = state.ownDrinks.filter(
           (drink) => drink._id === action.payload._id
         );
       })
