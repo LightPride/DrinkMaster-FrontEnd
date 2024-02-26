@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { ButtonSubmit, FormContainer, Title } from './Subscribe.styled';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { subscribeEmail } from '../../../../redux/user/userOperations';
 
 const validateEmail = (value) => {
   let error;
@@ -12,12 +13,13 @@ const validateEmail = (value) => {
   return error;
 };
 
-const dispatch = useDispatch();
-
 export const Subscribe = () => {
+  const dispatch = useDispatch();
+
   const handleSubmit = async ({ email }, { setSubmitting }) => {
     try {
       console.log('try: ' + email);
+      dispatch(subscribeEmail(email));
     } catch {
       console.log('catch: ' + email);
     } finally {
