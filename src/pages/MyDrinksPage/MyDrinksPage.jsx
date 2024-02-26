@@ -8,7 +8,7 @@ import { MyDrinksWrapper } from './MyDrinksPage.styled';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import DrinksList from '../../components/DrinksList/DrinksList';
 import NotFoundDrinks from '../../components/NotFoundDrinks/NotFoundDrinks';
-// import Pagination from '../../components/Pagination/Pagination';
+import Paginator from '../../components/Paginator/Paginator';
 
 export default function MyDrinks() {
   const navigate = useNavigate();
@@ -22,8 +22,6 @@ export default function MyDrinks() {
   const onPageChange = (pageNum) => {
     setCurrentPage(pageNum);
   };
-
-  // const totalPages = Math.ceil(total / drinksPerPage);
 
   useEffect(() => {
     if (ownDrinks?.length === 0 && currentPage > 1) {
@@ -47,11 +45,14 @@ export default function MyDrinks() {
       <MyDrinksWrapper>
         <PageTitle title="My drinks" />
         {hasDrinks > 0 ? (
-          <DrinksList
-            drinksData={ownDrinks}
-            onPageChange={onPageChange}
-            currentPage={currentPage}
-          />
+          <>
+            <DrinksList
+              drinksData={ownDrinks}
+              onPageChange={onPageChange}
+              currentPage={currentPage}
+            />
+            <Paginator />
+          </>
         ) : (
           <NotFoundDrinks text="You haven't added any cocktails" />
         )}
