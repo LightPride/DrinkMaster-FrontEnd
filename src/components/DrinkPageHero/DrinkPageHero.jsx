@@ -32,6 +32,7 @@ const DrinkPageHero = ({
   const dispatch = useDispatch();
   const favoriteDrinkList = useSelector(selectFavoriteDrinks);
   const isLoading = useSelector(selectIsLoading);
+  const size = 1000;
 
   const isDrinkFavoriteList = (id) => {
     if (favoriteDrinkList) {
@@ -42,18 +43,18 @@ const DrinkPageHero = ({
 
   const handleClickAddFavorite = () => {
     dispatch(addDrinkToFavorite(id)).then(() => {
-      dispatch(getFavoriteAll());
+      dispatch(getFavoriteAll({ size: size }));
     });
   };
 
   const handleClickRemoveFavorite = () => {
     dispatch(removeDrinkFromFavorite(id)).then(() => {
-      dispatch(getFavoriteAll());
+      dispatch(getFavoriteAll({ size: size }));
     });
   };
 
   useEffect(() => {
-    dispatch(getFavoriteAll());
+    dispatch(getFavoriteAll({ size: size }));
   }, [dispatch]);
 
   return (

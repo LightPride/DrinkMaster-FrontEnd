@@ -41,7 +41,7 @@ export const getSearchedDrink = createAsyncThunk(
     };
     try {
       const res = await instance.get('/drinks/search', searchParams);
-      console.log(res.data);
+      // console.log(res.data);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -130,31 +130,19 @@ export const removeDrinkFromFavorite = createAsyncThunk(
 );
 
 export const getFavoriteAll = createAsyncThunk(
-  'drinks/favorite/',
-  async (_, thunkAPI) => {
-    // async ({ page, limit }, thunkAPI) => {
+  'drinks/favorite',
+  async ({ page, size }, thunkAPI) => {
+    const searchParams = {
+      params: {
+        page,
+        size,
+      },
+    };
     try {
-      const res = await instance.get(`/drinks/favorite`);
-      // `/drinks/favorite/all?page=${page}&limit=${limit}`);
+      const res = await instance.get('/drinks/favorite', searchParams);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
-
-// export const getFavoriteAll = createAsyncThunk(
-//   'drinks/favorite/',
-//   async ({ page }, thunkAPI) => {
-//     // async ({ page, limit }, thunkAPI) => {
-//     try {
-//       const res = await instance.get(
-//         // `/drinks/favorite/?page=${page}&limit=${limit}`
-//         `/drinks/favorite/?page=${page}`
-//       );
-//       return res.data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
