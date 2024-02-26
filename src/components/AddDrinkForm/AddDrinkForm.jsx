@@ -75,7 +75,7 @@ export const AddDrinkForm = () => {
             setTimeout(() => {
               setIsLoading(false);
               redirect('/my');
-            }, 5000);
+            }, 4000);
           } else {
             Notiflix.Notify.failure(resp.payload.message);
           }

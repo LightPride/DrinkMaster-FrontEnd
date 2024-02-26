@@ -37,6 +37,22 @@ export const AddImageField = styled.div`
     width: 100%;
     height: 100%;
     cursor: pointer;
+    &:hover {
+      &:before {
+        content: 'change 🖊';
+        position: absolute;
+        z-index: 5;
+        right: 10px;
+        bottom: 10px;
+        color: #ffffff;
+
+        font-style: italic;
+        font-size: small;
+        background-color: rgba(64, 112, 205, 0.5);
+        padding: 10px;
+        border-radius: 20px;
+      }
+    }
   }
   .errorImage {
     position: absolute;
@@ -311,11 +327,41 @@ export const DivAlcoholic = styled.div`
   }
   .styledSpan {
     opacity: 0.5;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    gap: 8px;
   }
-  .styledRadio {
+  .hiddenRadio {
+    display: none;
     cursor: pointer;
   }
-  .styledRadio:checked + .styledSpan {
+  .hiddenRadio:checked + .styledSpan {
     opacity: 1;
+  }
+  .styledRadio {
+    position: relative;
+    background-color: transparent;
+    width: 16px;
+    height: 16px;
+    opacity: 1;
+    border-radius: 50%;
+    border: 2px solid;
+  }
+  .hiddenRadio:checked + .styledSpan > .styledRadio {
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 60%;
+      height: 60%;
+      background-color: #f3f3f3;
+      top: 50%;
+      right: 50%;
+      transform: translate(50%, -50%);
+      border-radius: 50%;
+    }
   }
 `;
