@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../auth/auth.operations';
+import Notiflix from 'notiflix';
 
 export const getMainPageDrinks = createAsyncThunk(
   'drinks/getAll',
@@ -110,8 +111,16 @@ export const addDrinkToFavorite = createAsyncThunk(
       const res = await instance.post(`/drinks/favorite/add`, {
         drinkId: data,
       });
+      Notiflix.Notify.success(`Drink added to favorite!`, {
+        position: 'сenter-top',
+        timeout: 3000,
+      });
       return res.data;
     } catch (error) {
+      Notiflix.Notify.failure(`Drink do not added to favorite! Server error!`, {
+        position: 'сenter-top',
+        timeout: 3000,
+      });
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -122,6 +131,10 @@ export const removeDrinkFromFavorite = createAsyncThunk(
   async (drinkId, thunkAPI) => {
     try {
       const res = await instance.delete(`/drinks/favorite/remove/${drinkId}`);
+      Notiflix.Notify.info(`Drink removed from favorite!`, {
+        position: 'сenter-top',
+        timeout: 3000,
+      });
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
