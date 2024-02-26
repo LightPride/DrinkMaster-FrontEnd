@@ -88,6 +88,9 @@ const drinksSlice = createSlice({
       })
       .addCase(getFavoriteAll.fulfilled, (state, action) => {
         state.favoriteDrinks = action.payload.favoriteDrinks;
+        state.page = action.payload.currentPage;
+        // console.log(action.payload);
+        // console.log(action.payload.currentPage);
         state.total = action.payload.total;
         state.isLoading = false;
         state.error = null;

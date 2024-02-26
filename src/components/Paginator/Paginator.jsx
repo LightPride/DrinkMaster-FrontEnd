@@ -6,17 +6,13 @@ import { useMediaRules } from '../../hooks/useMediaRules';
 import { selectPage, selectTotal } from '../../redux/drinks/drinks.selectors';
 
 export const Paginator = () => {
-  let page = useSelector(selectPage);
+  let page = Number(useSelector(selectPage));
   const dispatch = useDispatch();
   const { isMobile, isDesktop } = useMediaRules();
   const total = useSelector(selectTotal);
-  console.log(total);
   const size = isDesktop ? 9 : 8;
   const totalPages = Math.ceil(total / size);
-  //   const theme = useSelector(selectTheme);
   const defaultPage = Math.ceil(totalPages / 2);
-  //   const defaultPage = 1;
-  console.log(defaultPage);
 
   return (
     <Box
