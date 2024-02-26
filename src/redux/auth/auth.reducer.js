@@ -17,7 +17,11 @@ const initialState = {
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {},
+  reducers: {
+    clearToken(state) {
+      state.token = null;
+    },
+  },
   extraReducers: (builder) =>
     builder
       .addCase(registerThunk.fulfilled, (state, { payload }) => {
@@ -65,6 +69,7 @@ const authSlice = createSlice({
         (state, { payload }) => {
           state.isLoading = false;
           state.error = payload;
+          state.token = null;
         }
       ),
 });
@@ -72,3 +77,4 @@ const authSlice = createSlice({
 // const {} = authSlice.actions;
 
 export const authReducer = authSlice.reducer;
+export const { clearToken } = authSlice.actions;

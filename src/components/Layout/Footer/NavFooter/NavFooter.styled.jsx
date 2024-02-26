@@ -40,7 +40,8 @@ export const FooterUl = styled.ul`
 `;
 
 export const FooterLink = styled(Link)`
+  color: var(--white-color);
   &:visited {
-    color: inherit;
+    color: var(--white-color);
   }
 `;
