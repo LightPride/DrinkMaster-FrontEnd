@@ -69,6 +69,16 @@ export const IngredientsButton = styled.button`
   justify-content: center;
   text-align: center;
   align-items: center;
+  svg {
+    stroke: #f3f3f397;
+    transition: all 0.5s ease;
+  }
+  &:hover {
+    svg {
+      stroke: #ffffff;
+      transition: all 0.5s ease;
+    }
+  }
 `;
 
 export const SubWrapper = styled.div`

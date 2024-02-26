@@ -92,11 +92,15 @@ export const LabelAdd = styled.label`
   color: transparent;
   border-radius: 6px;
   cursor: pointer;
+  transition: all 0.5s ease;
+
   svg {
-    transition: transform 0.5s ease;
+    transition: all 0.5s ease;
     stroke: #161f37;
   }
   &:hover {
+    transition: all 0.5s ease;
+
     background-color: rgba(64, 112, 205, 0.5);
     svg {
       transform: rotate(90deg);
