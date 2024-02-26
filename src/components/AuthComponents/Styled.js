@@ -64,6 +64,14 @@ export const StyledSignForm = styled.div`
       max-width: 400px;
     }
   }
+
+  .valid {
+    border-color: green !important;
+  }
+
+  .invalid {
+    border-color: red !important;
+  }
 `;
 
 export const StyledWelcomeDescription = styled.p`
@@ -166,21 +174,37 @@ export const StyledWelcomeNavLinks = styled.div`
   align-items: center;
   flex-wrap: wrap;
 
-  a {
+  .whiteBtn, .darkBtn {
     display: block;
     padding: 14px 0px;
     width: 125px;
     border-radius: 40px;
-    border: 1px solid var(--white-fifty-color);
-    color: var(--white-color);
     text-align: center;
     font-size: 14px;
     font-weight: 600;
     line-height: 18px;
   }
 
-  a:hover,
-  a:focus {
+  .whiteBtn {
+     border: 1px solid var(--white-color);
+    color: var(--dark-blue-color);
+    background-color: var(--white-color);
+  }
+
+  .darkBtn {
+     border: 1px solid var(--white-fifty-color);
+    color: var(--white-color);
+  }
+
+  .whiteBtn:hover, 
+  .whiteBtn:focus {
+    border: 1px solid var(--white-fifty-color);
+    color: var(--white-color);
+    background-color: transparent;
+  }
+
+  .darkBtn:hover,
+  .darkBtn:focus {
     background-color: var(--white-color);
     color: var(--dark-blue-color);
   }

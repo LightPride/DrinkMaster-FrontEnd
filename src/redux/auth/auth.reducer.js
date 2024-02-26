@@ -10,6 +10,7 @@ const initialState = {
   userData: { name: '', email: '', avatarURL: '', id: '' },
   isLoading: false,
   error: null,
+  registerError: null,
   authenticated: false,
   token: null,
 };
@@ -38,6 +39,10 @@ const authSlice = createSlice({
       .addCase(logOutThunk.rejected, () => {
         return initialState;
       })
+      .addCase(registerThunk.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.registerError = payload;
+      })
       .addCase(refreshThunk.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.authenticated = true;
@@ -57,7 +62,6 @@ const authSlice = createSlice({
       )
       .addMatcher(
         isAnyOf(
-          registerThunk.rejected,
           loginThunk.rejected,
           logOutThunk.rejected,
           refreshThunk.rejected
