@@ -20,7 +20,7 @@ export const Subscribe = () => {
         required
       />
 
-      <ButtonSubmit type="submit">Sign In</ButtonSubmit>
+      <ButtonSubmit type="submit">Subscribe</ButtonSubmit>
     </FormContainer>
   );
 };
