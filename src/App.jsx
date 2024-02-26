@@ -20,6 +20,12 @@ const FavoriteDrinksPage = lazy(() =>
   import('./pages/FavoriteDrinksPage/FavoriteDrinksPage')
 );
 const AddDrinkPage = lazy(() => import('./pages/AddDrinkPage/AddDrinkPage'));
+const PrivacyPolicyPage = lazy(() =>
+  import('./pages/PrivacyPolicyPage/PrivacyPolicyPage')
+);
+const TermsOfServicePage = lazy(() =>
+  import('./pages/TermsOfServicePage/TermsOfServicePage')
+);
 
 function App() {
   const dispatch = useDispatch();
@@ -90,6 +96,24 @@ function App() {
           path="/drinks/:drinkId"
           element={
             <PrivateRoute redirectTo="/signin" component={<DrinkPage />} />
+          }
+        />
+        <Route
+          path="/privacy-policy"
+          element={
+            <PrivateRoute
+              redirectTo="/signin"
+              component={<PrivacyPolicyPage />}
+            />
+          }
+        />
+        <Route
+          path="/terms-of-service"
+          element={
+            <PrivateRoute
+              redirectTo="/signin"
+              component={<TermsOfServicePage />}
+            />
           }
         />
 

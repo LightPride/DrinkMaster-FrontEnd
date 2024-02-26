@@ -33,50 +33,58 @@ const DrinksSearch = () => {
   );
   const { isDesktop } = useMediaRules();
 
+  // Додано стан для відстеження завантаження категорій та інгредієнтів
+  const [isFiltersLoaded, setIsFiltersLoaded] = useState(false);
+
   useEffect(() => {
     dispatch(getCategories());
     dispatch(getIngredients());
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(
-      getSearchedDrink({
-        name: searchQuery,
-        category: selectedCategory,
-        ingredient: selectedIngredient,
-        page: page,
-        size: isDesktop ? 9 : 8,
-      })
-    );
-  }, [dispatch, page]);
+    // Перевірка, чи обидва набори даних завантажені
+    if (categories.length > 0 && ingredients.length > 0) {
+      setIsFiltersLoaded(true);
+    }
+  }, [categories, ingredients]);
 
   useEffect(() => {
-    // Функція для виконання пошуку та оновлення URL
-    const searchAndNavigate = async () => {
-      await dispatch(
-        getSearchedDrink(
-          {
-            name: searchQuery,
-            category: selectedCategory,
-            ingredient: selectedIngredient,
-            page: page,
-            size: isDesktop ? 9 : 8,
-          },
-          [dispatch, page]
-        )
-      );
+    if (isFiltersLoaded) {
+      const searchAndNavigate = async () => {
+        await dispatch(
+          getSearchedDrink(
+            {
+              name: searchQuery,
+              category: selectedCategory,
+              ingredient: selectedIngredient,
+              page: page,
+              size: isDesktop ? 9 : 8,
+            },
+            [dispatch, page]
+          )
+        );
 
-      // Оновлення URL після отримання результатів пошуку
-      const params = new URLSearchParams();
-      if (searchQuery) params.append('name', searchQuery);
-      if (selectedCategory) params.append('category', selectedCategory);
-      if (selectedIngredient) params.append('ingredient', selectedIngredient);
-      const queryString = params.toString();
-      navigate(`?${queryString}`);
-    };
+        const params = new URLSearchParams();
+        if (searchQuery) params.append('name', searchQuery);
+        if (selectedCategory) params.append('category', selectedCategory);
+        if (selectedIngredient) params.append('ingredient', selectedIngredient);
+        params.append('page', page);
+        const queryString = params.toString();
+        navigate(`?${queryString}`);
+      };
 
-    searchAndNavigate();
-  }, [dispatch, searchQuery, selectedCategory, selectedIngredient, navigate]);
+      searchAndNavigate();
+    }
+  }, [
+    dispatch,
+    searchQuery,
+    selectedCategory,
+    selectedIngredient,
+    page,
+    isDesktop,
+    navigate,
+    isFiltersLoaded,
+  ]);
 
   const handleChangeName = (event) => {
     const value = event.target.value;
