@@ -10,13 +10,9 @@ export const Paginator = () => {
   const dispatch = useDispatch();
   const { isMobile, isDesktop } = useMediaRules();
   const total = useSelector(selectTotal);
-  console.log(total);
   const size = isDesktop ? 9 : 8;
   const totalPages = Math.ceil(total / size);
-  //   const theme = useSelector(selectTheme);
   const defaultPage = Math.ceil(totalPages / 2);
-  //   const defaultPage = 1;
-  console.log(defaultPage);
 
   return (
     <Box

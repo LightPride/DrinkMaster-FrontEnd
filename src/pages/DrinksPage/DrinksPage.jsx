@@ -54,11 +54,9 @@ export default function DrinksPage() {
         ) : error || drinks.length === 0 ? (
           <ErrorMessage>No cocktails were found for your request</ErrorMessage>
         ) : (
-          <>
-            <Drinks drinks={drinks} />
-            <Paginator />
-          </>
+          <Drinks drinks={drinks} />
         )}
+        <Paginator />
       </Wrapper>
     </Container>
   );

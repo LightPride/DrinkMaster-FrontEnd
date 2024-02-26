@@ -142,3 +142,19 @@ export const getFavoriteAll = createAsyncThunk(
     }
   }
 );
+
+// export const getFavoriteAll = createAsyncThunk(
+//   'drinks/favorite/',
+//   async ({ page }, thunkAPI) => {
+//     // async ({ page, limit }, thunkAPI) => {
+//     try {
+//       const res = await instance.get(
+//         // `/drinks/favorite/?page=${page}&limit=${limit}`
+//         `/drinks/favorite/?page=${page}`
+//       );
+//       return res.data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
