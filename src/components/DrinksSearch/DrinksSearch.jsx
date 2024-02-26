@@ -20,7 +20,6 @@ const DrinksSearch = () => {
   const categories = useSelector(selectCategories);
   const ingredients = useSelector(selectIngredients);
   const page = useSelector(selectPage);
-  // console.log(page);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -39,7 +38,6 @@ const DrinksSearch = () => {
     dispatch(getIngredients());
   }, [dispatch]);
 
-  /////////////////////////
   useEffect(() => {
     dispatch(
       getSearchedDrink({
@@ -51,8 +49,6 @@ const DrinksSearch = () => {
       })
     );
   }, [dispatch, page]);
-
-  /////////////////////////
 
   useEffect(() => {
     // Функція для виконання пошуку та оновлення URL

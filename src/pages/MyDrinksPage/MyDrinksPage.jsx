@@ -10,6 +10,7 @@ import DrinksList from '../../components/DrinksList/DrinksList';
 import NotFoundDrinks from '../../components/NotFoundDrinks/NotFoundDrinks';
 import { Paginator } from '../../components/Paginator/Paginator';
 import { selectPage } from '../../redux/drinks/drinks.selectors';
+import { useMediaRules } from '../../hooks/useMediaRules';
 
 export default function MyDrinks() {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ export default function MyDrinks() {
   const { total, ownDrinks } = useDrink();
   const [hasDrinks, setHasDrinks] = useState(false);
   const page = useSelector(selectPage);
+  const { isDesktop } = useMediaRules();
 
   const onPageChange = (pageNum) => {
     setCurrentPage(pageNum);
@@ -35,10 +37,10 @@ export default function MyDrinks() {
   }, [currentPage, navigate]);
 
   useEffect(() => {
-    dispatch(getOwnDrinks({ page: page }))
+    dispatch(getOwnDrinks({ page: page, size: isDesktop ? 6 : 6 }))
       .unwrap()
       .catch((error) => console.log(error));
-  }, [dispatch, page, total]);
+  }, [dispatch, page, isDesktop, total]);
 
   return (
     <Container>
@@ -56,7 +58,6 @@ export default function MyDrinks() {
         ) : (
           <NotFoundDrinks text="You haven't added any cocktails" />
         )}
-        <Paginator />
       </MyDrinksWrapper>
     </Container>
   );

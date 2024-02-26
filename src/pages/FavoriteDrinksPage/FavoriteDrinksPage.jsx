@@ -11,6 +11,7 @@ import PageTitle from '../../components/PageTitle/PageTitle';
 import DrinksList from '../../components/DrinksList/DrinksList';
 import NotFoundDrinks from '../../components/NotFoundDrinks/NotFoundDrinks';
 import { Paginator } from '../../components/Paginator/Paginator';
+import { useMediaRules } from '../../hooks/useMediaRules';
 
 export default function FavoriteDrinksPage() {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ export default function FavoriteDrinksPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [hasDrinks, setHasDrinks] = useState(false);
   const page = useSelector(selectPage);
+  const { isDesktop } = useMediaRules();
 
   const onPageChange = (pageNum) => {
     setCurrentPage(pageNum);
@@ -32,10 +34,10 @@ export default function FavoriteDrinksPage() {
   }, [currentPage, favoriteDrinks]);
 
   useEffect(() => {
-    dispatch(getFavoriteAll({ page: page }))
+    dispatch(getFavoriteAll({ page: page, size: isDesktop ? 9 : 8 }))
       .unwrap()
       .catch((error) => console.log(error));
-  }, [dispatch, page, total]);
+  }, [dispatch, page, isDesktop, total]);
 
   return (
     <Container>
@@ -54,7 +56,6 @@ export default function FavoriteDrinksPage() {
         ) : (
           <NotFoundDrinks text="You haven't added any favorite cocktails yet" />
         )}
-        <Paginator />
       </FavoriteDrinksWrapper>
     </Container>
   );
