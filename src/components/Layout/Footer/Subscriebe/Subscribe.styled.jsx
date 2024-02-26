@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-export const FormContainer = styled.form`
+export const FormContainer = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -15,40 +15,54 @@ export const FormContainer = styled.form`
 
   @media screen and (min-width: 1440px) {
   }
-`;
+  .InputNameEmail {
+    padding-left: 24px;
 
-export const InputNameEmail = styled.input`
-  padding-left: 24px;
+    border: 1px solid rgba(243, 243, 243, 0.2);
+    border-radius: 200px;
+    width: 100%;
+    max-width: 335px;
+    height: 54px;
 
-  border: 1px solid rgba(243, 243, 243, 0.2);
-  border-radius: 200px;
-  width: 100%;
-  max-width: 335px;
-  height: 54px;
+    background-color: transparent;
 
-  background-color: transparent;
-
-  font-family: 'Manrope', sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.28571;
-  text-align: start;
-  color: #f3f3f3;
-
-  &:hover {
-    border: 1px solid rgba(243, 243, 243, 0.5);
-  }
-  &:focus {
-    border: 1px solid rgba(243, 243, 243, 0.5);
-  }
-
-  @media screen and (min-width: 768px) {
-    font-size: 17px;
-
-    line-height: 1.56;
-
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.28571;
+    text-align: start;
     color: #f3f3f3;
-    width: 309px;
+
+    &:hover {
+      border: 1px solid rgba(243, 243, 243, 0.5);
+    }
+    &:focus {
+      border: 1px solid rgba(243, 243, 243, 0.5);
+    }
+
+    @media screen and (min-width: 768px) {
+      font-size: 17px;
+
+      line-height: 1.56;
+
+      color: #f3f3f3;
+      width: 309px;
+    }
+  }
+  .errorMessage {
+    color: red;
+    position: absolute;
+    font-style: italic;
+    font-size: small;
+    right: 10%;
+    bottom: 0;
+  }
+  .labelEmail {
+    width: 100%;
+    position: relative;
+  }
+  .InputNameEmailError {
+    border-color: #ff0000a0;
   }
 `;
 

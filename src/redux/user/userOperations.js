@@ -16,3 +16,17 @@ export const updateUser = createAsyncThunk(
     }
   }
 );
+
+export const subscribeEmail = createAsyncThunk(
+  'users/subscribeEmail',
+  async (email, thunkAPI) => {
+    try {
+      const { data } = await instance.patch(`/users/subscribe`, {
+        email: email,
+      });
+      return data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
