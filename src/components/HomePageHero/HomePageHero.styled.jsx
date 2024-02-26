@@ -92,6 +92,7 @@ export const HomePageSubtitle = styled.p`
     letter-spacing: 0%;
     margin-top: 28px;
     margin-bottom: 40px;
+    width: 500px;
   }
   color: #f3f3f3;
 `;
