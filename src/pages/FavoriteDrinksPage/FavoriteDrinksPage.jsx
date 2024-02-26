@@ -8,6 +8,7 @@ import { FavoriteDrinksWrapper } from './FavoriteDrinksPage.styled';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import DrinksList from '../../components/DrinksList/DrinksList';
 import NotFoundDrinks from '../../components/NotFoundDrinks/NotFoundDrinks';
+import Paginator from '../../components/Paginator/Paginator';
 
 export default function FavoriteDrinksPage() {
   const navigate = useNavigate();
@@ -21,8 +22,6 @@ export default function FavoriteDrinksPage() {
   const onPageChange = (pageNum) => {
     setCurrentPage(pageNum);
   };
-
-  // const totalPages = Math.ceil(total / drinksPerPage);
 
   useEffect(() => {
     if (favoriteDrinks?.length === 0 && currentPage > 1) {
@@ -47,12 +46,15 @@ export default function FavoriteDrinksPage() {
       <FavoriteDrinksWrapper>
         <PageTitle title="Favorites" />
         {hasDrinks > 0 ? (
-          <DrinksList
-            favorite={true}
-            drinksData={favoriteDrinks}
-            onPageChange={onPageChange}
-            currentPage={currentPage}
-          />
+          <>
+            <DrinksList
+              favorite={true}
+              drinksData={favoriteDrinks}
+              onPageChange={onPageChange}
+              currentPage={currentPage}
+            />
+            <Paginator />
+          </>
         ) : (
           <NotFoundDrinks text="You haven't added any favorite cocktails yet" />
         )}
