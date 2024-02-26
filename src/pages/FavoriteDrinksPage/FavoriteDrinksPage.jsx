@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-//import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { selectPage } from '../../redux/drinks/drinks.selectors';
@@ -14,20 +13,15 @@ import NotFoundDrinks from '../../components/NotFoundDrinks/NotFoundDrinks';
 import { Paginator } from '../../components/Paginator/Paginator';
 
 export default function FavoriteDrinksPage() {
-  // const navigate = useNavigate();
   const dispatch = useDispatch();
   const { total, favoriteDrinks } = useDrink();
   const [currentPage, setCurrentPage] = useState(1);
   const [hasDrinks, setHasDrinks] = useState(false);
   const page = useSelector(selectPage);
 
-  // const drinksPerPage = 6;
-
   const onPageChange = (pageNum) => {
     setCurrentPage(pageNum);
   };
-
-  // const totalPages = Math.ceil(total / drinksPerPage);
 
   useEffect(() => {
     if (favoriteDrinks?.length === 0 && currentPage > 1) {
@@ -36,16 +30,6 @@ export default function FavoriteDrinksPage() {
 
     setHasDrinks(favoriteDrinks?.length > 0);
   }, [currentPage, favoriteDrinks]);
-
-  // useEffect(() => {
-  //   navigate(`?page=${currentPage}`);
-  // }, [currentPage, navigate]);
-
-  // useEffect(() => {
-  //   dispatch(getFavoriteAll({ page: currentPage, limit: drinksPerPage }))
-  //     .unwrap()
-  //     .catch((error) => console.log(error));
-  // }, [dispatch, currentPage, total, drinksPerPage]);
 
   useEffect(() => {
     dispatch(getFavoriteAll({ page: page }))
