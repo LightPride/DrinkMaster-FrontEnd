@@ -6,6 +6,7 @@ import {
   selectFavoriteDrinks,
   selectIsLoading,
   selectMainPageDrinks,
+  selectOwnDrinks,
   selectPopularDrinks,
   selectTotalDrinks,
 } from '../redux/drinks/drinks.selectors';
@@ -19,6 +20,7 @@ export const useDrink = () => {
   const total = useSelector(selectTotalDrinks);
   const favoriteDrinks = useSelector(selectFavoriteDrinks);
   const popularDrinks = useSelector(selectPopularDrinks);
+  const ownDrinks = useSelector(selectOwnDrinks);
 
   return {
     mainPageDrinks,
@@ -29,5 +31,6 @@ export const useDrink = () => {
     total,
     favoriteDrinks,
     popularDrinks,
+    ownDrinks,
   };
 };

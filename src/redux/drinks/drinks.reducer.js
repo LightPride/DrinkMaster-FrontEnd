@@ -21,12 +21,17 @@ const initialState = {
   isLoading: false,
   error: null,
   total: 0,
+  ownDrinks: [],
 };
 
 const drinksSlice = createSlice({
   name: 'drinks',
   initialState,
-  reducers: {},
+  reducers: {
+    setPage: (state, { payload }) => {
+      state.page = payload;
+    },
+  },
   extraReducers: (builder) =>
     builder
       .addCase(getMainPageDrinks.fulfilled, (state, action) => {
@@ -42,6 +47,7 @@ const drinksSlice = createSlice({
       .addCase(getSearchedDrink.fulfilled, (state, action) => {
         state.drinks = action.payload.drinks;
         state.total = action.payload.total;
+        state.page = action.payload.currentPage;
         state.isLoading = false;
         state.error = null;
       })
@@ -55,49 +61,33 @@ const drinksSlice = createSlice({
         state.isLoading = false;
         state.error = null;
       })
-      .addCase(removeDrinkFromFavorite.fulfilled, (state, action) => {
+      .addCase(removeOwnDrink.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.favoriteDrinks = state.favoriteDrinks.filter(
-          (drink) => drink._id === action.payload.result._id
+        state.drinks = state.drinks.filter(
+          (drink) => drink._id === action.payload._id
         );
       })
-      // .addCase(removeDrink.fulfilled, (state, action) => {
-      //   state.isLoading = false;
-      //   state.error = null;
-      //   const index = state.favoriteDrinks.findIndex(
-      //     (drink) => drink._id === action.payload.result._id
-      //   );
-      //   state.favoriteDrinks.splice(index, 1);
-      // })
       .addCase(getOwnDrinks.fulfilled, (state, action) => {
-        state.drinks = action.payload.drinks;
+        state.ownDrinks = action.payload.ownDrinks;
         state.total = action.payload.total;
         state.isLoading = false;
         state.error = null;
       })
       .addCase(addDrinkToFavorite.fulfilled, (state, action) => {
-        state.favoriteDrinks.push(action.payload.result);
+        state.favoriteDrinks.push(action.payload);
         state.isLoading = false;
         state.error = null;
       })
-      .addCase(removeOwnDrink.fulfilled, (state, action) => {
+      .addCase(removeDrinkFromFavorite.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.drinks = state.drinks.filter(
-          (drink) => drink._id === action.payload.result._id
+        state.favoriteDrinks = state.favoriteDrinks.filter(
+          (drink) => drink._id === action.payload._id
         );
       })
-      // .addCase(removeOwnDrink.fulfilled, (state, action) => {
-      //   state.isLoading = false;
-      //   state.error = null;
-      //   const index = state.drinks.findIndex(
-      //     (drink) => drink._id === action.payload.result._id
-      //   );
-      //   state.drinks.splice(index, 1);
-      // })
       .addCase(getFavoriteAll.fulfilled, (state, action) => {
-        state.favoriteDrinks = action.payload.drinks;
+        state.favoriteDrinks = action.payload.favoriteDrinks;
         state.total = action.payload.total;
         state.isLoading = false;
         state.error = null;
@@ -141,3 +131,4 @@ const drinksSlice = createSlice({
 });
 
 export const drinksReducer = drinksSlice.reducer;
+export const { setPage } = drinksSlice.actions;

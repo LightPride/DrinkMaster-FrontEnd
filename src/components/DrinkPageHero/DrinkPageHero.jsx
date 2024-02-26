@@ -32,12 +32,24 @@ const DrinkPageHero = ({
   const dispatch = useDispatch();
   const favoriteDrinkList = useSelector(selectFavoriteDrinks);
   const isLoading = useSelector(selectIsLoading);
-  // console.log(favoriteDrinkList);
 
-  const isDrinkFavoritelist = (id) => {
+  const isDrinkFavoriteList = (id) => {
     if (favoriteDrinkList) {
-      return favoriteDrinkList.find((drink) => drink._id === id);
+      return !!favoriteDrinkList.find((drink) => drink._id === id);
     }
+    return false;
+  };
+
+  const handleClickAddFavorite = () => {
+    dispatch(addDrinkToFavorite(id)).then(() => {
+      dispatch(getFavoriteAll());
+    });
+  };
+
+  const handleClickRemoveFavorite = () => {
+    dispatch(removeDrinkFromFavorite(id)).then(() => {
+      dispatch(getFavoriteAll());
+    });
   };
 
   useEffect(() => {
@@ -54,21 +66,18 @@ const DrinkPageHero = ({
               {glass} / {alcoholic}
             </DrinkSubTitle>
             <DrinkDescription>{description}</DrinkDescription>
-            {!isDrinkFavoritelist(id) ? (
-              <AddToFavoriteButton
-                onClick={() => dispatch(addDrinkToFavorite(id))}
-                disabled={isLoading}
-              >
-                Add to favorite drinks
-              </AddToFavoriteButton>
-            ) : (
-              <AddToFavoriteButton
-                onClick={() => dispatch(removeDrinkFromFavorite(id))}
-                disabled={isLoading}
-              >
-                Remove from favorite drinks
-              </AddToFavoriteButton>
-            )}
+            <AddToFavoriteButton
+              onClick={
+                isDrinkFavoriteList(id)
+                  ? handleClickRemoveFavorite
+                  : handleClickAddFavorite
+              }
+              disabled={isLoading}
+            >
+              {isDrinkFavoriteList(id)
+                ? 'Remove from favorite drinks'
+                : 'Add to favorite drinks'}
+            </AddToFavoriteButton>
           </DrinkDescriptionWrapper>
           <DrinkPhotoWrapper>
             {imgPath ? (

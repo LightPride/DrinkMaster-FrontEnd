@@ -7,7 +7,7 @@ import {
 } from './auth.operations';
 
 const initialState = {
-  userData: null,
+  userData: { name: '', email: '', avatarURL: '', id: '' },
   isLoading: false,
   error: null,
   authenticated: false,
@@ -33,6 +33,9 @@ const authSlice = createSlice({
         state.userData = payload.user;
       })
       .addCase(logOutThunk.fulfilled, () => {
+        return initialState;
+      })
+      .addCase(logOutThunk.rejected, () => {
         return initialState;
       })
       .addCase(refreshThunk.fulfilled, (state, { payload }) => {

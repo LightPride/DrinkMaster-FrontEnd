@@ -35,11 +35,12 @@ export const SubtitleForm = styled.div`
     gap: 16px;
     border: 1px solid rgba(243, 243, 243, 0.5);
     border-radius: 200px;
-    width: 104px;
+    width: 100%;
+    max-width: 104px;
     height: 38px;
     @media screen and (min-width: 768px) {
       gap: 18px;
-      width: 114px;
+      max-width: 114px;
       height: 44px;
     }
   }
@@ -68,12 +69,23 @@ export const IngredientsButton = styled.button`
   justify-content: center;
   text-align: center;
   align-items: center;
+  svg {
+    stroke: #f3f3f397;
+    transition: all 0.5s ease;
+  }
+  &:hover {
+    svg {
+      stroke: #ffffff;
+      transition: all 0.5s ease;
+    }
+  }
 `;
 
 export const SubWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 18px;
+  position: relative;
   @media screen and (min-width: 768px) {
     font-size: 24px;
   }
@@ -84,25 +96,27 @@ export const SubWrapper = styled.div`
   }
   .styledSelect {
     background-color: transparent;
-
-    width: 200px;
+    width: 100%;
+    min-width: 120px;
+    max-width: 200px;
     height: 50px;
     margin-right: 8px;
 
     @media screen and (min-width: 768px) {
-      width: 332px;
+      max-width: 332px;
       height: 56px;
       margin-right: 14px;
     }
     @media screen and (min-width: 1440px) {
-      width: 316px;
+      max-width: 316px;
     }
   }
   .styledInput {
     background-color: transparent;
     border: 1px solid rgba(243, 243, 243, 0.5);
     border-radius: 200px;
-    width: 101px;
+    width: 100%;
+    max-width: 101px;
     height: 50px;
     margin-right: 8px;
     color: #f3f3f3;
@@ -117,11 +131,21 @@ export const SubWrapper = styled.div`
       border: 1px solid rgba(243, 243, 243, 0.918);
     }
     @media screen and (min-width: 768px) {
-      width: 150px;
+      max-width: 150px;
       height: 56px;
       margin-left: 14px;
       margin-right: auto;
     }
+  }
+  .errorIngredietns {
+    position: absolute;
+    display: block;
+    left: 1%;
+    top: -30px;
+    color: red;
+
+    font-style: italic;
+    font-size: small;
   }
 `;
 
@@ -137,7 +161,6 @@ export const customStylesSelectIngr = {
   }),
   control: (base, styles) => ({
     ...base,
-    width: '200px',
     height: '50px',
     border: '     1px solid rgba(243, 243, 243, 0.5)',
     background: 'inherit',
@@ -147,7 +170,7 @@ export const customStylesSelectIngr = {
     cursor: 'pointer',
     '@media only screen and (min-width: 768px)': {
       ...styles['@media only screen and (min-width: 768px)'],
-      width: '332px',
+
       height: '56px',
       fontSize: '17px',
       lineHeight: '1.56',
@@ -156,12 +179,12 @@ export const customStylesSelectIngr = {
   menu: (base) => ({
     ...base,
     marginTop: '2px',
-    padding: '0px 12px',
+    padding: '6px 12px',
     backgroundColor: ' #161f37',
     borderRadius: '12px',
     '@media only screen and (min-width: 768px)': {
       ...base['@media only screen and (min-width: 768px)'],
-      padding: '0px 18px',
+      padding: '6px 18px',
     },
   }),
   indicatorSeparator: (base) => ({

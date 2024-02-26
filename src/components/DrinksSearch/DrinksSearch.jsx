@@ -8,80 +8,99 @@ import {
   selectCategories,
   selectIngredients,
 } from '../../redux/filters/filters.selectors';
+import { selectPage } from '../../redux/drinks/drinks.selectors';
 import { getSearchedDrink } from '../../redux/drinks/drinks.operations';
 import { Filter, Wrapper } from './DrinksSearch.styled';
 import Selection from './Select';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useMediaRules } from '../../hooks/useMediaRules';
 
 const DrinksSearch = () => {
   const dispatch = useDispatch();
   const categories = useSelector(selectCategories);
   const ingredients = useSelector(selectIngredients);
+  const page = useSelector(selectPage);
+  // console.log(page);
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  const [name, setName] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('');
-  const [selectedIngredient, setSelectedIngredient] = useState('');
+  const queryParams = new URLSearchParams(location.search);
+  const [searchQuery, setSearchQuery] = useState(queryParams.get('name') || '');
+  const [selectedCategory, setSelectedCategory] = useState(
+    queryParams.get('category') || ''
+  );
+  const [selectedIngredient, setSelectedIngredient] = useState(
+    queryParams.get('ingredient') || ''
+  );
+  const { isDesktop } = useMediaRules();
 
   useEffect(() => {
     dispatch(getCategories());
     dispatch(getIngredients());
-    const savedSearchQuery = localStorage.getItem('searchQuery');
-    if (savedSearchQuery) {
-      setName(savedSearchQuery);
-      dispatch(getSearchedDrink({ name: savedSearchQuery }));
-    }
-    const savedCategory = localStorage.getItem('selectedCategory');
-    if (savedCategory) {
-      setSelectedCategory(savedCategory);
-    }
-    const savedIngredient = localStorage.getItem('selectedIngredient');
-    if (savedIngredient) {
-      setSelectedIngredient(savedIngredient);
-    }
   }, [dispatch]);
 
-  const handleChangeName = (event) => {
-    const value = event.target.value;
-    setName(value);
-    localStorage.setItem('searchQuery', value);
-  };
-
-  const handleCategoryChange = (selectedOption) => {
-    if (selectedOption) {
-      const value = selectedOption.value;
-      setSelectedCategory(value);
-      localStorage.setItem('selectedCategory', value);
-    } else {
-      setSelectedCategory(''); // Очищення вибраної категорії
-      localStorage.removeItem('selectedCategory'); // Видалення ключа з локального сховища
-    }
-  };
-
-  const handleIngredientChange = (selectedOption) => {
-    if (selectedOption) {
-      const value = selectedOption.value;
-      setSelectedIngredient(value);
-      localStorage.setItem('selectedIngredient', value);
-    } else {
-      setSelectedIngredient(''); // Очищення вибраного інгредієнта
-      localStorage.removeItem('selectedIngredient'); // Видалення ключа з локального сховища
-    }
-  };
-
+  /////////////////////////
   useEffect(() => {
     dispatch(
       getSearchedDrink({
-        name,
+        name: searchQuery,
         category: selectedCategory,
         ingredient: selectedIngredient,
+        page: page,
+        size: isDesktop ? 9 : 8,
       })
     );
-    localStorage.setItem('searchQuery', name);
-  }, [dispatch, name, selectedCategory, selectedIngredient]);
+  }, [dispatch, page]);
 
-  // Фільтрація опцій для відображення вибору
+  /////////////////////////
+
+  useEffect(() => {
+    // Функція для виконання пошуку та оновлення URL
+    const searchAndNavigate = async () => {
+      await dispatch(
+        getSearchedDrink(
+          {
+            name: searchQuery,
+            category: selectedCategory,
+            ingredient: selectedIngredient,
+            page: page,
+            size: isDesktop ? 9 : 8,
+          },
+          [dispatch, page]
+        )
+      );
+
+      // Оновлення URL після отримання результатів пошуку
+      const params = new URLSearchParams();
+      if (searchQuery) params.append('name', searchQuery);
+      if (selectedCategory) params.append('category', selectedCategory);
+      if (selectedIngredient) params.append('ingredient', selectedIngredient);
+      const queryString = params.toString();
+      navigate(`?${queryString}`);
+    };
+
+    searchAndNavigate();
+  }, [dispatch, searchQuery, selectedCategory, selectedIngredient, navigate]);
+
+  const handleChangeName = (event) => {
+    const value = event.target.value;
+    setSearchQuery(value);
+  };
+
+  const handleCategoryChange = (selectedOption) => {
+    const value = selectedOption ? selectedOption.value : '';
+    setSelectedCategory(value);
+  };
+
+  const handleIngredientChange = (selectedOption) => {
+    const value = selectedOption ? selectedOption.value : '';
+    setSelectedIngredient(value);
+  };
+
   const filteredCategories = categories
     .map((category) => category.category)
     .filter((category) => category !== selectedCategory);
+
   const filteredIngredients = ingredients
     .map((ingredient) => ingredient.title)
     .filter((ingredient) => ingredient !== selectedIngredient);
@@ -92,7 +111,7 @@ const DrinksSearch = () => {
         id="filterInput"
         type="text"
         placeholder="Enter the text"
-        value={name}
+        value={searchQuery}
         onChange={handleChangeName}
         debounceTimeout={1000}
       />

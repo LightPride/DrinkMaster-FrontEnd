@@ -7,8 +7,8 @@ export const HomeWrapper = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
-    padding-bottom:140px;
-  } 
+    padding-bottom: 140px;
+  }
 `;
 
 export const OtherDrinksButton = styled.button`
