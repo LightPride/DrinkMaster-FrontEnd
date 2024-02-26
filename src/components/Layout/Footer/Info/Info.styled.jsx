@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const InfoContainer = styled.div`
   margin-top: 60px;
@@ -83,7 +84,7 @@ export const InfoText = styled.p`
   }
 `;
 
-export const InfoLink = styled.a`
+export const InfoLink = styled(Link)`
   color: var(--white-color);
   &:visited {
     color: var(--white-color);
