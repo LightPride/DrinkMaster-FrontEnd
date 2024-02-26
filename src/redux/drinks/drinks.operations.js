@@ -71,8 +71,16 @@ export const addOwnDrink = createAsyncThunk(
           'Content-Type': 'multipart/form-data',
         },
       });
+      Notiflix.Notify.success(`Drink has been added to own drinks!`, {
+        position: 'сenter-top',
+        timeout: 3000,
+      });
       return res.data;
     } catch (error) {
+      Notiflix.Notify.failure(`Error! Drink was not added from own drink!`, {
+        position: 'сenter-top',
+        timeout: 3000,
+      });
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -83,8 +91,16 @@ export const removeOwnDrink = createAsyncThunk(
   async (drinkId, thunkAPI) => {
     try {
       const res = await instance.delete(`/drinks/own/remove/${drinkId}`);
+      Notiflix.Notify.info(`Drink has been removed from own drinks!`, {
+        position: 'сenter-top',
+        timeout: 3000,
+      });
       return res.data;
     } catch (error) {
+      Notiflix.Notify.failure(`Error! Drink was not removed from own drink!`, {
+        position: 'сenter-top',
+        timeout: 3000,
+      });
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -109,13 +125,13 @@ export const addDrinkToFavorite = createAsyncThunk(
       const res = await instance.post(`/drinks/favorite/add`, {
         drinkId: data,
       });
-      Notiflix.Notify.success(`Drink added to favorite!`, {
+      Notiflix.Notify.success(`Drink has been added to favorite!`, {
         position: 'сenter-top',
         timeout: 3000,
       });
       return res.data;
     } catch (error) {
-      Notiflix.Notify.failure(`Drink do not added to favorite! Server error!`, {
+      Notiflix.Notify.failure(`Error! Drink was not added to favorite!`, {
         position: 'сenter-top',
         timeout: 3000,
       });
@@ -129,19 +145,16 @@ export const removeDrinkFromFavorite = createAsyncThunk(
   async (drinkId, thunkAPI) => {
     try {
       const res = await instance.delete(`/drinks/favorite/remove/${drinkId}`);
-      Notiflix.Notify.info(`Drink removed from favorite!`, {
+      Notiflix.Notify.info(`Drink has been removed from favorite!`, {
         position: 'сenter-top',
         timeout: 3000,
       });
       return res.data;
     } catch (error) {
-      Notiflix.Notify.failure(
-        `Drink do not removed from favorite! Server error!`,
-        {
-          position: 'сenter-top',
-          timeout: 3000,
-        }
-      );
+      Notiflix.Notify.failure(`Error! Drink was not removed from favorite!`, {
+        position: 'сenter-top',
+        timeout: 3000,
+      });
       return thunkAPI.rejectWithValue(error.message);
     }
   }
