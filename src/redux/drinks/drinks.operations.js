@@ -41,6 +41,7 @@ export const getSearchedDrink = createAsyncThunk(
     };
     try {
       const res = await instance.get('/drinks/search', searchParams);
+      console.log(res.data);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

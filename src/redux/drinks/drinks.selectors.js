@@ -9,6 +9,8 @@ export const selectDrinkById = (state, drinkId) =>
 export const selectFavoriteDrinks = (state) => state.drinks.favoriteDrinks;
 export const selectTotalDrinks = (state) => state.drinks.total;
 const selectInitialPopularDrinks = (state) => state.drinks.popularDrinks;
+export const selectPage = (state) => state.drinks.page;
+export const selectTotal = (state) => state.drinks.total;
 
 export const selectPopularDrinks = createSelector(
   [selectInitialPopularDrinks],

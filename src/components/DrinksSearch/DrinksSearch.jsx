@@ -8,15 +8,19 @@ import {
   selectCategories,
   selectIngredients,
 } from '../../redux/filters/filters.selectors';
+import { selectPage } from '../../redux/drinks/drinks.selectors';
 import { getSearchedDrink } from '../../redux/drinks/drinks.operations';
 import { Filter, Wrapper } from './DrinksSearch.styled';
 import Selection from './Select';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useMediaRules } from '../../hooks/useMediaRules';
 
 const DrinksSearch = () => {
   const dispatch = useDispatch();
   const categories = useSelector(selectCategories);
   const ingredients = useSelector(selectIngredients);
+  const page = useSelector(selectPage);
+  // console.log(page);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -28,21 +32,42 @@ const DrinksSearch = () => {
   const [selectedIngredient, setSelectedIngredient] = useState(
     queryParams.get('ingredient') || ''
   );
+  const { isDesktop } = useMediaRules();
 
   useEffect(() => {
     dispatch(getCategories());
     dispatch(getIngredients());
   }, [dispatch]);
 
+  /////////////////////////
+  useEffect(() => {
+    dispatch(
+      getSearchedDrink({
+        name: searchQuery,
+        category: selectedCategory,
+        ingredient: selectedIngredient,
+        page: page,
+        size: isDesktop ? 9 : 8,
+      })
+    );
+  }, [dispatch, page]);
+
+  /////////////////////////
+
   useEffect(() => {
     // Функція для виконання пошуку та оновлення URL
     const searchAndNavigate = async () => {
       await dispatch(
-        getSearchedDrink({
-          name: searchQuery,
-          category: selectedCategory,
-          ingredient: selectedIngredient,
-        })
+        getSearchedDrink(
+          {
+            name: searchQuery,
+            category: selectedCategory,
+            ingredient: selectedIngredient,
+            page: page,
+            size: isDesktop ? 9 : 8,
+          },
+          [dispatch, page]
+        )
       );
 
       // Оновлення URL після отримання результатів пошуку
