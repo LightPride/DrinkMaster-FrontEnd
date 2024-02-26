@@ -1,7 +1,10 @@
 import { createGlobalStyle, styled } from 'styled-components';
-import bgMobile from '../../../images/BackgroundImages/bgMobile.png';
-import bgTablet from '../../../images/BackgroundImages/bgTablet.png';
-import bgDesktop from '../../../images/BackgroundImages/bgDesktop.png';
+import bgMobile from '../../../images/BackgroundImages/bgMobile.jpg';
+import bgTablet from '../../../images/BackgroundImages/bgTablet.jpg';
+import bgDesktop from '../../../images/BackgroundImages/bgDesktop.jpg';
+import bgMobile2x from '../../../images/BackgroundImages/bgMobile@2x.jpg';
+import bgTablet2x from '../../../images/BackgroundImages/bgTablet@2x.jpg';
+import bgDesktop2x from '../../../images/BackgroundImages/bgDesktop@2x.jpg';
 import circle2 from '../../../images/BackgroundImages/circle2.png';
 import circle from '../../../images/BackgroundImages/circle.png';
 import dobleCircle from '../../../images/BackgroundImages/dobleCircle.png';
@@ -14,25 +17,38 @@ export const StyledBackground = createGlobalStyle`
     background-position:
       top -200px right,
       bottom -300px left 300px,
-      center right -300px;
+      center right -350px;
     background-size:
       auto auto,
       auto auto,
       auto 100%;
 
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: url(${dobleCircle}), url(${circle}), url(${bgMobile2x});
+    }
+
     @media screen and (min-width: 768px) {
       background-image: url(${dobleCircle}), url(${circle}), url(${bgTablet});
       background-position:
         top -300px left -500px,
-        bottom -200px right -600px,
-        center right -250px;
+        bottom -400px right -600px,
+        center right -300px;
+
+     @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: url(${dobleCircle}), url(${circle}), url(${bgTablet2x});
     }
+    }
+
     @media screen and (min-width: 1440px) {
       background-image: url(${dobleCircle}), url(${circle}), url(${bgDesktop});
       background-position:
         top -300px left -500px,
         bottom -400px right -500px,
         center right;
+
+     @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: url(${dobleCircle}), url(${circle}), url(${bgDesktop2x});
+    }
     }
   }
 

@@ -1,22 +1,18 @@
+import dayjs from 'dayjs';
 import * as yup from 'yup';
 
 const signUpSchema = yup.object({
   name: yup.string().min(3, 'Please put down more than 3 letters!').required(),
   dateOfBirth: yup
     .string()
-    // .matches(
-    //   /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2[0-9]|3[01])\/\d{4}$/,
-    //   'Date must be in the format mm-dd-yyyy!'
-    // )
     .test(
       'is-future-date',
       'Date of birth cannot be in the future',
       function (value) {
-        const inputDate = new Date(value);
+        const inputDate = dayjs(value, 'YYYY-MM-DD');
+        const currentDate = dayjs();
 
-        const currentDate = new Date();
-
-        return inputDate <= currentDate;
+        return inputDate.isValid() && inputDate.isBefore(currentDate);
       }
     )
     .required(),

@@ -11,19 +11,18 @@ import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import dayjs from 'dayjs';
 import {
   FormHelperText,
   InputLabel,
   OutlinedInput,
   TextField,
 } from '@mui/material';
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import UniversalBtn from './UniversalBtn';
 
 import { signUpSchema } from '../../schemas/authSchemas';
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import dayjs from 'dayjs';
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
@@ -46,9 +45,7 @@ const SignUpForm = () => {
   return (
     <form
       onSubmit={handleSubmit((data) => {
-        // Конвертація дати перед відправленням на сервер
         data.dateOfBirth = dayjs(data.dateOfBirth).format('YYYY-MM-DD');
-        console.log(data);
         dispatch(registerThunk(data));
       })}
     >
@@ -72,7 +69,7 @@ const SignUpForm = () => {
         <Controller
           control={control}
           name="dateOfBirth"
-          defaultValue={dayjs('2022-04-17')}
+          defaultValue={dayjs('1999-12-31')}
           render={({ field }) => (
             <FormControl
               variant="outlined"
@@ -82,7 +79,7 @@ const SignUpForm = () => {
             >
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
-                  label="mm/dd/yyyy"
+                  // label="mm/dd/yyyy"
                   onChange={(date) => setValue('dateOfBirth', date)}
                   {...field}
                 />

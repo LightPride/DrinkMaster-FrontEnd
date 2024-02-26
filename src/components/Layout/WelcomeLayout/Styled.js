@@ -1,9 +1,4 @@
 import styled from 'styled-components';
-import bgMobile from '../../../images/BackgroundImages/bgMobile.png';
-import bgTablet from '../../../images/BackgroundImages/bgTablet.png';
-import bgDesktop from '../../../images/BackgroundImages/bgDesktop.png';
-import circle from '../../../images/BackgroundImages/circle.png';
-import dobleCircle from '../../../images/BackgroundImages/dobleCircle.png';
 
 export const StyledWelcomeLayout = styled.div`
   display: flex;
