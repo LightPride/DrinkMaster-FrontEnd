@@ -42,12 +42,15 @@ export default function FavoriteDrinksPage() {
       <FavoriteDrinksWrapper>
         <PageTitle title="Favorites" />
         {hasDrinks > 0 ? (
-          <DrinksList
-            favorite={true}
-            drinksData={favoriteDrinks}
-            onPageChange={onPageChange}
-            currentPage={currentPage}
-          />
+          <>
+            <DrinksList
+              favorite={true}
+              drinksData={favoriteDrinks}
+              onPageChange={onPageChange}
+              currentPage={currentPage}
+            />
+            <Paginator />
+          </>
         ) : (
           <NotFoundDrinks text="You haven't added any favorite cocktails yet" />
         )}

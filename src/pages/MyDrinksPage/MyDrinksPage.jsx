@@ -45,11 +45,14 @@ export default function MyDrinks() {
       <MyDrinksWrapper>
         <PageTitle title="My drinks" />
         {hasDrinks > 0 ? (
-          <DrinksList
-            drinksData={ownDrinks}
-            onPageChange={onPageChange}
-            currentPage={currentPage}
-          />
+          <>
+            <DrinksList
+              drinksData={ownDrinks}
+              onPageChange={onPageChange}
+              currentPage={currentPage}
+            />
+            <Paginator />
+          </>
         ) : (
           <NotFoundDrinks text="You haven't added any cocktails" />
         )}

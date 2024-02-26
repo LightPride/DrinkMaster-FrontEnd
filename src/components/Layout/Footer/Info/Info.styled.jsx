@@ -84,7 +84,8 @@ export const InfoText = styled.p`
 `;
 
 export const InfoLink = styled.a`
+  color: var(--white-color);
   &:visited {
-    color: inherit;
+    color: var(--white-color);
   }
 `;
