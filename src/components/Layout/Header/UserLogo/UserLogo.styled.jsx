@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 
+export const UserLogoImg = styled.img`
+  object-fit: cover;
+  border-radius: 100%;
+  height: 38px;
+  width: 38px;
+`;
+
 export const UserLogoWrapper = styled.div`
   display: flex;
   gap: 15px;
@@ -38,14 +45,6 @@ export const UserLogoText = styled.p`
   }
 `;
 
-export const UserLogoImg = styled.img`
-  object-fit: cover;
-  border-radius: 100%;
-  height: 38px;
-  width: 38px;
-`;
-
-//HACK Удалить после того как с сервера начну получать картинки
 export const UserLogoPlaceholder = () => {
   return (
     <svg
