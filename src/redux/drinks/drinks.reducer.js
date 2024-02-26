@@ -27,7 +27,11 @@ const initialState = {
 const drinksSlice = createSlice({
   name: 'drinks',
   initialState,
-  reducers: {},
+  reducers: {
+    setPage: (state, { payload }) => {
+      state.page = payload;
+    },
+  },
   extraReducers: (builder) =>
     builder
       .addCase(getMainPageDrinks.fulfilled, (state, action) => {
@@ -43,6 +47,7 @@ const drinksSlice = createSlice({
       .addCase(getSearchedDrink.fulfilled, (state, action) => {
         state.drinks = action.payload.drinks;
         state.total = action.payload.total;
+        state.page = action.payload.currentPage;
         state.isLoading = false;
         state.error = null;
       })
@@ -126,3 +131,4 @@ const drinksSlice = createSlice({
 });
 
 export const drinksReducer = drinksSlice.reducer;
+export const { setPage } = drinksSlice.actions;
