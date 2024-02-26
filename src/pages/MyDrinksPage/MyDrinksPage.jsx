@@ -19,13 +19,9 @@ export default function MyDrinks() {
   const [hasDrinks, setHasDrinks] = useState(false);
   const page = useSelector(selectPage);
 
-  // const drinksPerPage = 6;
-
   const onPageChange = (pageNum) => {
     setCurrentPage(pageNum);
   };
-
-  // const totalPages = Math.ceil(total / drinksPerPage);
 
   useEffect(() => {
     if (ownDrinks?.length === 0 && currentPage > 1) {
