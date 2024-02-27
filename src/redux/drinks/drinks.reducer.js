@@ -77,6 +77,7 @@ const drinksSlice = createSlice({
       })
       .addCase(addDrinkToFavorite.fulfilled, (state, action) => {
         state.favoriteDrinks.push(action.payload);
+        console.log(action.payload);
         state.isLoading = false;
         state.error = null;
       })

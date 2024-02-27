@@ -22,6 +22,15 @@ const DrinksSearch = () => {
   const page = useSelector(selectPage);
   const location = useLocation();
   const navigate = useNavigate();
+  // const [currentPage, setCurrentPage] = useState('1');
+  let currentPage;
+
+  // if (page > 1) {
+  //   currentPage = page;
+  //   console.log(currentPage);
+  // }
+  // //console.log(page);
+  // console.log(currentPage);
 
   const queryParams = new URLSearchParams(location.search);
   const [searchQuery, setSearchQuery] = useState(queryParams.get('name') || '');
@@ -57,12 +66,13 @@ const DrinksSearch = () => {
               name: searchQuery,
               category: selectedCategory,
               ingredient: selectedIngredient,
-              page: page,
+              page: page > 1 ? (currentPage = page) : (currentPage = 1),
               size: isDesktop ? 9 : 8,
             },
-            [dispatch, page]
+            [dispatch, currentPage]
           )
         );
+        console.log(currentPage);
 
         const params = new URLSearchParams();
         if (searchQuery) params.append('name', searchQuery);

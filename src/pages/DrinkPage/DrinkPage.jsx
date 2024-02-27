@@ -18,6 +18,10 @@ const DrinkPage = () => {
     dispatch(getDrinkById(drinkId));
   }, [dispatch, drinkId]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <Container>
       <DrinkPageWrapper>
@@ -30,6 +34,7 @@ const DrinkPage = () => {
               alcoholic={drink.alcoholic}
               description={drink.description}
               imgPath={drink.drinkThumb}
+              isFavorite={drink.isFavoriteByUser}
             />
             <DrinkIngredientsList ingredients={drink.ingredients} />
             <RecipePreparation instructions={drink.instructions} />

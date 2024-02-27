@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   selectFavoriteDrinks,
   selectIsLoading,
 } from '../../redux/drinks/drinks.selectors';
 import {
-  getFavoriteAll,
+  // getFavoriteAll,
   addDrinkToFavorite,
   removeDrinkFromFavorite,
 } from '../../redux/drinks/drinks.operations';
@@ -28,34 +28,37 @@ const DrinkPageHero = ({
   alcoholic,
   description,
   imgPath,
+  isFavorite,
 }) => {
   const dispatch = useDispatch();
   const favoriteDrinkList = useSelector(selectFavoriteDrinks);
   const isLoading = useSelector(selectIsLoading);
-  const size = 1000;
+  // const size = 1000;
 
-  const isDrinkFavoriteList = (id) => {
-    if (favoriteDrinkList) {
-      return !!favoriteDrinkList.find((drink) => drink._id === id);
-    }
-    return false;
-  };
+  // const isDrinkFavoriteList = (id) => {
+  //   if (favoriteDrinkList) {
+  //     return !!favoriteDrinkList.find((drink) => drink._id === id);
+  //   }
+  //   return false;
+  // };
 
   const handleClickAddFavorite = () => {
     dispatch(addDrinkToFavorite(id)).then(() => {
-      dispatch(getFavoriteAll({ size: size }));
+      isFavorite = true;
+      // dispatch(getFavoriteAll({ size: size }));
     });
   };
 
   const handleClickRemoveFavorite = () => {
     dispatch(removeDrinkFromFavorite(id)).then(() => {
-      dispatch(getFavoriteAll({ size: size }));
+      isFavorite = false;
+      // dispatch(getFavoriteAll({ size: size }));
     });
   };
 
-  useEffect(() => {
-    dispatch(getFavoriteAll({ size: size }));
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getFavoriteAll({ size: size }));
+  // }, [dispatch]);
 
   return (
     <>
@@ -69,13 +72,11 @@ const DrinkPageHero = ({
             <DrinkDescription>{description}</DrinkDescription>
             <AddToFavoriteButton
               onClick={
-                isDrinkFavoriteList(id)
-                  ? handleClickRemoveFavorite
-                  : handleClickAddFavorite
+                isFavorite ? handleClickRemoveFavorite : handleClickAddFavorite
               }
               disabled={isLoading}
             >
-              {isDrinkFavoriteList(id)
+              {isFavorite
                 ? 'Remove from favorite drinks'
                 : 'Add to favorite drinks'}
             </AddToFavoriteButton>
