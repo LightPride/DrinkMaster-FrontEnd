@@ -17,12 +17,21 @@ import {
   TextField,
 } from '@mui/material';
 import { selectError } from '../../redux/auth/auth.selectors';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { signInSchema } from '../../schemas/authSchemas';
+import { Notify } from 'notiflix';
 
 const SignInForm = () => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const error = useSelector(selectError);
-  const { handleSubmit, control } = useForm();
+  const {
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(signInSchema),
+  });
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -33,7 +42,18 @@ const SignInForm = () => {
   return (
     <form
       onSubmit={handleSubmit((data) => {
-        dispatch(loginThunk(data));
+        dispatch(loginThunk(data))
+          .then((response) => {
+            if (response.meta.requestStatus === 'fulfilled') {
+              return Notify.success('You have been successfully sigened in!');
+            }
+            return Notify.failure(
+              `Your request has been rejected, please try again!`
+            );
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       })}
     >
       <StyledSignForm>
@@ -46,8 +66,8 @@ const SignInForm = () => {
               label="Email"
               variant="outlined"
               className="textInput"
-              error={error !== null}
-              helperText={error}
+              error={!!errors.email?.message}
+              helperText={errors.email?.message}
               required
               {...field}
             />
@@ -63,7 +83,7 @@ const SignInForm = () => {
               required
               fullWidth
               className="textInput"
-              error={error !== null}
+              error={!!errors?.password}
             >
               <InputLabel htmlFor="outlined-adornment-password">
                 Password
@@ -88,7 +108,9 @@ const SignInForm = () => {
                 }
                 label="Password"
               />
-              {error !== null && <FormHelperText>{error}</FormHelperText>}
+              {errors?.password && (
+                <FormHelperText>{errors.password.message}</FormHelperText>
+              )}
             </FormControl>
           )}
         />
