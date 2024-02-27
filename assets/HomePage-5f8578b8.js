@@ -1,4 +1,4 @@
-import{u as t,j as e,L as w,a as f,b as j,c as p,r as s,d as k,g as v,C as y,e as D}from"./index-d53080b4.js";import{N as z,a as H,n as P,b as C}from"./blueIced@2xMob-abf058dd.js";import{s as b,a as L,b as T}from"./drinks.selectors-85f175da.js";import{n as l}from"./index.browser-7e542916.js";import{D as E}from"./DrinksItem-10d96849.js";import"./coctailPlaceholder-82987b74.js";const F=t.div`
+import{u as t,j as e,L as w,a as f,b as j,c as p,r as s,d as k,g as v,C as y,e as D}from"./index-b22de4f5.js";import{N as z,a as H,n as P,b as C}from"./blueIced@2xMob-abf058dd.js";import{s as b,a as L,b as T}from"./drinks.selectors-9b8cc722.js";import{n as l}from"./index.browser-7e542916.js";import{D as E}from"./DrinksItem-58d62bab.js";import"./coctailPlaceholder-82987b74.js";const F=t.div`
   padding-bottom: 80px;
 
   @media screen and (min-width: 768px) {
@@ -19,7 +19,7 @@ import{u as t,j as e,L as w,a as f,b as j,c as p,r as s,d as k,g as v,C as y,e a
   margin: 0 auto;
   background-color: rgb(243, 243, 243);
   color: #161f37;
-  /* margin-bottom: 140px; */
+
   border: 1px solid transparent;
 
   &:active {
