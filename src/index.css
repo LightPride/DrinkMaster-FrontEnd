@@ -122,3 +122,45 @@ button {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.css-1g7nc1s-MuiPickersLayout-root .MuiPickersLayout-actionBar,
+.css-1q04gal-MuiDateCalendar-root {
+  background-color: var(--dark-blue-color);
+}
+
+.MuiDialogActions-root .css-1e6y48t-MuiButtonBase-root-MuiButton-root,
+.MuiDayCalendar-weekContainer
+  .css-1u23akw-MuiButtonBase-root-MuiPickersDay-root,
+.css-12mkn7b-MuiButtonBase-root-MuiIconButton-root-MuiPickersCalendarHeader-switchViewButton,
+.css-dplwbx-MuiPickersCalendarHeader-label,
+.css-1vooibu-MuiSvgIcon-root,
+.css-1tkx1wf-MuiSvgIcon-root-MuiPickersCalendarHeader-switchViewIcon,
+.MuiPickersYear-root .css-innj4t-MuiPickersYear-yearButton {
+  color: var(--white-color);
+}
+
+.MuiDayCalendar-header
+  .css-rhmlg1-MuiTypography-root-MuiDayCalendar-weekDayLabel {
+  color: var(--white-fifty-color);
+}
+
+.MuiDayCalendar-monthContainer
+  .css-18wn1yb-MuiButtonBase-root-MuiPickersDay-root.Mui-selected,
+.MuiDayCalendar-monthContainer
+  .MuiDayCalendar-weekContainer
+  .css-1u23akw-MuiButtonBase-root-MuiPickersDay-root.Mui-selected,
+.MuiYearCalendar-root
+  .MuiPickersYear-root
+  .css-innj4t-MuiPickersYear-yearButton.Mui-selected {
+  background-color: var(--white-color);
+  color: var(--dark-blue-color);
+}
+
+.MuiDayCalendar-weekContainer
+  .css-18wn1yb-MuiButtonBase-root-MuiPickersDay-root {
+  color: var(--white-ten-color);
+}
+
+.css-1g7nc1s-MuiPickersLayout-root .MuiPickersLayout-toolbar {
+  display: none;
+}
