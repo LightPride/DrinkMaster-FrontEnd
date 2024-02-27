@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyledSignForm } from './Styled';
 import { useForm, Controller } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { registerThunk } from '../../redux/auth/auth.operations';
 
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -23,10 +23,12 @@ import {
 import UniversalBtn from './UniversalBtn';
 
 import { signUpSchema } from '../../schemas/authSchemas';
+import { Notify } from 'notiflix';
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
+  const error = useSelector((state) => state.auth.error);
   const {
     handleSubmit,
     control,
@@ -46,7 +48,20 @@ const SignUpForm = () => {
     <form
       onSubmit={handleSubmit((data) => {
         data.dateOfBirth = dayjs(data.dateOfBirth).format('YYYY-MM-DD');
-        dispatch(registerThunk(data));
+        dispatch(registerThunk(data))
+          .then((response) => {
+            if (response.meta.requestStatus === 'fulfilled') {
+              return Notify.success(
+                'Your account has been successfully created!'
+              );
+            }
+            return Notify.failure(
+              `Your request has been rejected, please try again!`
+            );
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       })}
     >
       <StyledSignForm>
