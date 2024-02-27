@@ -8,7 +8,6 @@ import {
 import defaultImage from '../../images/drinkPage/coctailPlaceholder.png';
 
 const DrinkIngredientItem = ({ title, measure, quantity, images }) => {
-  // console.log(images);
   return (
     <>
       <IngredientPhotoWrapper>

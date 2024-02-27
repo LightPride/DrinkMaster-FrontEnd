@@ -33,7 +33,6 @@ const DrinksSearch = () => {
   );
   const { isDesktop } = useMediaRules();
 
-  // Додано стан для відстеження завантаження категорій та інгредієнтів
   const [isFiltersLoaded, setIsFiltersLoaded] = useState(false);
 
   useEffect(() => {
@@ -42,7 +41,6 @@ const DrinksSearch = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    // Перевірка, чи обидва набори даних завантажені
     if (categories.length > 0 && ingredients.length > 0) {
       setIsFiltersLoaded(true);
     }

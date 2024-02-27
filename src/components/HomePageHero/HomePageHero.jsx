@@ -18,9 +18,6 @@ import {
 } from './HomePageHero.styled';
 
 const HomePageHero = () => {
-  // const handleClick = () => {
-  //   console.log('Button clicked');
-  // };
   return (
     <HomePageHeroWrapper>
       <HomePageTextWrapper>

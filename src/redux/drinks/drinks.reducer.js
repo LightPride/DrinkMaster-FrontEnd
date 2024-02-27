@@ -22,6 +22,7 @@ const initialState = {
   error: null,
   total: 0,
   ownDrinks: [],
+  page: 1,
 };
 
 const drinksSlice = createSlice({

@@ -1,5 +1,3 @@
-// import { useEffect } from 'react';
-// import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import DrinksSearch from '../../components/DrinksSearch/DrinksSearch';
