@@ -1,4 +1,4 @@
-import{u as x,i as l,d as f,r as a,c as h,av as j,j as s,C as k}from"./index-2c36e74e.js";import{u as D,D as P,N as v}from"./NotFoundDrinks-a3c7d8f4.js";import{P as E}from"./PageTitle-1d14e582.js";import{u as y,P as C}from"./Paginator-a385d606.js";import{c as M}from"./drinks.selectors-b4d4a2f3.js";import"./coctailPlaceholder-82987b74.js";import"./blueIced@2xMob-abf058dd.js";const N=x.div`
+import{u as x,i as l,d as f,r as a,c as h,av as j,j as s,C as k}from"./index-d59216dc.js";import{u as D,D as P,N as v}from"./NotFoundDrinks-e77450f1.js";import{P as E}from"./PageTitle-ae2a9fa9.js";import{u as y,P as C}from"./Paginator-f025084b.js";import{c as M}from"./drinks.selectors-d1b7f82a.js";import"./coctailPlaceholder-82987b74.js";import"./blueIced@2xMob-abf058dd.js";const N=x.div`
   margin-top: 80px;
   margin-bottom: 80px;
 
