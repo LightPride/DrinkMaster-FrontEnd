@@ -6,8 +6,6 @@ import {
 import { nanoid } from 'nanoid';
 
 const DrinkIngredientsList = ({ ingredients }) => {
-  // console.log(ingredients);
-  // console.log(ingredients[0].ingredient.ingredientThumb);
   return (
     <>
       {ingredients && (
@@ -20,7 +18,7 @@ const DrinkIngredientsList = ({ ingredients }) => {
                 ['thumb-medium']: '',
                 ['thumb-small']: '',
               };
-              // console.log(images);
+
               if (
                 ingredient.ingredient &&
                 ingredient.ingredient.ingredientThumb
@@ -29,10 +27,9 @@ const DrinkIngredientsList = ({ ingredients }) => {
                 images['thumb-medium'] = ingredient.ingredient['thumb-medium'];
                 images['thumb-small'] = ingredient.ingredient['thumb-small'];
               }
-              // console.log(images);
+
               return (
                 <li key={nanoid()}>
-                  {/* // <li key={ingredient.ingredient && ingredient.ingredient._id}> */}
                   <DrinkIngredientItem
                     title={ingredient.title}
                     measure={ingredient.measure}

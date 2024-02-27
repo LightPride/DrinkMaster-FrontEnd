@@ -37,7 +37,6 @@ export const AddDrinkForm = () => {
         alcoholic: Yup.string().required('Select the type of cocktail'),
         drinkThumb: Yup.mixed().required('Select image please'),
 
-        // ingredients: Yup.array().required('This field is mandatory'),
         ingredients: Yup.array()
           .of(
             Yup.object().shape({

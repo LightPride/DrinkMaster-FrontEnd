@@ -22,7 +22,7 @@ export const OtherDrinksButton = styled.button`
   margin: 0 auto;
   background-color: rgb(243, 243, 243);
   color: #161f37;
-  /* margin-bottom: 140px; */
+
   border: 1px solid transparent;
 
   &:active {
