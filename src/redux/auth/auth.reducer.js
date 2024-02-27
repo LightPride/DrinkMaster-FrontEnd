@@ -19,6 +19,10 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
+    updateUser(state, { payload: { name, avatarURL } }) {
+      state.userData.name = name;
+      state.userData.avatarURL = avatarURL;
+    },
     clearToken(state) {
       state.token = null;
     },
@@ -81,4 +85,4 @@ const authSlice = createSlice({
 // const {} = authSlice.actions;
 
 export const authReducer = authSlice.reducer;
-export const { clearToken } = authSlice.actions;
+export const { clearToken, updateUser } = authSlice.actions;
