@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../API/axios';
+import Notiflix from 'notiflix';
 
 export const updateUser = createAsyncThunk(
   'auth/updateUser',
@@ -21,11 +22,15 @@ export const subscribeEmail = createAsyncThunk(
   'users/subscribeEmail',
   async (email, thunkAPI) => {
     try {
-      const { data } = await instance.post(`/users/subscribe`, {
+      const response = await instance.post(`/users/subscribe`, {
         email: email,
       });
-      return data;
+      if (response) {
+        Notiflix.Notify.success('Subscription is successful. Check your mail.');
+      }
+      return response;
     } catch (e) {
+      Notiflix.Notify.warning('User with this email is already subscribed');
       return thunkAPI.rejectWithValue(e.message);
     }
   }

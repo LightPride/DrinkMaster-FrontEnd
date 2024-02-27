@@ -16,15 +16,13 @@ const validateEmail = (value) => {
 export const Subscribe = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = async ({ email }, { setSubmitting }) => {
+  const handleSubmit = async ({ email }, { resetForm, setSubmitting }) => {
     try {
-      console.log('try: ' + email);
       dispatch(subscribeEmail(email));
-    } catch {
-      console.log('catch: ' + email);
-    } finally {
-      console.log('finally: ' + email);
+    } catch (err) {
+      console.log('error: ' + err);
     }
+    resetForm();
     setSubmitting(false);
   };
   return (
