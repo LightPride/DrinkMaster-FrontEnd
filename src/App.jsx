@@ -61,20 +61,20 @@ function App() {
         <Route
           path="/home"
           element={
-            <PrivateRoute redirectTo="/signin" component={<HomePage />} />
+            <PrivateRoute redirectTo="/welcome" component={<HomePage />} />
           }
         />
         <Route
           path="/add"
           element={
-            <PrivateRoute redirectTo="/signin" component={<AddDrinkPage />} />
+            <PrivateRoute redirectTo="/welcome" component={<AddDrinkPage />} />
           }
         />
         <Route
           path="/favorites"
           element={
             <PrivateRoute
-              redirectTo="/signin"
+              redirectTo="/welcome"
               component={<FavoriteDrinksPage />}
             />
           }
@@ -82,27 +82,27 @@ function App() {
         <Route
           path="/my"
           element={
-            <PrivateRoute redirectTo="/signin" component={<MyDrinksPage />} />
+            <PrivateRoute redirectTo="/welcome" component={<MyDrinksPage />} />
           }
         />
         <Route
           path="/drinks"
           element={
-            <PrivateRoute redirectTo="/signin" component={<DrinksPage />} />
+            <PrivateRoute redirectTo="/welcome" component={<DrinksPage />} />
           }
         />
 
         <Route
           path="/drinks/:drinkId"
           element={
-            <PrivateRoute redirectTo="/signin" component={<DrinkPage />} />
+            <PrivateRoute redirectTo="/welcome" component={<DrinkPage />} />
           }
         />
         <Route
           path="/privacy-policy"
           element={
             <PrivateRoute
-              redirectTo="/signin"
+              redirectTo="/welcome"
               component={<PrivacyPolicyPage />}
             />
           }
@@ -111,7 +111,7 @@ function App() {
           path="/terms-of-service"
           element={
             <PrivateRoute
-              redirectTo="/signin"
+              redirectTo="/welcome"
               component={<TermsOfServicePage />}
             />
           }
@@ -119,7 +119,7 @@ function App() {
 
         <Route
           path="*"
-          redirectTo="/signin"
+          redirectTo="/welcome"
           element={<PrivateRoute component={<ErrorPage />} />}
         />
       </Route>
