@@ -9,8 +9,7 @@ import {
   CategoryWrapper,
 } from './HomePageList.styled';
 import DrinksItem from '../Drinks/DrinksItem';
- /*додала quantity drinks.slise(0,quantity)*/
-const HomePageList = ({quantity}) => {
+const HomePageList = ({ quantity }) => {
   const drinksData = useSelector(selectMainPageDrinks);
   return (
     <CategoryContainer>
@@ -20,7 +19,7 @@ const HomePageList = ({quantity}) => {
             <CategoryWrapper key={nanoid()}>
               <Category key={nanoid()}>{category}</Category>
               <CardsWrapper key={nanoid()}>
-                {drinks.slice(0,quantity).map(({ drink, drinkThumb, _id }) => {
+                {drinks.slice(0, quantity).map(({ drink, drinkThumb, _id }) => {
                   return (
                     <DrinksItem
                       key={_id}

@@ -17,7 +17,6 @@ const initialState = {
 const filtersSlice = createSlice({
   name: 'filters',
   initialState,
-  // reducers: {},
   extraReducers: (builder) =>
     builder
       .addCase(getCategories.fulfilled, (state, action) => {

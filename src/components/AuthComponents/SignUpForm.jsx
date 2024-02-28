@@ -94,6 +94,8 @@ const SignUpForm = () => {
             >
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
+                  showDaysOutsideCurrentMonth
+                  orientation="portrait"
                   // label="mm/dd/yyyy"
                   onChange={(date) => setValue('dateOfBirth', date)}
                   {...field}

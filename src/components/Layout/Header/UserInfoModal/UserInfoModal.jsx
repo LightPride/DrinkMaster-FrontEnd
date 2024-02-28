@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../../../redux/auth/auth.selectors';
 import { updateUser } from '../../../../redux/user/userOperations';
-
+import { updateUser as updateUserState } from '../../../../redux/auth/auth.reducer';
 import { SkeletonAuth } from '../Skeleton/SkeletonAuth';
 import {
   StyledDialog,
@@ -54,15 +54,32 @@ export const UserInfoModal = ({ isOpen, handleClose }) => {
     setAvatar(objectURL);
   };
 
-  const handleSubmit = (values, { resetForm }) => {
+  const handleSubmit = async (values, { resetForm }) => {
     const formData = new FormData();
+    let hasChanges = false;
 
-    formData.append('avatar', fileAvatar);
-    formData.append('name', values.name);
+    if (values.name === name) {
+      formData.append('name', name);
+    } else {
+      formData.append('name', values.name);
+      hasChanges = true;
+    }
+
+    if (fileAvatar) {
+      formData.append('avatar', fileAvatar);
+      hasChanges = true;
+    }
+
+    if (!hasChanges) {
+      Notify.info('No changes were made');
+      handleClose();
+      return;
+    }
 
     try {
       setIsLoading(true);
-      dispatch(updateUser(formData));
+      const data = await dispatch(updateUser(formData));
+      dispatch(updateUserState(data.payload));
       setIsLoading(false);
 
       resetForm();
@@ -70,7 +87,6 @@ export const UserInfoModal = ({ isOpen, handleClose }) => {
     } catch (error) {
       console.log('Submit error', error.message);
     }
-    resetForm();
   };
 
   const initialValues = {

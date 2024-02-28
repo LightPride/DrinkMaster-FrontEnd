@@ -1,5 +1,3 @@
-// import React from 'react';
-// import Select from 'react-select';
 import { SelectContainer } from './Select.styled';
 
 const Selection = ({ placeholder, options, onChange }) => {

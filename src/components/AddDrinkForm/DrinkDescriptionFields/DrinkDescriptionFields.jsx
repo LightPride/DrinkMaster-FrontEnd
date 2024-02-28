@@ -1,5 +1,4 @@
-import React from 'react';
-import { FieldArray, Field, ErrorMessage } from 'formik';
+import { Field } from 'formik';
 import Select from 'react-select';
 import { useState, useEffect } from 'react';
 
@@ -41,7 +40,6 @@ export const DrinkDescriptionFields = ({
   errors,
   touched,
   handleChange,
-  handleBlur,
   setFieldValue,
 }) => {
   const categories = useSelector(selectCategories);
