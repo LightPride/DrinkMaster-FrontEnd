@@ -19,7 +19,7 @@ import {
   DrinkPhotoWrapper,
 } from './DrinkPageHero.styled';
 import PageTitle from '../PageTitle/PageTitle';
-import defaultImage from '../../images/drinkPage/coctailPlaceholder.png';
+import defaultImage from '../../images/DrinksPlaceholder/coctailPlaceholder.png';
 
 const DrinkPageHero = ({
   id,

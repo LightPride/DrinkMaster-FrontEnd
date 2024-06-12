@@ -5,7 +5,7 @@ import {
   IngredientTitle,
   IngredientMeasure,
 } from './DrinkIngredientItem.styled';
-import defaultImage from '../../images/drinkPage/coctailPlaceholder.png';
+import defaultImage from '../../images/DrinksPlaceholder/coctailPlaceholder.png';
 
 const DrinkIngredientItem = ({ title, measure, quantity, images }) => {
   return (

@@ -9,7 +9,7 @@ import {
   IconTrash,
   IsAlco,
 } from './DrinksItem.styled';
-import placeholderImage from '../../images/drinkPage/coctailPlaceholder.png';
+import placeholderImage from '../../images/DrinksPlaceholder/coctailPlaceholder.png';
 import SeeMoreBtn from '../../components/SeeMoreBtn/SeeMoreBtn';
 import {
   getOwnDrinks,
