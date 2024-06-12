@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Formik, Form } from 'formik'; // Змінив імпорт
+import { useState } from 'react';
+import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 
 import { Wrapper } from './AddDrinkForm.styled';
@@ -8,7 +8,7 @@ import { DrinkIngredientsFields } from './DrinkIngredientsFields/DrinkIngredient
 import { RecipePreparation } from './RecipePreparation/RecipePreparation';
 import { useDispatch } from 'react-redux';
 import { addOwnDrink } from '../../redux/drinks/drinks.operations';
-import Notiflix, { Loading } from 'notiflix';
+import Notiflix from 'notiflix';
 import { useNavigate } from 'react-router-dom';
 
 export const AddDrinkForm = () => {

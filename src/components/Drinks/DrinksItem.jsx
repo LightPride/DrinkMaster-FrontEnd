@@ -1,5 +1,5 @@
 import { Item, Image, Title, SeeMore, Wrapper } from './DrinksItem.styled';
-import DefaultImage from '../../images/drinkPage/coctailPlaceholder.png';
+import DefaultImage from '../../images/DrinksPlaceholder/coctailPlaceholder.png';
 
 const DrinksItem = ({ drinkThumb, drinkTitle, id }) => {
   return (

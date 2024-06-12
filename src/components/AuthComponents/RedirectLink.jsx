@@ -1,4 +1,3 @@
-import React from 'react';
 import { StyledSignForm } from './Styled';
 import { StyledRedirectLink } from './Styled';
 

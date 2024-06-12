@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { StyledSignForm } from './Styled';
 import { useForm, Controller } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
@@ -96,7 +96,6 @@ const SignUpForm = () => {
                 <DatePicker
                   showDaysOutsideCurrentMonth
                   orientation="portrait"
-                  // label="mm/dd/yyyy"
                   onChange={(date) => setValue('dateOfBirth', date)}
                   {...field}
                 />

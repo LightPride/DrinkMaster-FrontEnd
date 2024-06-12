@@ -141,7 +141,6 @@ export const StyledButton = styled(Button)`
       background-color: var(--white-color);
       color: var(--blue-color);
       border-radius: 42px;
-      /* text-decoration-line: none; */
     }
   }
 `;

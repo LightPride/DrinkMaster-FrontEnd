@@ -51,7 +51,6 @@ export const AddToFavoriteButton = styled.button`
   }
 
   &:disabled {
-    /* color: ; */
     background: var(--grey-color);
   }
 
@@ -74,7 +73,6 @@ export const DrinkHeroWrapper = styled.div`
   @media screen and (min-width: 1440px) {
     display: flex;
     justify-content: space-between;
-    /* border: 1px solid red; */
   }
 `;
 
@@ -83,7 +81,6 @@ export const DrinkPhotoWrapper = styled.div`
   height: 400px;
   margin-top: 80px;
   border-radius: 8px;
-  /* border: 1px solid green; */
 
   @media screen and (min-width: 1440px) {
     margin: 0;
@@ -95,13 +92,12 @@ export const DrinkDescriptionWrapper = styled.div`
   @media screen and (min-width: 1440px) {
     padding-top: 26px;
     max-width: 592px;
-    /* border: 1px solid yellow; */
   }
 `;
 
 export const DrinkSvgWrapper = styled.div`
   margin-top: 80px;
-  /* background-color: ; */
+
   border-radius: 8px;
   padding: 28px;
 

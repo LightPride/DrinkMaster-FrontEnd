@@ -9,6 +9,7 @@ import {
   CategoryWrapper,
 } from './HomePageList.styled';
 import DrinksItem from '../Drinks/DrinksItem';
+
 const HomePageList = ({ quantity }) => {
   const drinksData = useSelector(selectMainPageDrinks);
   return (

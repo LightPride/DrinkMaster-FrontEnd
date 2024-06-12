@@ -1,5 +1,4 @@
-import React from 'react';
-import { StyledWelcomeLayout } from './Styled';
+import { StyledWelcomeLayout } from './WelcomeLayout.styled';
 import { StyleSheetManager } from 'styled-components';
 
 const WelcomeLayout = ({ children }) => {

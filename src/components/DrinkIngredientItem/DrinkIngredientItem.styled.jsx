@@ -21,7 +21,6 @@ export const IngredientPhoto = styled.img`
   width: 100%;
   width: 157px;
   height: 157px;
-  /* border: 1px solid red; */
 
   @media screen and (min-width: 768px) {
     width: 220px;
@@ -31,15 +30,12 @@ export const IngredientPhoto = styled.img`
 
 export const IngredientPhotoWrapper = styled.div`
   width: 100%;
-  /* max-width: 158px; */
-  /* padding: 25px; */
+
   border-radius: 8px;
   background-color: var(--dark-blue-fifty-color);
-  /* border: 1px solid green; */
 
   @media screen and (min-width: 768px) {
     height: 220px;
-    /* padding: 31px; */
   }
 `;
 

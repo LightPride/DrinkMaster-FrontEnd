@@ -1,11 +1,9 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { WraperList } from './PopularDrinks.styled';
 import { selectPopularDrinks } from '../../redux/drinks/drinks.selectors';
 import { Link } from 'react-router-dom';
 
 export const PopularDrinks = () => {
-  const dispatch = useDispatch();
-
   const popularDrinks = useSelector(selectPopularDrinks);
 
   return (

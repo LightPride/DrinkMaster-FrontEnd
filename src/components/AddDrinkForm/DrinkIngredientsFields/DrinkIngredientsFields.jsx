@@ -5,12 +5,11 @@ import {
   IngredientsButton,
   customStylesSelectIngr,
 } from './DrinkIngredientsFields.styled';
-import React, { useEffect, useState } from 'react';
-import { FieldArray, Field, ErrorMessage } from 'formik';
+import { useEffect, useState } from 'react';
+import { Field } from 'formik';
 import Select from 'react-select';
 import { useSelector } from 'react-redux';
 import { selectIngredients } from '../../../redux/filters/filters.selectors';
-// import ingredientsArray from '../../../helpers/data/ingredients.json';
 
 export const DrinkIngredientsFields = ({
   values,

@@ -3,8 +3,8 @@ import {
   SubtitleForm,
   TextAreaLabel,
 } from './RecipePreparation.styled';
-import React from 'react';
-import { Field, ErrorMessage } from 'formik';
+
+import { Field } from 'formik';
 
 export const RecipePreparation = ({
   values,
