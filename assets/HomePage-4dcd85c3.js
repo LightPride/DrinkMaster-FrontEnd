@@ -1,4 +1,4 @@
-import{u as t,j as e,L as w,a as f,b as j,c as p,r as s,d as k,g as v,C as y,e as D}from"./index-b22de4f5.js";import{N as z,a as H,n as P,b as C}from"./blueIced@2xMob-abf058dd.js";import{s as b,a as L,b as T}from"./drinks.selectors-9b8cc722.js";import{n as l}from"./index.browser-7e542916.js";import{D as E}from"./DrinksItem-58d62bab.js";import"./coctailPlaceholder-82987b74.js";const F=t.div`
+import{u as t,j as e,L as w,a as f,b as j,c as p,r as s,d as k,g as v,C as y,e as D}from"./index-4bc3331c.js";import{N as z,a as H,n as P,b as C}from"./blueIced@2xMob-abf058dd.js";import{s as b,a as L,b as T}from"./drinks.selectors-e602d6d9.js";import{n as l}from"./index.browser-7e542916.js";import{D as E}from"./DrinksItem-21df34ce.js";import"./coctailPlaceholder-82987b74.js";const F=t.div`
   padding-bottom: 80px;
 
   @media screen and (min-width: 768px) {
@@ -179,7 +179,6 @@ import{u as t,j as e,L as w,a as f,b as j,c as p,r as s,d as k,g as v,C as y,e a
 `,Y=t.ul`
   display: flex;
   flex-wrap: wrap;
-  /* flex-direction: colum; */
   justify-content: space-between;
   gap: 20px;
   margin-bottom: 80px;

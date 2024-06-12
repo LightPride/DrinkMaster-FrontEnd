@@ -1,4 +1,4 @@
-import{u as i,j as n}from"./index-b22de4f5.js";const o=i.h1`
+import{u as i,j as n}from"./index-4bc3331c.js";const o=i.h1`
   font-size: 32px;
   font-weight: 600;
   color: var(--white-color);
